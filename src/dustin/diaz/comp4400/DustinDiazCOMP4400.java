@@ -19,7 +19,7 @@ import java.util.List;
 
 public class DustinDiazCOMP4400 extends Application {
 
-    static Connection connection;
+    public static Connection connection;
     private static String url = "jdbc:mysql://localhost:3306/";
     private static String driver = "com.mysql.cj.jdbc.Driver";
     private static String dbName = "rental";

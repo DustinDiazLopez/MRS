@@ -1,42 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="init">
-      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/utils/Computer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/view/boxes/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/view/user/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/addrental.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/customer.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/movies.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/rentals.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/returnconfirmation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/returnrental.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/select.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/confimation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/editaccount.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/register.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/select.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/selectmovie.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/viewhistory.fxml" afterDir="false" />
+    <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/DustinDiazCOMP4400.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/DustinDiazCOMP4400.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/utils/Query.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/utils/Query.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/view/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/view/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jnlp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/controller/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/controller/controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/view/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/view/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/admin/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Images/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/view/admin/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +83,14 @@
       <option name="presentableId" value="Default" />
       <updated>1583804316542</updated>
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1583808011937</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583808011937</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -122,16 +98,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
     <state x="711" y="361" key="#com.intellij.ide.util.MemberChooser" timestamp="1583807308828">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="711" y="361" key="#com.intellij.ide.util.MemberChooser/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1583807308828" />
-    <state x="349" y="214" key="CommitChangelistDialog2" timestamp="1583807882941">
+    <state x="349" y="214" key="CommitChangelistDialog2" timestamp="1583808010431">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
-    <state x="349" y="214" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1583807882941" />
+    <state x="349" y="214" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1583808010431" />
     <state x="610" y="419" key="FileChooserDialogImpl" timestamp="1583805143949">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
