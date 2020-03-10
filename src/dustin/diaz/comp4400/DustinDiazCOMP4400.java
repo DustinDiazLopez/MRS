@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -69,13 +70,15 @@ public class DustinDiazCOMP4400 extends Application {
         }
     });
 
+    public static Scene scene;
+
     @Override
     public void start(Stage stage) throws Exception {
         initDB.start();
         Computer.src = new File("src").getAbsolutePath();
         Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
         Parent root = FXMLLoader.load(getClass().getResource("view/user/login.fxml"));
-        Scene scene = new Scene(root);
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.setOnCloseRequest(e -> {
             e.consume();
@@ -84,6 +87,10 @@ public class DustinDiazCOMP4400 extends Application {
 
         initDB.join();
         stage.show();
+    }
+
+    public static void setRoot(String fxml) throws IOException {
+        scene.setRoot(Computer.loadFXML(fxml));
     }
 
     public static void main(String[] args) {
