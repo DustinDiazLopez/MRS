@@ -25,6 +25,9 @@ public class DustinDiazCOMP4400 extends Application {
         try {
             Class.forName(driver);
             Computer.connection = DriverManager.getConnection(url + dbName, username, password);
+            Computer.src = new File("src").getAbsolutePath();
+            Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
+            Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,14 +38,13 @@ public class DustinDiazCOMP4400 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         connect.start();
-        Computer.src = new File("src").getAbsolutePath();
-        Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
-        Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
+        
         Parent root = FXMLLoader.load(getClass().getResource("view/user/login.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Movie Rental System");
         stage.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
+
         stage.setOnCloseRequest(e -> {
             e.consume();
             try {
