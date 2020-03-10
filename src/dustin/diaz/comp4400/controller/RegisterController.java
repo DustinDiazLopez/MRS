@@ -114,7 +114,6 @@ public class RegisterController implements Initializable {
         manZipCode.setText("");
 
         boolean valid = true;
-        boolean missing = false;
 
         String u = username.getText();
         String p1 = password.getText();
@@ -138,15 +137,15 @@ public class RegisterController implements Initializable {
         System.out.println(dob);
 
         if (isEmpty(mn)) {
-            missing = true;
+            mn = null;
         }
 
         if (isEmpty(p)) {
-            missing = true;
+            p = null;
         }
 
         if (isEmpty(dob)) {
-            missing = true;
+            dob = null;
         }
 
         if (isEmpty(u)) {
