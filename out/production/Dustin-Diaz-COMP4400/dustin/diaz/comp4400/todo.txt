@@ -1,0 +1,22 @@
+TODO
+
+Register redirects to Login
+https://stackoverflow.com/questions/7882025/convert-string-to-date-then-format-the-date
+
+Interfaces
+    Interfaces for User
+        - Login Interface ***Mandatory Fields
+        - Register Interface ***Mandatory Fields
+        - Selection Interface
+            - Select Movie Interface (with sort by genre)
+                - Confirmation Interface
+            - View History Interface
+            - Edit Account Interface
+    Interface for Admin
+        - Selection Interface (Customers, Movies, Rentals)
+        - View, Edit, Delete, and Add Customers Interface
+        - View, Edit, Delete, and Add Movies Interface
+        - View, Add, Return Rental Interface
+            - Return Interface (Enter Movie ID)
+            - Return Confirmation Interface
+            - Add Rental Interface (Movie ID, Customer ID) ***Mandatory Fields

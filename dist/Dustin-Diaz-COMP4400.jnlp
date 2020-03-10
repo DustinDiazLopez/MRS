@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Dustin-Diaz-COMP4400.jnlp">
+  <information>
+    <title>Dustin-Diaz-COMP4400</title>
+    <vendor>dudia</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Dustin-Diaz-COMP4400.jar" size="2237446" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.19.jar" size="2356711" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Dustin-Diaz-COMP4400" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="dustin.diaz.comp4400.DustinDiazCOMP4400"  name="Dustin-Diaz-COMP4400" />
+  <update check="always"/>
+</jnlp>
