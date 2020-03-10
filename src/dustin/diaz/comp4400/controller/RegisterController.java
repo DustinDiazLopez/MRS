@@ -1,6 +1,9 @@
 package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
+import dustin.diaz.comp4400.model.User;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -98,7 +101,7 @@ public class RegisterController implements Initializable {
 
 
     @FXML
-    void register(ActionEvent event) {
+    void register(ActionEvent event) throws IOException {
         manText.setText("");
         manAddress.setText("");
         manCity.setText("");
@@ -188,11 +191,9 @@ public class RegisterController implements Initializable {
 
         if (valid) {
             if (p1.equals(p2)) {
-                if (missing) {
 
-                } else {
-
-                }
+                borderPane.getChildren().clear();
+                DustinDiazCOMP4400.setRoot("view/user/login.fxml");
             } else {
                 manPassword.setText("*");
                 manPasswordTwo.setText("*");
@@ -236,5 +237,13 @@ public class RegisterController implements Initializable {
         city.setOnKeyPressed(enterKey);;
         zipCode.setOnKeyPressed(enterKey);;
         phone.setOnKeyPressed(enterKey);;
+
+        phone.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("(\\()?(\\d{3})+([ )\\-])? ?(\\d{3})([ \\-])?\\d{4}")) {
+                manText.setText("Phone may not be valid, but that's O.K.");
+            } else {
+                manText.setText("");
+            }
+        });
     }
 }
