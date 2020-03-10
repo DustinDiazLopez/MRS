@@ -73,7 +73,9 @@ public class DustinDiazCOMP4400 extends Application {
     public void start(Stage stage) throws Exception {
         initDB.start();
         Computer.src = new File("src").getAbsolutePath();
-        Computer.pathChar = Computer.pathChar.contains("\\") ? "\\" : "/";
+        Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
+        System.out.println(Computer.src);
+        System.out.println(Computer.pathChar);
         Parent root = FXMLLoader.load(getClass().getResource("view/sample.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -81,9 +83,6 @@ public class DustinDiazCOMP4400 extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
