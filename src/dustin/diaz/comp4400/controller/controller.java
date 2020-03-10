@@ -57,24 +57,27 @@ public class controller implements Initializable {
 
     @FXML
     void login(ActionEvent event) {
+        manFieldOne.setText("");
+        manFieldTwo.setText("");
+        manText.setText("");
         String u = usernameLoginTextField.getText();
         String p = passwordLoginTextField.getText();
         boolean valid = true;
 
         if (u.trim().isEmpty()) {
             manFieldOne.setText("*");
-            manText.setText("* Mandatory Field");
             valid = false;
         }
 
         if (p.trim().isEmpty()) {
             manFieldTwo.setText("*");
-            manText.setText("* Mandatory Field");
             valid = false;
         }
 
         if (valid) {
             System.out.println(u + ", " + p);
+        } else {
+            manText.setText("* Mandatory Field");
         }
     }
 

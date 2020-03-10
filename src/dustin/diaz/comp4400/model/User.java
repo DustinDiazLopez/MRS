@@ -6,7 +6,6 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String role;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -15,17 +14,16 @@ public class User {
     private String city;
     private String zipCode;
     private String phone;
+    private String role;
     private String rented;
 
     public User() {}
 
-    public User(int id, String username, String password, String role, String firstName, String middleName,
-                String lastName, Date dateOfBirth, String address, String city, String zipCode, String phone,
-                String rented) {
+    public User(int id, String username, String password, String firstName, String middleName, String lastName,
+                Date dateOfBirth, String address, String city, String zipCode, String phone, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.role = role;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -34,7 +32,7 @@ public class User {
         this.city = city;
         this.zipCode = zipCode;
         this.phone = phone;
-        this.rented = rented;
+        this.role = role;
     }
 
     public int getId() {
@@ -145,8 +143,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -155,6 +153,7 @@ public class User {
                 ", city='" + city + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", phone='" + phone + '\'' +
+                ", role='" + role + '\'' +
                 ", rented='" + rented + '\'' +
                 '}';
     }
