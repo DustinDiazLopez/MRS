@@ -5,27 +5,25 @@
  */
 package dustin.diaz.comp4400.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Collection;
-import java.util.ResourceBundle;
-
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
+import dustin.diaz.comp4400.model.User;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Query;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 /**
  * C:\Users\Dustin\Desktop\Ene - May 2020\2 COMP4400 System Development and Implementation\Dustin-Diaz-COMP4400\src\Images\icons
@@ -56,7 +54,7 @@ public class controller implements Initializable {
 
 
     @FXML
-    void login(ActionEvent event) {
+    void login(ActionEvent event) throws SQLException {
         manFieldOne.setText("");
         manFieldTwo.setText("");
         manText.setText("");
@@ -75,7 +73,16 @@ public class controller implements Initializable {
         }
 
         if (valid) {
-            System.out.println(u + ", " + p);
+            User user = Query.findUserByUsername(u);
+            String username = user.getUsername();
+            String password = user.getAccountPassword();
+
+            if (username.equals(u) && password.equals(p)) {
+                manText.setText("Hello, " + user.getFirstName() + "!");
+            } else {
+                manText.setText("The entered credentials do not match anything on record.");
+            }
+
         } else {
             manText.setText("* Mandatory Field");
         }
@@ -89,7 +96,7 @@ public class controller implements Initializable {
 
 
     @FXML
-    void loginCancel(ActionEvent event) {
+    void loginCancel(ActionEvent event) throws SQLException {
         Computer.closeProgram();
     }
 
