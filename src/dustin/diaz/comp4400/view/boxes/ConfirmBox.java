@@ -10,6 +10,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class ConfirmBox {
 
     private static boolean answer;
@@ -21,7 +23,7 @@ public class ConfirmBox {
         window.setTitle(title);
         window.setMinHeight(200);
         window.setMinWidth(375);
-        //window.getIcons().add(new Image("icon"));
+        window.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
 
         Label label = new Label();
         label.setText(message);

@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.controller">
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.controller">
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="loginImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <ImageView fx:id="loginImage" fitHeight="212.0" fitWidth="266.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Images/icons/app/012-line.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin></ImageView>
+            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                <children>
                   <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Username" />
                   <TextField fx:id="usernameLoginTextField" prefHeight="31.0" prefWidth="226.0">
@@ -38,7 +42,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                <children>
                   <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Password" />
                   <PasswordField fx:id="passwordLoginTextField" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="226.0">
@@ -63,19 +67,19 @@
                </padding>
             </HBox>
             <Label fx:id="manText" textFill="RED" />
-            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                <children>
                   <Button alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#login" text="Login">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#loginCancel" text="Cancel" />
                   <Button alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#loginRegister" text="Register">
                      <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets left="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#loginCancel" text="Cancel" />
                </children>
             </HBox>
          </children>
@@ -83,8 +87,11 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </opaqueInsets>
          <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </BorderPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </VBox>
    </center>
 </BorderPane>

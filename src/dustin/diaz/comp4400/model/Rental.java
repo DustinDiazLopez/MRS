@@ -8,17 +8,21 @@ public class Rental {
     private int movieId;
     private Date rentedOn;
     private Date returnedOn;
+    private boolean isDVD;
     private float costPerDay;
     private int totalDays;
     private float totalCost;
 
-    public Rental(int id, int customerId, int movieId, Date rentedOn, Date returnedOn,
+    public Rental() {}
+
+    public Rental(int id, int customerId, int movieId, Date rentedOn, Date returnedOn, boolean isDVD,
                   float costPerDay, int totalDays, float totalCost) {
         this.id = id;
         this.customerId = customerId;
         this.movieId = movieId;
         this.rentedOn = rentedOn;
         this.returnedOn = returnedOn;
+        this.isDVD = isDVD;
         this.costPerDay = costPerDay;
         this.totalDays = totalDays;
         this.totalCost = totalCost;
@@ -62,6 +66,14 @@ public class Rental {
 
     public void setReturnedOn(Date returnedOn) {
         this.returnedOn = returnedOn;
+    }
+
+    public boolean isDVD() {
+        return isDVD;
+    }
+
+    public void setDVD(boolean DVD) {
+        isDVD = DVD;
     }
 
     public float getCostPerDay() {

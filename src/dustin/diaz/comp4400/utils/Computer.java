@@ -10,6 +10,7 @@ import java.io.IOException;
 public abstract class Computer {
     public static String src;
     public static String pathChar;
+    public static String movieImagePath;
 
     public static void closeProgram() {
         boolean answer = ConfirmBox.display("Close Application", "Are you sure you want to quit?");

@@ -96,7 +96,7 @@ public class controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("src/Images/icons/012-line.png");
+        File file = new File("src/Images/icons/app/012-line.png");
         Image image = new Image(file.toURI().toString());
         loginImage.setImage(image);
     }

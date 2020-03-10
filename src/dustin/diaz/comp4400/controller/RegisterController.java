@@ -217,7 +217,7 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("src/Images/icons/015-chair.png");
+        File file = new File("src/Images/icons/app/015-chair.png");
         Image image = new Image(file.toURI().toString());
         loginImage.setImage(image);
 

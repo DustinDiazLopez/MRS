@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.controller">
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.controller">
    <center>
       <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="loginImage" fitHeight="212.0" fitWidth="336.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="loginImage" fitHeight="212.0" fitWidth="266.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Images/icons/012-line.png" />
-               </image></ImageView>
+                  <Image url="@../../../../../Images/icons/app/012-line.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin></ImageView>
             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                <children>
                   <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Username" />

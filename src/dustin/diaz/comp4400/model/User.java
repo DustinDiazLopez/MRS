@@ -1,11 +1,12 @@
 package dustin.diaz.comp4400.model;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 public class User {
     private int id;
     private String username;
-    private String password;
+    private String accountPassword;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -14,16 +15,17 @@ public class User {
     private String city;
     private String zipCode;
     private String phone;
-    private String role;
-    private String rented;
+    private String accountType;
+    private String[] rentedHistory;
 
     public User() {}
 
-    public User(int id, String username, String password, String firstName, String middleName, String lastName,
-                Date dateOfBirth, String address, String city, String zipCode, String phone, String role) {
+    public User(int id, String username, String accountPassword, String firstName, String middleName, String lastName,
+                Date dateOfBirth, String address, String city, String zipCode, String phone, String accountType,
+                String[] rentedHistory) {
         this.id = id;
         this.username = username;
-        this.password = password;
+        this.accountPassword = accountPassword;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -32,7 +34,8 @@ public class User {
         this.city = city;
         this.zipCode = zipCode;
         this.phone = phone;
-        this.role = role;
+        this.accountType = accountType;
+        this.rentedHistory = rentedHistory;
     }
 
     public int getId() {
@@ -51,20 +54,20 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAccountPassword() {
+        return accountPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAccountPassword(String accountPassword) {
+        this.accountPassword = accountPassword;
     }
 
-    public String getRole() {
-        return role;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
     public String getFirstName() {
@@ -131,12 +134,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getRented() {
-        return rented;
+    public String[] getRentedHistory() {
+        return rentedHistory;
     }
 
-    public void setRented(String rented) {
-        this.rented = rented;
+    public void setRentedHistory(String[] rentedHistory) {
+        this.rentedHistory = rentedHistory;
     }
 
     @Override
@@ -144,7 +147,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + accountPassword + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -153,8 +156,8 @@ public class User {
                 ", city='" + city + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", phone='" + phone + '\'' +
-                ", role='" + role + '\'' +
-                ", rented='" + rented + '\'' +
+                ", role='" + accountType + '\'' +
+                ", rented=" + Arrays.toString(rentedHistory) +
                 '}';
     }
 }

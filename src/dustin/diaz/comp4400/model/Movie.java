@@ -1,29 +1,36 @@
 package dustin.diaz.comp4400.model;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 public class Movie {
     private int id;
     String title;
-    String director;
-    String writers;
+    String[] directors;
+    String[] writers;
     Date releaseDate;
     String genre;
     String runTime;
     String rated;
-    String cast;
+    String[] cast;
+    String[] ratings;
+    String fileName;
 
-    public Movie(int id, String title, String director, String writers, Date releaseDate,
-                 String genre, String runTime, String rated, String cast) {
+    public Movie() {}
+
+    public Movie(int id, String title, String[] directors, String[] writers, Date releaseDate, String genre,
+                 String runTime, String rated, String[] cast, String[] ratings, String fileName) {
         this.id = id;
         this.title = title;
-        this.director = director;
+        this.directors = directors;
         this.writers = writers;
         this.releaseDate = releaseDate;
         this.genre = genre;
         this.runTime = runTime;
         this.rated = rated;
         this.cast = cast;
+        this.ratings = ratings;
+        this.fileName = fileName;
     }
 
     public int getId() {
@@ -42,19 +49,19 @@ public class Movie {
         this.title = title;
     }
 
-    public String getDirector() {
-        return director;
+    public String[] getDirectors() {
+        return directors;
     }
 
-    public void setDirector(String director) {
-        this.director = director;
+    public void setDirectors(String[] directors) {
+        this.directors = directors;
     }
 
-    public String getWriters() {
+    public String[] getWriters() {
         return writers;
     }
 
-    public void setWriters(String writers) {
+    public void setWriters(String[] writers) {
         this.writers = writers;
     }
 
@@ -90,12 +97,28 @@ public class Movie {
         this.rated = rated;
     }
 
-    public String getCast() {
+    public String[] getCast() {
         return cast;
     }
 
-    public void setCast(String cast) {
+    public void setCast(String[] cast) {
         this.cast = cast;
+    }
+
+    public String[] getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String[] ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @Override
@@ -103,13 +126,15 @@ public class Movie {
         return "Movie{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", director='" + director + '\'' +
-                ", writers='" + writers + '\'' +
+                ", directors=" + Arrays.toString(directors) +
+                ", writers=" + Arrays.toString(writers) +
                 ", releaseDate=" + releaseDate +
                 ", genre='" + genre + '\'' +
                 ", runTime='" + runTime + '\'' +
                 ", rated='" + rated + '\'' +
-                ", cast='" + cast + '\'' +
+                ", cast=" + Arrays.toString(cast) +
+                ", ratings=" + Arrays.toString(ratings) +
+                ", fileName='" + fileName + '\'' +
                 '}';
     }
 }

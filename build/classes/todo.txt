@@ -1,12 +1,9 @@
 TODO
 
-Register redirects to Login
-https://stackoverflow.com/questions/7882025/convert-string-to-date-then-format-the-date
-
 Interfaces
     Interfaces for User
-        - Login Interface ***Mandatory Fields
-        - Register Interface ***Mandatory Fields
+        + Login Interface ***Mandatory Fields
+        + Register Interface ***Mandatory Fields
         - Selection Interface
             - Select Movie Interface (with sort by genre)
                 - Confirmation Interface
