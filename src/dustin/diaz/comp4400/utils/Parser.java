@@ -1,5 +1,6 @@
 package dustin.diaz.comp4400.utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -10,7 +11,7 @@ import java.util.stream.Stream;
 
 public class Parser {
     public static void main(String[] args) throws IOException {
-        String fileName = "C:\\Users\\dudia\\Desktop\\db.txt";
+        String fileName = new File("src/SQL/movies.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
@@ -29,9 +30,10 @@ public class Parser {
         arr.forEach(e -> {
             for (int i = 0; i < e.length; i++) {
                 String attribute = e[i].replaceAll("'", "");
-                if (i == e.length - 1) {
+
+                if (i == e.length - 1)
                     stringBuilder.get().append("'").append(attribute).append("'");
-                } else
+                 else
                     stringBuilder.get().append("'").append(attribute).append("',");
             }
 

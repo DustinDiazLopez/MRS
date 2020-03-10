@@ -1,11 +1,11 @@
 DROP SCHEMA IF EXISTS rental;
 CREATE SCHEMA IF NOT EXISTS rental;
 USE rental;
-INSERT INTO Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType, RentedHistory) VALUES ('Dustin', 'Díaz');
+
 DROP TABLE IF EXISTS Customer;
 CREATE TABLE Customer(
 	ID                 INT          NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    Username           VARCHAR(70)  NOT NULL,
+    Username           VARCHAR(70)  NOT NULL UNIQUE,
 	AccountPassword    VARCHAR(70)  NOT NULL,
 	FirstName          VARCHAR(70)  NOT NULL,
     MiddleName         VARCHAR(70),
@@ -15,7 +15,7 @@ CREATE TABLE Customer(
 	City               VARCHAR(70)  NOT NULL,
 	ZipCode            VARCHAR(70)  NOT NULL,
     Phone              VARCHAR(70),
-    AccountType        VARCHAR(70)  NOT NULL,
+    AccountType        ENUM ('ADMIN', 'USER')  NOT NULL,
     RentedHistory      VARCHAR(70)
 );
 
@@ -49,9 +49,9 @@ CREATE TABLE Rental(
     CONSTRAINT FK_MovieID FOREIGN KEY (MovieID) REFERENCES Movie(ID)
 );
 
-INSERT INTO Customer (FirstName, LastName) VALUES ('Dustin', 'Díaz');
-INSERT INTO Customer (FirstName, LastName) VALUES ('Marlon', 'Díaz');
-INSERT INTO Customer (FirstName, LastName) VALUES ('Greta', 'Díaz');
+INSERT INTO Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES ('dustindiaz', 'dustin123', 'Dustin', 'A.', 'Díaz', '1998-02-06', '1411 Calle Aleli Urb. Round Hill', 'Trujillo Alto', '00976', '7874782095', 'ADMIN');
+INSERT INTO Customer (Username, AccountPassword, FirstName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES ('root', 'toor', 'Admin', 'Privelages', '1860-02-06', 'RA 0h 42m 44s | Dec +41° 16\' 9\"', 'Andromeda Galaxy', 'M31', 'Radio Waves', 'ADMIN');
+INSERT INTO Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES ('dustin123', 'dustin123', 'Pedro', 'D.', 'Campo', '1996-12-06', 'El Campo', 'Rio Campo', '00761', '1234567890', 'USER');
 
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Jumanji: The Next Level','Jake Kasdan','Scott Rosenberg, Jeff Pinkner, Erik Sommers, Chris McKenna','2017-12-20','Fantasy/Action','1h 59m','PG-13','Dwayne Johnson, Jack Black, Kevin Hart, Karen Gillan, Nick Jonas, Awkwafina, Alex Wolff, Morgan Turner, SerDarius Blain, Madison Iseman, Danny Glover, Danny DeVito','6.8/10,71%','jumanjithenextlevel.jpg');
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Frozen 2','Jennifer Lee, Chris Buck, Jennifer Lee','Jennifer Lee, Allison Schroeder','2019-11-22','Drama/Fantasy','1h 43m','PG','Kristen Bell, Idina Menzel, Josh Gad, Jonathan Groff','7/10,77%','frozen2.jpg');
@@ -70,4 +70,5 @@ INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Once Upon a Time in Hollywood','Quentin Tarantino','Quentin Tarantino','2019-07-26','Drama/Comedy-drama','2h 40m','R','Leonardo DiCaprio, Brad Pitt, Margot Robbie, Emile Hirsch, Margaret Qualley, Timothy Olyphant, Austin Butler, Dakota Fanning, Bruce Dern, Al Pacino','7.7/10,85%','onceuponatimeinhollyword2019.jpg');
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Aladdin','Guy Ritchie','Guy Ritchie, John August','2019-05-24','Fantasy/Romance','2h 8m','PG','Will Smith, Mena Massoud, Naomi Scott, Marwan Kenzari, Navid Negahban, Nasim Pedrad, Billy Magnussen','7/10,57%','aladdin2019.jpg');
 
+SELECT * FROM Customer;
 SELECT * FROM Movie;

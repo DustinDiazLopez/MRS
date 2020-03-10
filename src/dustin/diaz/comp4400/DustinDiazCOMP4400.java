@@ -38,7 +38,7 @@ public class DustinDiazCOMP4400 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         connect.start();
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("view/user/login.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
