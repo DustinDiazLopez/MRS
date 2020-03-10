@@ -74,11 +74,14 @@ public class DustinDiazCOMP4400 extends Application {
         initDB.start();
         Computer.src = new File("src").getAbsolutePath();
         Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
-        System.out.println(Computer.src);
-        System.out.println(Computer.pathChar);
-        Parent root = FXMLLoader.load(getClass().getResource("view/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/user/login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setOnCloseRequest(e -> {
+            e.consume();
+            Computer.closeProgram();
+        });
+
         initDB.join();
         stage.show();
     }
