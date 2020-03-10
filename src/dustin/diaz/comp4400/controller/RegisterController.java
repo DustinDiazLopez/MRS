@@ -2,15 +2,14 @@ package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 
@@ -91,6 +90,12 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField username;
 
+    @FXML
+    private Button cancelBtn;
+
+    @FXML
+    private Button registerBtn;
+
 
     @FXML
     void register(ActionEvent event) {
@@ -115,6 +120,7 @@ public class RegisterController implements Initializable {
         String mn = middleName.getText();
         String ln = lastName.getText();
         String dob;
+
         try {
             dob = dateOfBirth.getValue().toString();
         } catch (Exception ignored) {
@@ -213,5 +219,22 @@ public class RegisterController implements Initializable {
         File file = new File("src/Images/icons/015-chair.png");
         Image image = new Image(file.toURI().toString());
         loginImage.setImage(image);
+
+
+        EventHandler<KeyEvent> enterKey = e -> {
+            if (e.getCode().toString().equals("ENTER")) registerBtn.fire();
+        };
+
+        username.setOnKeyPressed(enterKey);
+        password.setOnKeyPressed(enterKey);
+        passwordConfirmation.setOnKeyPressed(enterKey);
+        firstName.setOnKeyPressed(enterKey);
+        middleName.setOnKeyPressed(enterKey);
+        lastName.setOnKeyPressed(enterKey);
+        dateOfBirth.setOnKeyPressed(enterKey);
+        address.setOnKeyPressed(enterKey);;
+        city.setOnKeyPressed(enterKey);;
+        zipCode.setOnKeyPressed(enterKey);;
+        phone.setOnKeyPressed(enterKey);;
     }
 }

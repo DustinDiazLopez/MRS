@@ -80,6 +80,7 @@ public class DustinDiazCOMP4400 extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/user/login.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("MANA - Movie Rental System");
         stage.setOnCloseRequest(e -> {
             e.consume();
             Computer.closeProgram();
