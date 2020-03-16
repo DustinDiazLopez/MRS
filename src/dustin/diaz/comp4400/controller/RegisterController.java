@@ -1,25 +1,22 @@
 package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
-import dustin.diaz.comp4400.model.User;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Region;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -232,10 +229,10 @@ public class RegisterController implements Initializable {
         middleName.setOnKeyPressed(enterKey);
         lastName.setOnKeyPressed(enterKey);
         dateOfBirth.setOnKeyPressed(enterKey);
-        address.setOnKeyPressed(enterKey);;
-        city.setOnKeyPressed(enterKey);;
-        zipCode.setOnKeyPressed(enterKey);;
-        phone.setOnKeyPressed(enterKey);;
+        address.setOnKeyPressed(enterKey);
+        city.setOnKeyPressed(enterKey);
+        zipCode.setOnKeyPressed(enterKey);
+        phone.setOnKeyPressed(enterKey);
 
         phone.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("(\\()?(\\d{3})+([ )\\-])? ?(\\d{3})([ \\-])?\\d{4}")) {
