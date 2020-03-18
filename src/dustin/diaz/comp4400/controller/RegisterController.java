@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
+import dustin.diaz.comp4400.utils.Query;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +18,8 @@ import javafx.scene.layout.BorderPane;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -98,7 +101,7 @@ public class RegisterController implements Initializable {
 
 
     @FXML
-    void register(ActionEvent event) throws IOException {
+    void register(ActionEvent event) throws IOException, SQLException {
         manText.setText("");
         manAddress.setText("");
         manCity.setText("");
@@ -131,19 +134,9 @@ public class RegisterController implements Initializable {
         String z = zipCode.getText();
         String p = phone.getText();
 
-        System.out.println(dob);
-
-        if (isEmpty(mn)) {
-            mn = null;
-        }
-
-        if (isEmpty(p)) {
-            p = null;
-        }
-
-        if (isEmpty(dob)) {
-            dob = null;
-        }
+        if (isEmpty(mn)) mn = null;
+        if (isEmpty(p)) p = null;
+        if (isEmpty(dob)) dob = LocalDate.now().toString();
 
         if (isEmpty(u)) {
             manUsername.setText("*");
@@ -187,9 +180,14 @@ public class RegisterController implements Initializable {
 
         if (valid) {
             if (p1.equals(p2)) {
-
-                borderPane.getChildren().clear();
-                DustinDiazCOMP4400.setRoot("view/user/login.fxml");
+                if (Query.findUserByUsername(u) == null) {
+                    Query.insertUser(u, p1, fn, mn, ln, dob, a, c, z, p);
+                    borderPane.getChildren().clear();
+                    DustinDiazCOMP4400.setRoot("view/user/login.fxml");
+                } else {
+                    manUsername.setText("*");
+                    manText.setText("* This username already exists");
+                }
             } else {
                 manPassword.setText("*");
                 manPasswordTwo.setText("*");

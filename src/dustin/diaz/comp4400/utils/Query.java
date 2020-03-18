@@ -23,13 +23,30 @@ public abstract class Query {
     public static String allRentals = "SELECT * FROM rental.Rental";
 
     //INSERT user
-    public static String insertUser = "INSERT INTO rental.Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'CUSTOMER');";
+    public static String insertUser = "INSERT INTO rental.Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'USER');";
 
     //INSERT movie
     public static String insertMovie = "INSERT INTO rental.Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     //INSERT rental
     public static String insertRental = "INSERT INTO rental.Rental (CustomerID, MovieID, RentedOn, Media) VALUES (?, ?, ?, ?)";
+
+    public static int insertUser(String username, String accountPassword, String firstName, String middleName,
+                                 String lastName, String dateOfBirth, String address, String city, String zipCode,
+                                 String phone) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.insertUser);
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, accountPassword);
+        preparedStatement.setString(3, firstName);
+        preparedStatement.setString(4, middleName);
+        preparedStatement.setString(5, lastName);
+        preparedStatement.setString(6, dateOfBirth);
+        preparedStatement.setString(7, address);
+        preparedStatement.setString(8, city);
+        preparedStatement.setString(9, zipCode);
+        preparedStatement.setString(10, phone);
+        return preparedStatement.executeUpdate();
+    }
 
     public static ArrayList<User> findAllUsers() throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.allUsers);
@@ -84,6 +101,34 @@ public abstract class Query {
             movie.setRatings(resultSet.getString("Ratings").split(","));
             movie.setFileName(resultSet.getString("Filename"));
             movies.add(movie);
+        }
+
+        return !movies.isEmpty() ? movies : null;
+    }
+
+    public static ArrayList<Movie> findMoviesByGenre(String genre) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.allMovies);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        ArrayList<Movie> movies = new ArrayList<>();
+
+        while (resultSet.next()) {
+            Movie movie = new Movie();
+            String g = resultSet.getString("Genre");
+            if (g.toLowerCase().contains(genre.toLowerCase())) {
+                movie.setId(resultSet.getInt("ID"));
+                movie.setTitle(resultSet.getString("Title"));
+                movie.setDirectors(resultSet.getString("Directors").split(","));
+                movie.setWriters(resultSet.getString("Writers").split(","));
+                movie.setReleaseDate(Date.valueOf(resultSet.getString("ReleaseDate")));
+                movie.setGenre(g);
+                movie.setRunTime(resultSet.getString("RunTime"));
+                movie.setRated(resultSet.getString("Rated"));
+                movie.setCast(resultSet.getString("Cast").split(","));
+                movie.setRatings(resultSet.getString("Ratings").split(","));
+                movie.setFileName(resultSet.getString("Filename"));
+                movies.add(movie);
+            }
         }
 
         return !movies.isEmpty() ? movies : null;

@@ -1,7 +1,6 @@
 package dustin.diaz.comp4400;
 
 import dustin.diaz.comp4400.utils.Computer;
-import dustin.diaz.comp4400.utils.Query;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -57,9 +56,6 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
-
-        System.out.println(Query.findUserByUsername("root"));
-        System.out.println(Query.findUserByUsername("errt"));
     }
 
     public static void setRoot(String fxml) throws IOException {
