@@ -7,23 +7,24 @@ public class Rental {
     private int customerId;
     private int movieId;
     private Date rentedOn;
+    private String media;
     private Date returnedOn;
-    private boolean isDVD;
-    private float costPerDay;
+    private boolean returned;
     private int totalDays;
     private float totalCost;
 
-    public Rental() {}
+    public Rental() {
+    }
 
-    public Rental(int id, int customerId, int movieId, Date rentedOn, Date returnedOn, boolean isDVD,
-                  float costPerDay, int totalDays, float totalCost) {
+    public Rental(int id, int customerId, int movieId, Date rentedOn, String media, Date returnedOn, boolean returned,
+                  int totalDays, float totalCost) {
         this.id = id;
         this.customerId = customerId;
         this.movieId = movieId;
         this.rentedOn = rentedOn;
+        this.media = media;
         this.returnedOn = returnedOn;
-        this.isDVD = isDVD;
-        this.costPerDay = costPerDay;
+        this.returned = returned;
         this.totalDays = totalDays;
         this.totalCost = totalCost;
     }
@@ -60,6 +61,14 @@ public class Rental {
         this.rentedOn = rentedOn;
     }
 
+    public String getMedia() {
+        return media;
+    }
+
+    public void setMedia(String media) {
+        this.media = media;
+    }
+
     public Date getReturnedOn() {
         return returnedOn;
     }
@@ -68,20 +77,12 @@ public class Rental {
         this.returnedOn = returnedOn;
     }
 
-    public boolean isDVD() {
-        return isDVD;
+    public boolean isReturned() {
+        return returned;
     }
 
-    public void setDVD(boolean DVD) {
-        isDVD = DVD;
-    }
-
-    public float getCostPerDay() {
-        return costPerDay;
-    }
-
-    public void setCostPerDay(float costPerDay) {
-        this.costPerDay = costPerDay;
+    public void setReturned(boolean returned) {
+        this.returned = returned;
     }
 
     public int getTotalDays() {
@@ -107,8 +108,9 @@ public class Rental {
                 ", customerId=" + customerId +
                 ", movieId=" + movieId +
                 ", rentedOn=" + rentedOn +
+                ", media='" + media + '\'' +
                 ", returnedOn=" + returnedOn +
-                ", costPerDay=" + costPerDay +
+                ", returned=" + returned +
                 ", totalDays=" + totalDays +
                 ", totalCost=" + totalCost +
                 '}';

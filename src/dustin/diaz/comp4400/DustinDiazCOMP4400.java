@@ -57,8 +57,9 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
-        System.out.println(Query.findAllUsers());
-        System.out.println(Query.findAllMovies());
+
+        System.out.println(Query.findUserByUsername("root"));
+        System.out.println(Query.findUserByUsername("errt"));
     }
 
     public static void setRoot(String fxml) throws IOException {

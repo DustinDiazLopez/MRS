@@ -10,11 +10,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class Query {
+    //SELECT users
     public static String allUsers = "SELECT * FROM rental.Customer";
     public static String userByID = "SELECT * FROM rental.Customer WHERE ID = ?";
     public static String userByUsername = "SELECT * FROM rental.Customer WHERE Username = ?";
+
+    //SELECT movies
     public static String allMovies = "SELECT * FROM rental.Movie";
     public static String movieByID = "SELECT * FROM rental.Movie WHERE ID = ?";
+
+    //SELECT rentals
+    public static String allRentals = "SELECT * FROM rental.Rental";
+
+    //INSERT user
+    public static String insertUser = "INSERT INTO rental.Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'CUSTOMER');";
+
+    //INSERT movie
+    public static String insertMovie = "INSERT INTO rental.Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    //INSERT rental
+    public static String insertRental = "INSERT INTO rental.Rental (CustomerID, MovieID, RentedOn, Media) VALUES (?, ?, ?, ?)";
 
     public static ArrayList<User> findAllUsers() throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.allUsers);
@@ -102,7 +117,7 @@ public abstract class Query {
             user.setRentedHistory(s.split(","));
         }
 
-        return user;
+        return user.getId() != 0 ? user : null;
     }
 
     public static User findUserByID(int id) throws SQLException {

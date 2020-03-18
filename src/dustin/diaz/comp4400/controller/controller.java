@@ -5,13 +5,16 @@ import dustin.diaz.comp4400.model.User;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Query;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.io.File;
@@ -43,6 +46,14 @@ public class controller implements Initializable {
     @FXML
     private ImageView loginImage;
 
+    @FXML
+    private Button loginBtn;
+
+    @FXML
+    private Button registerBtn;
+
+    @FXML
+    private Button cancelBtn;
 
     @FXML
     void login(ActionEvent event) throws SQLException {
@@ -63,14 +74,20 @@ public class controller implements Initializable {
             valid = false;
         }
 
+
         if (valid) {
             User user = Query.findUserByUsername(u);
-            String username = user.getUsername();
-            String password = user.getAccountPassword(); //TODO: un-hash if hashed...
 
-            if (username.equals(u) && password.equals(p)) {
-                manText.setText("Hello, " + user.getFirstName() + "!");
-                Computer.loggedIn = user;
+            if (user != null) {
+                String username = user.getUsername();
+                String password = user.getAccountPassword(); //TODO: un-hash if hashed...
+
+                if (username.equals(u) && password.equals(p)) {
+                    manText.setText("Hello, " + user.getFirstName() + "!");
+                    Computer.loggedIn = user;
+                } else {
+                    manText.setText("The entered credentials do not match anything on record.");
+                }
             } else {
                 manText.setText("The entered credentials do not match anything on record.");
             }
@@ -98,5 +115,21 @@ public class controller implements Initializable {
         File file = new File("src/Images/icons/app/012-line.png");
         Image image = new Image(file.toURI().toString());
         loginImage.setImage(image);
+
+        EventHandler<KeyEvent> loginEnterKey = e -> {
+            if (e.getCode().toString().equals("ENTER")) loginBtn.fire();
+        };
+
+        usernameLoginTextField.setOnKeyPressed(loginEnterKey);
+        passwordLoginTextField.setOnKeyPressed(loginEnterKey);
+        loginBtn.setOnKeyPressed(loginEnterKey);
+
+        cancelBtn.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) cancelBtn.fire();
+        });
+
+        registerBtn.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) registerBtn.fire();
+        });
     }
 }

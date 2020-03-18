@@ -222,6 +222,12 @@ public class RegisterController implements Initializable {
             if (e.getCode().toString().equals("ENTER")) registerBtn.fire();
         };
 
+        cancelBtn.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) cancelBtn.fire();
+        });
+
+        registerBtn.setOnKeyPressed(enterKey);
+
         username.setOnKeyPressed(enterKey);
         password.setOnKeyPressed(enterKey);
         passwordConfirmation.setOnKeyPressed(enterKey);
