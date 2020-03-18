@@ -2,6 +2,7 @@ package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.utils.Query;
+import dustin.diaz.comp4400.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -116,23 +117,34 @@ public class RegisterController implements Initializable {
         boolean valid = true;
 
         String u = username.getText();
+        username.setStyle("");
         String p1 = password.getText();
+        password.setStyle("");
         String p2 = passwordConfirmation.getText();
+        passwordConfirmation.setStyle("");
         String fn = firstName.getText();
+        firstName.setStyle("");
         String mn = middleName.getText();
+        middleName.setStyle("");
         String ln = lastName.getText();
+        lastName.setStyle("");
         String dob;
 
         try {
+            dateOfBirth.setStyle("");
             dob = dateOfBirth.getValue().toString();
         } catch (Exception ignored) {
             dob = "";
         }
 
         String a = address.getText();
+        address.setStyle("");
         String c = city.getText();
+        city.setStyle("");
         String z = zipCode.getText();
+        zipCode.setStyle("");
         String p = phone.getText();
+        phone.setStyle("");
 
         if (isEmpty(mn)) mn = null;
         if (isEmpty(p)) p = null;
@@ -140,41 +152,49 @@ public class RegisterController implements Initializable {
 
         if (isEmpty(u)) {
             manUsername.setText("*");
+            username.setStyle(Utils.error);
             valid = false;
         }
 
         if (isEmpty(p1)) {
             manPassword.setText("*");
+            password.setStyle(Utils.error);
             valid = false;
         }
 
         if (isEmpty(p2)) {
             manPasswordTwo.setText("*");
+            passwordConfirmation.setStyle(Utils.error);
             valid = false;
         }
 
         if (isEmpty(fn)) {
             manFirstName.setText("*");
+            firstName.setStyle(Utils.error);
             valid = false;
         }
 
         if (isEmpty(ln)) {
             manLastName.setText("*");
+            lastName.setStyle(Utils.error);
             valid = false;
         }
 
         if (isEmpty(a)) {
             manAddress.setText("*");
+            address.setStyle(Utils.error);
             valid = false;
         }
 
         if (isEmpty(c)) {
             manCity.setText("*");
+            city.setStyle(Utils.error);
             valid = false;
         }
 
         if (isEmpty(z)) {
             manZipCode.setText("*");
+            zipCode.setStyle(Utils.error);
             valid = false;
         }
 
@@ -186,11 +206,14 @@ public class RegisterController implements Initializable {
                     DustinDiazCOMP4400.setRoot("view/user/login.fxml");
                 } else {
                     manUsername.setText("*");
+                    username.setStyle(Utils.error);
                     manText.setText("* This username already exists");
                 }
             } else {
                 manPassword.setText("*");
                 manPasswordTwo.setText("*");
+                passwordConfirmation.setStyle(Utils.error);
+                password.setStyle(Utils.error);
                 manText.setText("* Passwords don't match");
             }
         } else {

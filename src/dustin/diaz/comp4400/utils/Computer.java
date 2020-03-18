@@ -17,7 +17,7 @@ public abstract class Computer {
     public static String pathChar;
     public static String movieImagePath;
     public static Connection connection;
-    public static User loggedIn;
+    public static User user;
 
     public static void closeProgram() throws SQLException {
         boolean answer = ConfirmBox.display("Close Application", "Are you sure you want to quit?");

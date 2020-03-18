@@ -4,6 +4,7 @@ import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.User;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Query;
+import dustin.diaz.comp4400.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -56,20 +57,24 @@ public class controller implements Initializable {
     private Button cancelBtn;
 
     @FXML
-    void login(ActionEvent event) throws SQLException {
+    void login(ActionEvent event) throws SQLException, IOException {
         manFieldOne.setText("");
         manFieldTwo.setText("");
+        usernameLoginTextField.setStyle("");
+        passwordLoginTextField.setStyle("");
         manText.setText("");
         String u = usernameLoginTextField.getText();
         String p = passwordLoginTextField.getText();
         boolean valid = true;
 
         if (u.trim().isEmpty()) {
+            usernameLoginTextField.setStyle(Utils.error);
             manFieldOne.setText("*");
             valid = false;
         }
 
         if (p.trim().isEmpty()) {
+            passwordLoginTextField.setStyle(Utils.error);
             manFieldTwo.setText("*");
             valid = false;
         }
@@ -84,7 +89,15 @@ public class controller implements Initializable {
 
                 if (username.equals(u) && password.equals(p)) {
                     manText.setText("Hello, " + user.getFirstName() + "!");
-                    Computer.loggedIn = user;
+                    Computer.user = user;
+
+                    if (user.getAccountType().equals("ADMIN")) {
+                        borderPane.getChildren().clear();
+                        DustinDiazCOMP4400.setRoot("view/user/adminhome.fxml");
+                    } else {
+                        borderPane.getChildren().clear();
+                        DustinDiazCOMP4400.setRoot("view/user/userhome.fxml");
+                    }
                 } else {
                     manText.setText("The entered credentials do not match anything on record.");
                 }
