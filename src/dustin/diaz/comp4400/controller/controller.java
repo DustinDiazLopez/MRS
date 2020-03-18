@@ -66,10 +66,11 @@ public class controller implements Initializable {
         if (valid) {
             User user = Query.findUserByUsername(u);
             String username = user.getUsername();
-            String password = user.getAccountPassword();
+            String password = user.getAccountPassword(); //TODO: un-hash if hashed...
 
             if (username.equals(u) && password.equals(p)) {
                 manText.setText("Hello, " + user.getFirstName() + "!");
+                Computer.loggedIn = user;
             } else {
                 manText.setText("The entered credentials do not match anything on record.");
             }

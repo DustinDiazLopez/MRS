@@ -4,16 +4,16 @@ USE rental;
 
 DROP TABLE IF EXISTS Customer;
 CREATE TABLE Customer(
-	ID                 INT          NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    Username           VARCHAR(70)  NOT NULL UNIQUE,
-	AccountPassword    VARCHAR(70)  NOT NULL,
-	FirstName          VARCHAR(70)  NOT NULL,
+	ID                 INT                     NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    Username           VARCHAR(70)             NOT NULL UNIQUE,
+	AccountPassword    VARCHAR(70)             NOT NULL,
+	FirstName          VARCHAR(70)             NOT NULL,
     MiddleName         VARCHAR(70),
-	LastName           VARCHAR(70)  NOT NULL,
+	LastName           VARCHAR(70)             NOT NULL,
 	DateOfBirth        VARCHAR(70),
-    Address            VARCHAR(70)  NOT NULL,
-	City               VARCHAR(70)  NOT NULL,
-	ZipCode            VARCHAR(70)  NOT NULL,
+    Address            VARCHAR(70)             NOT NULL,
+	City               VARCHAR(70)             NOT NULL,
+	ZipCode            VARCHAR(70)             NOT NULL,
     Phone              VARCHAR(70),
     AccountType        ENUM ('ADMIN', 'USER')  NOT NULL,
     RentedHistory      VARCHAR(70)
@@ -23,28 +23,28 @@ DROP TABLE IF EXISTS Movie;
 CREATE TABLE Movie(
 	ID          INT          NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
     Title       VARCHAR(70)  NOT NULL,
-	Directors   TEXT  NOT NULL,
-	Writers     TEXT  NOT NULL,
+	Directors   TEXT         NOT NULL,
+	Writers     TEXT         NOT NULL,
     ReleaseDate VARCHAR(70)	 NOT NULL,
 	Genre       VARCHAR(70)  NOT NULL,
     RunTime     VARCHAR(70)  NOT NULL,
 	Rated       VARCHAR(70)  NOT NULL,
-	Cast        TEXT  NOT NULL,
+	Cast        TEXT         NOT NULL,
     Ratings     VARCHAR(70)  NOT NULL,
     Filename    VARCHAR(70)  NOT NULL
 );
 
 DROP TABLE IF EXISTS Rental;
 CREATE TABLE Rental(
-	ID          INT     NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    CustomerID  INT     NOT NULL,
-	MovieID     INT     NOT NULL,
-	RentedOn    VARCHAR(70)    NOT NULL,
-    ReturnedOn  VARCHAR(70)    NOT NULL,
-	IsDVD       BOOLEAN NOT NULL,
-	CostPerDay  FLOAT   NOT NULL,
-    TotalDays   INT     NOT NULL,
-	TotalCost   FLOAT   NOT NULL,
+	ID          INT                     NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    CustomerID  INT                     NOT NULL,
+	MovieID     INT                     NOT NULL,
+	RentedOn    VARCHAR(70)             NOT NULL,
+    Media       ENUM ('DVD', 'BLU-RAY') NOT NULL,
+    ReturnedOn  VARCHAR(70),
+    Returned    BOOLEAN,
+    TotalDays   INT,
+	TotalCost   FLOAT,
     CONSTRAINT FK_CustomerID FOREIGN KEY (CustomerID) REFERENCES Customer(ID),
     CONSTRAINT FK_MovieID FOREIGN KEY (MovieID) REFERENCES Movie(ID)
 );
@@ -59,7 +59,7 @@ INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Joker (2019 film)','Todd Phillips','Todd Phillips, Scott Silver','2019-10-4','Drama/Thriller','2h 2m','R','Joaquin Phoenix, Robert De Niro, Zazie Beetz, Frances Conroy','8.6/10,68%','joker2019film.jpg');
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Knives Out','Rian Johnson','Rian Johnson','2019-11-27','Drama/Thriller','2h 10m','PG-13','Daniel Craig, Chris Evans, Ana de Armas, Jamie Lee Curtis, Michael Shannon, Don Johnson, Toni Collette, Lakeith Stanfield, Katherine Langford, Jaeden Martell, Christopher Plummer','8/10,87%','knivesout.jpg');
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Avengers: Endgame','Joe Russo, Anthony Russo','Stephen McFeely, Christopher Markus','2019-04-26','Fantasy/Sci-fi','3h 2m','PG-13','Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Jeremy Renner, Don Cheadle, Paul Rudd, Brie Larson, Karen Gillan, Danai Gurira, Benedict Wong, Jon Favreau, Bradley Cooper, Gwyneth Paltrow, Josh Brolin','8.5/10,94%','marvelavengersendgame.jpg');
-INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Jojo Rabbit','Taika Waititi','Taika Waititi','2019-11-2019','Drama/Comedy-drama','1h 48m','PG-13','Roman Griffin Davis, Thomasin McKenzie, Taika Waititi, Rebel Wilson, Stephen Merchant, Alfie Allen, Sam Rockwell, Scarlett Johansson','8/10,80%','jojorabbit.jpg');
+INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Jojo Rabbit','Taika Waititi','Taika Waititi','2019-11-8','Drama/Comedy-drama','1h 48m','PG-13','Roman Griffin Davis, Thomasin McKenzie, Taika Waititi, Rebel Wilson, Stephen Merchant, Alfie Allen, Sam Rockwell, Scarlett Johansson','8/10,80%','jojorabbit.jpg');
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Charlies Angels','Elizabeth Banks','Elizabeth Banks, David Auburn','2019-11-15','Action/Adventure','1h 58m','PG-13','Kristen Stewart, Naomi Scott, Ella Balinska, Elizabeth Banks, Djimon Hounsou, Sam Claflin, Noah Centineo, Nat Faxon, Patrick Stewart','4.4/10,52%','charliesangels2019.jpg');
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('All the Bright Places','Brett Haley','Jennifer Niven, Elizabeth Hannah','2020-02-28','Drama/Romance','1h 48m','Not Yet Rated','Elle Fanning, Justice Smith, Alexandra Shipp, Kelli OHara, Lamar Johnson, Virginia Gardner, Felix Mallard, Sofia Hasmik, Keegan-Michael Key, Luke Wilson','6.5/10,77%','allthebrightplaces.jpg');
 INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES ('Ford v Ferrari','James Mangold','James Mangold, John-Henry Butterworth, Jez Butterworth, Jason Keller','2019-08-30','Drama/Sport','2h 32m','PG-13','Matt Damon, Christian Bale','8.1/10,92%','fordvferrari.jpg');

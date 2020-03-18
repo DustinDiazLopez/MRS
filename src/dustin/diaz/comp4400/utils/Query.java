@@ -1,5 +1,6 @@
 package dustin.diaz.comp4400.utils;
 
+import dustin.diaz.comp4400.model.Movie;
 import dustin.diaz.comp4400.model.User;
 
 import java.sql.Date;
@@ -12,6 +13,8 @@ public abstract class Query {
     public static String allUsers = "SELECT * FROM rental.Customer";
     public static String userByID = "SELECT * FROM rental.Customer WHERE ID = ?";
     public static String userByUsername = "SELECT * FROM rental.Customer WHERE Username = ?";
+    public static String allMovies = "SELECT * FROM rental.Movie";
+    public static String movieByID = "SELECT * FROM rental.Movie WHERE ID = ?";
 
     public static ArrayList<User> findAllUsers() throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.allUsers);
@@ -43,7 +46,32 @@ public abstract class Query {
             users.add(user);
         }
 
-        return users;
+        return !users.isEmpty() ? users : null;
+    }
+
+    public static ArrayList<Movie> findAllMovies() throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.allMovies);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        ArrayList<Movie> movies = new ArrayList<>();
+
+        while (resultSet.next()) {
+            Movie movie = new Movie();
+            movie.setId(resultSet.getInt("ID"));
+            movie.setTitle(resultSet.getString("Title"));
+            movie.setDirectors(resultSet.getString("Directors").split(","));
+            movie.setWriters(resultSet.getString("Writers").split(","));
+            movie.setReleaseDate(Date.valueOf(resultSet.getString("ReleaseDate")));
+            movie.setGenre(resultSet.getString("Genre"));
+            movie.setRunTime(resultSet.getString("RunTime"));
+            movie.setRated(resultSet.getString("Rated"));
+            movie.setCast(resultSet.getString("Cast").split(","));
+            movie.setRatings(resultSet.getString("Ratings").split(","));
+            movie.setFileName(resultSet.getString("Filename"));
+            movies.add(movie);
+        }
+
+        return !movies.isEmpty() ? movies : null;
     }
 
     public static User findUserByUsername(String username) throws SQLException {
@@ -105,6 +133,30 @@ public abstract class Query {
             user.setRentedHistory(s.split(","));
         }
 
-        return user;
+        return user.getId() != 0 ? user : null;
+    }
+
+    public static Movie findMovieByID(int id) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.movieByID);
+        preparedStatement.setInt(1, id);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Movie movie = new Movie();
+
+        while (resultSet.next()) {
+            movie.setId(resultSet.getInt("ID"));
+            movie.setTitle(resultSet.getString("Title"));
+            movie.setDirectors(resultSet.getString("Directors").split(","));
+            movie.setWriters(resultSet.getString("Writers").split(","));
+            movie.setReleaseDate(Date.valueOf(resultSet.getString("ReleaseDate")));
+            movie.setGenre(resultSet.getString("Genre"));
+            movie.setRunTime(resultSet.getString("RunTime"));
+            movie.setRated(resultSet.getString("Rated"));
+            movie.setCast(resultSet.getString("Cast").split(","));
+            movie.setRatings(resultSet.getString("Ratings").split(","));
+            movie.setFileName(resultSet.getString("Filename"));
+        }
+
+        return movie.getId() != 0 ? movie : null;
     }
 }

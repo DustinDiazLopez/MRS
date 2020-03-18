@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400;
 
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Query;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -56,6 +57,8 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
+        System.out.println(Query.findAllUsers());
+        System.out.println(Query.findAllMovies());
     }
 
     public static void setRoot(String fxml) throws IOException {
