@@ -19,10 +19,14 @@ public abstract class Computer {
     public static Connection connection;
     public static User user;
 
-    public static void closeProgram() throws SQLException {
+    public static void closeProgram() {
         boolean answer = ConfirmBox.display("Close Application", "Are you sure you want to quit?");
         if (answer) {
-            connection.close();
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             System.exit(0);
         }
     }

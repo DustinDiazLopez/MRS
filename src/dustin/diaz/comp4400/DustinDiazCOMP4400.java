@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400;
 
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,26 +12,26 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DustinDiazCOMP4400 extends Application {
 
-    private static String url = "jdbc:mysql://localhost:3306/";
+    private static String url = "jdbc:mysql://localhost:3306/rental?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static String driver = "com.mysql.cj.jdbc.Driver";
-    private static String dbName = "rental";
     private static String username = "root";
     private static String password = "s0m3t1m3s1h@t3p@ssw0rds";
 
     private Thread connect = new Thread(() -> {
         try {
             Class.forName(driver);
-            Computer.connection = DriverManager.getConnection(url + dbName, username, password);
-            Computer.src = new File("src").getAbsolutePath();
-            Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
-            Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
+            Computer.connection = DriverManager.getConnection(url, username, password);
         } catch (Exception e) {
+            ConfirmBox.display("DB Connection", "Could not establish connection to database.");
             e.printStackTrace();
         }
+
+        Computer.src = new File("src").getAbsolutePath();
+        Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
+        Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
     });
 
     public static Scene scene;
@@ -50,11 +51,7 @@ public class DustinDiazCOMP4400 extends Application {
 
         stage.setOnCloseRequest(e -> {
             e.consume();
-            try {
-                Computer.closeProgram();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
+            Computer.closeProgram();
         });
 
         connect.join();
