@@ -39,5 +39,4 @@ public abstract class Computer {
     public static void openImageFolder() throws IOException {
         Desktop.getDesktop().open(new File(Computer.movieImagePath));
     }
-
 }

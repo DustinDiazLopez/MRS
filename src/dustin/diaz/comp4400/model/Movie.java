@@ -13,13 +13,13 @@ public class Movie {
     String runTime;
     String rated;
     String[] cast;
-    String[] ratings;
+    String rating;
     String fileName;
 
     public Movie() {}
 
     public Movie(int id, String title, String[] directors, String[] writers, Date releaseDate, String genre,
-                 String runTime, String rated, String[] cast, String[] ratings, String fileName) {
+                 String runTime, String rated, String[] cast, String rating, String fileName) {
         this.id = id;
         this.title = title;
         this.directors = directors;
@@ -29,7 +29,7 @@ public class Movie {
         this.runTime = runTime;
         this.rated = rated;
         this.cast = cast;
-        this.ratings = ratings;
+        this.rating = rating;
         this.fileName = fileName;
     }
 
@@ -105,12 +105,12 @@ public class Movie {
         this.cast = cast;
     }
 
-    public String[] getRatings() {
-        return ratings;
+    public String getRating() {
+        return rating;
     }
 
-    public void setRatings(String[] ratings) {
-        this.ratings = ratings;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     public String getFileName() {
@@ -133,7 +133,7 @@ public class Movie {
                 ", runTime='" + runTime + '\'' +
                 ", rated='" + rated + '\'' +
                 ", cast=" + Arrays.toString(cast) +
-                ", ratings=" + Arrays.toString(ratings) +
+                ", rating='" + rating + '\'' +
                 ", fileName='" + fileName + '\'' +
                 '}';
     }

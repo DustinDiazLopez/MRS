@@ -1,6 +1,6 @@
 package dustin.diaz.comp4400.view.boxes;
 
-import dustin.diaz.comp4400.utils.Utils;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -77,12 +77,12 @@ public class NewRentalBox {
             } else {
                 if (textField.getText().trim().isEmpty()) {
                     star.setVisible(true);
-                    textField.setStyle(Utils.error);
+                    textField.setStyle(Styling.error);
                 }
 
                 if (textField2.getText().trim().isEmpty()) {
                     star2.setVisible(true);
-                    textField2.setStyle(Utils.error);
+                    textField2.setStyle(Styling.error);
                 }
 
                 man.setVisible(true);

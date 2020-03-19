@@ -2,9 +2,9 @@ package dustin.diaz.comp4400.controller;
 
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
+import dustin.diaz.comp4400.queries.QueryUser;
 import dustin.diaz.comp4400.utils.Computer;
-import dustin.diaz.comp4400.utils.Query;
-import dustin.diaz.comp4400.utils.Utils;
+import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +42,7 @@ public class UserHomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Computer.user = Query.findUserByID(Computer.user.getId());
+            Computer.user = QueryUser.findUserByID(Computer.user.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -78,18 +78,18 @@ public class UserHomeController implements Initializable {
 
         userLabel.setText(Computer.user.getFirstName() + " " + Computer.user.getLastName());
 
-        moviesVBox.setStyle(Utils.homeStyle);
-        exitVBox.setStyle(Utils.homeStyle);
-        myAccountVBox.setStyle(Utils.homeStyle);
-        rentalHistoryVBox.setStyle(Utils.homeStyle);
-        moviesVBox.setOnMouseEntered(e -> moviesVBox.setStyle(Utils.homeStyleHover));
-        moviesVBox.setOnMouseExited(e -> moviesVBox.setStyle(Utils.homeStyle));
-        exitVBox.setOnMouseEntered(e -> exitVBox.setStyle(Utils.homeStyleHover));
-        exitVBox.setOnMouseExited(e -> exitVBox.setStyle(Utils.homeStyle));
-        myAccountVBox.setOnMouseEntered(e -> myAccountVBox.setStyle(Utils.homeStyleHover));
-        myAccountVBox.setOnMouseExited(e -> myAccountVBox.setStyle(Utils.homeStyle));
-        rentalHistoryVBox.setOnMouseEntered(e -> rentalHistoryVBox.setStyle(Utils.homeStyleHover));
-        rentalHistoryVBox.setOnMouseExited(e -> rentalHistoryVBox.setStyle(Utils.homeStyle));
+        moviesVBox.setStyle(Styling.homeStyle);
+        exitVBox.setStyle(Styling.homeStyle);
+        myAccountVBox.setStyle(Styling.homeStyle);
+        rentalHistoryVBox.setStyle(Styling.homeStyle);
+        moviesVBox.setOnMouseEntered(e -> moviesVBox.setStyle(Styling.homeStyleHover));
+        moviesVBox.setOnMouseExited(e -> moviesVBox.setStyle(Styling.homeStyle));
+        exitVBox.setOnMouseEntered(e -> exitVBox.setStyle(Styling.homeStyleHover));
+        exitVBox.setOnMouseExited(e -> exitVBox.setStyle(Styling.homeStyle));
+        myAccountVBox.setOnMouseEntered(e -> myAccountVBox.setStyle(Styling.homeStyleHover));
+        myAccountVBox.setOnMouseExited(e -> myAccountVBox.setStyle(Styling.homeStyle));
+        rentalHistoryVBox.setOnMouseEntered(e -> rentalHistoryVBox.setStyle(Styling.homeStyleHover));
+        rentalHistoryVBox.setOnMouseExited(e -> rentalHistoryVBox.setStyle(Styling.homeStyle));
     }
 }
 

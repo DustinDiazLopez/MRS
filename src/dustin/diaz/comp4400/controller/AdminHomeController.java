@@ -2,7 +2,7 @@ package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.utils.Computer;
-import dustin.diaz.comp4400.utils.Utils;
+import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -63,17 +63,17 @@ public class AdminHomeController implements Initializable {
 
         userLabel.setText(Computer.user.getFirstName() + " " + Computer.user.getLastName());
 
-        rentalsVBox.setStyle(Utils.homeStyle);
-        customerVBox.setStyle(Utils.homeStyle);
-        moviesVBox.setStyle(Utils.homeStyle);
-        exitVBox.setStyle(Utils.homeStyle);
-        rentalsVBox.setOnMouseEntered(e -> rentalsVBox.setStyle(Utils.homeStyleHover));
-        rentalsVBox.setOnMouseExited(e -> rentalsVBox.setStyle(Utils.homeStyle));
-        customerVBox.setOnMouseEntered(e -> customerVBox.setStyle(Utils.homeStyleHover));
-        customerVBox.setOnMouseExited(e -> customerVBox.setStyle(Utils.homeStyle));
-        moviesVBox.setOnMouseEntered(e -> moviesVBox.setStyle(Utils.homeStyleHover));
-        moviesVBox.setOnMouseExited(e -> moviesVBox.setStyle(Utils.homeStyle));
-        exitVBox.setOnMouseEntered(e -> exitVBox.setStyle(Utils.homeStyleHover));
-        exitVBox.setOnMouseExited(e -> exitVBox.setStyle(Utils.homeStyle));
+        rentalsVBox.setStyle(Styling.homeStyle);
+        customerVBox.setStyle(Styling.homeStyle);
+        moviesVBox.setStyle(Styling.homeStyle);
+        exitVBox.setStyle(Styling.homeStyle);
+        rentalsVBox.setOnMouseEntered(e -> rentalsVBox.setStyle(Styling.homeStyleHover));
+        rentalsVBox.setOnMouseExited(e -> rentalsVBox.setStyle(Styling.homeStyle));
+        customerVBox.setOnMouseEntered(e -> customerVBox.setStyle(Styling.homeStyleHover));
+        customerVBox.setOnMouseExited(e -> customerVBox.setStyle(Styling.homeStyle));
+        moviesVBox.setOnMouseEntered(e -> moviesVBox.setStyle(Styling.homeStyleHover));
+        moviesVBox.setOnMouseExited(e -> moviesVBox.setStyle(Styling.homeStyle));
+        exitVBox.setOnMouseEntered(e -> exitVBox.setStyle(Styling.homeStyleHover));
+        exitVBox.setOnMouseExited(e -> exitVBox.setStyle(Styling.homeStyle));
     }
 }

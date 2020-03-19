@@ -2,9 +2,9 @@ package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.User;
+import dustin.diaz.comp4400.queries.QueryUser;
 import dustin.diaz.comp4400.utils.Computer;
-import dustin.diaz.comp4400.utils.Query;
-import dustin.diaz.comp4400.utils.Utils;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -68,20 +68,20 @@ public class controller implements Initializable {
         boolean valid = true;
 
         if (u.trim().isEmpty()) {
-            usernameLoginTextField.setStyle(Utils.error);
+            usernameLoginTextField.setStyle(Styling.error);
             manFieldOne.setText("*");
             valid = false;
         }
 
         if (p.trim().isEmpty()) {
-            passwordLoginTextField.setStyle(Utils.error);
+            passwordLoginTextField.setStyle(Styling.error);
             manFieldTwo.setText("*");
             valid = false;
         }
 
 
         if (valid) {
-            User user = Query.findUserByUsername(u);
+            User user = QueryUser.findUserByUsername(u);
 
             if (user != null) {
                 String username = user.getUsername();

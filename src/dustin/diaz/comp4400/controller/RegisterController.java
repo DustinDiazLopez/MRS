@@ -1,8 +1,8 @@
 package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
-import dustin.diaz.comp4400.utils.Query;
-import dustin.diaz.comp4400.utils.Utils;
+import dustin.diaz.comp4400.queries.QueryUser;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -152,68 +152,68 @@ public class RegisterController implements Initializable {
 
         if (isEmpty(u)) {
             manUsername.setText("*");
-            username.setStyle(Utils.error);
+            username.setStyle(Styling.error);
             valid = false;
         }
 
         if (isEmpty(p1)) {
             manPassword.setText("*");
-            password.setStyle(Utils.error);
+            password.setStyle(Styling.error);
             valid = false;
         }
 
         if (isEmpty(p2)) {
             manPasswordTwo.setText("*");
-            passwordConfirmation.setStyle(Utils.error);
+            passwordConfirmation.setStyle(Styling.error);
             valid = false;
         }
 
         if (isEmpty(fn)) {
             manFirstName.setText("*");
-            firstName.setStyle(Utils.error);
+            firstName.setStyle(Styling.error);
             valid = false;
         }
 
         if (isEmpty(ln)) {
             manLastName.setText("*");
-            lastName.setStyle(Utils.error);
+            lastName.setStyle(Styling.error);
             valid = false;
         }
 
         if (isEmpty(a)) {
             manAddress.setText("*");
-            address.setStyle(Utils.error);
+            address.setStyle(Styling.error);
             valid = false;
         }
 
         if (isEmpty(c)) {
             manCity.setText("*");
-            city.setStyle(Utils.error);
+            city.setStyle(Styling.error);
             valid = false;
         }
 
         if (isEmpty(z)) {
             manZipCode.setText("*");
-            zipCode.setStyle(Utils.error);
+            zipCode.setStyle(Styling.error);
             valid = false;
         }
 
         if (valid) {
             if (p1.equals(p2)) {
-                if (Query.findUserByUsername(u) == null) {
-                    Query.insertUser(u, p1, fn, mn, ln, dob, a, c, z, p);
+                if (QueryUser.findUserByUsername(u) == null) {
+                    QueryUser.insertUser(u, p1, fn, mn, ln, dob, a, c, z, p);
                     borderPane.getChildren().clear();
                     DustinDiazCOMP4400.setRoot("view/user/login.fxml");
                 } else {
                     manUsername.setText("*");
-                    username.setStyle(Utils.error);
+                    username.setStyle(Styling.error);
                     manText.setText("* This username already exists");
                 }
             } else {
                 manPassword.setText("*");
                 manPasswordTwo.setText("*");
-                passwordConfirmation.setStyle(Utils.error);
-                password.setStyle(Utils.error);
+                passwordConfirmation.setStyle(Styling.error);
+                password.setStyle(Styling.error);
                 manText.setText("* Passwords don't match");
             }
         } else {
