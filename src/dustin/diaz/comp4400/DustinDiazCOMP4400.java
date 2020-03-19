@@ -2,7 +2,6 @@ package dustin.diaz.comp4400;
 
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
-import dustin.diaz.comp4400.view.boxes.ReturnsBox;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -57,8 +56,6 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
-
-        System.out.println(ReturnsBox.display());
     }
 
     public static void setRoot(String fxml) throws IOException {
