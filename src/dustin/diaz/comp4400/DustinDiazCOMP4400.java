@@ -35,6 +35,7 @@ public class DustinDiazCOMP4400 extends Application {
     });
 
     public static Scene scene;
+    public static Stage stage;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -42,6 +43,7 @@ public class DustinDiazCOMP4400 extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("view/user/login.fxml"));
         scene = new Scene(root);
+        DustinDiazCOMP4400.stage = stage;
         stage.setScene(scene);
         stage.setTitle("Movie Rental System");
         stage.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));

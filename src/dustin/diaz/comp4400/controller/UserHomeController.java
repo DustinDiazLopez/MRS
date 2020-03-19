@@ -37,6 +37,8 @@ public class UserHomeController implements Initializable {
     @FXML
     private Label userLabel;
 
+    boolean hello = false;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {

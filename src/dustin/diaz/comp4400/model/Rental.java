@@ -13,11 +13,9 @@ public class Rental {
     private int totalDays;
     private float totalCost;
 
-    public Rental() {
-    }
+    public Rental() {}
 
-    public Rental(int id, int customerId, int movieId, Date rentedOn,
-                  String media, Date returnedOn, boolean returned,
+    public Rental(int id, int customerId, int movieId, Date rentedOn, String media, Date returnedOn, boolean returned,
                   int totalDays, float totalCost) {
         this.id = id;
         this.customerId = customerId;
