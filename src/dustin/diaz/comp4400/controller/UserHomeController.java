@@ -3,6 +3,7 @@ package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Query;
 import dustin.diaz.comp4400.utils.Utils;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class UserHomeController implements Initializable {
@@ -29,19 +31,35 @@ public class UserHomeController implements Initializable {
     @FXML
     private VBox myAccountVBox;
 
+    @FXML
+    private VBox rentalHistoryVBox;
 
     @FXML
     private Label userLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            Computer.user = Query.findUserByID(Computer.user.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        myAccountVBox.setOnMouseClicked(e -> {
+            borderPane.getChildren().clear();
+            try {
+                DustinDiazCOMP4400.setRoot("view/user/updateaccount.fxml");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
 
         moviesVBox.setOnMouseClicked(e -> {
             System.out.println("Hey movies");
         });
 
-        myAccountVBox.setOnMouseClicked(e -> {
-            System.out.println("Hey account");
+        rentalHistoryVBox.setOnMouseClicked(e -> {
+            System.out.println("Hey history");
         });
 
         exitVBox.setOnMouseClicked(e -> {
@@ -61,12 +79,15 @@ public class UserHomeController implements Initializable {
         moviesVBox.setStyle(Utils.homeStyle);
         exitVBox.setStyle(Utils.homeStyle);
         myAccountVBox.setStyle(Utils.homeStyle);
+        rentalHistoryVBox.setStyle(Utils.homeStyle);
         moviesVBox.setOnMouseEntered(e -> moviesVBox.setStyle(Utils.homeStyleHover));
         moviesVBox.setOnMouseExited(e -> moviesVBox.setStyle(Utils.homeStyle));
         exitVBox.setOnMouseEntered(e -> exitVBox.setStyle(Utils.homeStyleHover));
         exitVBox.setOnMouseExited(e -> exitVBox.setStyle(Utils.homeStyle));
         myAccountVBox.setOnMouseEntered(e -> myAccountVBox.setStyle(Utils.homeStyleHover));
         myAccountVBox.setOnMouseExited(e -> myAccountVBox.setStyle(Utils.homeStyle));
+        rentalHistoryVBox.setOnMouseEntered(e -> rentalHistoryVBox.setStyle(Utils.homeStyleHover));
+        rentalHistoryVBox.setOnMouseExited(e -> rentalHistoryVBox.setStyle(Utils.homeStyle));
     }
 }
 

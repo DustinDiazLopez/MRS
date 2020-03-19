@@ -11,12 +11,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ConfirmBox {
 
-    private static boolean answer;
-
     public static boolean display(String title, String message) {
+        AtomicBoolean answer = new AtomicBoolean(false);
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
@@ -35,13 +35,13 @@ public class ConfirmBox {
         Button noButton = new Button("No");
 
         yesButton.setOnAction(e -> {
-            answer = true;
+            answer.set(true);
             window.close();
         });
 
 
         noButton.setOnAction(e -> {
-            answer = false;
+            answer.set(false);
             window.close();
         });
 
@@ -66,6 +66,6 @@ public class ConfirmBox {
         window.setScene(scene);
         window.showAndWait();
 
-        return answer;
+        return answer.get();
     }
 }

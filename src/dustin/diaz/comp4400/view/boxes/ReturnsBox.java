@@ -12,12 +12,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReturnsBox {
-
-    private static int value;
-
     public static int display() {
+        AtomicInteger value = new AtomicInteger(-1);
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
@@ -39,18 +38,22 @@ public class ReturnsBox {
         Button noButton = new Button("Cancel");
 
         yesButton.setOnAction(e -> {
-            try {
-                value = Integer.parseInt(textField.getText());
-            } catch (Exception ignored) {
-                value = -1;
+            String text = textField.getText().trim();
+
+            if (!text.isEmpty()) {
+                try {
+                    value.set(Integer.parseInt(text));
+                } catch (Exception ignored) {
+                    value.set(-1);
+                }
+            } else {
+                value.set(-1);
             }
+
             window.close();
         });
 
-        noButton.setOnAction(e -> {
-            value = -1;
-            window.close();
-        });
+        noButton.setOnAction(e -> window.close());
 
         yesButton.setOnKeyPressed(e -> {
             if (e.getCode().toString().equals("ENTER")) yesButton.fire();
@@ -82,11 +85,10 @@ public class ReturnsBox {
 
         window.setOnCloseRequest(e -> {
             e.consume();
-            value = -1;
             window.close();
         });
 
-        return value;
+        return value.get();
     }
 }
 

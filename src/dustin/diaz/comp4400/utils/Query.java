@@ -15,6 +15,9 @@ public abstract class Query {
     public static String userByID = "SELECT * FROM rental.Customer WHERE ID = ?";
     public static String userByUsername = "SELECT * FROM rental.Customer WHERE Username = ?";
 
+    //UPDATE user
+    public static String updateUserByIDAndUsername = "UPDATE rental.Customer SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
+
     //SELECT movies
     public static String allMovies = "SELECT * FROM rental.Movie";
     public static String movieByID = "SELECT * FROM rental.Movie WHERE ID = ?";
@@ -45,6 +48,24 @@ public abstract class Query {
         preparedStatement.setString(8, city);
         preparedStatement.setString(9, zipCode);
         preparedStatement.setString(10, phone);
+        return preparedStatement.executeUpdate();
+    }
+
+    public static int updateUser(int id, String username, String accountPassword, String firstName, String middleName,
+                                 String lastName, String dateOfBirth, String address, String city, String zipCode,
+                                 String phone) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(Query.updateUserByIDAndUsername);
+        preparedStatement.setString(1, accountPassword);
+        preparedStatement.setString(2, firstName);
+        preparedStatement.setString(3, middleName);
+        preparedStatement.setString(4, lastName);
+        preparedStatement.setString(5, dateOfBirth);
+        preparedStatement.setString(6, address);
+        preparedStatement.setString(7, city);
+        preparedStatement.setString(8, zipCode);
+        preparedStatement.setString(9, phone);
+        preparedStatement.setString(10, username);
+        preparedStatement.setInt(11, id);
         return preparedStatement.executeUpdate();
     }
 
