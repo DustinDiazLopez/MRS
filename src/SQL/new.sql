@@ -140,6 +140,7 @@ CREATE TABLE IF NOT EXISTS Customer (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
     );
+
 #################################################################################### MEDIA
 DROP TABLE IF EXISTS Media;
 CREATE TABLE IF NOT EXISTS Media (
@@ -172,4 +173,15 @@ CREATE TABLE IF NOT EXISTS Rental (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
     );
-#################################################################################### END
+#################################################################################### INSERT ACCOUNT TYPES
+INSERT INTO AccountType (Type) VALUES ('USER');
+INSERT INTO AccountType (Type) VALUES ('ADMIN');
+
+SELECT * FROM AccountType WHERE ID = 1;
+#################################################################################### INSERT CUSTOMERS
+INSERT INTO Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES ('dustindiaz', 'dustin123', 'Dustin', 'A.', 'Díaz', '1998-02-06', '1411 Calle Aleli Urb. Round Hill', 'Trujillo Alto', '00976', '7874782095', 2);
+INSERT INTO Customer (Username, AccountPassword, FirstName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES ('root', 'toor', 'Admin', 'Privelages', '1860-02-06', 'RA 0h 42m 44s | Dec +41° 16\' 9\"', 'Andromeda Galaxy', 'M31', 'Radio Waves', 2);
+INSERT INTO Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES ('dustin123', 'dustin123', 'Pedro', 'D.', 'Campo', '1996-12-06', 'El Campo', 'Rio Campo', '00761', '1234567890', 1);
+
+SELECT * FROM Customer;
+####################################################################################

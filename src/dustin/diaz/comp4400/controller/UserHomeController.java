@@ -76,7 +76,13 @@ public class UserHomeController implements Initializable {
             }
         });
 
-        userLabel.setText(Computer.user.getFirstName() + " " + Computer.user.getLastName());
+        userLabel.setText(
+                Styling.formatName(
+                        Computer.user.getFirstName(),
+                        Computer.user.getMiddleName(),
+                        Computer.user.getLastName()
+                )
+        );
 
         moviesVBox.setStyle(Styling.homeStyle);
         exitVBox.setStyle(Styling.homeStyle);

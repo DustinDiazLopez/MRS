@@ -34,11 +34,6 @@ public class DustinDiazCOMP4400 extends Application {
         Computer.src = new File("src").getAbsolutePath();
         Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
         Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
-        try {
-            Details.genres = QueryMovie.availableGenres();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     });
 
     public static Scene scene;

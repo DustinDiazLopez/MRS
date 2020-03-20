@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.queries;
 
 public abstract class Database {
-    public static final String DB = "rental";
+    public static final String DB = "MovieRentalSystem";
     public static final String URL = "jdbc:mysql://localhost:3306/" + DB + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 

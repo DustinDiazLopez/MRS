@@ -20,7 +20,7 @@ public abstract class QueryUser {
     public static final String updateUserByIDAndUsername = "UPDATE " + Database.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
 
     //INSERT user
-    public static final String insertUser = "INSERT INTO " + Database.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'USER');";
+    public static final String insertUser = "INSERT INTO " + Database.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1);";
 
     public static int insertUser(String username, String accountPassword, String firstName, String middleName,
                                  String lastName, String dateOfBirth, String address, String city, String zipCode,
@@ -72,12 +72,13 @@ public abstract class QueryUser {
         user.setCity(resultSet.getString("City"));
         user.setZipCode(resultSet.getString("ZipCode"));
         user.setPhone(resultSet.getString("Phone"));
-        user.setAccountType(resultSet.getString("AccountType"));
-        String s = resultSet.getString("RentedHistory");
-
-        if (s == null) s = "You haven't rented anything :(";
-
-        user.setRentedHistory(s.split(","));
+        String accType = QueryAccountType.findTypeByID(resultSet.getInt("AccountTypeID")).getType();
+        user.setAccountType(accType);
+//        String s = resultSet.getString("RentedHistory");
+//
+//        if (s == null) s = "You haven't rented anything :(";
+//
+//        user.setRentedHistory(s.split(","));
         return validate(user);
     }
 
