@@ -10,31 +10,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class QueryUser {
+
     //SELECT users
-    public static String allUsers = "SELECT * FROM rental.Customer";
-    public static String userByID = "SELECT * FROM rental.Customer WHERE ID = ?";
-    public static String userByUsername = "SELECT * FROM rental.Customer WHERE Username = ?";
+    public static final String allUsers = "SELECT * FROM " + Tables.CUSTOMER;
+    public static final String userByID = "SELECT * FROM " + Tables.CUSTOMER + " WHERE ID = ?";
+    public static final String userByUsername = "SELECT * FROM " + Tables.CUSTOMER + " WHERE Username = ?";
 
     //UPDATE user
-    public static String updateUserByIDAndUsername = "UPDATE rental.Customer SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
+    public static final String updateUserByIDAndUsername = "UPDATE " + Tables.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
 
     //INSERT user
-    public static String insertUser = "INSERT INTO rental.Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'USER');";
+    public static final String insertUser = "INSERT INTO " + Tables.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'USER');";
 
     public static int insertUser(String username, String accountPassword, String firstName, String middleName,
                                  String lastName, String dateOfBirth, String address, String city, String zipCode,
                                  String phone) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryUser.insertUser);
-        preparedStatement.setString(1, username);
-        preparedStatement.setString(2, accountPassword);
-        preparedStatement.setString(3, firstName);
-        preparedStatement.setString(4, middleName);
-        preparedStatement.setString(5, lastName);
-        preparedStatement.setString(6, dateOfBirth);
-        preparedStatement.setString(7, address);
-        preparedStatement.setString(8, city);
-        preparedStatement.setString(9, zipCode);
-        preparedStatement.setString(10, phone);
+        int i = 1;
+        preparedStatement.setString(i, username);
+        preparedStatement.setString(++i, accountPassword);
+        preparedStatement.setString(++i, firstName);
+        preparedStatement.setString(++i, middleName);
+        preparedStatement.setString(++i, lastName);
+        preparedStatement.setString(++i, dateOfBirth);
+        preparedStatement.setString(++i, address);
+        preparedStatement.setString(++i, city);
+        preparedStatement.setString(++i, zipCode);
+        preparedStatement.setString(++i, phone);
         return preparedStatement.executeUpdate();
     }
 
@@ -42,17 +44,18 @@ public abstract class QueryUser {
                                  String lastName, String dateOfBirth, String address, String city, String zipCode,
                                  String phone) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryUser.updateUserByIDAndUsername);
-        preparedStatement.setString(1, accountPassword);
-        preparedStatement.setString(2, firstName);
-        preparedStatement.setString(3, middleName);
-        preparedStatement.setString(4, lastName);
-        preparedStatement.setString(5, dateOfBirth);
-        preparedStatement.setString(6, address);
-        preparedStatement.setString(7, city);
-        preparedStatement.setString(8, zipCode);
-        preparedStatement.setString(9, phone);
-        preparedStatement.setString(10, username);
-        preparedStatement.setInt(11, id);
+        int i = 1;
+        preparedStatement.setString(i, accountPassword);
+        preparedStatement.setString(++i, firstName);
+        preparedStatement.setString(++i, middleName);
+        preparedStatement.setString(++i, lastName);
+        preparedStatement.setString(++i, dateOfBirth);
+        preparedStatement.setString(++i, address);
+        preparedStatement.setString(++i, city);
+        preparedStatement.setString(++i, zipCode);
+        preparedStatement.setString(++i, phone);
+        preparedStatement.setString(++i, username);
+        preparedStatement.setInt(++i, id);
         return preparedStatement.executeUpdate();
     }
 
@@ -72,14 +75,15 @@ public abstract class QueryUser {
         user.setAccountType(resultSet.getString("AccountType"));
         String s = resultSet.getString("RentedHistory");
 
-        if (s == null) {
-            s = "You haven't rented anything :(";
-            user.setRentedHistory(new String[]{s});
-        } else {
-            user.setRentedHistory(s.split(","));
-        }
+        if (s == null) s = "You haven't rented anything :(";
 
-        return user.getId() != 0 ? user : null;
+        user.setRentedHistory(s.split(","));
+        return validate(user);
+    }
+
+    private static User validate(User user) {
+        if (user == null) return null;
+        else return user.getId() != 0 ? user : null;
     }
 
     private static ArrayList<User> getUsers(ResultSet resultSet) throws SQLException {
@@ -105,7 +109,7 @@ public abstract class QueryUser {
         ResultSet resultSet = preparedStatement.executeQuery();
         User user = new User();
         while (resultSet.next()) user = getUser(resultSet);
-        return user;
+        return validate(user);
     }
 
     public static User findUserByID(int id) throws SQLException {
@@ -114,7 +118,7 @@ public abstract class QueryUser {
         ResultSet resultSet = preparedStatement.executeQuery();
         User user = new User();
         while (resultSet.next()) user = getUser(resultSet);
-        return user;
+        return validate(user);
     }
 
 }

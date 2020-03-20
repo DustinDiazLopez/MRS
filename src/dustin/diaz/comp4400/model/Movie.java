@@ -9,7 +9,7 @@ public class Movie {
     String[] directors;
     String[] writers;
     Date releaseDate;
-    String genre;
+    String[] genres;
     String runTime;
     String rated;
     String[] cast;
@@ -18,14 +18,14 @@ public class Movie {
 
     public Movie() {}
 
-    public Movie(int id, String title, String[] directors, String[] writers, Date releaseDate, String genre,
+    public Movie(int id, String title, String[] directors, String[] writers, Date releaseDate, String[] genres,
                  String runTime, String rated, String[] cast, String rating, String fileName) {
         this.id = id;
         this.title = title;
         this.directors = directors;
         this.writers = writers;
         this.releaseDate = releaseDate;
-        this.genre = genre;
+        this.genres = genres;
         this.runTime = runTime;
         this.rated = rated;
         this.cast = cast;
@@ -73,12 +73,12 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
-    public String getGenre() {
-        return genre;
+    public String[] getGenres() {
+        return genres;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenres(String[] genres) {
+        this.genres = genres;
     }
 
     public String getRunTime() {
@@ -129,7 +129,7 @@ public class Movie {
                 ", directors=" + Arrays.toString(directors) +
                 ", writers=" + Arrays.toString(writers) +
                 ", releaseDate=" + releaseDate +
-                ", genre='" + genre + '\'' +
+                ", genres=" + Arrays.toString(genres) +
                 ", runTime='" + runTime + '\'' +
                 ", rated='" + rated + '\'' +
                 ", cast=" + Arrays.toString(cast) +

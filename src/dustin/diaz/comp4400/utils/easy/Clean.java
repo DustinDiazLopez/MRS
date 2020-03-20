@@ -4,9 +4,14 @@ import java.io.*;
 
 public class Clean {
     public static void main(String[] args) throws IOException {
-        File fileName = new File("src/dustin/diaz/comp4400/utils/easy/movies.txt");
+        File fileName = new File("src/SQL/new.sql");
         String newText = txt(fileName.getAbsolutePath());
-        System.out.println(newText);
+        System.out.println(newText
+                .replaceAll("fk", "FK")
+                .replaceAll("1", "")
+                .replaceAll("_has_", "_")
+                .replaceAll("45", "70")
+        );
         //txt(fileName, newText);
     }
 

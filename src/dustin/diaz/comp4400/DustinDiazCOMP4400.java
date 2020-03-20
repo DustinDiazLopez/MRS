@@ -1,6 +1,8 @@
 package dustin.diaz.comp4400;
 
+import dustin.diaz.comp4400.queries.QueryMovie;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Details;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DustinDiazCOMP4400 extends Application {
 
@@ -32,6 +35,11 @@ public class DustinDiazCOMP4400 extends Application {
         Computer.src = new File("src").getAbsolutePath();
         Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
         Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
+        try {
+            Details.genres = QueryMovie.availableGenres();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     });
 
     public static Scene scene;

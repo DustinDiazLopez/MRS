@@ -22,7 +22,7 @@ CREATE TABLE Customer(
 DROP TABLE IF EXISTS Movie;
 CREATE TABLE Movie(
 	ID          INT          NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    Title       VARCHAR(70)  NOT NULL,
+    Title       VARCHAR(70)  NOT NULL UNIQUE,
 	Directors   TEXT         NOT NULL,
 	Writers     TEXT         NOT NULL,
     ReleaseDate VARCHAR(70)	 NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE Rental(
     TotalDays   INT,
 	TotalCost   FLOAT,
     CONSTRAINT FK_CustomerID FOREIGN KEY (CustomerID) REFERENCES Customer(ID),
-    CONSTRAINT FK_MovieID FOREIGN KEY (MovieID) REFERENCES Movie(ID)
+    CONSTRAINT FK_MovieID FOREIGN KEY (MovieID) REFERENCES Movie(ID),
 );
 
 INSERT INTO Customer (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES ('dustindiaz', 'dustin123', 'Dustin', 'A.', 'Díaz', '1998-02-06', '1411 Calle Aleli Urb. Round Hill', 'Trujillo Alto', '00976', '7874782095', 'ADMIN');

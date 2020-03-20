@@ -13,11 +13,11 @@ import java.util.HashSet;
 
 public abstract class QueryMovie {
     //SELECT movies
-    public static String allMovies = "SELECT * FROM rental.Movie";
-    public static String movieByID = "SELECT * FROM rental.Movie WHERE ID = ?";
+    public static final String allMovies = "SELECT * FROM " + Tables.MOVIE;
+    public static final String movieByID = "SELECT * FROM " + Tables.MOVIE + " WHERE ID = ?";
 
     //INSERT movie
-    public static String insertMovie = "INSERT INTO rental.Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public static final String insertMovie = "INSERT INTO " + Tables.MOVIE + " (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static Movie getMovie(ResultSet resultSet) throws SQLException {
         Movie movie = new Movie();
@@ -26,7 +26,7 @@ public abstract class QueryMovie {
         movie.setDirectors(resultSet.getString("Directors").split(","));
         movie.setWriters(resultSet.getString("Writers").split(","));
         movie.setReleaseDate(Date.valueOf(resultSet.getString("ReleaseDate")));
-        movie.setGenre(resultSet.getString("Genre"));
+        movie.setGenres(resultSet.getString("Genre").split(","));
         movie.setRunTime(resultSet.getString("RunTime"));
         movie.setRated(resultSet.getString("Rated"));
         movie.setCast(resultSet.getString("Cast").split(","));
@@ -48,8 +48,8 @@ public abstract class QueryMovie {
 
     public static HashSet<String> availableGenres() throws SQLException {
         HashSet<String> set = new HashSet<>();
-        QueryMovie.findAllMovies().forEach(e -> set.addAll(Arrays.asList(e.getGenre().split(","))));
-        return set;
+        QueryMovie.findAllMovies().forEach(e -> set.addAll(Arrays.asList(e.getGenres())));
+        return !set.isEmpty() ? set : null;
     }
 
     public static ArrayList<Movie> findAllMovies() throws SQLException {
