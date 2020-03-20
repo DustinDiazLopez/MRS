@@ -31,18 +31,23 @@ public class Styling {
                     "-fx-border-radius: 5;" +
                     "-fx-border-color: blue;";
 
-    public static String formatName(String... strings) {
+    public static String formatNames(String... strings) {
         StringBuilder builder = new StringBuilder();
 
         for (String string : strings) {
-            if (string.trim().isEmpty()) continue;
-            String original = String.valueOf(string.toCharArray()[0]);
-            String first = original.toUpperCase();
-            String name = string.replace(original, "").toLowerCase();
-            builder.append(first).append(name).append(" ");
+            String name = capitalize(string);
+            if (name.trim().isEmpty()) continue;
+            builder.append(name).append(" ");
         }
 
         return builder.toString().trim();
+    }
+
+    public static String capitalize(String string) {
+        if (string.trim().isEmpty()) return string;
+        String firstChar = String.valueOf(string.charAt(0));
+        String name = string.replaceFirst(firstChar, "").toLowerCase();
+        return firstChar.toUpperCase() + name;
     }
 
 }

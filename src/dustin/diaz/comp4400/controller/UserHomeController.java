@@ -77,7 +77,7 @@ public class UserHomeController implements Initializable {
         });
 
         userLabel.setText(
-                Styling.formatName(
+                Styling.formatNames(
                         Computer.user.getFirstName(),
                         Computer.user.getMiddleName(),
                         Computer.user.getLastName()
