@@ -13,11 +13,11 @@ import java.util.HashSet;
 
 public abstract class QueryMovie {
     //SELECT movies
-    public static final String allMovies = "SELECT * FROM " + Tables.MOVIE;
-    public static final String movieByID = "SELECT * FROM " + Tables.MOVIE + " WHERE ID = ?";
+    public static final String allMovies = "SELECT * FROM " + Database.MOVIE;
+    public static final String movieByID = "SELECT * FROM " + Database.MOVIE + " WHERE ID = ?";
 
     //INSERT movie
-    public static final String insertMovie = "INSERT INTO " + Tables.MOVIE + " (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public static final String insertMovie = "INSERT INTO " + Database.MOVIE + " (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static Movie getMovie(ResultSet resultSet) throws SQLException {
         Movie movie = new Movie();

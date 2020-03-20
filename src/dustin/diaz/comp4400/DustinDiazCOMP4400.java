@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400;
 
 import dustin.diaz.comp4400.queries.QueryMovie;
+import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Details;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
@@ -18,15 +19,13 @@ import java.sql.SQLException;
 
 public class DustinDiazCOMP4400 extends Application {
 
-    private static String url = "jdbc:mysql://localhost:3306/rental?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private static String driver = "com.mysql.cj.jdbc.Driver";
-    private static String username = "root";
-    private static String password = "s0m3t1m3s1h@t3p@ssw0rds";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
 
     private Thread connect = new Thread(() -> {
         try {
-            Class.forName(driver);
-            Computer.connection = DriverManager.getConnection(url, username, password);
+            Class.forName(Database.DRIVER);
+            Computer.connection = DriverManager.getConnection(Database.URL, USERNAME, PASSWORD);
         } catch (Exception e) {
             ConfirmBox.display("DB Connection", "Could not establish connection to database.");
             e.printStackTrace();

@@ -12,15 +12,15 @@ import java.util.ArrayList;
 public abstract class QueryUser {
 
     //SELECT users
-    public static final String allUsers = "SELECT * FROM " + Tables.CUSTOMER;
-    public static final String userByID = "SELECT * FROM " + Tables.CUSTOMER + " WHERE ID = ?";
-    public static final String userByUsername = "SELECT * FROM " + Tables.CUSTOMER + " WHERE Username = ?";
+    public static final String allUsers = "SELECT * FROM " + Database.CUSTOMER;
+    public static final String userByID = "SELECT * FROM " + Database.CUSTOMER + " WHERE ID = ?";
+    public static final String userByUsername = "SELECT * FROM " + Database.CUSTOMER + " WHERE Username = ?";
 
     //UPDATE user
-    public static final String updateUserByIDAndUsername = "UPDATE " + Tables.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
+    public static final String updateUserByIDAndUsername = "UPDATE " + Database.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
 
     //INSERT user
-    public static final String insertUser = "INSERT INTO " + Tables.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'USER');";
+    public static final String insertUser = "INSERT INTO " + Database.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'USER');";
 
     public static int insertUser(String username, String accountPassword, String firstName, String middleName,
                                  String lastName, String dateOfBirth, String address, String city, String zipCode,
