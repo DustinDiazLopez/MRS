@@ -125,6 +125,7 @@ public class controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        borderPane.setMinSize(1100.0, 900.0);
         File file = new File("src/Images/icons/app/012-line.png");
         Image image = new Image(file.toURI().toString());
         loginImage.setImage(image);

@@ -5,6 +5,7 @@ import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
+import dustin.diaz.comp4400.view.boxes.ChooseBox;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -50,6 +52,7 @@ public class CustomerTableController implements Initializable {
 
     public void updateTable() {
         try {
+            tableView.getItems().clear();
             tableView.getItems().addAll(QueryCustomer.findAll());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,11 +61,17 @@ public class CustomerTableController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            Computer.customer = QueryCustomer.find(Computer.customer.getId());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        borderPane.setMinSize(1100.0, 900.0);
+
         tableView.getColumns().clear();
 
-        refreshBtn.setOnMousePressed(e -> {
-            updateTable();
-        });
+        refreshBtn.setOnMousePressed(e -> updateTable());
 
         refreshBtn.setOnKeyPressed(e -> {
             if (e.getCode().toString().equals("ENTER")) refreshBtn.fire();
@@ -148,6 +157,8 @@ public class CustomerTableController implements Initializable {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+
+                updateTable();
             }
         });
 
@@ -156,6 +167,20 @@ public class CustomerTableController implements Initializable {
         });
 
         tableView.setOnMousePressed(e -> selected = (Customer) tableView.getSelectionModel().getSelectedItem());
+
+        tableView.setOnMouseClicked(event -> {
+            if (event.getButton().equals(MouseButton.SECONDARY)) {
+                String choice = ChooseBox.display(selected.getUsername());
+                System.out.println(choice);
+                if (choice.equals("Edit")) {
+                    System.out.println("hello");
+                    editButton.fire();
+                } else if (choice.equals("Delete")) deleteButton.fire();
+            } else if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                System.out.println("hello");
+                editButton.fire();
+            }
+        });
 
         tableView.setPlaceholder(new Label("No customers to display."));
 
