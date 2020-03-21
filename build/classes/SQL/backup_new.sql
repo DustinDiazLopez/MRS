@@ -739,6 +739,15 @@ INSERT INTO MovieRental (MovieID, RentalID) VALUES (5, 2);
 
 SELECT * FROM MovieRental ORDER BY MovieID ASC;
 
+#################################################################################### SELECT JOINS
+
+##### Customer and AccountType (ROLE) #####
+SELECT c.ID, c.Username, c.AccountPassword, a.Type AS AccountType, c.FirstName, c.MiddleName, c.LastName, c.DateOfBirth,
+c.Address, c.City, c.ZipCode, c.Phone FROM Customers c INNER JOIN AccountTypes a ON (c.AccountTypeID = a.ID)
+
+##### table and table #####
+
+
 #################################################################################### SELECT * Tables
 SELECT * FROM AccountTypes;
 SELECT * FROM Customers;
@@ -754,8 +763,3 @@ SELECT * FROM MovieCast ORDER BY MovieID ASC;
 SELECT * FROM Medias;
 SELECT * FROM Rentals;
 SELECT * FROM MovieRental ORDER BY MovieID ASC;
-
-#################################################################################### SELECT JOINS
-# Customer and AccountType (ROLE)
-SELECT c.ID, c.Username, c.AccountPassword, a.Type AS AccountType, c.FirstName, c.MiddleName, c.LastName, c.DateOfBirth, c.Address, c.City, c.ZipCode, c.Phone FROM Customers c INNER JOIN AccountTypes a ON (c.AccountTypeID = a.ID)
-
