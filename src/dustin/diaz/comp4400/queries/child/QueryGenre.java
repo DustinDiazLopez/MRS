@@ -1,7 +1,9 @@
 package dustin.diaz.comp4400.queries.child;
 
 import dustin.diaz.comp4400.model.child.Genres;
+import dustin.diaz.comp4400.model.connector.MovieGenres;
 import dustin.diaz.comp4400.queries.Database;
+import dustin.diaz.comp4400.queries.connectors.QueryMovieGenre;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;
@@ -77,6 +79,16 @@ public abstract class QueryGenre {
         Genres director = new Genres();
         while (resultSet.next()) director = getGenre(resultSet);
         return validate(director);
+    }
+
+    public static ArrayList<Genres> get(int movieId) throws SQLException {
+        ArrayList<MovieGenres> list = QueryMovieGenre.findByMovieID(movieId);
+        if (list == null) return null;
+        ArrayList<Genres> directors = new ArrayList<>();
+        for (MovieGenres md : list) {
+            directors.add(findGenre(md.getGenreId()));
+        }
+        return directors;
     }
 
     //Duplicate entry throw

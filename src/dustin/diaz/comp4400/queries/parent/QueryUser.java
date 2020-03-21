@@ -28,7 +28,7 @@ public abstract class QueryUser {
     public static int insertUser(String username, String accountPassword, String firstName, String middleName,
                                  String lastName, String dateOfBirth, String address, String city, String zipCode,
                                  String phone) throws SQLException {
-        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryUser.insertUser);
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertUser);
         int i = 1;
         preparedStatement.setString(i, username);
         preparedStatement.setString(++i, accountPassword);
@@ -46,7 +46,7 @@ public abstract class QueryUser {
     public static int updateUser(int id, String username, String accountPassword, String firstName, String middleName,
                                  String lastName, String dateOfBirth, String address, String city, String zipCode,
                                  String phone) throws SQLException {
-        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryUser.updateUserByIDAndUsername);
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(updateUserByIDAndUsername);
         int i = 1;
         preparedStatement.setString(i, accountPassword);
         preparedStatement.setString(++i, firstName);
@@ -102,13 +102,13 @@ public abstract class QueryUser {
     }
 
     public static ArrayList<User> findAllUsers() throws SQLException {
-        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryUser.allUsers);
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(allUsers);
         ResultSet resultSet = preparedStatement.executeQuery();
         return getUsers(resultSet);
     }
 
     public static User findUserByUsername(String username) throws SQLException {
-        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryUser.userByUsername);
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(userByUsername);
         preparedStatement.setString(1, username);
         ResultSet resultSet = preparedStatement.executeQuery();
         User user = new User();
@@ -117,7 +117,7 @@ public abstract class QueryUser {
     }
 
     public static User findUserByID(int id) throws SQLException {
-        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryUser.userByID);
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(userByID);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         User user = new User();

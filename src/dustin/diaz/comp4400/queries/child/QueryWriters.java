@@ -1,7 +1,9 @@
 package dustin.diaz.comp4400.queries.child;
 
 import dustin.diaz.comp4400.model.child.Writers;
+import dustin.diaz.comp4400.model.connector.MovieWriters;
 import dustin.diaz.comp4400.queries.Database;
+import dustin.diaz.comp4400.queries.connectors.QueryMovieWriters;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;
@@ -77,6 +79,16 @@ public abstract class QueryWriters {
         Writers director = new Writers();
         while (resultSet.next()) director = getWriter(resultSet);
         return validate(director);
+    }
+
+    public static ArrayList<Writers> get(int movieId) throws SQLException {
+        ArrayList<MovieWriters> list = QueryMovieWriters.findByMovieID(movieId);
+        if (list == null) return null;
+        ArrayList<Writers> directors = new ArrayList<>();
+        for (MovieWriters md : list) {
+            directors.add(findWriter(md.getWriterId()));
+        }
+        return directors;
     }
 
     //Duplicate entry throw

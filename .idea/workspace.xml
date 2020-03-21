@@ -1,48 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/connectors/QueryMovieCast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/connectors/QueryMovieDirector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/connectors/QueryMovieGenre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/connectors/QueryMovieWriters.java" afterDir="false" />
+    <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="Query Connector Classes for Movie:&#10;     Cast&#10;     Writer&#10;     Director&#10;     Genre">
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/child/AccountType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/child/Cast.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/child/Directors.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/child/Genres.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/child/Medias.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/child/Writers.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/connector/MovieCast.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/connector/MovieDirectors.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/connector/MovieGenres.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/connector/MovieRental.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/connector/MovieWriters.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/parent/Movie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/parent/Rental.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/parent/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/child/QueryAccountType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/child/QueryCast.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/child/QueryDirectors.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/child/QueryGenre.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/child/QueryMedias.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/child/QueryWriters.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/connectors/QueryMovieCast.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/connectors/QueryMovieDirector.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/connectors/QueryMovieGenre.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/connectors/QueryMovieWriters.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/parent/QueryMovie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/parent/QueryRental.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/parent/QueryUser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/connectors/QueryMovieRental.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/controller/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/controller/controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/model/Movie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/model/Rental.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/utils/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/utils/Computer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/UpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/UserHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/AccountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/child/AccountType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Cast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/child/Cast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Directors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/child/Directors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Genres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/child/Genres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Medias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/child/Medias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/parent/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/MovieCast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/connector/MovieCast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/MovieDirectors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/connector/MovieDirectors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/MovieGenres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/connector/MovieGenres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/MovieRental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/connector/MovieRental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/MovieWriters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/connector/MovieWriters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/parent/Rental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/parent/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Writers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/child/Writers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryAccountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryAccountType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryCast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryCast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryDirectors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryDirectors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryGenre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryGenre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryMedias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryMedias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryMovie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryRental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryRental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryWriters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryWriters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/Test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/utils/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/utils/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/DustinDiazCOMP4400.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/DustinDiazCOMP4400.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/AdminHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/AdminHomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/UpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/UpdateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/UserHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/UserHomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/controller/controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/AccountType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Cast.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Directors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Genres.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Medias.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/MovieCast.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/MovieDirectors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/MovieGenres.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/MovieRental.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/MovieWriters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Rental.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Writers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryAccountType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryCast.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryDirectors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryGenre.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryMedias.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryMovie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryRental.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryWriters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/Test/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/utils/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/utils/Computer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jnlp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/new.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/parent/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/parent/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryCast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryCast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryDirectors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryDirectors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryGenre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryGenre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryWriters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/child/QueryWriters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryMovie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +143,7 @@
       <recent name="C:\Users\Dustin\Desktop\Ene - May 2020\2 COMP4400 System Development and Implementation\Dustin-Diaz-COMP4400\src\dustin\diaz\comp4400\view\user" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.DustinDiazCOMP4400">
     <configuration name="DustinDiazCOMP4400" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dustin.diaz.comp4400.DustinDiazCOMP4400" />
       <module name="Dustin-Diaz-COMP4400" />
@@ -143,8 +176,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.DustinDiazCOMP4400" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584770518983</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Query Connector Classes for Movie:&#10;     Cast&#10;     Writer&#10;     Director&#10;     Genre">
+      <created>1584775458992</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1584775458992</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -280,7 +320,8 @@
     <MESSAGE value="refactored code&#10;refactored database" />
     <MESSAGE value="Query Classes for:&#10;Cast&#10;Writer&#10;Director&#10;Account Type&#10;Genre" />
     <MESSAGE value="Query Classes for:&#10;     Cast&#10;     Writer&#10;     Director&#10;     Account Type&#10;     Genre&#10;     Medias&#10;Added tests for the before mentioned" />
-    <option name="LAST_COMMIT_MESSAGE" value="Query Classes for:&#10;     Cast&#10;     Writer&#10;     Director&#10;     Account Type&#10;     Genre&#10;     Medias&#10;Added tests for the before mentioned" />
+    <MESSAGE value="Query Connector Classes for Movie:&#10;     Cast&#10;     Writer&#10;     Director&#10;     Genre" />
+    <option name="LAST_COMMIT_MESSAGE" value="Query Connector Classes for Movie:&#10;     Cast&#10;     Writer&#10;     Director&#10;     Genre" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -295,12 +336,12 @@
     </state>
     <state x="1016" y="266" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1584756802168" />
     <state x="1820" y="359" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584740790214" />
-    <state x="711" y="361" key="#com.intellij.ide.util.MemberChooser" timestamp="1584767226929">
+    <state x="711" y="361" key="#com.intellij.ide.util.MemberChooser" timestamp="1584777545168">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="397" y="193" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584758194296" />
     <state x="-1424" y="298" key="#com.intellij.ide.util.MemberChooser/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583858311392" />
-    <state x="711" y="361" key="#com.intellij.ide.util.MemberChooser/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584767226929" />
+    <state x="711" y="361" key="#com.intellij.ide.util.MemberChooser/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584777545168" />
     <state x="1571" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584735979705">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
@@ -313,11 +354,11 @@
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="500" y="273" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584773502177" />
-    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584768768861">
+    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584779295073">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="-1322" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583855539932" />
-    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584768768861" />
+    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584779295073" />
     <state x="883" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583810575209">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -326,11 +367,11 @@
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="1620" y="303" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584590700099" />
-    <state x="357" y="189" key="CommitChangelistDialog2" timestamp="1584770517039">
+    <state x="357" y="162" key="CommitChangelistDialog2" timestamp="1584782088847">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="-1517" y="257" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583865930844" />
-    <state x="357" y="189" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584770517039" />
+    <state x="357" y="162" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584782088847" />
     <state x="299" y="67" key="DBNavigator.ProjectSettingsDialog" timestamp="1584702303177">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -340,30 +381,30 @@
     </state>
     <state x="340" y="278" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584702627754" />
     <state x="610" y="419" key="FileChooserDialogImpl/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1583805143949" />
-    <state width="1645" height="298" key="GridCell.Tab.0.bottom" timestamp="1584775393118">
+    <state width="1645" height="298" key="GridCell.Tab.0.bottom" timestamp="1584782196181">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584775393118" />
-    <state width="1645" height="298" key="GridCell.Tab.0.center" timestamp="1584775393118">
+    <state width="1645" height="298" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584782196181" />
+    <state width="1645" height="298" key="GridCell.Tab.0.center" timestamp="1584782196181">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584775393118" />
-    <state width="1645" height="298" key="GridCell.Tab.0.left" timestamp="1584775393118">
+    <state width="1645" height="298" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584782196181" />
+    <state width="1645" height="298" key="GridCell.Tab.0.left" timestamp="1584782196181">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584775393118" />
-    <state width="1645" height="298" key="GridCell.Tab.0.right" timestamp="1584775393118">
+    <state width="1645" height="298" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584782196181" />
+    <state width="1645" height="298" key="GridCell.Tab.0.right" timestamp="1584782196181">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584775393118" />
+    <state width="1645" height="298" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584782196181" />
     <state width="1645" height="373" key="GridCell.Tab.1.bottom" timestamp="1584772143349">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
@@ -384,11 +425,15 @@
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="386" y="252" key="SettingsEditor/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1583805146918" />
-    <state x="791" y="281" key="Vcs.Push.Dialog.v2" timestamp="1584770520421">
+    <state x="791" y="281" key="Vcs.Push.Dialog.v2" timestamp="1584775461333">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="-1368" y="273" key="Vcs.Push.Dialog.v2/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583865934470" />
-    <state x="791" y="281" key="Vcs.Push.Dialog.v2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584770520421" />
+    <state x="791" y="281" key="Vcs.Push.Dialog.v2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584775461333" />
+    <state x="1717" y="473" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584782057071">
+      <screen x="0" y="0" width="2752" height="1112" />
+    </state>
+    <state x="1717" y="473" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584782057071" />
     <state x="1496" y="185" key="refactoring.ChangeSignatureDialog" timestamp="1584775324052">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>

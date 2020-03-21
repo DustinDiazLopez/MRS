@@ -2,10 +2,8 @@ package dustin.diaz.comp4400.queries;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.queries.child.*;
-import dustin.diaz.comp4400.queries.connectors.QueryMovieCast;
-import dustin.diaz.comp4400.queries.connectors.QueryMovieDirector;
-import dustin.diaz.comp4400.queries.connectors.QueryMovieGenre;
-import dustin.diaz.comp4400.queries.connectors.QueryMovieWriters;
+import dustin.diaz.comp4400.queries.connectors.*;
+import dustin.diaz.comp4400.queries.parent.QueryMovie;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.DriverManager;
@@ -33,6 +31,8 @@ public class Test {
         System.out.println(QueryMovieWriters.test() ? "\t+ Query Table Movie-Writers Tests PASSED!" : "\t\t- Query Table Movie-Writers Tests FAILED!");
         System.out.println(QueryMovieCast.test() ? "\t+ Query Table Movie-Cast Tests PASSED!" : "\t\t- Query Table Movie-Cast Tests FAILED!");
         System.out.println(QueryMovieGenre.test() ? "\t+ Query Table Movie-Genre Tests PASSED!" : "\t\t- Query Table Movie-Genre Tests FAILED!");
+        System.out.println(QueryMovieRental.test() ? "\t+ Query Table Movie-Rental Tests PASSED!" : "\t\t- Query Table Movie-Rental Tests FAILED!");
+        System.out.println(QueryMovie.test() ? "\t+ Query Table Movie Tests PASSED!" : "\t\t- Query Table Movie Tests FAILED!");
         System.out.println("}");
         Computer.connection.close();
         System.out.println("Testing was completed and the connection was closed.");

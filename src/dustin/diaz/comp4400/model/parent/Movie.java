@@ -1,25 +1,41 @@
 package dustin.diaz.comp4400.model.parent;
 
+import dustin.diaz.comp4400.model.child.Cast;
+import dustin.diaz.comp4400.model.child.Directors;
+import dustin.diaz.comp4400.model.child.Genres;
+import dustin.diaz.comp4400.model.child.Writers;
+
 import java.sql.Date;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Movie {
     private int id;
     String title;
-    String[] directors;
-    String[] writers;
+    ArrayList<Directors> directors;
+    ArrayList<Writers> writers;
     Date releaseDate;
-    String[] genres;
+    ArrayList<Genres> genres;
     String runTime;
     String rated;
-    String[] cast;
+    ArrayList<Cast> cast;
     String rating;
     String fileName;
 
-    public Movie() {}
+    public Movie() {
+    }
 
-    public Movie(int id, String title, String[] directors, String[] writers, Date releaseDate, String[] genres,
-                 String runTime, String rated, String[] cast, String rating, String fileName) {
+    public Movie(String title, Date releaseDate, String runTime, String rated, String rating, String fileName) {
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.runTime = runTime;
+        this.rated = rated;
+        this.rating = rating;
+        this.fileName = fileName;
+    }
+
+    public Movie(int id, String title, ArrayList<Directors> directors, ArrayList<Writers> writers, Date releaseDate,
+                 ArrayList<Genres> genres, String runTime, String rated, ArrayList<Cast> cast, String rating,
+                 String fileName) {
         this.id = id;
         this.title = title;
         this.directors = directors;
@@ -49,19 +65,19 @@ public class Movie {
         this.title = title;
     }
 
-    public String[] getDirectors() {
+    public ArrayList<Directors> getDirectors() {
         return directors;
     }
 
-    public void setDirectors(String[] directors) {
+    public void setDirectors(ArrayList<Directors> directors) {
         this.directors = directors;
     }
 
-    public String[] getWriters() {
+    public ArrayList<Writers> getWriters() {
         return writers;
     }
 
-    public void setWriters(String[] writers) {
+    public void setWriters(ArrayList<Writers> writers) {
         this.writers = writers;
     }
 
@@ -73,11 +89,11 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
-    public String[] getGenres() {
+    public ArrayList<Genres> getGenres() {
         return genres;
     }
 
-    public void setGenres(String[] genres) {
+    public void setGenres(ArrayList<Genres> genres) {
         this.genres = genres;
     }
 
@@ -97,11 +113,11 @@ public class Movie {
         this.rated = rated;
     }
 
-    public String[] getCast() {
+    public ArrayList<Cast> getCast() {
         return cast;
     }
 
-    public void setCast(String[] cast) {
+    public void setCast(ArrayList<Cast> cast) {
         this.cast = cast;
     }
 
@@ -126,13 +142,13 @@ public class Movie {
         return "Movie{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", directors=" + Arrays.toString(directors) +
-                ", writers=" + Arrays.toString(writers) +
+                ", directors=" + directors +
+                ", writers=" + writers +
                 ", releaseDate=" + releaseDate +
-                ", genres=" + Arrays.toString(genres) +
+                ", genres=" + genres +
                 ", runTime='" + runTime + '\'' +
                 ", rated='" + rated + '\'' +
-                ", cast=" + Arrays.toString(cast) +
+                ", cast=" + cast +
                 ", rating='" + rating + '\'' +
                 ", fileName='" + fileName + '\'' +
                 '}';

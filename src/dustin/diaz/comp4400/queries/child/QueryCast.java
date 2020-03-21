@@ -1,7 +1,9 @@
 package dustin.diaz.comp4400.queries.child;
 
 import dustin.diaz.comp4400.model.child.Cast;
+import dustin.diaz.comp4400.model.connector.MovieCast;
 import dustin.diaz.comp4400.queries.Database;
+import dustin.diaz.comp4400.queries.connectors.QueryMovieCast;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;
@@ -77,6 +79,16 @@ public abstract class QueryCast {
         Cast director = new Cast();
         while (resultSet.next()) director = getCast(resultSet);
         return validate(director);
+    }
+
+    public static ArrayList<Cast> get(int movieId) throws SQLException {
+        ArrayList<MovieCast> list = QueryMovieCast.findByMovieID(movieId);
+        if (list == null) return null;
+        ArrayList<Cast> directors = new ArrayList<>();
+        for (MovieCast md : list) {
+            directors.add(findCast(md.getCastId()));
+        }
+        return directors;
     }
 
     //Duplicate entry throw
