@@ -745,7 +745,7 @@ SELECT * FROM MovieRental ORDER BY MovieID ASC;
 SELECT c.ID, c.Username, c.AccountPassword, a.Type AS AccountType, c.FirstName, c.MiddleName, c.LastName, c.DateOfBirth,
 c.Address, c.City, c.ZipCode, c.Phone FROM Customers c INNER JOIN AccountTypes a ON (c.AccountTypeID = a.ID)
 
-##### table and table (ROLE) #####
+##### table and table #####
 
 
 #################################################################################### SELECT * Tables

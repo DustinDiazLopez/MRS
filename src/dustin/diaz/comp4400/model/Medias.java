@@ -1,14 +1,22 @@
 package dustin.diaz.comp4400.model;
 
 public class Medias {
-    public Media media;
+    public String media;
     private int id;
 
     public Medias() {
     }
 
-    public Medias(int id, Media media) {
+    public Medias(String media, int id) {
+        this.media = media;
         this.id = id;
+    }
+
+    public String getMedia() {
+        return media;
+    }
+
+    public void setMedia(String media) {
         this.media = media;
     }
 
@@ -20,24 +28,11 @@ public class Medias {
         this.id = id;
     }
 
-    public Media getMedia() {
-        return media;
-    }
-
-    public void setMedia(Media media) {
-        this.media = media;
-    }
-
     @Override
     public String toString() {
         return "Medias{" +
                 "id=" + id +
                 ", media=" + media +
                 '}';
-    }
-
-    public enum Media {
-        DVD,
-        BLU_RAY
     }
 }

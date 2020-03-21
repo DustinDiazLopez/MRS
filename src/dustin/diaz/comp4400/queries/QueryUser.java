@@ -3,7 +3,6 @@ package dustin.diaz.comp4400.queries;
 import dustin.diaz.comp4400.model.User;
 import dustin.diaz.comp4400.utils.Computer;
 
-import javax.xml.crypto.Data;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,7 +73,7 @@ public abstract class QueryUser {
         user.setCity(resultSet.getString("City"));
         user.setZipCode(resultSet.getString("ZipCode"));
         user.setPhone(resultSet.getString("Phone"));
-        String accType = QueryAccountType.findTypeByID(resultSet.getInt("AccountTypeID")).getType();
+        String accType = QueryAccountType.findType(resultSet.getInt("AccountTypeID")).getType();
         user.setAccountType(accType);
 //        String s = resultSet.getString("RentedHistory");
 //

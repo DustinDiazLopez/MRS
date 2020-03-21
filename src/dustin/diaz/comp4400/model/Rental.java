@@ -6,7 +6,7 @@ public class Rental {
     private int id;
     private int customerId;
     private Movie movie;
-    private Medias.Media media;
+    private String media;
     private Date rentedOn;
     private Date returnedOn;
     private boolean returned;
@@ -16,8 +16,8 @@ public class Rental {
     public Rental() {
     }
 
-    public Rental(int id, int customerId, Movie movie, Medias.Media media, Date rentedOn, Date returnedOn,
-                  boolean returned, int totalDays, float totalCost) {
+    public Rental(int id, int customerId, Movie movie, String media, Date rentedOn, Date returnedOn, boolean returned,
+                  int totalDays, float totalCost) {
         this.id = id;
         this.customerId = customerId;
         this.movie = movie;
@@ -53,11 +53,11 @@ public class Rental {
         this.movie = movie;
     }
 
-    public Medias.Media getMedia() {
+    public String getMedia() {
         return media;
     }
 
-    public void setMedia(Medias.Media media) {
+    public void setMedia(String media) {
         this.media = media;
     }
 

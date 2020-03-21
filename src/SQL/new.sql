@@ -93,7 +93,8 @@ DROP TABLE IF EXISTS Writers;
 CREATE TABLE IF NOT EXISTS Writers (
   ID INT NOT NULL AUTO_INCREMENT,
   Name VARCHAR(70) NULL,
-  PRIMARY KEY (ID)
+  PRIMARY KEY (ID),
+  UNIQUE INDEX Name_UNIQUE (Name ASC) VISIBLE
 );
 
 #################################################################################### Table MovieWriters

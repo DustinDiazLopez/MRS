@@ -1,9 +1,7 @@
 package dustin.diaz.comp4400;
 
-import dustin.diaz.comp4400.queries.QueryMovie;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
-import dustin.diaz.comp4400.utils.Details;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,14 +13,13 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DustinDiazCOMP4400 extends Application {
 
     private static final String USERNAME = "root";
     private static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
 
-    private Thread connect = new Thread(() -> {
+    public static Thread connect = new Thread(() -> {
         try {
             Class.forName(Database.DRIVER);
             Computer.connection = DriverManager.getConnection(Database.URL, USERNAME, PASSWORD);
