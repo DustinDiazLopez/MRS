@@ -21,6 +21,7 @@ public abstract class QueryRental {
     //SELECT movies
     public static final String allRentals = "SELECT * FROM " + Database.RENTAL;
     public static final String rentalByID = "SELECT * FROM " + Database.RENTAL + " WHERE ID = ?";
+    public static final String rentalByCustomerID = "SELECT * FROM " + Database.RENTAL + " WHERE CustomerID = ?";
 
     //UPDATE
     public static final String updateRentalByID = "UPDATE " + Database.RENTAL + " SET Returned = ?, ReturnedOn = ?, TotalDays = ?, TotalCost = ? WHERE ID = ? AND CustomerID = ?";
@@ -108,6 +109,13 @@ public abstract class QueryRental {
         return validate(rental);
     }
 
+    public static ArrayList<Rental> findAllByCustomerId(int customerId) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryRental.rentalByCustomerID);
+        preparedStatement.setInt(1, customerId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return getRentals(resultSet);
+    }
+
     private static Rental validate(Rental movie) {
         if (movie == null) return null;
         return movie.getId() != 0 ? movie : null;
@@ -117,7 +125,7 @@ public abstract class QueryRental {
         ArrayList<Rental> rentals = findAll();
         int testNumber = 1;
         if (rentals.size() != 2) {
-            error(testNumber, "[...] size: " + rentals.size(), "2");
+            error(testNumber, "[...] size: " + rentals.size(), "2 (reset db)");
             return false;
         }
 
@@ -146,7 +154,7 @@ public abstract class QueryRental {
         testNumber++;
         test = update(rentals.size() + 1, 3, false, Date.valueOf("2020-3-21"), 10, 30);
         if (test != 1) {
-            error(testNumber, "UPDATE", "Couldn't update value");
+            error(testNumber, "UPDATE", "Couldn't update value (reset db)");
             return false;
         }
 
@@ -154,6 +162,13 @@ public abstract class QueryRental {
         testNumber++;
         test = delete(rentals.size() + 1);
         if (test != 1) {
+            error(testNumber, "DELETE", "Couldn't delete value");
+            return false;
+        }
+
+        testNumber++;
+        rentals = findAllByCustomerId(3);
+        if (rentals.size() != 2) {
             error(testNumber, "DELETE", "Couldn't delete value");
             return false;
         }

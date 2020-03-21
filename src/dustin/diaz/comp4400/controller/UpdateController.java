@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
-import dustin.diaz.comp4400.queries.parent.QueryUser;
+import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import javafx.event.ActionEvent;
@@ -203,7 +203,7 @@ public class UpdateController implements Initializable {
 
         if (valid) {
             if (p1.equals(p2)) {
-                QueryUser.updateUser(id, u, p1, fn, mn, ln, dob, a, c, z, p);
+                QueryCustomer.update(id, u, p1, fn, mn, ln, dob, a, c, z, p);
                 borderPane.getChildren().clear();
                 DustinDiazCOMP4400.setRoot("view/user/userhome.fxml");
             } else {
@@ -247,7 +247,7 @@ public class UpdateController implements Initializable {
         registerBtn.setOnKeyPressed(enterKey);
 
         try {
-            Computer.customer = QueryUser.findUserByID(Computer.customer.getId());
+            Computer.customer = QueryCustomer.find(Computer.customer.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

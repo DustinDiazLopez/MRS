@@ -2,7 +2,7 @@ package dustin.diaz.comp4400.controller;
 
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
-import dustin.diaz.comp4400.queries.parent.QueryUser;
+import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
@@ -42,7 +42,7 @@ public class UserHomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Computer.customer = QueryUser.findUserByID(Computer.customer.getId());
+            Computer.customer = QueryCustomer.find(Computer.customer.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

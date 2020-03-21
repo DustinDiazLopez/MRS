@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.model.parent;
 
 import java.sql.Date;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Customer {
     private int id;
@@ -16,13 +16,29 @@ public class Customer {
     private String zipCode;
     private String phone;
     private String accountType;
-    private String[] rentedHistory;
+    private ArrayList<Rental> rentedHistory;
 
     public Customer() {}
 
     public Customer(int id, String username, String accountPassword, String firstName, String middleName, String lastName,
+                    Date dateOfBirth, String address, String city, String zipCode, String phone, String accountType) {
+        this.id = id;
+        this.username = username;
+        this.accountPassword = accountPassword;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.phone = phone;
+        this.accountType = accountType;
+    }
+
+    public Customer(int id, String username, String accountPassword, String firstName, String middleName, String lastName,
                     Date dateOfBirth, String address, String city, String zipCode, String phone, String accountType,
-                    String[] rentedHistory) {
+                    ArrayList<Rental> rentedHistory) {
         this.id = id;
         this.username = username;
         this.accountPassword = accountPassword;
@@ -134,11 +150,11 @@ public class Customer {
         this.phone = phone;
     }
 
-    public String[] getRentedHistory() {
+    public ArrayList<Rental> getRentedHistory() {
         return rentedHistory;
     }
 
-    public void setRentedHistory(String[] rentedHistory) {
+    public void setRentedHistory(ArrayList<Rental> rentedHistory) {
         this.rentedHistory = rentedHistory;
     }
 
@@ -157,7 +173,7 @@ public class Customer {
                 ", zipCode='" + zipCode + '\'' +
                 ", phone='" + phone + '\'' +
                 ", role='" + accountType + '\'' +
-                ", rented=" + Arrays.toString(rentedHistory) +
+                ", rented=" + rentedHistory +
                 '}';
     }
 }

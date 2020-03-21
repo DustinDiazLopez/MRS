@@ -2,7 +2,7 @@ package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.parent.Customer;
-import dustin.diaz.comp4400.queries.parent.QueryUser;
+import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import javafx.event.ActionEvent;
@@ -81,7 +81,7 @@ public class controller implements Initializable {
 
 
         if (valid) {
-            Customer customer = QueryUser.findUserByUsername(u);
+            Customer customer = QueryCustomer.find(u);
 
             if (customer != null) {
                 String username = customer.getUsername();
