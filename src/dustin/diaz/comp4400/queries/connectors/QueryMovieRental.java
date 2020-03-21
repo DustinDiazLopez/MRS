@@ -1,7 +1,6 @@
 package dustin.diaz.comp4400.queries.connectors;
 
 import dustin.diaz.comp4400.model.connector.MovieRental;
-import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -25,30 +24,30 @@ public abstract class QueryMovieRental {
     //DELETE
     public static final String deleteMovieDirector = "DELETE FROM " + Database.MOVIE_RENTAL + " WHERE MovieID = ? AND RentalID = ?";
 
-    public static int insert(int movieId, int directorId) throws SQLException {
+    public static int insert(int movieId, int rentalId) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insert);
         preparedStatement.setInt(1, movieId);
-        preparedStatement.setInt(2, directorId);
+        preparedStatement.setInt(2, rentalId);
         return preparedStatement.executeUpdate();
     }
 
-    private static MovieRental getMovieDirector(ResultSet resultSet) throws SQLException {
+    private static MovieRental getMovieRental(ResultSet resultSet) throws SQLException {
         MovieRental director = new MovieRental();
         director.setMovieId(resultSet.getInt("MovieID"));
-        director.setRentalId(resultSet.getInt("DirectorID"));
+        director.setRentalId(resultSet.getInt("RentalID"));
         return validate(director);
     }
 
-    private static MovieRental validate(MovieRental director) {
-        if (director == null) return null;
-        else return director.getMovieId() != 0 || director.getRentalId() != 0 ? director : null;
+    private static MovieRental validate(MovieRental rental) {
+        if (rental == null) return null;
+        else return rental.getMovieId() != 0 || rental.getRentalId() != 0 ? rental : null;
     }
 
     private static ArrayList<MovieRental> get(ResultSet resultSet) throws SQLException {
         ArrayList<MovieRental> directors = new ArrayList<>();
 
         while (resultSet.next()) {
-            MovieRental director = getMovieDirector(resultSet);
+            MovieRental director = getMovieRental(resultSet);
             directors.add(director);
         }
 

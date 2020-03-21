@@ -4,7 +4,7 @@ import dustin.diaz.comp4400.model.connector.MovieRental;
 import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.model.parent.Rental;
 import dustin.diaz.comp4400.queries.Database;
-import dustin.diaz.comp4400.queries.child.*;
+import dustin.diaz.comp4400.queries.child.QueryMedias;
 import dustin.diaz.comp4400.queries.connectors.QueryMovieRental;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -28,7 +28,7 @@ public abstract class QueryRental {
     //DELETE
     public static final String deleteRentalByID = "DELETE FROM " + Database.RENTAL + " WHERE ID = ?";
 
-    public static Movie getRental(int rentalId) throws SQLException {
+    public static Movie getMovie(int rentalId) throws SQLException {
         MovieRental movieRental = QueryMovieRental.findByRentalID(rentalId);
         return movieRental != null ? QueryMovie.findMovie(movieRental.getMovieId()) : null;
     }
@@ -43,16 +43,16 @@ public abstract class QueryRental {
         return preparedStatement.executeUpdate();
     }
 
-    public static int update(int id, int customerId, boolean returned, Date returnedOn, int totalDays, float totalCost)
+    public static int update(int rentalId, int customerId, boolean returned, Date returnedOn, int totalDays, float totalCost)
             throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(updateRentalByID);
         int i = 1;
-        preparedStatement.setInt(i, id);
-        preparedStatement.setInt(++i, customerId);
-        preparedStatement.setBoolean(++i, returned);
+        preparedStatement.setBoolean(i, returned);
         preparedStatement.setString(++i, returnedOn.toLocalDate().toString());
         preparedStatement.setInt(++i, totalDays);
         preparedStatement.setFloat(++i, totalCost);
+        preparedStatement.setInt(++i, rentalId);
+        preparedStatement.setInt(++i, customerId);
         return preparedStatement.executeUpdate();
     }
 
@@ -69,9 +69,15 @@ public abstract class QueryRental {
         rental.setMedia(QueryMedias.findMedia(resultSet.getInt("MediaID")));
         rental.setRentedOn(Date.valueOf(resultSet.getString("RentedOn")));
         rental.setReturned(resultSet.getBoolean("Returned"));
-        rental.setReturnedOn(Date.valueOf(resultSet.getString("ReturnedOn")));
+
+        try {
+            rental.setReturnedOn(Date.valueOf(resultSet.getString("ReturnedOn")));
+        } catch (Exception ignored) {
+        }
+
         rental.setTotalCost(resultSet.getFloat("TotalCost"));
         rental.setTotalDays(resultSet.getInt("TotalDays"));
+
         return validate(rental);
     }
 
@@ -108,6 +114,49 @@ public abstract class QueryRental {
     }
 
     public static boolean test() throws SQLException {
+        ArrayList<Rental> rentals = findAll();
+        int testNumber = 1;
+        if (rentals.size() != 2) {
+            error(testNumber, "[...] size: " + rentals.size(), "2");
+            return false;
+        }
+
+        testNumber++;
+        Rental rental = find(1);
+        if (rental == null) {
+            error(testNumber, "FIND", "Did not find the first value (1) of the table rental");
+            return false;
+        }
+
+        testNumber++;
+        Movie movie = getMovie(1);
+        if (movie == null) {
+            error(testNumber, "FIND", "Did not find movie by rental id");
+            return false;
+        }
+
+        testNumber++;
+        int test = insert(3, 1, Date.valueOf("2020-3-20"), false);
+        if (test != 1) {
+            error(testNumber, "INSERT", "Couldn't insert value");
+            return false;
+        }
+
+
+        testNumber++;
+        test = update(rentals.size() + 1, 3, false, Date.valueOf("2020-3-21"), 10, 30);
+        if (test != 1) {
+            error(testNumber, "UPDATE", "Couldn't update value");
+            return false;
+        }
+
+
+        testNumber++;
+        test = delete(rentals.size() + 1);
+        if (test != 1) {
+            error(testNumber, "DELETE", "Couldn't delete value");
+            return false;
+        }
         return true;
     }
 
