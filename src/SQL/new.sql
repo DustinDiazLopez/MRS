@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS MovieGenres (
 #################################################################################### Table Writers
 DROP TABLE IF EXISTS Writers;
 CREATE TABLE IF NOT EXISTS Writers (
-  ID INT NOT NULL,
+  ID INT NOT NULL AUTO_INCREMENT,
   Name VARCHAR(70) NULL,
   PRIMARY KEY (ID)
 );
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS Customers (
 #################################################################################### Table Medias
 DROP TABLE IF EXISTS Medias;
 CREATE TABLE IF NOT EXISTS Medias (
-  ID INT NOT NULL,
+  ID INT NOT NULL AUTO_INCREMENT,
   Media ENUM('DVD', 'BLU-RAY') NULL,
   PRIMARY KEY (ID)
 );
@@ -232,9 +232,23 @@ INSERT INTO AccountTypes (Type) VALUES ('ADMIN');
 
 SELECT * FROM AccountTypes WHERE ID = 1;
 #################################################################################### INSERT CUSTOMERS
-INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES ('dustindiaz', 'dustin123', 'Dustin', 'A.', 'Díaz', '1998-02-06', '4 Calle Aleli Urb. Round Hill', 'Trujillo Alto', '00976', '7874782095', 2);
-INSERT INTO Customers (Username, AccountPassword, FirstName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES ('root', 'toor', 'Admin', 'Privelages', '1860-02-06', 'RA 0h 42m 44s | Dec +4° 6\' 9\"', 'Andromeda Galaxy', 'M3', 'Radio Waves', 2);
-INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES ('dustin123', 'dustin123', 'Pedro', 'D.', 'Campo', '1996-2-06', 'El Campo', 'Rio Campo', '0076', '237067890', 1);
+INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID)
+VALUES ('dustindiaz', 'dustin123', 'Dustin', 'A.', 'Díaz', '1998-02-06', '4 Calle Aleli Urb. Round Hill', 'Trujillo Alto', '00976', '7874782095', 2);
+
+INSERT INTO Customers (Username, AccountPassword, FirstName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID)
+VALUES ('root', 'toor', 'Admin', 'Privelages', '1860-02-06', 'RA 0h 42m 44s | Dec +4° 6\' 9\"', 'Andromeda Galaxy', 'M3', 'Radio Waves', 2);
+
+INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID)
+VALUES ('dustin123', 'asd', 'Pedro', 'A.', 'Díaza', '1996-2-06', 'El Campo', 'Rio Campo', '0076', '237067890', 1);
+
+INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID)
+VALUES ('dustina', 'asd', 'dustina', 'E.', 'Díaze', '1996-2-06', 'El Campo', 'Rio Campo', '0076', '237067890', 1);
+
+INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID)
+VALUES ('dustino', 'asd', 'dustino', 'I.', 'Díazo', '1996-2-06', 'El Campo', 'Rio Campo', '0076', '237067890', 1);
+
+INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID)
+VALUES ('dustine', 'asd', 'dustine', 'O.', 'Díazu', '1996-2-06', 'El Campo', 'Rio Campo', '0076', '237067890', 1);
 
 SELECT * FROM Customers;
 #################################################################################### INSERT MOVIES
@@ -702,6 +716,10 @@ INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 131); # Will Smith is in Ala
 SELECT * FROM MovieCast ORDER BY MovieID ASC;
 
 #################################################################################### INSERT Medias
+
+INSERT INTO Medias (Media) VALUES ('DVD');
+INSERT INTO Medias (Media) VALUES ('BLU-RAY');
+
 SELECT * FROM Medias;
 #################################################################################### INSERT Rentals
 SELECT * FROM Rentals;
@@ -714,15 +732,17 @@ SELECT * FROM AccountTypes;
 SELECT * FROM Customers;
 SELECT * FROM Movies;
 SELECT * FROM Directors ORDER BY ID ASC;
-SELECT * FROM Writers ORDER BY ID ASC; ##
+SELECT * FROM Writers ORDER BY ID ASC;
 SELECT * FROM Cast ORDER BY ID ASC;
 SELECT * FROM Genres ORDER BY ID ASC;
 SELECT * FROM MovieDirectors ORDER BY MovieID ASC;
-SELECT * FROM MovieGenres ORDER BY MovieID ASC; ##
-SELECT * FROM MovieWriters ORDER BY MovieID ASC; ##
-SELECT * FROM MovieCast ORDER BY MovieID ASC; ##
-SELECT * FROM Medias; ##
+SELECT * FROM MovieGenres ORDER BY MovieID ASC;
+SELECT * FROM MovieWriters ORDER BY MovieID ASC;
+SELECT * FROM MovieCast ORDER BY MovieID ASC;
+SELECT * FROM Medias;
 SELECT * FROM Rentals; ##
 SELECT * FROM MovieRental ORDER BY MovieID ASC; ##
 
 #################################################################################### SELECT JOINS
+SELECT * FROM Customers c INNER JOIN AccountTypes acc ON c.AccountTypeID = acc.ID;
+

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieCastTableToSQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieGenreTableToSQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieWritersTableToSQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/backup_new.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/new.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
