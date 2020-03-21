@@ -3,6 +3,7 @@ package dustin.diaz.comp4400.queries;
 import dustin.diaz.comp4400.model.User;
 import dustin.diaz.comp4400.utils.Computer;
 
+import javax.xml.crypto.Data;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ public abstract class QueryUser {
     public static final String allUsers = "SELECT * FROM " + Database.CUSTOMER;
     public static final String userByID = "SELECT * FROM " + Database.CUSTOMER + " WHERE ID = ?";
     public static final String userByUsername = "SELECT * FROM " + Database.CUSTOMER + " WHERE Username = ?";
+    public static final String userByUsernameAccTypeJoin = "SELECT c.ID, c.Username, c.AccountPassword, a.Type AS AccountType, c.FirstName, c.MiddleName, c.LastName, c.DateOfBirth, c.Address, c.City, c.ZipCode, c.Phone FROM " + Database.CUSTOMER + " c INNER JOIN " + Database.ACCOUNT_TYPE + " a ON (c.AccountTypeID = a.ID) WHERE c.Username = ?;";
 
     //UPDATE user
     public static final String updateUserByIDAndUsername = "UPDATE " + Database.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";

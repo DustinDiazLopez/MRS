@@ -721,11 +721,23 @@ INSERT INTO Medias (Media) VALUES ('DVD');
 INSERT INTO Medias (Media) VALUES ('BLU-RAY');
 
 SELECT * FROM Medias;
-#################################################################################### INSERT Rentals
-SELECT * FROM Rentals;
-#################################################################################### INSERT MovieRental
-SELECT * FROM MovieRental ORDER BY MovieID ASC;
 
+#################################################################################### INSERT Rentals
+
+INSERT INTO Rentals (CustomerID, MediaID, RentedOn, ReturnedOn, Returned, TotalDays, TotalCost)
+VALUES (3, 1, '2020-3-15', '2020-3-20', true, 5, 10.0); #1
+
+INSERT INTO Rentals (CustomerID, MediaID, RentedOn, ReturnedOn, Returned, TotalDays, TotalCost)
+VALUES (3, 2, '2020-3-15', '2020-3-20', true, 5, 15.0); #2
+
+SELECT * FROM Rentals;
+
+#################################################################################### INSERT MovieRental
+
+INSERT INTO MovieRental (MovieID, RentalID) VALUES (2, 1);
+INSERT INTO MovieRental (MovieID, RentalID) VALUES (5, 2);
+
+SELECT * FROM MovieRental ORDER BY MovieID ASC;
 
 #################################################################################### SELECT * Tables
 SELECT * FROM AccountTypes;
@@ -740,9 +752,10 @@ SELECT * FROM MovieGenres ORDER BY MovieID ASC;
 SELECT * FROM MovieWriters ORDER BY MovieID ASC;
 SELECT * FROM MovieCast ORDER BY MovieID ASC;
 SELECT * FROM Medias;
-SELECT * FROM Rentals; ##
-SELECT * FROM MovieRental ORDER BY MovieID ASC; ##
+SELECT * FROM Rentals;
+SELECT * FROM MovieRental ORDER BY MovieID ASC;
 
 #################################################################################### SELECT JOINS
-SELECT * FROM Customers c INNER JOIN AccountTypes acc ON c.AccountTypeID = acc.ID;
+# Customer and AccountType (ROLE)
+SELECT c.ID, c.Username, c.AccountPassword, a.Type AS AccountType, c.FirstName, c.MiddleName, c.LastName, c.DateOfBirth, c.Address, c.City, c.ZipCode, c.Phone FROM Customers c INNER JOIN AccountTypes a ON (c.AccountTypeID = a.ID)
 
