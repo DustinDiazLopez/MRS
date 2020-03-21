@@ -259,14 +259,14 @@ SELECT * FROM Movies;
 #################################################################################### INSERT Directors
 INSERT INTO Directors (Name) VALUES ('Anthony Russo'); #1
 INSERT INTO Directors (Name) VALUES ('Chris Buck'); #2
-INSERT INTO Directors (Name) VALUES ('Jennifer Lee'); #3
-INSERT INTO Directors (Name) VALUES ('Bong Joon-ho'); #4
-INSERT INTO Directors (Name) VALUES ('Brett Haley'); #5
-INSERT INTO Directors (Name) VALUES ('Elizabeth Banks'); #6
-INSERT INTO Directors (Name) VALUES ('Guy Ritchie'); #7
-INSERT INTO Directors (Name) VALUES ('Jake Kasdan'); #8
-INSERT INTO Directors (Name) VALUES ('James Mangold'); #9
-INSERT INTO Directors (Name) VALUES ('Jay Roach'); #10
+INSERT INTO Directors (Name) VALUES ('Bong Joon-ho'); #3
+INSERT INTO Directors (Name) VALUES ('Brett Haley'); #4
+INSERT INTO Directors (Name) VALUES ('Elizabeth Banks'); #5
+INSERT INTO Directors (Name) VALUES ('Guy Ritchie'); #6
+INSERT INTO Directors (Name) VALUES ('Jake Kasdan'); #7
+INSERT INTO Directors (Name) VALUES ('James Mangold'); #8
+INSERT INTO Directors (Name) VALUES ('Jay Roach'); #9
+INSERT INTO Directors (Name) VALUES ('Jennifer Lee'); #10
 INSERT INTO Directors (Name) VALUES ('Joe Russo'); #11
 INSERT INTO Directors (Name) VALUES ('Jon Favreau'); #12
 INSERT INTO Directors (Name) VALUES ('Quentin Tarantino'); #13
@@ -429,4 +429,93 @@ INSERT INTO Genres (Genre) VALUES ('Thriller'); #12
 
 SELECT * FROM Genres ORDER BY ID ASC;
 
-#################################################################################### INSERT Table
+#################################################################################### INSERT MovieDirectors
+
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (1, 7); # Jake Kasdan directs Jumanji: The Next Level
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (2, 2); #  Chris Buck directs Frozen 2
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (2, 10); # Jennifer Lee directs Frozen 2
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (3, 3); # Bong Joon-ho directs Parasite
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (4, 18); # Todd Phillips directs Joker (2019 film)
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (5, 14); # Rian Johnson directs Knives Out
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (6, 1); #  Anthony Russo directs Avengers: Endgame
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (6, 11); # Joe Russo directs Avengers: Endgame
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (6, 12); # Jon Favreau directs Avengers: Endgame
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (7, 16); # Taika Waititi directs Jojo Rabbit
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (8, 5); # Elizabeth Banks directs Charlie\'s Angels
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (9, 4); # Brett Haley directs All the Bright Places
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (10, 8); # James Mangold directs Ford v Ferrari
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (11, 15); # Roland Emmerich directs Midway
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (12, 12); # Jon Favreau directs The Lion King
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (13, 17); # Tim Miller directs Terminator: Dark Fate
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (14, 9); # Jay Roach directs Bombshell
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (15, 13); # Quentin Tarantino directs Once Upon a Time in Hollywood
+INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (16, 6); # Guy Ritchie directs Aladdin
+
+SELECT * FROM MovieDirectors ORDER BY MovieID ASC;
+#################################################################################### INSERT Writers
+
+INSERT INTO Writers (Name) VALUES ('Allison Schroeder'); #1
+INSERT INTO Writers (Name) VALUES ('Billy Ray'); #2
+INSERT INTO Writers (Name) VALUES ('Christopher Markus'); #3
+INSERT INTO Writers (Name) VALUES ('David Auburn'); #4
+INSERT INTO Writers (Name) VALUES ('David S. Goyer'); #5
+INSERT INTO Writers (Name) VALUES ('Elizabeth Hannah'); #6
+INSERT INTO Writers (Name) VALUES ('Erik Sommers'); #7
+INSERT INTO Writers (Name) VALUES ('Han Jin-won'); #8
+INSERT INTO Writers (Name) VALUES ('Jason Keller'); #9
+INSERT INTO Writers (Name) VALUES ('Jeff Pinkner'); #10
+INSERT INTO Writers (Name) VALUES ('Jez Butterworth'); #11
+INSERT INTO Writers (Name) VALUES ('John August'); #12
+INSERT INTO Writers (Name) VALUES ('John-Henry Butterworth'); #13
+INSERT INTO Writers (Name) VALUES ('Justin Rhodes'); #14
+INSERT INTO Writers (Name) VALUES ('Scott Silver'); #15
+INSERT INTO Writers (Name) VALUES ('Bong Joon-ho'); #16
+INSERT INTO Writers (Name) VALUES ('Charles Randolph'); #17
+INSERT INTO Writers (Name) VALUES ('David Ellison'); #18
+INSERT INTO Writers (Name) VALUES ('Elizabeth Banks'); #19
+INSERT INTO Writers (Name) VALUES ('Guy Ritchie'); #20
+INSERT INTO Writers (Name) VALUES ('James Mangold'); #21
+INSERT INTO Writers (Name) VALUES ('Jeff Nathanson'); #22
+INSERT INTO Writers (Name) VALUES ('Jennifer Lee'); #23
+INSERT INTO Writers (Name) VALUES ('Jennifer Niven'); #24
+INSERT INTO Writers (Name) VALUES ('Quentin Tarantino'); #25
+INSERT INTO Writers (Name) VALUES ('Rian Johnson'); #26
+INSERT INTO Writers (Name) VALUES ('Scott Rosenberg'); #27
+INSERT INTO Writers (Name) VALUES ('Stephen McFeely'); #28
+INSERT INTO Writers (Name) VALUES ('Taika Waititi'); #29
+INSERT INTO Writers (Name) VALUES ('Todd Phillips'); #30
+INSERT INTO Writers (Name) VALUES ('Wes Tooke'); #31
+
+SELECT * FROM Writers ORDER BY ID ASC;
+
+#################################################################################### INSERT MovieGenres
+SELECT * FROM MovieGenres ORDER BY MovieID ASC;
+#################################################################################### INSERT MovieWriters
+SELECT * FROM MovieWriters ORDER BY MovieID ASC;
+#################################################################################### INSERT MovieCast
+SELECT * FROM MovieCast ORDER BY MovieID ASC;
+#################################################################################### INSERT Medias
+SELECT * FROM Medias;
+#################################################################################### INSERT Rentals
+SELECT * FROM Rentals;
+#################################################################################### INSERT MovieRental
+SELECT * FROM MovieRental ORDER BY MovieID ASC;
+
+
+#################################################################################### SELECT * Tables
+SELECT * FROM AccountTypes;
+SELECT * FROM Customers;
+SELECT * FROM Movies;
+SELECT * FROM Directors ORDER BY ID ASC;
+SELECT * FROM Writers ORDER BY ID ASC; ##
+SELECT * FROM Cast ORDER BY ID ASC;
+SELECT * FROM Genres ORDER BY ID ASC;
+SELECT * FROM MovieDirectors ORDER BY MovieID ASC;
+SELECT * FROM MovieGenres ORDER BY MovieID ASC; ##
+SELECT * FROM MovieWriters ORDER BY MovieID ASC; ##
+SELECT * FROM MovieCast ORDER BY MovieID ASC; ##
+SELECT * FROM Medias; ##
+SELECT * FROM Rentals; ##
+SELECT * FROM MovieRental ORDER BY MovieID ASC; ##
+
+#################################################################################### SELECT JOINS

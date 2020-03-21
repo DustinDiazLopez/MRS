@@ -1,15 +1,16 @@
 package SQL.easy.MovieRelated;
 
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.jar.JarEntry;
 import java.util.stream.Stream;
 
-public class DirectorsTableToSQL {
+public class MovieDirectorsTableToSQL {
     public static void main(String[] args) throws IOException {
         String fileName = new File("src/SQL/easy/movies.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
@@ -32,28 +33,20 @@ public class DirectorsTableToSQL {
             });
         }
 
-
-        //String query = "INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (";
-        //                                      x0    x1            2     x 3          4       x5      x6      7      x8       x9
-        String query = "INSERT INTO Directors (Name) VALUES (";
+        String query = "INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (";
         String end = ");";
 
-        AtomicReference<StringBuilder> stringBuilder = new AtomicReference<>(new StringBuilder());
-
-
-        for (int i = 0; i < arr.size(); i++) {
-            String[] e = arr.get(i);
-            for (int j = 0; j < e.length; j++) {
-                String attribute = e[j];
-
-                if (j == e.length - 1)
-                    stringBuilder.get().append("'").append(attribute).append("'");
-                 else
-                    stringBuilder.get().append("'").append(attribute).append("',");
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+            Object[] o = stream.toArray();
+            for (int i = 0; i < o.length; i++) {
+                if (o[i].toString().contains("director;")) continue;
+                for (int j = 0; j < sorted.size(); j++) {
+                    if (o[i].toString().contains(sorted.get(j))) {
+                        int director = (j + 1);
+                        System.out.println(query + i + ", " + director + end + " # " + sorted.get(j) + " directs " + o[i].toString().split(";")[0]);
+                    }
+                }
             }
-
-            System.out.println(query + stringBuilder.toString() + end + " #" + (i + 1));
-            stringBuilder.set(new StringBuilder());
         }
     }
 

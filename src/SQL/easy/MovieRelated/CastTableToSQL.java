@@ -16,7 +16,7 @@ public class CastTableToSQL {
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(e -> {
-                String[] values = e.split(";")[7].split(","); //directors
+                String[] values = e.split(";")[7].split(","); //cast
                 set.addAll(Arrays.asList(values));
             });
         }
@@ -27,7 +27,7 @@ public class CastTableToSQL {
         for (String s : sorted) {
             if (s.equals("cast")) continue;
             arr.add(new String[] {
-                    s.trim(), //directors
+                    s.trim(),
             });
         }
 

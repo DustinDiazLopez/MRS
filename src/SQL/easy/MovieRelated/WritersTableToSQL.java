@@ -6,10 +6,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.jar.JarEntry;
 import java.util.stream.Stream;
 
-public class DirectorsTableToSQL {
+public class WritersTableToSQL {
     public static void main(String[] args) throws IOException {
         String fileName = new File("src/SQL/easy/movies.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
@@ -17,7 +16,7 @@ public class DirectorsTableToSQL {
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(e -> {
-                String[] values = e.split(";")[1].split(","); //directors
+                String[] values = e.split(";")[2].split(","); //writers
                 set.addAll(Arrays.asList(values));
             });
         }
@@ -26,7 +25,7 @@ public class DirectorsTableToSQL {
         Collections.sort(sorted);
         sorted.remove(2);
         for (String s : sorted) {
-            if (s.equals("director")) continue;
+            if (s.equals("writers")) continue;
             arr.add(new String[] {
                     s.trim(), //directors
             });
@@ -35,7 +34,7 @@ public class DirectorsTableToSQL {
 
         //String query = "INSERT INTO Movie (Title, Directors, Writers, ReleaseDate, Genre, RunTime, Rated, Cast, Ratings, Filename) VALUES (";
         //                                      x0    x1            2     x 3          4       x5      x6      7      x8       x9
-        String query = "INSERT INTO Directors (Name) VALUES (";
+        String query = "INSERT INTO Writers (Name) VALUES (";
         String end = ");";
 
         AtomicReference<StringBuilder> stringBuilder = new AtomicReference<>(new StringBuilder());
