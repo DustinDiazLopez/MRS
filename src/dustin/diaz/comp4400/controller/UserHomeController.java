@@ -42,7 +42,7 @@ public class UserHomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Computer.user = QueryUser.findUserByID(Computer.user.getId());
+            Computer.customer = QueryUser.findUserByID(Computer.customer.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class UserHomeController implements Initializable {
                 borderPane.getChildren().clear();
                 try {
                     DustinDiazCOMP4400.setRoot("view/user/login.fxml");
-                    Computer.user = null;
+                    Computer.customer = null;
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -78,9 +78,9 @@ public class UserHomeController implements Initializable {
 
         userLabel.setText(
                 Styling.formatNames(
-                        Computer.user.getFirstName(),
-                        Computer.user.getMiddleName(),
-                        Computer.user.getLastName()
+                        Computer.customer.getFirstName(),
+                        Computer.customer.getMiddleName(),
+                        Computer.customer.getLastName()
                 )
         );
 

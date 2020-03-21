@@ -26,7 +26,7 @@
                                 <Font size="27.0"/>
                             </font>
                         </Label>
-                        <Label fx:id="userLabel" text="&lt;user&gt;" textFill="BLUE">
+                        <Label fx:id="userLabel" text="&lt;customer&gt;" textFill="BLUE">
                             <font>
                                 <Font size="27.0"/>
                             </font>

@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.controller;
 
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
-import dustin.diaz.comp4400.model.parent.User;
+import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.queries.parent.QueryUser;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
@@ -81,17 +81,17 @@ public class controller implements Initializable {
 
 
         if (valid) {
-            User user = QueryUser.findUserByUsername(u);
+            Customer customer = QueryUser.findUserByUsername(u);
 
-            if (user != null) {
-                String username = user.getUsername();
-                String password = user.getAccountPassword(); //TODO: un-hash if hashed...
+            if (customer != null) {
+                String username = customer.getUsername();
+                String password = customer.getAccountPassword(); //TODO: un-hash if hashed...
 
                 if (username.equals(u) && password.equals(p)) {
-                    manText.setText("Hello, " + user.getFirstName() + "!");
-                    Computer.user = user;
+                    manText.setText("Hello, " + customer.getFirstName() + "!");
+                    Computer.customer = customer;
 
-                    if (user.getAccountType().equals("ADMIN")) {
+                    if (customer.getAccountType().equals("ADMIN")) {
                         borderPane.getChildren().clear();
                         DustinDiazCOMP4400.setRoot("view/user/adminhome.fxml");
                     } else {

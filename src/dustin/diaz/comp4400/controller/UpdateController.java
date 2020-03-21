@@ -199,7 +199,7 @@ public class UpdateController implements Initializable {
             valid = false;
         }
 
-        int id = Computer.user.getId();
+        int id = Computer.customer.getId();
 
         if (valid) {
             if (p1.equals(p2)) {
@@ -247,34 +247,34 @@ public class UpdateController implements Initializable {
         registerBtn.setOnKeyPressed(enterKey);
 
         try {
-            Computer.user = QueryUser.findUserByID(Computer.user.getId());
+            Computer.customer = QueryUser.findUserByID(Computer.customer.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         username.setOnKeyPressed(enterKey);
-        username.setText(Computer.user.getUsername());
+        username.setText(Computer.customer.getUsername());
         username.setDisable(true);
         password.setOnKeyPressed(enterKey);
-        password.setText(Computer.user.getAccountPassword());
+        password.setText(Computer.customer.getAccountPassword());
         passwordConfirmation.setOnKeyPressed(enterKey);
-        passwordConfirmation.setText(Computer.user.getAccountPassword());
+        passwordConfirmation.setText(Computer.customer.getAccountPassword());
         firstName.setOnKeyPressed(enterKey);
-        firstName.setText(Computer.user.getFirstName());
+        firstName.setText(Computer.customer.getFirstName());
         middleName.setOnKeyPressed(enterKey);
-        middleName.setText(Computer.user.getMiddleName());
+        middleName.setText(Computer.customer.getMiddleName());
         lastName.setOnKeyPressed(enterKey);
-        lastName.setText(Computer.user.getLastName());
+        lastName.setText(Computer.customer.getLastName());
         dateOfBirth.setOnKeyPressed(enterKey);
-        dateOfBirth.setValue(Computer.user.getDateOfBirth().toLocalDate());
+        dateOfBirth.setValue(Computer.customer.getDateOfBirth().toLocalDate());
         address.setOnKeyPressed(enterKey);
-        address.setText(Computer.user.getAddress());
+        address.setText(Computer.customer.getAddress());
         city.setOnKeyPressed(enterKey);
-        city.setText(Computer.user.getCity());
+        city.setText(Computer.customer.getCity());
         zipCode.setOnKeyPressed(enterKey);
-        zipCode.setText(Computer.user.getZipCode());
+        zipCode.setText(Computer.customer.getZipCode());
         phone.setOnKeyPressed(enterKey);
-        phone.setText(Computer.user.getPhone());
+        phone.setText(Computer.customer.getPhone());
 
         phone.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("(\\()?(\\d{3})+([ )\\-])? ?(\\d{3})([ \\-])?\\d{4}")) {

@@ -54,14 +54,14 @@ public class AdminHomeController implements Initializable {
                 borderPane.getChildren().clear();
                 try {
                     DustinDiazCOMP4400.setRoot("view/user/login.fxml");
-                    Computer.user = null;
+                    Computer.customer = null;
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             }
         });
 
-        userLabel.setText(Computer.user.getFirstName() + " " + Computer.user.getLastName());
+        userLabel.setText(Computer.customer.getFirstName() + " " + Computer.customer.getLastName());
 
         rentalsVBox.setStyle(Styling.homeStyle);
         customerVBox.setStyle(Styling.homeStyle);

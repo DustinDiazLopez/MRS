@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.queries.connectors;
 
 import dustin.diaz.comp4400.model.connector.MovieRental;
+import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -67,11 +68,12 @@ public abstract class QueryMovieRental {
         return get(resultSet);
     }
 
-    public static ArrayList<MovieRental> findByRentalID(int directorId) throws SQLException {
+    public static MovieRental findByRentalID(int rentalId) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(movieDirectorByDirectorID);
-        preparedStatement.setInt(1, directorId);
+        preparedStatement.setInt(1, rentalId);
         ResultSet resultSet = preparedStatement.executeQuery();
-        return get(resultSet);
+        ArrayList<MovieRental> movieRental = get(resultSet);
+        return movieRental != null ? movieRental.get(0) : null;
     }
 
     //Duplicate entry throw
@@ -143,8 +145,8 @@ public abstract class QueryMovieRental {
 
         testNumber++;
         try {
-            ArrayList<MovieRental> mv = findByRentalID(1);
-            if (mv.size() != 1) {
+            MovieRental mv = findByRentalID(1);
+            if (mv == null) {
                 error(testNumber, "FIND", "Failed to find values by director id");
                 return false;
             }

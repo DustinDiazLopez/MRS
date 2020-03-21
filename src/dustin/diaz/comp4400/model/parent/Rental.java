@@ -1,12 +1,14 @@
 package dustin.diaz.comp4400.model.parent;
 
+import dustin.diaz.comp4400.model.child.Medias;
+
 import java.sql.Date;
 
 public class Rental {
     private int id;
     private int customerId;
     private Movie movie;
-    private String media;
+    private Medias media;
     private Date rentedOn;
     private Date returnedOn;
     private boolean returned;
@@ -16,7 +18,7 @@ public class Rental {
     public Rental() {
     }
 
-    public Rental(int id, int customerId, Movie movie, String media, Date rentedOn, Date returnedOn, boolean returned,
+    public Rental(int id, int customerId, Movie movie, Medias media, Date rentedOn, Date returnedOn, boolean returned,
                   int totalDays, float totalCost) {
         this.id = id;
         this.customerId = customerId;
@@ -53,11 +55,11 @@ public class Rental {
         this.movie = movie;
     }
 
-    public String getMedia() {
+    public Medias getMedia() {
         return media;
     }
 
-    public void setMedia(String media) {
+    public void setMedia(Medias media) {
         this.media = media;
     }
 

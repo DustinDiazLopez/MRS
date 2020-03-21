@@ -1,6 +1,6 @@
 package dustin.diaz.comp4400.queries.parent;
 
-import dustin.diaz.comp4400.model.parent.User;
+import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.child.QueryAccountType;
 import dustin.diaz.comp4400.utils.Computer;
@@ -62,67 +62,67 @@ public abstract class QueryUser {
         return preparedStatement.executeUpdate();
     }
 
-    private static User getUser(ResultSet resultSet) throws SQLException {
-        User user = new User();
-        user.setId(resultSet.getInt("ID"));
-        user.setUsername(resultSet.getString("Username"));
-        user.setAccountPassword(resultSet.getString("AccountPassword"));
-        user.setFirstName(resultSet.getString("FirstName"));
-        user.setMiddleName(resultSet.getString("MiddleName"));
-        user.setLastName(resultSet.getString("LastName"));
-        user.setDateOfBirth(Date.valueOf(resultSet.getString("DateOfBirth")));
-        user.setAddress(resultSet.getString("Address"));
-        user.setCity(resultSet.getString("City"));
-        user.setZipCode(resultSet.getString("ZipCode"));
-        user.setPhone(resultSet.getString("Phone"));
+    private static Customer getUser(ResultSet resultSet) throws SQLException {
+        Customer customer = new Customer();
+        customer.setId(resultSet.getInt("ID"));
+        customer.setUsername(resultSet.getString("Username"));
+        customer.setAccountPassword(resultSet.getString("AccountPassword"));
+        customer.setFirstName(resultSet.getString("FirstName"));
+        customer.setMiddleName(resultSet.getString("MiddleName"));
+        customer.setLastName(resultSet.getString("LastName"));
+        customer.setDateOfBirth(Date.valueOf(resultSet.getString("DateOfBirth")));
+        customer.setAddress(resultSet.getString("Address"));
+        customer.setCity(resultSet.getString("City"));
+        customer.setZipCode(resultSet.getString("ZipCode"));
+        customer.setPhone(resultSet.getString("Phone"));
         String accType = QueryAccountType.findType(resultSet.getInt("AccountTypeID")).getType();
-        user.setAccountType(accType);
+        customer.setAccountType(accType);
 //        String s = resultSet.getString("RentedHistory");
 //
 //        if (s == null) s = "You haven't rented anything :(";
 //
 //        user.setRentedHistory(s.split(","));
-        return validate(user);
+        return validate(customer);
     }
 
-    private static User validate(User user) {
-        if (user == null) return null;
-        else return user.getId() != 0 ? user : null;
+    private static Customer validate(Customer customer) {
+        if (customer == null) return null;
+        else return customer.getId() != 0 ? customer : null;
     }
 
-    private static ArrayList<User> getUsers(ResultSet resultSet) throws SQLException {
-        ArrayList<User> users = new ArrayList<>();
+    private static ArrayList<Customer> getUsers(ResultSet resultSet) throws SQLException {
+        ArrayList<Customer> customers = new ArrayList<>();
 
         while (resultSet.next()) {
-            User user = getUser(resultSet);
-            users.add(user);
+            Customer customer = getUser(resultSet);
+            customers.add(customer);
         }
 
-        return !users.isEmpty() ? users : null;
+        return !customers.isEmpty() ? customers : null;
     }
 
-    public static ArrayList<User> findAllUsers() throws SQLException {
+    public static ArrayList<Customer> findAllUsers() throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(allUsers);
         ResultSet resultSet = preparedStatement.executeQuery();
         return getUsers(resultSet);
     }
 
-    public static User findUserByUsername(String username) throws SQLException {
+    public static Customer findUserByUsername(String username) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(userByUsername);
         preparedStatement.setString(1, username);
         ResultSet resultSet = preparedStatement.executeQuery();
-        User user = new User();
-        while (resultSet.next()) user = getUser(resultSet);
-        return validate(user);
+        Customer customer = new Customer();
+        while (resultSet.next()) customer = getUser(resultSet);
+        return validate(customer);
     }
 
-    public static User findUserByID(int id) throws SQLException {
+    public static Customer findUserByID(int id) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(userByID);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        User user = new User();
-        while (resultSet.next()) user = getUser(resultSet);
-        return validate(user);
+        Customer customer = new Customer();
+        while (resultSet.next()) customer = getUser(resultSet);
+        return validate(customer);
     }
 
 }
