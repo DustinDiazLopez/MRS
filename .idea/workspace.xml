@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="" />
+    <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/SQL/backup_new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/backup_new.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/new.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
