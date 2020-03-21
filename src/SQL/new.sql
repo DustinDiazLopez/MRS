@@ -489,11 +489,218 @@ INSERT INTO Writers (Name) VALUES ('Wes Tooke'); #31
 SELECT * FROM Writers ORDER BY ID ASC;
 
 #################################################################################### INSERT MovieGenres
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (1, 1); # Jumanji: The Next Level is Action
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (1, 5); # Jumanji: The Next Level is Fantasy
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (2, 4); # Frozen 2 is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (2, 5); # Frozen 2 is Fantasy
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (3, 4); # Parasite is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (3, 8); # Parasite is Mystery
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (4, 4); # Joker (2019 film) is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (4, 12); # Joker (2019 film) is Thriller
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (5, 4); # Knives Out is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (5, 12); # Knives Out is Thriller
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (6, 5); # Avengers: Endgame is Fantasy
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (6, 10); # Avengers: Endgame is Sci-fi
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (7, 3); # Jojo Rabbit is Comedy-drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (7, 4); # Jojo Rabbit is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (8, 1); # Charlie\'s Angels is Action
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (8, 2); # Charlie\'s Angels is Adventure
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (9, 4); # All the Bright Places is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (9, 9); # All the Bright Places is Romance
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (10, 4); # Ford v Ferrari is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (10, 11); # Ford v Ferrari is Sport
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (11, 4); # Midway is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (11, 6); # Midway is History
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (12, 4); # The Lion King is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (12, 7); # The Lion King is Music
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (13, 5); # Terminator: Dark Fate is Fantasy
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (13, 10); # Terminator: Dark Fate is Sci-fi
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (14, 4); # Bombshell is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (15, 3); # Once Upon a Time in Hollywood is Comedy-drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (15, 4); # Once Upon a Time in Hollywood is Drama
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (16, 5); # Aladdin is Fantasy
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (16, 9); # Aladdin is Romance
+
 SELECT * FROM MovieGenres ORDER BY MovieID ASC;
+
 #################################################################################### INSERT MovieWriters
+
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (1, 7); # Jumanji: The Next Level is directed by Erik Sommers
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (1, 10); # Jumanji: The Next Level is directed by Jeff Pinkner
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (1, 27); # Jumanji: The Next Level is directed by Scott Rosenberg
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (2, 1); # Frozen 2 is directed by Allison Schroeder
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (2, 23); # Frozen 2 is directed by Jennifer Lee
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (3, 8); # Parasite is directed by Han Jin-won
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (3, 16); # Parasite is directed by Bong Joon-ho
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (4, 15); # Joker (2019 film) is directed by Scott Silver
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (4, 30); # Joker (2019 film) is directed by Todd Phillips
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (5, 26); # Knives Out is directed by Rian Johnson
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (6, 3); # Avengers: Endgame is directed by Christopher Markus
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (6, 28); # Avengers: Endgame is directed by Stephen McFeely
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (7, 29); # Jojo Rabbit is directed by Taika Waititi
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (8, 4); # Charlie\'s Angels is directed by David Auburn
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (8, 19); # Charlie\'s Angels is directed by Elizabeth Banks
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (9, 6); # All the Bright Places is directed by Elizabeth Hannah
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (9, 24); # All the Bright Places is directed by Jennifer Niven
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (10, 9); # Ford v Ferrari is directed by Jason Keller
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (10, 11); # Ford v Ferrari is directed by Jez Butterworth
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (10, 13); # Ford v Ferrari is directed by John-Henry Butterworth
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (10, 21); # Ford v Ferrari is directed by James Mangold
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (11, 31); # Midway is directed by Wes Tooke
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (12, 22); # The Lion King is directed by Jeff Nathanson
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (13, 2); # Terminator: Dark Fate is directed by Billy Ray
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (13, 5); # Terminator: Dark Fate is directed by David S. Goyer
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (13, 14); # Terminator: Dark Fate is directed by Justin Rhodes
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (13, 18); # Terminator: Dark Fate is directed by David Ellison
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (14, 17); # Bombshell is directed by Charles Randolph
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (15, 25); # Once Upon a Time in Hollywood is directed by Quentin Tarantino
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (16, 12); # Aladdin is directed by John August
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (16, 20); # Aladdin is directed by Guy Ritchie
+
 SELECT * FROM MovieWriters ORDER BY MovieID ASC;
+
 #################################################################################### INSERT MovieCast
+
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 3); # Alex Wolff is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 11); # Awkwafina is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 30); # Danny DeVito is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 31); # Danny Glover is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 47); # Jack Black is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 62); # Karen Gillan is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 68); # Kevin Hart is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 77); # Madison Iseman is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 86); # Morgan Turner is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 92); # Nick Jonas is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 104); # Ser\'Darius Blain is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (1, 119); # Dwayne Johnson is in Jumanji: The Next Level
+INSERT INTO MovieCast (MovieID, CastID) VALUES (2, 46); # Idina Menzel is in Frozen 2
+INSERT INTO MovieCast (MovieID, CastID) VALUES (2, 57); # Jonathan Groff is in Frozen 2
+INSERT INTO MovieCast (MovieID, CastID) VALUES (2, 59); # Josh Gad is in Frozen 2
+INSERT INTO MovieCast (MovieID, CastID) VALUES (2, 123); # Kristen Bell is in Frozen 2
+INSERT INTO MovieCast (MovieID, CastID) VALUES (3, 21); # Cho Yeo-jeong is in Parasite
+INSERT INTO MovieCast (MovieID, CastID) VALUES (3, 22); # Choi Woo-shik is in Parasite
+INSERT INTO MovieCast (MovieID, CastID) VALUES (3, 51); # Jang Hye-jin is in Parasite
+INSERT INTO MovieCast (MovieID, CastID) VALUES (3, 71); # Lee Jung-eun is in Parasite
+INSERT INTO MovieCast (MovieID, CastID) VALUES (3, 72); # Lee Sun-kyun is in Parasite
+INSERT INTO MovieCast (MovieID, CastID) VALUES (3, 95); # Park So-dam is in Parasite
+INSERT INTO MovieCast (MovieID, CastID) VALUES (3, 130); # Song Kang-ho is in Parasite
+INSERT INTO MovieCast (MovieID, CastID) VALUES (4, 43); # Frances Conroy is in Joker (2019 film)
+INSERT INTO MovieCast (MovieID, CastID) VALUES (4, 100); # Robert De Niro is in Joker (2019 film)
+INSERT INTO MovieCast (MovieID, CastID) VALUES (4, 115); # Zazie Beetz is in Joker (2019 film)
+INSERT INTO MovieCast (MovieID, CastID) VALUES (4, 122); # Joaquin Phoenix is in Joker (2019 film)
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 8); # Ana de Armas is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 23); # Chris Evans is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 26); # Christopher Plummer is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 37); # Don Johnson is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 48); # Jaeden Martell is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 50); # Jamie Lee Curtis is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 64); # Katherine Langford is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 69); # Lakeith Stanfield is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 85); # Michael Shannon is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 112); # Toni Collette is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (5, 117); # Daniel Craig is in Knives Out
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 12); # Benedict Wong is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 17); # Bradley Cooper is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 18); # Brie Larson is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 23); # Chris Evans is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 24); # Chris Hemsworth is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 29); # Danai Gurira is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 36); # Don Cheadle is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 45); # Gwyneth Paltrow is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 52); # Jeremy Renner is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 56); # Jon Favreau is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 58); # Josh Brolin is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 62); # Karen Gillan is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 82); # Mark Ruffalo is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 98); # Paul Rudd is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 103); # Scarlett Johansson is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (6, 128); # Robert Downey Jr. is in Avengers: Endgame
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 5); # Alfie Allen is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 99); # Rebel Wilson is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 102); # Sam Rockwell is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 103); # Scarlett Johansson is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 107); # Stephen Merchant is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 109); # Taika Waititi is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 110); # Thomasin McKenzie is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (7, 129); # Roman Griffin Davis is in Jojo Rabbit
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 35); # Djimon Hounsou is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 38); # Elizabeth Banks is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 39); # Ella Balinska is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 87); # Naomi Scott is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 89); # Nat Faxon is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 94); # Noah Centineo is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 96); # Patrick Stewart is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 101); # Sam Claflin is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (8, 124); # Kristen Stewart is in Charlie\'s Angels
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 4); # Alexandra Shipp is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 42); # Felix Mallard is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 61); # Justice Smith is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 66); # Keegan-Michael Key is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 67); # Kelli O\'Hara is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 70); # Lamar Johnson is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 75); # Luke Wilson is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 106); # Sofia Hasmik is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 113); # Virginia Gardner is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (9, 121); # Elle Fanning is in All the Bright Places
+INSERT INTO MovieCast (MovieID, CastID) VALUES (10, 25); # Christian Bale is in Ford v Ferrari
+INSERT INTO MovieCast (MovieID, CastID) VALUES (10, 127); # Matt Damon is in Ford v Ferrari
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 1); # Aaron Eckhart is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 32); # Darren Criss is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 33); # Dennis Quaid is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 41); # Etsushi Toyokawa is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 60); # Jun Kunimura is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 65); # Keean Johnson is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 73); # Luke Evans is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 74); # Luke Kleintank is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 79); # Mandy Moore is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 92); # Nick Jonas is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 97); # Patrick Wilson is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 108); # Tadanobu Asano is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 114); # Woody Harrelson is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (11, 120); # Ed Skrein is in Midway
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 6); # Alfre Woodard is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 13); # Beyoncé Knowles-Carter is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 14); # Billy Eichner is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 20); # Chiwetel Ejiofor is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 49); # James Earl Jones is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 53); # John Kani is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 55); # John Oliver is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 105); # Seth Rogen is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (12, 118); # Donald Glover is in The Lion King
+INSERT INTO MovieCast (MovieID, CastID) VALUES (13, 9); # Arnold Schwarzenegger is in Terminator: Dark Fate
+INSERT INTO MovieCast (MovieID, CastID) VALUES (13, 34); # Diego Boneta is in Terminator: Dark Fate
+INSERT INTO MovieCast (MovieID, CastID) VALUES (13, 44); # Gabriel Luna is in Terminator: Dark Fate
+INSERT INTO MovieCast (MovieID, CastID) VALUES (13, 76); # Mackenzie Davis is in Terminator: Dark Fate
+INSERT INTO MovieCast (MovieID, CastID) VALUES (13, 90); # Natalia Reyes is in Terminator: Dark Fate
+INSERT INTO MovieCast (MovieID, CastID) VALUES (13, 126); # Linda Hamilton is in Terminator: Dark Fate
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 7); # Allison Janney is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 27); # Connie Britton is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 54); # John Lithgow is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 63); # Kate McKinnon is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 78); # Malcolm McDowell is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 81); # Margot Robbie is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 93); # Nicole Kidman is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (14, 116); # Charlize Theron is in Bombshell
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 2); # Al Pacino is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 10); # Austin Butler is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 16); # Brad Pitt is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 19); # Bruce Dern is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 28); # Dakota Fanning is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 40); # Emile Hirsch is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 80); # Margaret Qualley is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 81); # Margot Robbie is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 111); # Timothy Olyphant is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (15, 125); # Leonardo DiCaprio is in Once Upon a Time in Hollywood
+INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 15); # Billy Magnussen is in Aladdin
+INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 83); # Marwan Kenzari is in Aladdin
+INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 84); # Mena Massoud is in Aladdin
+INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 87); # Naomi Scott is in Aladdin
+INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 88); # Nasim Pedrad is in Aladdin
+INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 91); # Navid Negahban is in Aladdin
+INSERT INTO MovieCast (MovieID, CastID) VALUES (16, 131); # Will Smith is in Aladdin
+
 SELECT * FROM MovieCast ORDER BY MovieID ASC;
+
 #################################################################################### INSERT Medias
 SELECT * FROM Medias;
 #################################################################################### INSERT Rentals
