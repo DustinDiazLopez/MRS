@@ -5,23 +5,24 @@ import java.sql.Date;
 public class Rental {
     private int id;
     private int customerId;
-    private int movieId;
+    private Movie movie;
+    private Medias.Media media;
     private Date rentedOn;
-    private String media;
     private Date returnedOn;
     private boolean returned;
     private int totalDays;
     private float totalCost;
 
-    public Rental() {}
+    public Rental() {
+    }
 
-    public Rental(int id, int customerId, int movieId, Date rentedOn, String media, Date returnedOn, boolean returned,
-                  int totalDays, float totalCost) {
+    public Rental(int id, int customerId, Movie movie, Medias.Media media, Date rentedOn, Date returnedOn,
+                  boolean returned, int totalDays, float totalCost) {
         this.id = id;
         this.customerId = customerId;
-        this.movieId = movieId;
-        this.rentedOn = rentedOn;
+        this.movie = movie;
         this.media = media;
+        this.rentedOn = rentedOn;
         this.returnedOn = returnedOn;
         this.returned = returned;
         this.totalDays = totalDays;
@@ -44,12 +45,20 @@ public class Rental {
         this.customerId = customerId;
     }
 
-    public int getMovieId() {
-        return movieId;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public void setMovieId(int movieId) {
-        this.movieId = movieId;
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public Medias.Media getMedia() {
+        return media;
+    }
+
+    public void setMedia(Medias.Media media) {
+        this.media = media;
     }
 
     public Date getRentedOn() {
@@ -58,14 +67,6 @@ public class Rental {
 
     public void setRentedOn(Date rentedOn) {
         this.rentedOn = rentedOn;
-    }
-
-    public String getMedia() {
-        return media;
-    }
-
-    public void setMedia(String media) {
-        this.media = media;
     }
 
     public Date getReturnedOn() {
@@ -105,9 +106,9 @@ public class Rental {
         return "Rental{" +
                 "id=" + id +
                 ", customerId=" + customerId +
-                ", movieId=" + movieId +
+                ", movie=" + movie +
+                ", media=" + media +
                 ", rentedOn=" + rentedOn +
-                ", media='" + media + '\'' +
                 ", returnedOn=" + returnedOn +
                 ", returned=" + returned +
                 ", totalDays=" + totalDays +
