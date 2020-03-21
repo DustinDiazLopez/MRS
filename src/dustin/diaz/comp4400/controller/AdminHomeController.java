@@ -46,7 +46,12 @@ public class AdminHomeController implements Initializable {
         });
 
         customerVBox.setOnMouseClicked(e -> {
-            System.out.println("Hey customers");
+            borderPane.getChildren().clear();
+            try {
+                DustinDiazCOMP4400.setRoot("view/user/customertable.fxml");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
 
         exitVBox.setOnMouseClicked(e -> {

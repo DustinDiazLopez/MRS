@@ -18,6 +18,7 @@ public abstract class Computer {
     public static String movieImagePath;
     public static Connection connection;
     public static Customer customer;
+    public static Customer editCustomer;
 
     public static void closeProgram() {
         boolean answer = ConfirmBox.display("Close Application", "Are you sure you want to quit?");
