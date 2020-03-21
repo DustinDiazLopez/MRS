@@ -1,4 +1,4 @@
-package dustin.diaz.comp4400.model;
+package dustin.diaz.comp4400.model.child;
 
 public class Medias {
     public String type;

@@ -1,6 +1,8 @@
-package dustin.diaz.comp4400.queries;
+package dustin.diaz.comp4400.queries.parent;
 
-import dustin.diaz.comp4400.model.User;
+import dustin.diaz.comp4400.model.parent.User;
+import dustin.diaz.comp4400.queries.Database;
+import dustin.diaz.comp4400.queries.child.QueryAccountType;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.Date;

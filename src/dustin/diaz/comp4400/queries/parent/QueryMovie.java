@@ -1,6 +1,7 @@
-package dustin.diaz.comp4400.queries;
+package dustin.diaz.comp4400.queries.parent;
 
-import dustin.diaz.comp4400.model.Movie;
+import dustin.diaz.comp4400.model.parent.Movie;
+import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.Date;

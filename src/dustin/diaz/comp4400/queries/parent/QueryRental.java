@@ -1,4 +1,6 @@
-package dustin.diaz.comp4400.queries;
+package dustin.diaz.comp4400.queries.parent;
+
+import dustin.diaz.comp4400.queries.Database;
 
 public abstract class QueryRental {
 

@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400;
 
 import dustin.diaz.comp4400.queries.Database;
-import dustin.diaz.comp4400.queries.Test.Test;
+import dustin.diaz.comp4400.queries.Test;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.application.Application;
@@ -24,8 +24,9 @@ public class DustinDiazCOMP4400 extends Application {
     public static Thread connect = new Thread(() -> {
         try {
             Test.run();
-        } catch (InterruptedException | SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("Tests FAILED:");
+            System.out.println("\t" + e.getLocalizedMessage());
         }
 
         try {

@@ -1,6 +1,7 @@
-package dustin.diaz.comp4400.queries;
+package dustin.diaz.comp4400.queries.child;
 
-import dustin.diaz.comp4400.model.Writers;
+import dustin.diaz.comp4400.model.child.Writers;
+import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;

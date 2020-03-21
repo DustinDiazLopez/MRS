@@ -1,4 +1,4 @@
-package dustin.diaz.comp4400.model;
+package dustin.diaz.comp4400.model.connector;
 
 public class MovieRental {
     private int movieId;

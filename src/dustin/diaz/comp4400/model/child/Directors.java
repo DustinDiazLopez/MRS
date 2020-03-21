@@ -1,13 +1,13 @@
-package dustin.diaz.comp4400.model;
+package dustin.diaz.comp4400.model.child;
 
-public class Cast {
+public class Directors {
     private int id;
     private String name;
 
-    public Cast() {
+    public Directors() {
     }
 
-    public Cast(int id, String name) {
+    public Directors(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -30,7 +30,7 @@ public class Cast {
 
     @Override
     public String toString() {
-        return "Cast{" +
+        return "Directors{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
