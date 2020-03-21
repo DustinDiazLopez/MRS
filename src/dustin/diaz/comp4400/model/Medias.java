@@ -1,23 +1,23 @@
 package dustin.diaz.comp4400.model;
 
 public class Medias {
-    public String media;
+    public String type;
     private int id;
 
     public Medias() {
     }
 
-    public Medias(String media, int id) {
-        this.media = media;
+    public Medias(String type, int id) {
+        this.type = type;
         this.id = id;
     }
 
-    public String getMedia() {
-        return media;
+    public String getType() {
+        return type;
     }
 
-    public void setMedia(String media) {
-        this.media = media;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getId() {
@@ -32,7 +32,7 @@ public class Medias {
     public String toString() {
         return "Medias{" +
                 "id=" + id +
-                ", media=" + media +
+                ", media=" + type +
                 '}';
     }
 }

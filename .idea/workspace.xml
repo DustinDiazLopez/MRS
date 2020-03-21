@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryCast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryDirectors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryGenre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryWriters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/Test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryMedias.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/DustinDiazCOMP4400.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/DustinDiazCOMP4400.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Medias.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/model/Medias.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryAccountType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/QueryAccountType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/Test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dustin/diaz/comp4400/queries/Test/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Dustin-Diaz-COMP4400.jnlp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/model/Rental.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/model/Rental.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/backup_new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/backup_new.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/new.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Medias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Medias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/model/Rental.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryAccountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryAccountType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/QueryUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/Test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/Test/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584697822384</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Query Classes for:&#10;Cast&#10;Writer&#10;Director&#10;Account Type&#10;Genre">
+      <created>1584768109341</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1584768109341</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -239,7 +245,8 @@
     <MESSAGE value="fixed boxes" />
     <MESSAGE value="refactored code&#10;refactored database&#10;cleaned up db values and added \' to certain values" />
     <MESSAGE value="refactored code&#10;refactored database" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored code&#10;refactored database" />
+    <MESSAGE value="Query Classes for:&#10;Cast&#10;Writer&#10;Director&#10;Account Type&#10;Genre" />
+    <option name="LAST_COMMIT_MESSAGE" value="Query Classes for:&#10;Cast&#10;Writer&#10;Director&#10;Account Type&#10;Genre" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -272,11 +279,11 @@
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="500" y="273" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584759345971" />
-    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584765827022">
+    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584768768861">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="-1322" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583855539932" />
-    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584765827022" />
+    <state x="857" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584768768861" />
     <state x="883" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583810575209">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -299,30 +306,30 @@
     </state>
     <state x="340" y="278" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584702627754" />
     <state x="610" y="419" key="FileChooserDialogImpl/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1583805143949" />
-    <state width="1882" height="298" key="GridCell.Tab.0.bottom" timestamp="1584768117895">
+    <state width="1882" height="298" key="GridCell.Tab.0.bottom" timestamp="1584770202121">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1882" height="298" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584768117895" />
-    <state width="1882" height="298" key="GridCell.Tab.0.center" timestamp="1584768117894">
+    <state width="1882" height="298" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584770202121" />
+    <state width="1882" height="298" key="GridCell.Tab.0.center" timestamp="1584770202120">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1882" height="298" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584768117894" />
-    <state width="1882" height="298" key="GridCell.Tab.0.left" timestamp="1584768117894">
+    <state width="1882" height="298" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584770202120" />
+    <state width="1882" height="298" key="GridCell.Tab.0.left" timestamp="1584770202120">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1882" height="298" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584768117894" />
-    <state width="1882" height="298" key="GridCell.Tab.0.right" timestamp="1584768117894">
+    <state width="1882" height="298" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584770202120" />
+    <state width="1882" height="298" key="GridCell.Tab.0.right" timestamp="1584770202120">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="102" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584756797397" />
     <state width="1877" height="302" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1882" height="298" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584768117894" />
+    <state width="1882" height="298" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584770202120" />
     <state width="1681" height="373" key="GridCell.Tab.1.bottom" timestamp="1584586719173">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>

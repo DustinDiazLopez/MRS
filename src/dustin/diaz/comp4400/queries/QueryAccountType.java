@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public abstract class QueryAccountType {
     //INSERT
-    public static final String insertType = "INSERT INTO AccountTypes (Type) VALUES (?)";
+    public static final String insertType = "INSERT INTO " + Database.ACCOUNT_TYPE + " (Type) VALUES (?)";
 
     //SELECT
     public static final String findTypeByID = "SELECT * FROM " + Database.ACCOUNT_TYPE + " WHERE ID = ?";
@@ -47,7 +47,7 @@ public abstract class QueryAccountType {
         return !types.isEmpty() ? types : null;
     }
 
-    public static ArrayList<AccountType> findAllGenres() throws SQLException {
+    public static ArrayList<AccountType> findAllTypes() throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(findAllTypes);
         ResultSet resultSet = preparedStatement.executeQuery();
         return getTypes(resultSet);
@@ -120,7 +120,7 @@ public abstract class QueryAccountType {
         }
 
         testNumber++;
-        ArrayList<AccountType> types = findAllGenres();
+        ArrayList<AccountType> types = findAllTypes();
         if (types.size() != 2) {
             error(testNumber, "[...] size: " + types.size(), "2");
             return false;

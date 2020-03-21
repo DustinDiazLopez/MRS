@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400;
 
 import dustin.diaz.comp4400.queries.Database;
+import dustin.diaz.comp4400.queries.Test.Test;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.application.Application;
@@ -13,13 +14,20 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DustinDiazCOMP4400 extends Application {
 
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
+    public static final String USERNAME = "root";
+    public static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
 
     public static Thread connect = new Thread(() -> {
+        try {
+            Test.run();
+        } catch (InterruptedException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         try {
             Class.forName(Database.DRIVER);
             Computer.connection = DriverManager.getConnection(Database.URL, USERNAME, PASSWORD);
@@ -57,6 +65,7 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
+        System.out.println("Connection to the Database was re-established.");
     }
 
     public static void setRoot(String fxml) throws IOException {
