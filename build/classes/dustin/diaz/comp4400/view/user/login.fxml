@@ -43,50 +43,47 @@
             </HBox>
             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                <children>
-                   <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Password"/>
-                   <PasswordField fx:id="passwordLoginTextField" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0"
-                                  prefWidth="226.0">
-                       <HBox.margin>
-                           <Insets left="10.0"/>
-                       </HBox.margin>
-                   </PasswordField>
-                   <Label fx:id="manFieldTwo" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                          prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                       <padding>
-                           <Insets bottom="10.0" left="10.0"/>
-                       </padding>
-                       <font>
-                           <Font name="System Bold" size="15.0"/>
-                       </font>
-                   </Label>
+                  <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Password" />
+                  <PasswordField fx:id="passwordLoginTextField" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="226.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </PasswordField>
+                  <Label fx:id="manFieldTwo" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
                </children>
-                <VBox.margin>
-                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                </VBox.margin>
-                <padding>
-                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </HBox>
-             <Label fx:id="manText" textFill="RED"/>
-             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
-                 <children>
-                     <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                             onAction="#login" text="Login">
-                         <HBox.margin>
-                             <Insets right="10.0"/>
-                         </HBox.margin>
-                     </Button>
-                     <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false"
-                             nodeOrientation="LEFT_TO_RIGHT"
-                             onAction="#loginCancel" text="Cancel"/>
-                     <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
-                             nodeOrientation="LEFT_TO_RIGHT" onAction="#loginRegister" text="Register">
-                         <HBox.margin>
-                             <Insets left="10.0"/>
-                         </HBox.margin>
-                     </Button>
-                 </children>
-             </HBox>
+            <Label fx:id="manText" textFill="RED" />
+            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+                <children>
+                    <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
+                            onAction="#login" text="Login">
+                        <HBox.margin>
+                            <Insets right="10.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
+                            onAction="#loginCancel" text="Cancel"/>
+                    <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
+                            nodeOrientation="LEFT_TO_RIGHT" onAction="#loginRegister" text="Register">
+                        <HBox.margin>
+                            <Insets left="10.0"/>
+                        </HBox.margin>
+                    </Button>
+                </children>
+            </HBox>
          </children>
          <opaqueInsets>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
