@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Dustin-Diaz-COMP4400.jar" size="10122092" download="eager"/>
+    <jar href="Dustin-Diaz-COMP4400.jar" size="10153121" download="eager"/>
     <jar href="lib\mysql-connector-java-8.0.19.jar" size="2356711" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Dustin-Diaz-COMP4400" >

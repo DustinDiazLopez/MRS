@@ -1,6 +1,5 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
@@ -92,11 +91,9 @@ public class controller implements Initializable {
                     Computer.customer = customer;
 
                     if (customer.getAccountType().equals("ADMIN")) {
-                        borderPane.getChildren().clear();
-                        DustinDiazCOMP4400.setRoot("view/user/adminhome.fxml");
+                        Computer.changeScreen(borderPane, "adminhome");
                     } else {
-                        borderPane.getChildren().clear();
-                        DustinDiazCOMP4400.setRoot("view/user/userhome.fxml");
+                        Computer.changeScreen(borderPane, "userhome");
                     }
                 } else {
                     manText.setText("The entered credentials do not match anything on record.");
@@ -111,9 +108,8 @@ public class controller implements Initializable {
     }
 
     @FXML
-    void loginRegister(ActionEvent event) throws IOException {
-        borderPane.getChildren().clear();
-        DustinDiazCOMP4400.setRoot("view/user/register.fxml");
+    void loginRegister(ActionEvent event) {
+        Computer.changeScreen(borderPane, "register");
     }
 
 

@@ -1,6 +1,5 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.child.AccountType;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.queries.child.QueryAccountType;
@@ -115,7 +114,7 @@ public class EditAccountController implements Initializable {
 
 
     @FXML
-    void register(ActionEvent event) throws IOException, SQLException {
+    void register(ActionEvent event) {
         manText.setText("");
         manAddress.setText("");
         manCity.setText("");
@@ -232,8 +231,7 @@ public class EditAccountController implements Initializable {
                     if (equals || !exists) {
                         AccountType type = QueryAccountType.findType(accountTypeCB.getValue());
                         QueryCustomer.updateCustomer(id, u, p1, fn, mn, ln, dob, a, c, z, p, type);
-                        borderPane.getChildren().clear();
-                        DustinDiazCOMP4400.setRoot("view/user/customertable.fxml");
+                        Computer.changeScreen(borderPane, "customertable");
                     } else {
                         username.setStyle(Styling.error);
                         manText.setText("* This username already exists.");
@@ -262,8 +260,7 @@ public class EditAccountController implements Initializable {
 
     @FXML
     void registerCancel(ActionEvent event) throws IOException {
-        borderPane.getChildren().clear();
-        DustinDiazCOMP4400.setRoot("view/user/customertable.fxml");
+        Computer.changeScreen(borderPane, "customertable");
     }
 
     @FXML

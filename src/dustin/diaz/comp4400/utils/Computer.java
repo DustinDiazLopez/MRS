@@ -5,6 +5,7 @@ import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
 
 import java.awt.*;
 import java.io.File;
@@ -35,6 +36,15 @@ public abstract class Computer {
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(DustinDiazCOMP4400.class.getResource(fxml));
         return fxmlLoader.load();
+    }
+
+    public static void changeScreen(BorderPane borderPane, String filename) {
+        borderPane.getChildren().clear();
+        try {
+            DustinDiazCOMP4400.setRoot("view/user/" + filename + ".fxml");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void openImageFolder() throws IOException {

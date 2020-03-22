@@ -1,6 +1,5 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
@@ -17,7 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -54,6 +52,7 @@ public class CustomerTableController implements Initializable {
         try {
             tableView.getItems().clear();
             tableView.getItems().addAll(QueryCustomer.findAll());
+            warning.setText("");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -78,19 +77,13 @@ public class CustomerTableController implements Initializable {
         });
 
         backBtn.setOnMousePressed(e -> {
-            borderPane.getChildren().clear();
             try {
-                System.out.println(Computer.customer);
                 Computer.customer = QueryCustomer.find(Computer.customer.getId());
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
 
-            try {
-                DustinDiazCOMP4400.setRoot("view/user/adminhome.fxml");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            Computer.changeScreen(borderPane, "adminhome");
         });
 
         backBtn.setOnKeyPressed(e -> {
@@ -104,12 +97,7 @@ public class CustomerTableController implements Initializable {
                 ex.printStackTrace();
             }
 
-            try {
-                borderPane.getChildren().clear();
-                DustinDiazCOMP4400.setRoot("view/user/addaccount.fxml");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            Computer.changeScreen(borderPane, "addaccount");
         });
 
         addBtn.setOnKeyPressed(e -> {
@@ -153,12 +141,7 @@ public class CustomerTableController implements Initializable {
             } else {
                 Computer.editCustomer = selected;
 
-                try {
-                    borderPane.getChildren().clear();
-                    DustinDiazCOMP4400.setRoot("view/user/editaccount.fxml");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                Computer.changeScreen(borderPane, "editaccount");
 
                 updateTable();
             }
@@ -185,13 +168,7 @@ public class CustomerTableController implements Initializable {
 
                         if (choice.equals("Edit")) {
                             Computer.editCustomer = c;
-
-                            try {
-                                borderPane.getChildren().clear();
-                                DustinDiazCOMP4400.setRoot("view/user/editaccount.fxml");
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
+                            Computer.changeScreen(borderPane, "editaccount");
                             updateTable();
                         } else if (choice.equals("Delete")) {
                             if (ConfirmBox.display(
@@ -221,12 +198,7 @@ public class CustomerTableController implements Initializable {
                             )
                     ) {
                         Computer.editCustomer = selected;
-                        try {
-                            borderPane.getChildren().clear();
-                            DustinDiazCOMP4400.setRoot("view/user/editaccount.fxml");
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
+                        Computer.changeScreen(borderPane, "editaccount");
                         updateTable();
                     }
                 }

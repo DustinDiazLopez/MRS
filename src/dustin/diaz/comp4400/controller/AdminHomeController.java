@@ -1,6 +1,5 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
@@ -9,8 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,6 +30,11 @@ public class AdminHomeController implements Initializable {
     @FXML
     private VBox exitVBox;
 
+    @FXML
+    private Label customerLabelVBox;
+
+    @FXML
+    private Label movieLabelVBox;
 
     @FXML
     private Label userLabel;
@@ -41,44 +45,30 @@ public class AdminHomeController implements Initializable {
             System.out.println("Hey rentals");
         });
 
-        moviesVBox.setOnMouseClicked(e -> {
-            System.out.println("Hey movies");
+        moviesVBox.setOnMousePressed(e -> {
+            movieLabelVBox.setTextFill(Color.RED);
+            movieLabelVBox.setText("Please wait...");
+            moviesVBox.opacityProperty().setValue(1);
         });
 
-        customerVBox.setOnMouseClicked(e -> {
-            borderPane.getChildren().clear();
-            try {
-                DustinDiazCOMP4400.setRoot("view/user/customertable.fxml");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+        moviesVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "movietable"));
+
+        customerVBox.setOnMousePressed(e -> {
+            customerLabelVBox.setTextFill(Color.RED);
+            customerLabelVBox.setText("Please wait...");
+            customerVBox.opacityProperty().setValue(1);
         });
+
+        customerVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "customertable"));
 
         exitVBox.setOnMouseClicked(e -> {
             if (ConfirmBox.display("Log-out", "Are you sure you want to log-out?")) {
-                borderPane.getChildren().clear();
-                try {
-                    DustinDiazCOMP4400.setRoot("view/user/login.fxml");
-                    Computer.customer = null;
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                Computer.changeScreen(borderPane, "login");
             }
         });
 
-        userLabel.setText(Computer.customer.getFirstName() + " " + Computer.customer.getLastName());
+        userLabel.setText(Styling.formatNames(Computer.customer));
 
-        rentalsVBox.setStyle(Styling.homeStyle);
-        customerVBox.setStyle(Styling.homeStyle);
-        moviesVBox.setStyle(Styling.homeStyle);
-        exitVBox.setStyle(Styling.homeStyle);
-        rentalsVBox.setOnMouseEntered(e -> rentalsVBox.setStyle(Styling.homeStyleHover));
-        rentalsVBox.setOnMouseExited(e -> rentalsVBox.setStyle(Styling.homeStyle));
-        customerVBox.setOnMouseEntered(e -> customerVBox.setStyle(Styling.homeStyleHover));
-        customerVBox.setOnMouseExited(e -> customerVBox.setStyle(Styling.homeStyle));
-        moviesVBox.setOnMouseEntered(e -> moviesVBox.setStyle(Styling.homeStyleHover));
-        moviesVBox.setOnMouseExited(e -> moviesVBox.setStyle(Styling.homeStyle));
-        exitVBox.setOnMouseEntered(e -> exitVBox.setStyle(Styling.homeStyleHover));
-        exitVBox.setOnMouseExited(e -> exitVBox.setStyle(Styling.homeStyle));
+        Styling.setStyle(rentalsVBox, customerVBox, moviesVBox, exitVBox);
     }
 }

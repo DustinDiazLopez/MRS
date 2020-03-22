@@ -39,13 +39,13 @@ public class ChooseBox {
         comboBox.setItems(FXCollections.observableArrayList(action));
 
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Choose");
+        window.setTitle("Choose action for " + selected);
         window.setMinHeight(200);
         window.setMinWidth(425);
         window.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
 
         Label label = new Label();
-        label.setText("Choose the action for user '" + selected + "' (ID:" + id + ")");
+        label.setText("Choose the action for user '" + selected + "' (ID: " + id + ")");
 
         yesButton.setOnAction(e -> {
             if (!(comboBox.getValue() == null)) {

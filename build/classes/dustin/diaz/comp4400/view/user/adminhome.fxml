@@ -4,7 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal"
             fx:controller="dustin.diaz.comp4400.controller.AdminHomeController">
     <center>
@@ -50,7 +51,7 @@
                                         <Insets bottom="5.0"/>
                            </VBox.margin>
                         </ImageView>
-                                <Label text="Customers"/>
+                                <Label fx:id="customerLabelVBox" text="Customers"/>
                      </children>
                      <HBox.margin>
                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -69,7 +70,7 @@
                                <Insets bottom="5.0"/>
                            </VBox.margin>
                         </ImageView>
-                         <Label text="Movies"/>
+                         <Label fx:id="movieLabelVBox" text="Movies"/>
                      </children>
                      <HBox.margin>
                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>

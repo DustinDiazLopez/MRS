@@ -1,6 +1,5 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
@@ -204,8 +203,7 @@ public class UpdateController implements Initializable {
         if (valid) {
             if (p1.equals(p2)) {
                 QueryCustomer.update(id, u, p1, fn, mn, ln, dob, a, c, z, p);
-                borderPane.getChildren().clear();
-                DustinDiazCOMP4400.setRoot("view/user/userhome.fxml");
+                Computer.changeScreen(borderPane, "userhome");
             } else {
                 manPassword.setText("*");
                 manPasswordTwo.setText("*");
@@ -225,8 +223,7 @@ public class UpdateController implements Initializable {
 
     @FXML
     void registerCancel(ActionEvent event) throws IOException {
-        borderPane.getChildren().clear();
-        DustinDiazCOMP4400.setRoot("view/user/userhome.fxml");
+        Computer.changeScreen(borderPane, "userhome");
     }
 
     @Override

@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.utils;
 
 import dustin.diaz.comp4400.model.parent.Customer;
+import javafx.scene.layout.VBox;
 
 public class Styling {
     public static String error =
@@ -33,6 +34,24 @@ public class Styling {
                     "-fx-border-radius: 5;" +
                     "-fx-border-color: blue;";
 
+    public static void setStyle(VBox... vBoxes) {
+        double opacity = 0.85;
+        for (VBox vBox : vBoxes) {
+            vBox.setStyle(homeStyle);
+            vBox.opacityProperty().setValue(opacity);
+
+            vBox.setOnMouseEntered(e -> {
+                vBox.opacityProperty().setValue(1);
+                vBox.setStyle(homeStyleHover);
+            });
+
+            vBox.setOnMouseExited(e -> {
+                vBox.opacityProperty().setValue(opacity);
+                vBox.setStyle(homeStyle);
+            });
+        }
+    }
+
     public static String formatNames(Customer c) {
         if (c == null) return null;
         return formatNames(c.getFirstName(), c.getMiddleName(), c.getLastName());
@@ -47,7 +66,7 @@ public class Styling {
             builder.append(name).append(" ");
         }
 
-        return builder.toString().trim();
+        return builder.toString().trim().replaceAll(" {2}", " ");
     }
 
     private static String capitalize(String string) {

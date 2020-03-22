@@ -6,27 +6,32 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.controller">
-   <center>
-      <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fx:id="loginImage" fitHeight="212.0" fitWidth="266.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Images/icons/app/012-line.png" />
-               </image>
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin></ImageView>
-            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
-               <children>
-                  <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Username" />
-                  <TextField fx:id="usernameLoginTextField" prefHeight="31.0" prefWidth="226.0">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <Label fx:id="manFieldOne" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                     <HBox.margin>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="900.0" minWidth="1100.0"
+            prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="dustin.diaz.comp4400.controller.controller">
+    <center>
+        <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="loginImage" fitHeight="212.0" fitWidth="266.0" nodeOrientation="RIGHT_TO_LEFT"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../../Images/icons/app/012-line.png"/>
+                    </image>
+                    <VBox.margin>
+                        <Insets left="10.0"/>
+                    </VBox.margin>
+                </ImageView>
+                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+                    <children>
+                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Username"/>
+                        <TextField fx:id="usernameLoginTextField" prefHeight="31.0" prefWidth="226.0">
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </TextField>
+                        <Label fx:id="manFieldOne" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
+                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
+                            <HBox.margin>
                         <Insets />
                      </HBox.margin>
                      <padding>
@@ -69,13 +74,13 @@
             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                 <children>
                     <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#login" text="Login">
+                            onAction="#login" prefHeight="31.0" prefWidth="74.0" text="Login">
                         <HBox.margin>
                             <Insets right="10.0"/>
                         </HBox.margin>
                     </Button>
                     <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#loginCancel" text="Cancel"/>
+                            onAction="#loginCancel" prefHeight="31.0" prefWidth="74.0" text="Cancel"/>
                     <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
                             nodeOrientation="LEFT_TO_RIGHT" onAction="#loginRegister" text="Register">
                         <HBox.margin>

@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
+import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -202,8 +202,7 @@ public class RegisterController implements Initializable {
             if (p1.equals(p2)) {
                 if (QueryCustomer.find(u) == null) {
                     QueryCustomer.insert(u, p1, fn, mn, ln, dob, a, c, z, p);
-                    borderPane.getChildren().clear();
-                    DustinDiazCOMP4400.setRoot("view/user/login.fxml");
+                    Computer.changeScreen(borderPane, "login");
                 } else {
                     manUsername.setText("*");
                     username.setStyle(Styling.error);
@@ -227,9 +226,8 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-    void registerCancel(ActionEvent event) throws IOException {
-        borderPane.getChildren().clear();
-        DustinDiazCOMP4400.setRoot("view/user/login.fxml");
+    void registerCancel(ActionEvent event) {
+        Computer.changeScreen(borderPane, "login");
     }
 
     @Override

@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
+import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,7 +17,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -102,7 +101,7 @@ public class AddAccountController implements Initializable {
 
 
     @FXML
-    void register(ActionEvent event) throws IOException, SQLException {
+    void register(ActionEvent event) throws SQLException {
         manText.setText("");
         manAddress.setText("");
         manCity.setText("");
@@ -202,8 +201,7 @@ public class AddAccountController implements Initializable {
             if (p1.equals(p2)) {
                 if (QueryCustomer.find(u) == null) {
                     QueryCustomer.insert(u, p1, fn, mn, ln, dob, a, c, z, p);
-                    borderPane.getChildren().clear();
-                    DustinDiazCOMP4400.setRoot("view/user/customertable.fxml");
+                    Computer.changeScreen(borderPane, "customertable");
                 } else {
                     manUsername.setText("*");
                     username.setStyle(Styling.error);
@@ -227,9 +225,8 @@ public class AddAccountController implements Initializable {
     }
 
     @FXML
-    void registerCancel(ActionEvent event) throws IOException {
-        borderPane.getChildren().clear();
-        DustinDiazCOMP4400.setRoot("view/user/customertable.fxml");
+    void registerCancel(ActionEvent event) {
+        Computer.changeScreen(borderPane, "customertable");
     }
 
     @Override
