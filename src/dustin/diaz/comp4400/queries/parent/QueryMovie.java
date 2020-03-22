@@ -127,6 +127,19 @@ public abstract class QueryMovie {
         return validate(movie);
     }
 
+    public static int findMovieID(String title) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.movieByTitle);
+        preparedStatement.setString(1, title);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Movie movie = new Movie();
+        int id = 0;
+        while (resultSet.next()) {
+            id = resultSet.getInt("ID");
+        }
+        return id;
+    }
+
     private static Movie validate(Movie movie) {
         if (movie == null) return null;
         return movie.getId() != 0 ? movie : null;

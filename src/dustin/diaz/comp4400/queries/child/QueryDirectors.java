@@ -82,7 +82,7 @@ public abstract class QueryDirectors {
     }
 
     public static ArrayList<Directors> get(int movieId) throws SQLException {
-        ArrayList<MovieDirectors> list = QueryMovieDirector.findByDirectorID(movieId);
+        ArrayList<MovieDirectors> list = QueryMovieDirector.findByMovieID(movieId);
         if (list == null) return null;
         ArrayList<Directors> directors = new ArrayList<>();
         for (MovieDirectors md : list) {

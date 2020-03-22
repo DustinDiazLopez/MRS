@@ -395,7 +395,8 @@
     <target name="-set-ant-javafx-in-macjdk-lib"
             depends="-set-ant-javafx-in-probjdk-tools,-check-ant-javafx-in-macjdk-lib"
             if="do.set.ant-javafx.in.macjdk.lib">
-        <property name="ant-javafx.jar.location" value="${java.home}${file.separator}lib${file.separator}ant-javafx.jar"/>
+        <property name="ant-javafx.jar.location"
+                  value="${java.home}${file.separator}lib${file.separator}ant-javafx.jar"/>
     </target>
     <target name="-check-ant-javafx-in-envjdk-lib" unless="ant-javafx.jar.location">
         <property environment="env"/>

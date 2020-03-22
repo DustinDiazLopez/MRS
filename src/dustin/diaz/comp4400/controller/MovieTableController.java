@@ -73,16 +73,14 @@ public class MovieTableController implements Initializable {
             if (e.getCode().toString().equals("ENTER")) refreshBtn.fire();
         });
 
-        backBtn.setOnMousePressed(e -> {
-            Computer.changeScreen(borderPane, "adminhome");
-        });
+        backBtn.setOnMousePressed(e -> Computer.changeScreen(borderPane, "adminhome"));
 
         backBtn.setOnKeyPressed(e -> {
             if (e.getCode().toString().equals("ENTER")) backBtn.fire();
         });
 
         addBtn.setOnMousePressed(e -> {
-            Computer.changeScreen(borderPane, "addaccount");
+            Computer.changeScreen(borderPane, "addmovie");
         });
 
         addBtn.setOnKeyPressed(e -> {
@@ -94,7 +92,7 @@ public class MovieTableController implements Initializable {
             tableView.setStyle("");
 
             if (selected == null) {
-                warning.setText("Select a user to delete them.");
+                warning.setText("Select a movie to DELETE.");
                 tableView.setStyle(Styling.error);
             } else {
                 Movie c = selected;
@@ -121,11 +119,15 @@ public class MovieTableController implements Initializable {
             tableView.setStyle("");
 
             if (selected == null) {
-                warning.setText("Select a user to movie their information.");
+                warning.setText("Select a movie to EDIT its information.");
                 tableView.setStyle(Styling.error);
             } else {
-                Computer.changeScreen(borderPane, "editaccount");
-                updateTable();
+                try {
+                    Computer.editMovie = QueryMovie.findMovie(selected.getId());
+                    Computer.changeScreen(borderPane, "editmovie");
+                } catch (SQLException ignored) {
+                    ConfirmBox.display("An error occurred", "Couldn't execute query");
+                }
             }
         });
 
@@ -146,8 +148,12 @@ public class MovieTableController implements Initializable {
                         String name = selected.getTitle();
 
                         if (choice.equals("Edit")) {
-                            Computer.changeScreen(borderPane, "editaccount");
-                            updateTable();
+                            try {
+                                Computer.editMovie = QueryMovie.findMovie(selected.getId());
+                                Computer.changeScreen(borderPane, "editmovie");
+                            } catch (SQLException ignored) {
+                                ConfirmBox.display("An error occured", "Couldn't execute query");
+                            }
                         } else if (choice.equals("Delete")) {
                             if (ConfirmBox.display(
                                     "Delete " + name,
@@ -169,14 +175,14 @@ public class MovieTableController implements Initializable {
 
                 } else if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
                     String name = selected.getTitle();
-                    if (
-                            ConfirmBox.display(
-                                    "Edit " + name,
-                                    "Would you like to EDIT " + name + " (ID:" + selected.getId() + ")?"
-                            )
-                    ) {
-                        Computer.changeScreen(borderPane, "editaccount");
-                        updateTable();
+                    if (ConfirmBox.display("Edit " + name,
+                            "Would you like to EDIT " + name + " (ID:" + selected.getId() + ")?")) {
+                        try {
+                            Computer.editMovie = QueryMovie.findMovie(selected.getId());
+                            Computer.changeScreen(borderPane, "editmovie");
+                        } catch (SQLException ignored) {
+                            ConfirmBox.display("An error occured", "Couldn't execute query");
+                        }
                     }
                 }
             }
