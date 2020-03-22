@@ -16,13 +16,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ConfirmBox {
 
     public static boolean display(String title, String message) {
+        return display(title, message, 410, 200);
+    }
+
+    public static boolean display(String title, String message, int width, int height) {
         AtomicBoolean answer = new AtomicBoolean(false);
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinHeight(200);
-        window.setMinWidth(375);
+        window.setMinWidth(410);
         window.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
 
         Label label = new Label();
@@ -61,7 +65,7 @@ public class ConfirmBox {
         layout.getChildren().addAll(label, layButton);
         layout.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(layout);
+        Scene scene = new Scene(layout, width, height);
 
         window.setScene(scene);
         window.showAndWait();

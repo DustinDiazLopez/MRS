@@ -56,8 +56,11 @@ public class DustinDiazCOMP4400 extends Application {
         stage.setTitle("Movie Rental System");
         stage.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
 
-        stage.setMinHeight(800d);
-        stage.setMinWidth(1000d);
+        stage.setMinHeight(900);
+        stage.setMinWidth(1100);
+
+        stage.setHeight(900);
+        stage.setWidth(1100);
 
         stage.setOnCloseRequest(e -> {
             e.consume();

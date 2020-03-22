@@ -1,5 +1,6 @@
 package dustin.diaz.comp4400.queries.parent;
 
+import dustin.diaz.comp4400.model.child.AccountType;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.child.QueryAccountType;
@@ -20,6 +21,7 @@ public abstract class QueryCustomer {
 
     //UPDATE
     public static final String updateUserByIDAndUsername = "UPDATE " + Database.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
+    public static final String updateUserByID = "UPDATE " + Database.CUSTOMER + " SET Username = ?, AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ?, AccountTypeID = ? WHERE ID = ?;";
 
     //INSERT
     public static final String insertUser = "INSERT INTO " + Database.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1);";
@@ -58,6 +60,26 @@ public abstract class QueryCustomer {
         preparedStatement.setString(++i, customer.getCity());
         preparedStatement.setString(++i, customer.getZipCode());
         preparedStatement.setString(++i, customer.getPhone());
+        return preparedStatement.executeUpdate();
+    }
+
+    public static int updateCustomer(int id, String username, String accountPassword, String firstName, String middleName,
+                                     String lastName, String dateOfBirth, String address, String city, String zipCode,
+                                     String phone, AccountType type) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(updateUserByID);
+        int i = 1;
+        preparedStatement.setString(i, username);
+        preparedStatement.setString(++i, accountPassword);
+        preparedStatement.setString(++i, firstName);
+        preparedStatement.setString(++i, middleName);
+        preparedStatement.setString(++i, lastName);
+        preparedStatement.setString(++i, dateOfBirth);
+        preparedStatement.setString(++i, address);
+        preparedStatement.setString(++i, city);
+        preparedStatement.setString(++i, zipCode);
+        preparedStatement.setString(++i, phone);
+        preparedStatement.setInt(++i, type.getId());
+        preparedStatement.setInt(++i, id);
         return preparedStatement.executeUpdate();
     }
 

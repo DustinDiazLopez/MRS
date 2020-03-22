@@ -124,11 +124,13 @@ public class CustomerTableController implements Initializable {
                 warning.setText("Select a user to delete them.");
                 tableView.setStyle(Styling.error);
             } else {
+                Customer c = selected;
+                String name = Styling.formatNames(c.getFirstName(), c.getLastName());
                 if (ConfirmBox.display(
-                        "Delete " + selected.getUsername(),
-                        "Are you sure you want to delete the user " + selected.getUsername() + "?")) {
+                        "Delete " + name,
+                        "Are you sure you want to delete user '" + name + "' " + "(ID: " + c.getId() + ")")) {
                     try {
-                        QueryCustomer.delete(selected.getId());
+                        QueryCustomer.delete(c.getId());
                         updateTable();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
@@ -169,6 +171,7 @@ public class CustomerTableController implements Initializable {
         tableView.setOnMousePressed(e -> selected = (Customer) tableView.getSelectionModel().getSelectedItem());
 
         tableView.setOnMouseClicked(event -> {
+            //TODO very click is inside table and check why this is not working
             if (event.getButton().equals(MouseButton.SECONDARY)) {
                 String choice = ChooseBox.display(selected.getUsername());
                 System.out.println(choice);
@@ -187,11 +190,8 @@ public class CustomerTableController implements Initializable {
         TableColumn<String, Customer> column = new TableColumn<>("ID");
         column.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        TableColumn<String, Customer> col = new TableColumn<>("Role");
+        TableColumn<String, Customer> col = new TableColumn<>("Account Type");
         col.setCellValueFactory(new PropertyValueFactory<>("accountType"));
-
-        TableColumn<String, Customer> colum = new TableColumn<>("Username");
-        colum.setCellValueFactory(new PropertyValueFactory<>("username"));
 
         TableColumn<String, Customer> column1 = new TableColumn<>("First Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -220,7 +220,6 @@ public class CustomerTableController implements Initializable {
         tableView.getColumns().add(column5);
         tableView.getColumns().add(column6);
         tableView.getColumns().add(col);
-        tableView.getColumns().add(colum);
 
         updateTable();
     }
