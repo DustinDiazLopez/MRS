@@ -171,55 +171,103 @@ public class CustomerTableController implements Initializable {
         tableView.setOnMousePressed(e -> selected = (Customer) tableView.getSelectionModel().getSelectedItem());
 
         tableView.setOnMouseClicked(event -> {
-            //TODO very click is inside table and check why this is not working
-            if (event.getButton().equals(MouseButton.SECONDARY)) {
-                String choice = ChooseBox.display(selected.getUsername());
-                System.out.println(choice);
-                if (choice.equals("Edit")) {
-                    System.out.println("hello");
-                    editButton.fire();
-                } else if (choice.equals("Delete")) deleteButton.fire();
-            } else if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-                System.out.println("hello");
-                editButton.fire();
+            String e = event.toString();
+            if (!e.contains("target = TableColumnHeader") && !e.contains("target = Label") && selected != null) {
+                if (event.getButton().equals(MouseButton.SECONDARY)) {
+                    String choice = ChooseBox.display(
+                            Styling.formatNames(selected.getFirstName(), selected.getLastName()),
+                            "" + selected.getId()
+                    );
+
+                    if (choice != null) {
+                        Customer c = selected;
+                        String name = Styling.formatNames(c.getFirstName(), c.getLastName());
+
+                        if (choice.equals("Edit")) {
+                            Computer.editCustomer = c;
+
+                            try {
+                                borderPane.getChildren().clear();
+                                DustinDiazCOMP4400.setRoot("view/user/editaccount.fxml");
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
+                            updateTable();
+                        } else if (choice.equals("Delete")) {
+                            if (ConfirmBox.display(
+                                    "Delete " + name,
+                                    "Are you sure you want to DELETE user '" + name + "' " + "(ID: " + c.getId() + ")?")) {
+                                try {
+                                    QueryCustomer.delete(c.getId());
+                                    updateTable();
+                                } catch (SQLException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        } else {
+                            ConfirmBox.display(
+                                    "Unrecognized Command",
+                                    "Please specify the command in the ChooseBox Class"
+                            );
+                        }
+                    }
+
+                } else if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                    String name = Styling.formatNames(selected);
+                    if (
+                            ConfirmBox.display(
+                                    "Edit " + name,
+                                    "Would you like to EDIT " + name + " (ID:" + selected.getId() + ")?"
+                            )
+                    ) {
+                        Computer.editCustomer = selected;
+                        try {
+                            borderPane.getChildren().clear();
+                            DustinDiazCOMP4400.setRoot("view/user/editaccount.fxml");
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                        updateTable();
+                    }
+                }
             }
         });
 
         tableView.setPlaceholder(new Label("No customers to display."));
 
-        TableColumn<String, Customer> column = new TableColumn<>("ID");
-        column.setCellValueFactory(new PropertyValueFactory<>("id"));
+        TableColumn<String, Customer> id = new TableColumn<>("ID");
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        TableColumn<String, Customer> col = new TableColumn<>("Account Type");
-        col.setCellValueFactory(new PropertyValueFactory<>("accountType"));
+        TableColumn<String, Customer> accountType = new TableColumn<>("Account Type");
+        accountType.setCellValueFactory(new PropertyValueFactory<>("accountType"));
 
-        TableColumn<String, Customer> column1 = new TableColumn<>("First Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<String, Customer> firstName = new TableColumn<>("First Name");
+        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 
-        TableColumn<String, Customer> column2 = new TableColumn<>("Last Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<String, Customer> lastName = new TableColumn<>("Last Name");
+        lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
-        TableColumn<String, Customer> column3 = new TableColumn<>("Address");
-        column3.setCellValueFactory(new PropertyValueFactory<>("address"));
+        TableColumn<String, Customer> address = new TableColumn<>("Address");
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        TableColumn<String, Customer> column4 = new TableColumn<>("City");
-        column4.setCellValueFactory(new PropertyValueFactory<>("city"));
+        TableColumn<String, Customer> city = new TableColumn<>("City");
+        city.setCellValueFactory(new PropertyValueFactory<>("city"));
 
-        TableColumn<String, Customer> column5 = new TableColumn<>("Zip Code");
-        column5.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
+        TableColumn<String, Customer> zipCode = new TableColumn<>("Zip Code");
+        zipCode.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
 
-        TableColumn<String, Customer> column6 = new TableColumn<>("Phone");
-        column6.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        TableColumn<String, Customer> phone = new TableColumn<>("Phone");
+        phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
 
-        tableView.getColumns().add(column);
-        tableView.getColumns().add(column1);
-        tableView.getColumns().add(column2);
-        tableView.getColumns().add(column3);
-        tableView.getColumns().add(column4);
-        tableView.getColumns().add(column5);
-        tableView.getColumns().add(column6);
-        tableView.getColumns().add(col);
+        tableView.getColumns().add(id);
+        tableView.getColumns().add(firstName);
+        tableView.getColumns().add(lastName);
+        tableView.getColumns().add(address);
+        tableView.getColumns().add(city);
+        tableView.getColumns().add(zipCode);
+        tableView.getColumns().add(phone);
+        tableView.getColumns().add(accountType);
 
         updateTable();
     }

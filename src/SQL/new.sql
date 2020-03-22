@@ -241,9 +241,9 @@ insert into AccountTypes (Type) values ('ADMIN');
 
 select * from AccountTypes;
 #################################################################################### insert CUSTOMERS
-insert into Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) values ('dustindiaz', 'dustin123', 'Dustin', 'A.', 'Díaz', '1998-02-06', '4 Calle Aleli Urb. Round Hill', 'Trujillo Alto', '00976', '7874782095', 2);
-insert into Customers (Username, AccountPassword, FirstName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) values ('root', 'toor', 'Admin', 'Privelages', '1860-02-06', 'RA 0h 42m 44s | Dec +4° 6\' 9\"', 'Andromeda Galaxy', 'M3', 'Radio Waves', 2);
-INSERT INTO Customers (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES ('dustin123', 'asd', 'Pedro', 'A.', 'Díaza', '1996-2-06', 'El Campo', 'Rio Campo', '0076', '237067890', 1);
+INSERT INTO Customers (Username,AccountPassword,FirstName,MiddleName,LastName,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("dustindiaz", "dustin123", "Dustin", "A.", "Díaz", "1998-02-06", "4 Calle Aleli Urb. Round Hill", "Trujillo Alto", "00976", "787-478-2095", "2");
+INSERT INTO Customers (Username,AccountPassword,FirstName,MiddleName,LastName,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("root", "toor", "Root", "", "Account", "1860-02-06", "RA 0h 42m 44s | Dec +4° 6\' 9\"", "Andromeda Galaxy", "M3", "Radio Waves", "2");
+INSERT INTO Customers (Username,AccountPassword,FirstName,MiddleName,LastName,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("dustin123", "asd", 'Pedro', 'D.', 'Campo', '1996-2-06', "Villas De Rio Grande", 'Río Grande', '00745', '237-067-8900', "1");
 INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Clinton","Elvis","Holloway","Jayme Mann","ante","1992-12-13","P.O. Box 138, 5925 Odio. St.","Savona","4583","596-186-9323","1");
 INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Inga","Len","Barker","Ezra Mccray","volutpat","1997-07-07","744-5001 Eleifend Ave","Nogales","352006","285-770-7714","1");
 INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Hedley","Brett","Watkins","Forrest Mejia","sapien","1991-03-04","654-3869 Velit Street","Enines","785185","421-270-5443","1");
@@ -813,7 +813,7 @@ INSERT INTO MovieGenres (MovieID, GenreID) VALUES (6, 10); # Avengers: Endgame i
 INSERT INTO MovieGenres (MovieID, GenreID) VALUES (7, 3); # Jojo Rabbit is Comedy-drama
 INSERT INTO MovieGenres (MovieID, GenreID) VALUES (7, 4); # Jojo Rabbit is Drama
 INSERT INTO MovieGenres (MovieID, GenreID) VALUES (8, 1); # Charlie\'s Angels is Action
-insert into MovieGenres (MovieID, GenreID) values (8, 2); # Charlie\'s Angels is Adventure
+INSERT INTO MovieGenres (MovieID, GenreID) VALUES (8, 2); # Charlie\'s Angels is Adventure
 INSERT INTO MovieGenres (MovieID, GenreID) VALUES (9, 4); # All the Bright Places is Drama
 INSERT INTO MovieGenres (MovieID, GenreID) VALUES (9, 9); # All the Bright Places is Romance
 INSERT INTO MovieGenres (MovieID, GenreID) VALUES (10, 4); # Ford v Ferrari is Drama
@@ -848,7 +848,7 @@ INSERT INTO MovieWriters (MovieID, WriterID) VALUES (6, 3); # Avengers: Endgame 
 INSERT INTO MovieWriters (MovieID, WriterID) VALUES (6, 28); # Avengers: Endgame is directed by Stephen McFeely
 INSERT INTO MovieWriters (MovieID, WriterID) VALUES (7, 29); # Jojo Rabbit is directed by Taika Waititi
 INSERT INTO MovieWriters (MovieID, WriterID) VALUES (8, 4); # Charlie\'s Angels is directed by David Auburn
-insert into MovieWriters (MovieID, WriterID) values (8, 19); # Charlie\'s Angels is directed by Elizabeth Banks
+INSERT INTO MovieWriters (MovieID, WriterID) VALUES (8, 19); # Charlie\'s Angels is directed by Elizabeth Banks
 INSERT INTO MovieWriters (MovieID, WriterID) VALUES (9, 6); # All the Bright Places is directed by Elizabeth Hannah
 INSERT INTO MovieWriters (MovieID, WriterID) VALUES (9, 24); # All the Bright Places is directed by Jennifer Niven
 INSERT INTO MovieWriters (MovieID, WriterID) VALUES (10, 9); # Ford v Ferrari is directed by Jason Keller
@@ -1057,4 +1057,3 @@ select * from MovieCast order by MovieID asc;
 select * from Medias;
 select * from Rentals;
 select * from MovieRental order by MovieID asc;
-

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="900.0" minWidth="1100.0"
-            prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.controller">
     <center>
         <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
@@ -73,13 +73,13 @@
             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                 <children>
                     <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#login" text="Login">
+                            onAction="#login" prefHeight="31.0" prefWidth="74.0" text="Login">
                         <HBox.margin>
                             <Insets right="10.0"/>
                         </HBox.margin>
                     </Button>
                     <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#loginCancel" text="Cancel"/>
+                            onAction="#loginCancel" prefHeight="31.0" prefWidth="74.0" text="Cancel"/>
                     <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
                             nodeOrientation="LEFT_TO_RIGHT" onAction="#loginRegister" text="Register">
                         <HBox.margin>

@@ -1,5 +1,7 @@
 package dustin.diaz.comp4400.utils;
 
+import dustin.diaz.comp4400.model.parent.Customer;
+
 public class Styling {
     public static String error =
             "-fx-focus-color: #d35244;\n" +
@@ -31,6 +33,11 @@ public class Styling {
                     "-fx-border-radius: 5;" +
                     "-fx-border-color: blue;";
 
+    public static String formatNames(Customer c) {
+        if (c == null) return null;
+        return formatNames(c.getFirstName(), c.getMiddleName(), c.getLastName());
+    }
+
     public static String formatNames(String... strings) {
         StringBuilder builder = new StringBuilder();
 
@@ -43,7 +50,7 @@ public class Styling {
         return builder.toString().trim();
     }
 
-    public static String capitalize(String string) {
+    private static String capitalize(String string) {
         if (string.trim().isEmpty()) return string;
         String firstChar = String.valueOf(string.charAt(0));
         String name = string.replaceFirst(firstChar, "").toLowerCase();

@@ -16,7 +16,7 @@ import java.io.File;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ChooseBox {
-    public static String display(String selected) {
+    public static String display(String selected, String id) {
         final AtomicReference<String>[] value = new AtomicReference[]{new AtomicReference<>("")};
         Stage window = new Stage();
 
@@ -45,7 +45,7 @@ public class ChooseBox {
         window.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
 
         Label label = new Label();
-        label.setText("Choose the action for user '" + selected + "':");
+        label.setText("Choose the action for user '" + selected + "' (ID:" + id + ")");
 
         yesButton.setOnAction(e -> {
             if (!(comboBox.getValue() == null)) {
@@ -88,7 +88,7 @@ public class ChooseBox {
             window.close();
         });
 
-        return value[0].get();
+        return value[0] != null ? value[0].get() : null;
     }
 }
 

@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/boxes/RentMovieBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dustin-Diaz-COMP4400/dustin/diaz/comp4400/DustinDiazCOMP4400.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/new.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/DustinDiazCOMP4400.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/CustomerTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/CustomerTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/EditAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/controller/EditAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/queries/parent/QueryCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/boxes/ConfirmBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/boxes/ConfirmBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/editaccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/editaccount.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/utils/Styling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/utils/Styling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/boxes/ChooseBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/boxes/ChooseBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/addaccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/addaccount.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/updateaccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/dustin/diaz/comp4400/view/user/updateaccount.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,30 +352,30 @@
     </state>
     <state x="340" y="278" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584702627754" />
     <state x="610" y="419" key="FileChooserDialogImpl/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1583805143949" />
-    <state width="1493" height="202" key="GridCell.Tab.0.bottom" timestamp="1584839247851">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2709" height="300" key="GridCell.Tab.0.bottom" timestamp="1584842529337">
+      <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="202" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584839247851" />
     <state width="1877" height="302" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584789729009" />
-    <state width="1493" height="202" key="GridCell.Tab.0.center" timestamp="1584839247851">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2709" height="300" key="GridCell.Tab.0.bottom/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584842529337" />
+    <state width="2709" height="300" key="GridCell.Tab.0.center" timestamp="1584842529337">
+      <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="202" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584839247851" />
     <state width="1877" height="302" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584789729009" />
-    <state width="1493" height="202" key="GridCell.Tab.0.left" timestamp="1584839247851">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2709" height="300" key="GridCell.Tab.0.center/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584842529337" />
+    <state width="2709" height="300" key="GridCell.Tab.0.left" timestamp="1584842529336">
+      <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="202" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584839247851" />
     <state width="1877" height="302" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584789729009" />
-    <state width="1493" height="202" key="GridCell.Tab.0.right" timestamp="1584839247851">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2709" height="300" key="GridCell.Tab.0.left/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584842529336" />
+    <state width="2709" height="300" key="GridCell.Tab.0.right" timestamp="1584842529337">
+      <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state width="1493" height="202" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584839247851" />
     <state width="1877" height="302" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1583877443480" />
-    <state width="1645" height="298" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584789729009" />
+    <state width="2709" height="300" key="GridCell.Tab.0.right/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584842529337" />
     <state width="1493" height="424" key="GridCell.Tab.1.bottom" timestamp="1584794087831">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

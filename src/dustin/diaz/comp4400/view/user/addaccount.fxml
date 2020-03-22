@@ -284,13 +284,15 @@
                         <HBox alignment="CENTER">
                             <children>
                                 <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
-                                        nodeOrientation="LEFT_TO_RIGHT" onAction="#register" text="Add">
+                                        nodeOrientation="LEFT_TO_RIGHT" onAction="#register" prefHeight="31.0"
+                                        prefWidth="74.0" text="Add">
                                     <HBox.margin>
                                         <Insets right="10.0"/>
                                     </HBox.margin>
                                 </Button>
                                 <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false"
-                                        nodeOrientation="LEFT_TO_RIGHT" onAction="#registerCancel" text="Cancel">
+                                        nodeOrientation="LEFT_TO_RIGHT" onAction="#registerCancel" prefHeight="31.0"
+                                        prefWidth="74.0" text="Cancel">
                                     <HBox.margin>
                                         <Insets right="10.0"/>
                                     </HBox.margin>
