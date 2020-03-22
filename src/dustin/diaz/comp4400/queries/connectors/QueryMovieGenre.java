@@ -23,6 +23,7 @@ public abstract class QueryMovieGenre {
 
     //DELETE
     public static final String deleteMovieDirector = "DELETE FROM " + Database.MOVIE_GENRE + " WHERE MovieID = ? AND GenreID = ?";
+    public static final String deleteMovieDirectorByMovieId = "DELETE FROM " + Database.MOVIE_GENRE + " WHERE MovieID = ?";
 
     public static int insert(int movieId, int directorId) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insert);
@@ -88,6 +89,12 @@ public abstract class QueryMovieGenre {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(deleteMovieDirector);
         preparedStatement.setInt(1, movieId);
         preparedStatement.setInt(2, directorId);
+        return preparedStatement.executeUpdate();
+    }
+
+    public static int deleteByMovieID(int movieId) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(deleteMovieDirectorByMovieId);
+        preparedStatement.setInt(1, movieId);
         return preparedStatement.executeUpdate();
     }
 

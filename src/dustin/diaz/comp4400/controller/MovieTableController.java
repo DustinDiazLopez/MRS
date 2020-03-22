@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.model.parent.Customer;
-import dustin.diaz.comp4400.queries.parent.QueryCustomer;
+import dustin.diaz.comp4400.model.parent.Movie;
+import dustin.diaz.comp4400.queries.parent.QueryMovie;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ChooseBox;
@@ -15,6 +15,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -46,12 +48,12 @@ public class MovieTableController implements Initializable {
     @FXML
     private Label warning;
 
-    private Customer selected = null;
+    private Movie selected = null;
 
     public void updateTable() {
         try {
             tableView.getItems().clear();
-            tableView.getItems().addAll(QueryCustomer.findAll());
+            tableView.getItems().addAll(QueryMovie.findAllMovies());
             warning.setText("");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,11 +62,6 @@ public class MovieTableController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            Computer.customer = QueryCustomer.find(Computer.customer.getId());
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
 
         borderPane.setMinSize(1100.0, 900.0);
 
@@ -77,12 +74,6 @@ public class MovieTableController implements Initializable {
         });
 
         backBtn.setOnMousePressed(e -> {
-            try {
-                Computer.customer = QueryCustomer.find(Computer.customer.getId());
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-
             Computer.changeScreen(borderPane, "adminhome");
         });
 
@@ -91,12 +82,6 @@ public class MovieTableController implements Initializable {
         });
 
         addBtn.setOnMousePressed(e -> {
-            try {
-                Computer.customer = QueryCustomer.find(Computer.customer.getId());
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-
             Computer.changeScreen(borderPane, "addaccount");
         });
 
@@ -112,13 +97,13 @@ public class MovieTableController implements Initializable {
                 warning.setText("Select a user to delete them.");
                 tableView.setStyle(Styling.error);
             } else {
-                Customer c = selected;
-                String name = Styling.formatNames(c.getFirstName(), c.getLastName());
+                Movie c = selected;
+                String name = c.getTitle();
                 if (ConfirmBox.display(
                         "Delete " + name,
-                        "Are you sure you want to delete user '" + name + "' " + "(ID: " + c.getId() + ")")) {
+                        "Are you sure you want to DELETE movie '" + name + "' " + "(ID: " + c.getId() + ")")) {
                     try {
-                        QueryCustomer.delete(c.getId());
+                        QueryMovie.delete(c.getId());
                         updateTable();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
@@ -136,13 +121,10 @@ public class MovieTableController implements Initializable {
             tableView.setStyle("");
 
             if (selected == null) {
-                warning.setText("Select a user to edit their information.");
+                warning.setText("Select a user to movie their information.");
                 tableView.setStyle(Styling.error);
             } else {
-                Computer.editCustomer = selected;
-
                 Computer.changeScreen(borderPane, "editaccount");
-
                 updateTable();
             }
         });
@@ -151,31 +133,27 @@ public class MovieTableController implements Initializable {
             if (e.getCode().toString().equals("ENTER")) editButton.fire();
         });
 
-        tableView.setOnMousePressed(e -> selected = (Customer) tableView.getSelectionModel().getSelectedItem());
+        tableView.setOnMousePressed(e -> selected = (Movie) tableView.getSelectionModel().getSelectedItem());
 
         tableView.setOnMouseClicked(event -> {
             String e = event.toString();
             if (!e.contains("target = TableColumnHeader") && !e.contains("target = Label") && selected != null) {
                 if (event.getButton().equals(MouseButton.SECONDARY)) {
-                    String choice = ChooseBox.display(
-                            Styling.formatNames(selected.getFirstName(), selected.getLastName()),
-                            "" + selected.getId()
-                    );
+                    String choice = ChooseBox.display(selected.getTitle(), "" + selected.getId());
 
                     if (choice != null) {
-                        Customer c = selected;
-                        String name = Styling.formatNames(c.getFirstName(), c.getLastName());
+                        Movie c = selected;
+                        String name = selected.getTitle();
 
                         if (choice.equals("Edit")) {
-                            Computer.editCustomer = c;
                             Computer.changeScreen(borderPane, "editaccount");
                             updateTable();
                         } else if (choice.equals("Delete")) {
                             if (ConfirmBox.display(
                                     "Delete " + name,
-                                    "Are you sure you want to DELETE user '" + name + "' " + "(ID: " + c.getId() + ")?")) {
+                                    "Are you sure you want to DELETE movie '" + name + "' " + "(ID: " + c.getId() + ")?")) {
                                 try {
-                                    QueryCustomer.delete(c.getId());
+                                    QueryMovie.delete(c.getId());
                                     updateTable();
                                 } catch (SQLException ex) {
                                     ex.printStackTrace();
@@ -190,14 +168,13 @@ public class MovieTableController implements Initializable {
                     }
 
                 } else if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-                    String name = Styling.formatNames(selected);
+                    String name = selected.getTitle();
                     if (
                             ConfirmBox.display(
                                     "Edit " + name,
                                     "Would you like to EDIT " + name + " (ID:" + selected.getId() + ")?"
                             )
                     ) {
-                        Computer.editCustomer = selected;
                         Computer.changeScreen(borderPane, "editaccount");
                         updateTable();
                     }
@@ -207,39 +184,34 @@ public class MovieTableController implements Initializable {
 
         tableView.setPlaceholder(new Label("No customers to display."));
 
-        TableColumn<String, Customer> id = new TableColumn<>("ID");
+        TableColumn<String, Movie> id = new TableColumn<>("ID");
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        TableColumn<String, Customer> accountType = new TableColumn<>("Account Type");
-        accountType.setCellValueFactory(new PropertyValueFactory<>("accountType"));
+        TableColumn<String, Movie> title = new TableColumn<>("Title");
+        title.setCellValueFactory(new PropertyValueFactory<>("title"));
 
-        TableColumn<String, Customer> firstName = new TableColumn<>("First Name");
-        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<String, Movie> releaseDate = new TableColumn<>("Release Date");
+        releaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
-        TableColumn<String, Customer> lastName = new TableColumn<>("Last Name");
-        lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<String, Movie> genre = new TableColumn<>("Genres");
+        genre.setCellValueFactory(new PropertyValueFactory<>("genres"));
 
-        TableColumn<String, Customer> address = new TableColumn<>("Address");
-        address.setCellValueFactory(new PropertyValueFactory<>("address"));
+        TableColumn<String, Movie> runTime = new TableColumn<>("Run Time");
+        runTime.setCellValueFactory(new PropertyValueFactory<>("runTime"));
 
-        TableColumn<String, Customer> city = new TableColumn<>("City");
-        city.setCellValueFactory(new PropertyValueFactory<>("city"));
+        TableColumn<String, Movie> rated = new TableColumn<>("Rated");
+        rated.setCellValueFactory(new PropertyValueFactory<>("rated"));
 
-        TableColumn<String, Customer> zipCode = new TableColumn<>("Zip Code");
-        zipCode.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
-
-        TableColumn<String, Customer> phone = new TableColumn<>("Phone");
-        phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        HBox.setHgrow(tableView, Priority.ALWAYS);
 
 
         tableView.getColumns().add(id);
-        tableView.getColumns().add(firstName);
-        tableView.getColumns().add(lastName);
-        tableView.getColumns().add(address);
-        tableView.getColumns().add(city);
-        tableView.getColumns().add(zipCode);
-        tableView.getColumns().add(phone);
-        tableView.getColumns().add(accountType);
+        tableView.getColumns().add(title);
+        tableView.getColumns().add(releaseDate);
+        tableView.getColumns().add(genre);
+        tableView.getColumns().add(runTime);
+        tableView.getColumns().add(rated);
+
 
         updateTable();
     }

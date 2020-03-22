@@ -6,6 +6,7 @@ import dustin.diaz.comp4400.queries.child.QueryCast;
 import dustin.diaz.comp4400.queries.child.QueryDirectors;
 import dustin.diaz.comp4400.queries.child.QueryGenre;
 import dustin.diaz.comp4400.queries.child.QueryWriters;
+import dustin.diaz.comp4400.queries.connectors.*;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.Date;
@@ -60,7 +61,16 @@ public abstract class QueryMovie {
     public static int delete(int id) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(deleteMovieByID);
         preparedStatement.setInt(1, id);
+        deleteReferences(id);
         return preparedStatement.executeUpdate();
+    }
+
+    public static void deleteReferences(int id) throws SQLException {
+        System.out.println("Deleted MovieCast Relationships [Count: " + QueryMovieCast.deleteByMovieID(id) + "]");
+        System.out.println("Deleted MovieDirectors Relationships [Count: " + QueryMovieDirector.deleteByMovieID(id) + "]");
+        System.out.println("Deleted MovieGenres Relationships [Count: " + QueryMovieGenre.deleteByMovieID(id) + "]");
+        System.out.println("Deleted MovieWriters Relationships [Count: " + QueryMovieWriters.deleteByMovieID(id) + "]");
+        System.out.println("Deleted MovieRental Relationships [Count: " + QueryMovieRental.deleteByMovieID(id) + "]");
     }
 
     private static Movie getMovie(ResultSet resultSet) throws SQLException {

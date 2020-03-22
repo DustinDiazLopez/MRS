@@ -89,8 +89,8 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
-    public ArrayList<Genres> getGenres() {
-        return genres;
+    public String getGenres() {
+        return genres.toString().substring(1, genres.toString().length() - 1);
     }
 
     public void setGenres(ArrayList<Genres> genres) {
