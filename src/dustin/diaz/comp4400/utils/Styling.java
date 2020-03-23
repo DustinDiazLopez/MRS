@@ -71,7 +71,8 @@ public class Styling {
 
     public static String formatNames(Customer c) {
         if (c == null) return null;
-        return formatNames(c.getFirstName(), c.getMiddleName(), c.getLastName());
+        String middle = c.getMiddleName();
+        return formatNames(c.getFirstName(), middle == null ? "" : middle, c.getLastName());
     }
 
     public static String formatNames(String... strings) {

@@ -176,18 +176,27 @@ public class EditMovieController implements Initializable {
             valid = false;
         }
 
-        if (src == null) {
-            fileLocation.setPromptText("The default image will be used");
-            src = new File(placeholderImage);
-        }
-
-        String filename = src.getName();
         String oldTitle = Computer.editMovie.getTitle();
         int id = Computer.editMovie.getId();
+
+
+        if (isEmpty(fileLocation.getText())) {
+            fileLocation.setPromptText("The default image will be used");
+            src = new File(placeholderImage);
+        } else {
+            File newFilePath = new File(fileLocation.getText());
+            src = Computer.copyFileToFolder(newFilePath);
+            File old = new File(Computer.movieImagePath + Computer.editMovie.getFileName());
+            if (!old.getAbsolutePath().equals(placeholderImage)) {
+                if (old.delete()) System.out.println("Deleted old image file");
+            }
+        }
 
         if (valid) {
             boolean same = t.equals(oldTitle);
             boolean exists = QueryMovie.findMovie(t) != null;
+
+            String filename = src.getName();
 
             if (same || !exists) {
                 if (QueryMovie.update(id, t, Date.valueOf(rd.toString()), rt, ate, ting, filename) == 1) {
@@ -272,7 +281,6 @@ public class EditMovieController implements Initializable {
                         }
                     }
 
-                    Computer.copyFileToFolder(src);
                     cancelBtn.fire();
                 } else {
                     cancelBtn.fire();

@@ -255,6 +255,7 @@ public class EditAccountController implements Initializable {
     }
 
     private boolean isEmpty(String string) {
+        if (string == null) return true;
         return string.trim().isEmpty();
     }
 
