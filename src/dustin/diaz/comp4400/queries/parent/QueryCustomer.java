@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public abstract class QueryCustomer {
 
@@ -164,6 +165,12 @@ public abstract class QueryCustomer {
         Customer customer = new Customer();
         while (resultSet.next()) customer = getUser(resultSet);
         return validate(customer);
+    }
+
+    public static ArrayList<Customer> find(HashSet<Integer> id) throws SQLException {
+        ArrayList<Customer> customers = new ArrayList<>();
+        for (Integer i : id) customers.add(find(i));
+        return customers;
     }
 
     public static boolean test() throws SQLException {

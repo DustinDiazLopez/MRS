@@ -12,6 +12,7 @@ public class Rental {
     private Date rentedOn;
     private Date returnedOn;
     private boolean returned;
+    private boolean held;
     private int totalDays;
     private float totalCost;
 
@@ -29,6 +30,7 @@ public class Rental {
         this.returned = returned;
         this.totalDays = totalDays;
         this.totalCost = totalCost;
+        this.held = false;
     }
 
     public int getId() {
@@ -87,6 +89,14 @@ public class Rental {
         this.returned = returned;
     }
 
+    public boolean isHeld() {
+        return held;
+    }
+
+    public void setHeld(boolean held) {
+        this.held = held;
+    }
+
     public int getTotalDays() {
         return totalDays;
     }
@@ -113,6 +123,7 @@ public class Rental {
                 ", rentedOn=" + rentedOn +
                 ", returnedOn=" + returnedOn +
                 ", returned=" + returned +
+                ", held=" + held +
                 ", totalDays=" + totalDays +
                 ", totalCost=" + totalCost +
                 '}';

@@ -15,10 +15,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ConfirmBox {
 
     public static boolean display(String title, String message) {
-        return display(title, message, 410, 200);
+        return display(title, message, 410, 200, "Yes", "No");
+    }
+
+    public static boolean display(String title, String message, String btnOne, String btnTwo) {
+        return display(title, message, 410, 200, btnOne, btnTwo);
     }
 
     public static boolean display(String title, String message, int width, int height) {
+        return display(title, message, width, height, "Yes", "No");
+    }
+
+    public static boolean display(String title, String message, int width, int height, String btnOne, String btnTwo) {
         AtomicBoolean answer = new AtomicBoolean(false);
         Stage window = new Stage();
 
@@ -34,8 +42,8 @@ public class ConfirmBox {
         label.setAlignment(Pos.CENTER);
         label.setWrapText(true);
 
-        Button yesButton = new Button("Yes");
-        Button noButton = new Button("No");
+        Button yesButton = new Button(btnOne);
+        Button noButton = new Button(btnTwo);
 
         yesButton.setOnAction(e -> {
             answer.set(true);

@@ -28,6 +28,7 @@ public abstract class QueryRental {
 
     //UPDATE
     public static final String updateRentalByID = "UPDATE " + Database.RENTAL + " SET Returned = ?, ReturnedOn = ?, TotalDays = ?, TotalCost = ? WHERE ID = ? AND CustomerID = ?";
+    public static final String updateRentalHeld = "UPDATE " + Database.RENTAL + " SET Held = ? WHERE ID = ? AND CustomerID = ?";
 
     //DELETE
     public static final String deleteRentalByID = "DELETE FROM " + Database.RENTAL + " WHERE ID = ?";
@@ -60,6 +61,15 @@ public abstract class QueryRental {
         return preparedStatement.executeUpdate();
     }
 
+    public static int updateHeld(int rentalId, int customerId, boolean held) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(updateRentalHeld);
+        int i = 1;
+        preparedStatement.setBoolean(i, held);
+        preparedStatement.setInt(++i, rentalId);
+        preparedStatement.setInt(++i, customerId);
+        return preparedStatement.executeUpdate();
+    }
+
     public static int delete(int id) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(deleteRentalByID);
         preparedStatement.setInt(1, id);
@@ -73,6 +83,7 @@ public abstract class QueryRental {
         rental.setMedia(QueryMedias.findMedia(resultSet.getInt("MediaID")));
         rental.setRentedOn(Date.valueOf(resultSet.getString("RentedOn")));
         rental.setReturned(resultSet.getBoolean("Returned"));
+        rental.setHeld(resultSet.getBoolean("Held"));
 
         try {
             rental.setReturnedOn(Date.valueOf(resultSet.getString("ReturnedOn")));
@@ -81,6 +92,12 @@ public abstract class QueryRental {
 
         rental.setTotalCost(resultSet.getFloat("TotalCost"));
         rental.setTotalDays(resultSet.getInt("TotalDays"));
+
+        MovieRental movieRental = QueryMovieRental.findByRentalID(rental.getId());
+        if (movieRental != null) {
+            Movie movie = QueryMovie.findMovie(movieRental.getMovieId());
+            rental.setMovie(movie);
+        }
 
         return validate(rental);
     }
@@ -182,22 +199,29 @@ public abstract class QueryRental {
         System.err.println("TEST #" + testNumber + ": " + value + " expected [" + expected + "]");
     }
 
+    public static ArrayList<Rental> getHeld() throws SQLException {
+        ArrayList<Rental> rentals = findAll();
+        ArrayList<Rental> held = new ArrayList<>();
+        for (Rental rental : rentals) if (rental.isHeld()) held.add(rental);
+        return held;
+    }
+
     public static ArrayList<RentalTable> getAllForTable() throws SQLException {
         ArrayList<Rental> rentals = findAll();
         ArrayList<RentalTable> table = new ArrayList<>();
 
         for (Rental rental : rentals) {
-            if (!rental.isReturned()) {
+            if (!rental.isReturned() && !rental.isHeld()) {
                 Customer customer = QueryCustomer.find(rental.getCustomerId());
                 String fullname = Styling.formatNames(customer);
                 Movie movie = QueryMovie.findMovie(rental.getId());
                 table.add(new RentalTable(
-                                rental.getId(),
-                                movie.getId(),
-                                customer.getId(),
-                                fullname,
-                                movie.getTitle(),
-                                rental.getRentedOn()
+                        rental.getId(),
+                        movie.getId(),
+                        customer.getId(),
+                        fullname,
+                        movie.getTitle(),
+                        rental.getRentedOn()
                         )
                 );
             }

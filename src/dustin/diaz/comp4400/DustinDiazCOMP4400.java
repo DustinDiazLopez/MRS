@@ -3,7 +3,6 @@ package dustin.diaz.comp4400;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
-import dustin.diaz.comp4400.view.boxes.NewRentalBox;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +12,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
-import java.util.Arrays;
 
 public class DustinDiazCOMP4400 extends Application {
 
@@ -61,8 +59,6 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
-
-        System.out.println(Arrays.toString(NewRentalBox.display()));
     }
 
     public static void setRoot(String fxml) throws IOException {
