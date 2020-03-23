@@ -192,6 +192,7 @@ create TABLE IF NOT EXISTS Rentals (
   MediaID INT NOT NULL,
   RentedOn VARCHAR(70) NOT NULL,
   Returned TINYINT NOT NULL,
+  Held TINYINT DEFAULT 0,
   ReturnedOn VARCHAR(70) NULL,
   TotalDays INT NULL,
   TotalCost FLOAT NULL,
@@ -1019,41 +1020,31 @@ select * from Medias;
 
 #################################################################################### insert Rentals
 
-insert into Rentals (CustomerID, MediaID, RentedOn, ReturnedOn, Returned, TotalDays, TotalCost)
-values (3, 1, '2020-3-15', '2020-3-20', true, 5, 10.0); #1
+insert into Rentals (CustomerID, MediaID, RentedOn, Returned, Held)
+values (3, 1, '2020-3-15', false, true); #1
+
+insert into Rentals (CustomerID, MediaID, RentedOn, Returned, Held)
+values (4, 1, '2020-3-15', false, true); #1
+
+insert into Rentals (CustomerID, MediaID, RentedOn, Returned, Held)
+values (2, 1, '2020-3-15', false, true); #1
+
+insert into Rentals (CustomerID, MediaID, RentedOn, Returned, Held)
+values (1, 1, '2020-3-15', false, true); #1
 
 insert into Rentals (CustomerID, MediaID, RentedOn, ReturnedOn, Returned, TotalDays, TotalCost)
-values (3, 2, '2020-3-15', '2020-3-20', true, 5, 15.0); #2
+values (5, 2, '2020-3-15', '2020-3-20', true, 5, 15.0); #2
 
 select * from Rentals;
+SELECT * FROM Rentals ORDER BY ID DESC LIMIT 1;
+UPDATE Rentals SET Returned = true WHERE ID = 9;
 
 #################################################################################### insert MovieRental
 
-insert into MovieRental (MovieID, RentalID) values (2, 1);
-insert into MovieRental (MovieID, RentalID) values (5, 2);
+insert into MovieRental (MovieID, RentalID) values (1, 1);
+insert into MovieRental (MovieID, RentalID) values (3, 2);
+insert into MovieRental (MovieID, RentalID) values (3, 3);
+insert into MovieRental (MovieID, RentalID) values (4, 4);
+insert into MovieRental (MovieID, RentalID) values (6, 5);
 
-select * from MovieRental order by MovieID asc;
-
-#################################################################################### select JOINS
-
-##### Customer and AccountType (ROLE) #####
-select c.ID, c.Username, c.AccountPassword, a.Type as AccountType, c.FirstName, c.MiddleName, c.LastName, c.DateOfBirth,
-c.Address, c.City, c.ZipCode, c.Phone from Customers c inner join AccountTypes a on (c.AccountTypeID = a.ID);
-
-##### Figure 5 #####
-
-#################################################################################### select all from table
-select * from AccountTypes;
-select * from Customers;
-select * from Movies;
-select * from Directors order by ID asc;
-select * from Writers order by ID asc;
-select * from Cast order by ID asc;
-select * from Genres order by ID asc;
-select * from MovieDirectors order by MovieID asc;
-select * from MovieGenres order by MovieID asc;
-select * from MovieWriters order by MovieID asc;
-select * from MovieCast order by MovieID asc;
-select * from Medias;
-select * from Rentals;
 select * from MovieRental order by MovieID asc;

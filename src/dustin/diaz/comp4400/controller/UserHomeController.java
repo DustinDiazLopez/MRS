@@ -35,6 +35,15 @@ public class UserHomeController implements Initializable {
     @FXML
     private Label userLabel;
 
+    @FXML
+    private Label rentMovieLabel;
+
+    @FXML
+    private Label rentalHistoryLabel;
+
+    @FXML
+    private Label editAccountLabel;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -43,13 +52,9 @@ public class UserHomeController implements Initializable {
             e.printStackTrace();
         }
 
-        myAccountVBox.setOnMouseClicked(e -> {
-            Computer.changeScreen(borderPane, "updateaccount");
-        });
+        myAccountVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "updateaccount"));
 
-        moviesVBox.setOnMouseClicked(e -> {
-            System.out.println("Hey movies");
-        });
+        moviesVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "rentmovie"));
 
         rentalHistoryVBox.setOnMouseClicked(e -> {
             System.out.println("Hey history");
@@ -64,6 +69,9 @@ public class UserHomeController implements Initializable {
         userLabel.setText(Styling.formatNames(Computer.customer));
 
         Styling.setStyle(moviesVBox, exitVBox, myAccountVBox, rentalHistoryVBox);
+        Styling.pleaseWaitVBoxStyle(moviesVBox, rentMovieLabel);
+        Styling.pleaseWaitVBoxStyle(myAccountVBox, editAccountLabel);
+        Styling.pleaseWaitVBoxStyle(rentalHistoryVBox, rentalHistoryLabel);
     }
 }
 

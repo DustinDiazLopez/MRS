@@ -24,6 +24,7 @@ public abstract class QueryMovie {
     public static final String allMovies = "SELECT * FROM " + Database.MOVIE;
     public static final String movieByID = "SELECT * FROM " + Database.MOVIE + " WHERE ID = ?";
     public static final String movieByTitle = "SELECT * FROM " + Database.MOVIE + " WHERE Title = ?";
+    public static final String movieByGenre = "SELECT * FROM " + Database.MOVIE + " WHERE Genre = ?";
 
     //UPDATE
     public static final String updateMovieByID = "UPDATE " + Database.MOVIE + " SET Title = ?, ReleaseDate = ?, RunTime = ?, Rated = ?, Ratings = ?, Filename = ? WHERE ID = ?";
@@ -107,6 +108,13 @@ public abstract class QueryMovie {
         return getMovies(resultSet);
     }
 
+    public static ArrayList<Movie> findAllMoviesByGenre(String genre) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.movieByGenre);
+        preparedStatement.setString(1, genre);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return getMovies(resultSet);
+    }
+
     public static Movie findMovie(int id) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.movieByID);
         preparedStatement.setInt(1, id);
@@ -116,6 +124,7 @@ public abstract class QueryMovie {
         while (resultSet.next()) movie = getMovie(resultSet);
         return validate(movie);
     }
+
 
     public static Movie findMovie(String title) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.movieByTitle);

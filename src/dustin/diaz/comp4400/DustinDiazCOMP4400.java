@@ -49,8 +49,8 @@ public class DustinDiazCOMP4400 extends Application {
         stage.setMinHeight(900);
         stage.setMinWidth(1100);
 
-        stage.setHeight(900);
-        stage.setWidth(1100);
+        stage.setHeight(1030);
+        stage.setWidth(1250);
 
         stage.setOnCloseRequest(e -> {
             e.consume();
@@ -59,6 +59,7 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
+
     }
 
     public static void setRoot(String fxml) throws IOException {
