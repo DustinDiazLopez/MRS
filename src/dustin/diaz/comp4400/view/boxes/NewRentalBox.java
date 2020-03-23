@@ -70,6 +70,7 @@ public class NewRentalBox {
 
         Button okButton = new Button("OK");
         Button cancelButton = new Button("Cancel");
+        Styling.setButtonWidth(okButton, cancelButton);
 
         okButton.setOnAction(e -> {
             star.setVisible(false);

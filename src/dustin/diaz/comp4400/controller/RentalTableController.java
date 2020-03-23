@@ -60,6 +60,33 @@ public class RentalTableController implements Initializable {
     public void updateTable() {
         try {
             tableView.getItems().clear();
+            tableView.getColumns().clear();
+            tableView.setPlaceholder(new Label("No rentals to display."));
+
+            TableColumn<String, RentalTable> id = new TableColumn<>("Movie ID");
+            id.setCellValueFactory(new PropertyValueFactory<>("movieId"));
+
+            TableColumn<String, RentalTable> title = new TableColumn<>("Movie Title");
+            title.setCellValueFactory(new PropertyValueFactory<>("movieTitle"));
+
+            TableColumn<String, RentalTable> releaseDate = new TableColumn<>("Customer ID");
+            releaseDate.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+
+            TableColumn<String, RentalTable> genre = new TableColumn<>("Customer Name");
+            genre.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+
+            TableColumn<String, RentalTable> runTime = new TableColumn<>("Rented Date");
+            runTime.setCellValueFactory(new PropertyValueFactory<>("rentedDate"));
+
+            HBox.setHgrow(tableView, Priority.ALWAYS);
+
+
+            tableView.getColumns().add(id);
+            tableView.getColumns().add(title);
+            tableView.getColumns().add(releaseDate);
+            tableView.getColumns().add(genre);
+            tableView.getColumns().add(runTime);
+
             ArrayList<RentalTable> table = QueryRental.getAllForTable();
             if (table != null) {
                 tableView.getItems().addAll(QueryRental.getAllForTable());
@@ -74,11 +101,6 @@ public class RentalTableController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        borderPane.setMinSize(1100.0, 900.0);
-
-        tableView.getColumns().clear();
-
         refreshBtn.setOnMousePressed(e -> updateTable());
 
         refreshBtn.setOnKeyPressed(e -> {
@@ -103,6 +125,7 @@ public class RentalTableController implements Initializable {
                         int q = QueryRental.insert(customer.getId(), media, date, false);
                         System.out.println(movie.getTitle() + " (" + media + ") rented by " + customer.getUsername() + " on " + date);
                         System.out.println("Insert count " + q);
+                        //TODO make the connection with user and movie
                         updateTable();
                     } catch (SQLException ignored) {
                         ConfirmBox.display(
@@ -160,7 +183,6 @@ public class RentalTableController implements Initializable {
 
                                 if (movie != null) {
                                     ArrayList<Rental> matched = new ArrayList<>();
-                                    //TODO
                                     for (Rental r : held) {
                                         if (r.getMovie().getId() == movie.getId()) {
                                             matched.add(r);
@@ -187,10 +209,7 @@ public class RentalTableController implements Initializable {
                                                         QueryRental.updateHeld(s.getId(), s.getCustomerId(), false);
                                                     }
                                                 }
-                                            } catch (Exception n) {
-                                                ConfirmBox.display(
-                                                        "Error", "Bad formatting in CustomerBox: " + n.getMessage(),
-                                                        "OK", "Cancel");
+                                            } catch (Exception ignored) {
                                             }
                                         }
 
@@ -226,25 +245,10 @@ public class RentalTableController implements Initializable {
         });
 
         deleteButton.setOnMousePressed(e -> {
-            warning.setText("");
-            tableView.setStyle("");
+            int id = ReturnsBox.display();
 
-            if (selected == null) {
-                warning.setText("Select a movie to DELETE.");
-                tableView.setStyle(Styling.error);
-            } else {
-                Rental c = selected;
-                String name = c.getMovie().getTitle();
-                if (ConfirmBox.display(
-                        "Delete " + name,
-                        "Are you sure you want to DELETE movie '" + name + "' " + "(ID: " + c.getId() + ")")) {
-                    try {
-                        QueryRental.delete(c.getId());
-                        updateTable();
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
-                    }
-                }
+            if (id != -1) {
+                System.out.println(id);
             }
         });
 
@@ -263,80 +267,20 @@ public class RentalTableController implements Initializable {
         tableView.setOnMouseClicked(event -> {
             String e = event.toString();
             if (!e.contains("target = TableColumnHeader") && !e.contains("target = Label") && selected != null) {
-                if (event.getButton().equals(MouseButton.SECONDARY)) {
-                    String choice = ChooseBox.display(selected.getMovie().getTitle(), "" + selected.getId());
-
-                    if (choice != null) {
-                        Rental c = selected;
-                        String name = selected.getMovie().getTitle();
-
-                        if (choice.equals("Edit")) {
-                            try {
-                                Computer.editRental = QueryRental.find(selected.getId());
-                                Computer.changeScreen(borderPane, "editmovie");
-                            } catch (SQLException ignored) {
-                                ConfirmBox.display("An error occured", "Couldn't execute query");
-                            }
-                        } else if (choice.equals("Delete")) {
-                            if (ConfirmBox.display(
-                                    "Delete " + name,
-                                    "Are you sure you want to DELETE movie '" + name + "' " + "(ID: " + c.getId() + ")?")) {
-                                try {
-                                    QueryRental.delete(c.getId());
-                                    updateTable();
-                                } catch (SQLException ex) {
-                                    ex.printStackTrace();
-                                }
-                            }
-                        } else {
-                            ConfirmBox.display(
-                                    "Unrecognized Command",
-                                    "Please specify the command in the ChooseBox Class"
-                            );
-                        }
+                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                    String title = selected.getMovie().getTitle();
+                    String customerName = "";
+                    try {
+                        customerName = " for " + Styling.formatNames(QueryCustomer.find(selected.getCustomerId()));
+                    } catch (SQLException ignored) {
                     }
 
-                } else if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-                    String name = selected.getMovie().getTitle();
-                    if (ConfirmBox.display("Edit " + name,
-                            "Would you like to EDIT " + name + " (ID:" + selected.getId() + ")?")) {
-                        try {
-                            Computer.editRental = QueryRental.find(selected.getId());
-                            Computer.changeScreen(borderPane, "editmovie");
-                        } catch (SQLException ignored) {
-                            ConfirmBox.display("An error occured", "Couldn't execute query");
-                        }
+                    if (ConfirmBox.display("Return Movie", "Would you like to return " + title + customerName)) {
+                        System.out.println(selected);
                     }
                 }
             }
         });
-
-        tableView.setPlaceholder(new Label("No rentals to display."));
-
-        TableColumn<String, RentalTable> id = new TableColumn<>("Movie ID");
-        id.setCellValueFactory(new PropertyValueFactory<>("movieId"));
-
-        TableColumn<String, RentalTable> title = new TableColumn<>("Movie Title");
-        title.setCellValueFactory(new PropertyValueFactory<>("movieTitle"));
-
-        TableColumn<String, RentalTable> releaseDate = new TableColumn<>("Customer ID");
-        releaseDate.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-
-        TableColumn<String, RentalTable> genre = new TableColumn<>("Customer Name");
-        genre.setCellValueFactory(new PropertyValueFactory<>("customerName"));
-
-        TableColumn<String, RentalTable> runTime = new TableColumn<>("Rented Date");
-        runTime.setCellValueFactory(new PropertyValueFactory<>("rentedDate"));
-
-        HBox.setHgrow(tableView, Priority.ALWAYS);
-
-
-        tableView.getColumns().add(id);
-        tableView.getColumns().add(title);
-        tableView.getColumns().add(releaseDate);
-        tableView.getColumns().add(genre);
-        tableView.getColumns().add(runTime);
-
 
         updateTable();
     }

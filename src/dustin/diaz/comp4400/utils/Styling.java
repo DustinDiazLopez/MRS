@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.utils;
 
 import dustin.diaz.comp4400.model.parent.Customer;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -52,6 +53,12 @@ public class Styling {
                 vBox.setStyle(homeStyle);
             });
         }
+    }
+
+    public static double defaultButtonSize = 80;
+
+    public static void setButtonWidth(Button... buttons) {
+        for (Button button : buttons) button.setPrefWidth(defaultButtonSize);
     }
 
     public static void pleaseWaitVBoxStyle(VBox vBox, Label label) {

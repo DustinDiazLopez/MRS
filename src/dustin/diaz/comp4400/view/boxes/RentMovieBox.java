@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.view.boxes;
 
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -30,6 +31,7 @@ class RentMovieBox {
         yesButton.setDisable(true);
         Button noButton = new Button("Cancel");
         Button eraseButton = new Button("Erase");
+        Styling.setButtonWidth(yesButton, noButton, eraseButton);
 
         eraseButton.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #cc0000");
 

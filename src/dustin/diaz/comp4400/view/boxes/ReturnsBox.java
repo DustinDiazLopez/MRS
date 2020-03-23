@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.view.boxes;
 
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,74 +9,105 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.ArrayList;
 
 public class ReturnsBox {
     public static int display() {
-        AtomicInteger value = new AtomicInteger(-1);
+        final ArrayList<Integer>[] value = new ArrayList[]{new ArrayList<>()};
+
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Returns");
-        window.setMinHeight(200);
-        window.setMinWidth(450);
+        window.setMinHeight(300);
+        window.setMinWidth(500);
         window.getIcons().add(Computer.favicon);
 
-        TextField textField = new TextField();
-        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+        Label man = new Label("");
+        man.setTextFill(Color.RED);
+
+        Label star2 = new Label("*");
+        star2.setTextFill(Color.RED);
+        star2.setVisible(false);
+
+        Label label2 = new Label("Enter movie ID:");
+        TextField textField2 = new TextField();
+        textField2.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
-                textField.setText(newValue.replaceAll("[^\\d]", ""));
+                textField2.setText(newValue.replaceAll("[^\\d]", ""));
+                man.setText("Please Enter Numbers Only");
+                textField2.setStyle(Styling.error);
+                star2.setVisible(true);
+            } else {
+                man.setText("");
+                textField2.setStyle("");
+                star2.setVisible(false);
             }
         });
 
-        Label label = new Label("Enter movie ID:");
+        Button okButton = new Button("OK");
+        Button cancelButton = new Button("Cancel");
+        Styling.setButtonWidth(okButton, cancelButton);
 
-        Button yesButton = new Button("OK");
-        Button noButton = new Button("Cancel");
+        okButton.setOnAction(e -> {
+            star2.setVisible(false);
+            man.setText("");
+            textField2.setStyle("");
 
-        yesButton.setOnAction(e -> {
-            String text = textField.getText().trim();
-
-            if (!text.isEmpty()) {
+            if (!textField2.getText().trim().isEmpty()) {
                 try {
-                    value.set(Integer.parseInt(text));
+                    value[0].add(Integer.parseInt(textField2.getText()));
+                    window.close();
                 } catch (Exception ignored) {
-                    value.set(-1);
+                    value[0] = null;
                 }
             } else {
-                value.set(-1);
+
+                if (textField2.getText().trim().isEmpty()) {
+                    star2.setVisible(true);
+                    textField2.setStyle(Styling.error);
+                } else {
+                    try {
+                        value[0].add(-1);
+                        value[0].add(Integer.parseInt(textField2.getText()));
+                        window.close();
+                    } catch (Exception ignored) {
+                        value[0] = null;
+                    }
+                }
+
+                star2.setVisible(true);
+                man.setText("* Mandatory field");
             }
-
-            window.close();
         });
 
-        noButton.setOnAction(e -> window.close());
+        cancelButton.setOnAction(e -> window.close());
 
-        yesButton.setOnKeyPressed(e -> {
-            if (e.getCode().toString().equals("ENTER")) yesButton.fire();
-
+        cancelButton.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) cancelButton.fire();
         });
 
-        textField.setOnKeyPressed(e -> {
-            if (e.getCode().toString().equals("ENTER")) yesButton.fire();
-
+        okButton.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) okButton.fire();
         });
 
-        noButton.setOnKeyPressed(e -> {
-            if (e.getCode().toString().equals("ENTER")) noButton.fire();
+        textField2.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) okButton.fire();
         });
 
-        HBox hBox = new HBox(10);
-        hBox.getChildren().addAll(label, textField);
-        hBox.setAlignment(Pos.CENTER);
+        HBox hBox2 = new HBox(10);
+        hBox2.getChildren().addAll(label2, textField2, star2);
+        hBox2.setAlignment(Pos.CENTER);
+
         VBox layout = new VBox(10);
         HBox layButton = new HBox(10);
-        layButton.getChildren().addAll(yesButton, noButton);
+        layButton.getChildren().addAll(okButton, cancelButton);
         layButton.setAlignment(Pos.CENTER);
-        layout.getChildren().addAll(hBox, layButton);
+        layout.getChildren().addAll(hBox2, man, layButton);
         layout.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(layout);
@@ -87,7 +119,8 @@ public class ReturnsBox {
             window.close();
         });
 
-        return value.get();
+        Object[] arr = value[0].toArray();
+        return arr.length == 1 ? (int) arr[0] : -1;
     }
 }
 

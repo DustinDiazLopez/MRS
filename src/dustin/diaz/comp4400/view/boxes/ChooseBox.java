@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.view.boxes;
 
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -22,6 +23,7 @@ public class ChooseBox {
         Button yesButton = new Button("Choose");
         yesButton.setDisable(true);
         Button noButton = new Button("Cancel");
+        Styling.setButtonWidth(yesButton, noButton);
 
         String[] action = {
                 "Edit",

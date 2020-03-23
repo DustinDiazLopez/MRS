@@ -1,12 +1,14 @@
 package dustin.diaz.comp4400.view.boxes;
 
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -41,9 +43,11 @@ public class ConfirmBox {
         label.setMaxWidth(400);
         label.setAlignment(Pos.CENTER);
         label.setWrapText(true);
+        label.textAlignmentProperty().setValue(TextAlignment.CENTER);
 
         Button yesButton = new Button(btnOne);
         Button noButton = new Button(btnTwo);
+        Styling.setButtonWidth(yesButton, noButton);
 
         yesButton.setOnAction(e -> {
             answer.set(true);

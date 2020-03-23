@@ -4,6 +4,7 @@ import dustin.diaz.comp4400.model.child.Medias;
 import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.queries.child.QueryMedias;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -27,6 +28,7 @@ public class MediaBox {
         Button yesButton = new Button("Choose");
         yesButton.setDisable(true);
         Button noButton = new Button("Cancel");
+        Styling.setButtonWidth(yesButton, noButton);
 
         ArrayList<Medias> medias = QueryMedias.findAllMedias();
         String[] action = new String[medias.size()];

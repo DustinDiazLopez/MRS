@@ -28,6 +28,7 @@ public class CustomerBox {
         Button yesButton = new Button("Choose");
         yesButton.setDisable(true);
         Button noButton = new Button("Cancel");
+        Styling.setButtonWidth(yesButton, noButton);
 
         ArrayList<Customer> customersList = QueryCustomer.find(customers);
         String[] action = new String[customersList.size()];
