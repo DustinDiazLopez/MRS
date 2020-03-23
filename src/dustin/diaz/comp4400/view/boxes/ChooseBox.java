@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -47,6 +48,10 @@ public class ChooseBox {
 
         Label label = new Label();
         label.setText("Choose the action for user '" + selected + "' (ID: " + id + ")");
+        label.setMaxWidth(400);
+        label.setAlignment(Pos.CENTER);
+        label.setWrapText(true);
+        label.textAlignmentProperty().setValue(TextAlignment.CENTER);
 
         yesButton.setOnAction(e -> {
             if (!(comboBox.getValue() == null)) {

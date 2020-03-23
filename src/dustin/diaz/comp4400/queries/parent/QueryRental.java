@@ -19,19 +19,20 @@ import java.util.ArrayList;
 
 public abstract class QueryRental {
     //INSERT movie
-    public static final String insertRental = "INSERT INTO " + Database.RENTAL + " (CustomerID, MediaID, RentedOn, Returned) VALUES (?, ?, ?, ?)";
+    private static final String insertRental = "INSERT INTO " + Database.RENTAL + " (CustomerID, MediaID, RentedOn, Returned) VALUES (?, ?, ?, ?);";
 
     //SELECT movies
-    public static final String allRentals = "SELECT * FROM " + Database.RENTAL;
-    public static final String rentalByID = "SELECT * FROM " + Database.RENTAL + " WHERE ID = ?";
-    public static final String rentalByCustomerID = "SELECT * FROM " + Database.RENTAL + " WHERE CustomerID = ?";
+    private static final String allRentals = "SELECT * FROM " + Database.RENTAL;
+    private static final String rentalByID = "SELECT * FROM " + Database.RENTAL + " WHERE ID = ?";
+    private static final String rentalByCustomerID = "SELECT * FROM " + Database.RENTAL + " WHERE CustomerID = ?";
+    private static final String last = "SELECT * FROM Rentals ORDER BY ID DESC LIMIT 1;";
 
     //UPDATE
-    public static final String updateRentalByID = "UPDATE " + Database.RENTAL + " SET Returned = ?, ReturnedOn = ?, TotalDays = ?, TotalCost = ? WHERE ID = ? AND CustomerID = ?";
-    public static final String updateRentalHeld = "UPDATE " + Database.RENTAL + " SET Held = ? WHERE ID = ? AND CustomerID = ?";
+    private static final String updateRentalByID = "UPDATE " + Database.RENTAL + " SET Returned = ?, ReturnedOn = ?, TotalDays = ?, TotalCost = ? WHERE ID = ? AND CustomerID = ?";
+    private static final String updateRentalHeld = "UPDATE " + Database.RENTAL + " SET Held = ? WHERE ID = ? AND CustomerID = ?";
 
     //DELETE
-    public static final String deleteRentalByID = "DELETE FROM " + Database.RENTAL + " WHERE ID = ?";
+    private static final String deleteRentalByID = "DELETE FROM " + Database.RENTAL + " WHERE ID = ?";
 
     public static Movie getMovie(int rentalId) throws SQLException {
         MovieRental movieRental = QueryMovieRental.findByRentalID(rentalId);
@@ -46,6 +47,25 @@ public abstract class QueryRental {
         preparedStatement.setString(++i, rentedOn.toLocalDate().toString());
         preparedStatement.setBoolean(++i, returned);
         return preparedStatement.executeUpdate();
+    }
+
+    public static Rental insertAndReturn(int customerId, int mediaId, Date rentedOn, boolean returned) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertRental);
+        int i = 1;
+        preparedStatement.setInt(i, customerId);
+        preparedStatement.setInt(++i, mediaId);
+        preparedStatement.setString(++i, rentedOn.toLocalDate().toString());
+        preparedStatement.setBoolean(++i, returned);
+        preparedStatement.executeUpdate();
+        return find();
+    }
+
+    public static Rental find() throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryRental.last);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Rental rental = new Rental();
+        while (resultSet.next()) rental = getRental(resultSet);
+        return validate(rental);
     }
 
     public static int update(int rentalId, int customerId, boolean returned, Date returnedOn, int totalDays, float totalCost)
@@ -127,6 +147,12 @@ public abstract class QueryRental {
         Rental rental = new Rental();
         while (resultSet.next()) rental = getRental(resultSet);
         return validate(rental);
+    }
+
+    public static ArrayList<Rental> find(ArrayList<RentalTable> table) throws SQLException {
+        ArrayList<Rental> rentals = new ArrayList<>();
+        for (RentalTable i : table) rentals.add(find(i.getRentalId()));
+        return rentals;
     }
 
     public static ArrayList<Rental> findAllByCustomerId(int customerId) throws SQLException {
@@ -214,7 +240,7 @@ public abstract class QueryRental {
             if (!rental.isReturned() && !rental.isHeld()) {
                 Customer customer = QueryCustomer.find(rental.getCustomerId());
                 String fullname = Styling.formatNames(customer);
-                Movie movie = QueryMovie.findMovie(rental.getId());
+                Movie movie = QueryMovie.findMovie(rental.getMovie().getId());
                 table.add(new RentalTable(
                         rental.getId(),
                         movie.getId(),

@@ -5,10 +5,12 @@ import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.model.parent.Rental;
 import dustin.diaz.comp4400.model.tables.RentalTable;
 import dustin.diaz.comp4400.queries.child.QueryMedias;
+import dustin.diaz.comp4400.queries.connectors.QueryMovieRental;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.queries.parent.QueryMovie;
 import dustin.diaz.comp4400.queries.parent.QueryRental;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Details;
 import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.*;
 import javafx.fxml.FXML;
@@ -56,12 +58,15 @@ public class RentalTableController implements Initializable {
     private Label warning;
 
     private Rental selected = null;
+    private ArrayList<RentalTable> table;
 
     public void updateTable() {
         try {
             tableView.getItems().clear();
             tableView.getColumns().clear();
             tableView.setPlaceholder(new Label("No rentals to display."));
+            TableColumn<String, RentalTable> i = new TableColumn<>("ID");
+            i.setCellValueFactory(new PropertyValueFactory<>("rentalId"));
 
             TableColumn<String, RentalTable> id = new TableColumn<>("Movie ID");
             id.setCellValueFactory(new PropertyValueFactory<>("movieId"));
@@ -80,14 +85,14 @@ public class RentalTableController implements Initializable {
 
             HBox.setHgrow(tableView, Priority.ALWAYS);
 
-
+            tableView.getColumns().add(i);
             tableView.getColumns().add(id);
             tableView.getColumns().add(title);
             tableView.getColumns().add(releaseDate);
             tableView.getColumns().add(genre);
             tableView.getColumns().add(runTime);
 
-            ArrayList<RentalTable> table = QueryRental.getAllForTable();
+            table = QueryRental.getAllForTable();
             if (table != null) {
                 tableView.getItems().addAll(QueryRental.getAllForTable());
                 warning.setText("");
@@ -118,13 +123,15 @@ public class RentalTableController implements Initializable {
             if (choice != null) {
                 if (choice[0] != -1 && choice[1] != -1) {
                     try {
-                        Customer customer = QueryCustomer.find(choice[0]);
-                        Movie movie = QueryMovie.findMovie(choice[1]);
+                        Customer customer = QueryCustomer.find(choice[1]);
+                        Movie movie = QueryMovie.findMovie(choice[0]);
                         int media = QueryMedias.findMedia(MediaBox.display(movie)).getId();
                         Date date = Date.valueOf(LocalDate.now().toString());
-                        int q = QueryRental.insert(customer.getId(), media, date, false);
+                        Rental q = QueryRental.insertAndReturn(customer.getId(), media, date, false);
                         System.out.println(movie.getTitle() + " (" + media + ") rented by " + customer.getUsername() + " on " + date);
-                        System.out.println("Insert count " + q);
+                        System.out.println("Insert " + q);
+                        QueryMovieRental.insert(movie.getId(), q.getId());
+                        System.out.println(QueryRental.find(q.getId()));
                         //TODO make the connection with user and movie
                         updateTable();
                     } catch (SQLException ignored) {
@@ -245,10 +252,61 @@ public class RentalTableController implements Initializable {
         });
 
         deleteButton.setOnMousePressed(e -> {
-            int id = ReturnsBox.display();
+            int id = ReturnsBox.display("movie");
 
             if (id != -1) {
-                System.out.println(id);
+                try {
+                    System.out.println("Return Movie ID: " + id);
+                    ArrayList<Rental> returnable = QueryRental.find(table);
+
+                    if (returnable.size() != 0) {
+                        ArrayList<Rental> matched = new ArrayList<>();
+
+                        for (Rental rental : returnable) {
+                            if (rental.getMovie().getId() == id) matched.add(rental);
+                        }
+
+                        if (matched.size() != 0) {
+                            if (matched.size() == 1) {
+                                Rental rental = updateRental(matched.get(0));
+                                if (ShowRentalDetailsBox.display(rental)) {
+                                    QueryRental.update(
+                                            rental.getId(),
+                                            rental.getCustomerId(),
+                                            true,
+                                            rental.getReturnedOn(),
+                                            rental.getTotalDays(),
+                                            rental.getTotalCost()
+                                    );
+                                }
+                            } else {
+                                int rentalId = ReturnsBox.display("rental");
+                                for (Rental rental : matched) {
+                                    if (rental.getId() == rentalId) {
+                                        if (ShowRentalDetailsBox.display(updateRental(rental))) {
+                                            QueryRental.update(
+                                                    rental.getId(),
+                                                    rental.getCustomerId(),
+                                                    true,
+                                                    rental.getReturnedOn(),
+                                                    rental.getTotalDays(),
+                                                    rental.getTotalCost()
+                                            );
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            updateTable();
+                        }
+                    } else {
+                        warning.setText("There is nothing to return.");
+                    }
+
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -268,20 +326,50 @@ public class RentalTableController implements Initializable {
             String e = event.toString();
             if (!e.contains("target = TableColumnHeader") && !e.contains("target = Label") && selected != null) {
                 if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-                    String title = selected.getMovie().getTitle();
+                    String title = selected.getMovie().getTitle() + " (" + selected.getMedia().getType() + ")";
                     String customerName = "";
                     try {
                         customerName = " for " + Styling.formatNames(QueryCustomer.find(selected.getCustomerId()));
                     } catch (SQLException ignored) {
                     }
 
-                    if (ConfirmBox.display("Return Movie", "Would you like to return " + title + customerName)) {
-                        System.out.println(selected);
+                    if (ConfirmBox.display("Return Movie", "Would you like to return " + title + customerName + "?")) {
+                        try {
+                            Rental rental = updateRental(selected);
+                            if (ShowRentalDetailsBox.display(rental)) {
+                                QueryRental.update(
+                                        rental.getId(),
+                                        rental.getCustomerId(),
+                                        true,
+                                        rental.getReturnedOn(),
+                                        rental.getTotalDays(),
+                                        rental.getTotalCost()
+                                );
+                                updateTable();
+                            }
+                        } catch (Exception err) {
+                            err.printStackTrace();
+                        }
                     }
                 }
             }
         });
 
         updateTable();
+    }
+
+    public Rental updateRental(Rental rental) {
+        Date rentedOn = rental.getRentedOn();
+        Date returnedOn = Date.valueOf(LocalDate.now().toString());
+        float cost = Details.getPrice(rental.getMedia());
+        int totalDays = Details.inBetween(rentedOn, returnedOn);
+        if (totalDays == 0) totalDays = 1;
+        float totalCost = totalDays * cost;
+        rental.setReturnedOn(returnedOn);
+        rental.setTotalCost(totalCost);
+        rental.setTotalDays(totalDays);
+        rental.setReturned(true);
+        rental.setHeld(false);
+        return rental;
     }
 }

@@ -80,6 +80,8 @@
                         </Button>
                     </children>
                 </HBox>
+                <Label text="(You can also double-click a customer to edit their information or right-click to show more actions)"
+                       textFill="#808080"/>
             </children>
         </VBox>
     </center>

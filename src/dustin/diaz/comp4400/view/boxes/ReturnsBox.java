@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class ReturnsBox {
-    public static int display() {
+    public static int display(String table) {
         final ArrayList<Integer>[] value = new ArrayList[]{new ArrayList<>()};
 
         Stage window = new Stage();
@@ -34,7 +34,7 @@ public class ReturnsBox {
         star2.setTextFill(Color.RED);
         star2.setVisible(false);
 
-        Label label2 = new Label("Enter movie ID:");
+        Label label2 = new Label("Enter " + table + " ID:");
         TextField textField2 = new TextField();
         textField2.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {

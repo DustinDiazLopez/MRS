@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -55,6 +56,10 @@ public class CustomerBox {
 
         Label label = new Label();
         label.setText("More than one customer have held this movie for pick-up select the customer:");
+        label.setMaxWidth(400);
+        label.setAlignment(Pos.CENTER);
+        label.setWrapText(true);
+        label.textAlignmentProperty().setValue(TextAlignment.CENTER);
 
         yesButton.setOnAction(e -> {
             if (!(comboBox.getValue() == null)) {
