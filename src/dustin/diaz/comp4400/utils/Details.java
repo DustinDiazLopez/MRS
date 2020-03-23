@@ -10,6 +10,8 @@ public abstract class Details {
     public static float dvdPrice = 2.00f;
     public static float bluRayPrice = 3.00f;
     public static float defaultPrice = 2.00f;
+    public static int defaultDays = 5;
+    public static float fees = 0.10f;
 
     public static float getPrice(Medias media) {
         if (media.getType().equals("DVD")) {

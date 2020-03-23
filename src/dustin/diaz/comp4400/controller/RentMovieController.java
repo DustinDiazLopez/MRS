@@ -1,9 +1,6 @@
 package dustin.diaz.comp4400.controller;
 
-import dustin.diaz.comp4400.model.child.Cast;
-import dustin.diaz.comp4400.model.child.Directors;
-import dustin.diaz.comp4400.model.child.Genres;
-import dustin.diaz.comp4400.model.child.Writers;
+import dustin.diaz.comp4400.model.child.*;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.model.parent.Rental;
@@ -14,16 +11,15 @@ import dustin.diaz.comp4400.queries.parent.QueryMovie;
 import dustin.diaz.comp4400.queries.parent.QueryRental;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
+import dustin.diaz.comp4400.view.boxes.ConfirmBox;
+import dustin.diaz.comp4400.view.boxes.ShowPickupDetailsBox;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -77,6 +73,8 @@ public class RentMovieController implements Initializable {
     @FXML
     private ComboBox<String> sortByGenre;
 
+    @FXML
+    private DatePicker reservationDate;
 
     @FXML
     void home(ActionEvent event) {
@@ -94,12 +92,36 @@ public class RentMovieController implements Initializable {
     }
 
     private void holdForPickup(String media) throws SQLException {
+
+        LocalDate date = reservationDate.getValue();
+        if (date == null) {
+            reservationDate.setStyle(Styling.error);
+            boolean today = ConfirmBox.display(
+                    "Provide Reservation Date",
+                    "Please provide the date you will like to pick up the movie.",
+                    "Pickup Today", "Ok", true);
+            if (!today) {
+                return;
+            } else {
+                date = LocalDate.now();
+            }
+        }
+        Date resDate = Date.valueOf(date);
         Customer customer = Computer.customer;
         Movie movie = selected;
-        int mediaId = QueryMedias.findMedia(media).getId();
-        Rental rental = QueryRental.insertAndReturn(customer.getId(), mediaId, Date.valueOf(LocalDate.now()), false);
-        QueryRental.updateHeld(rental.getId(), rental.getCustomerId(), true);
-        QueryMovieRental.insert(movie.getId(), rental.getId());
+        Medias medias = QueryMedias.findMedia(media);
+        Rental rental = new Rental();
+        rental.setCustomerId(customer.getId());
+        rental.setMovie(movie);
+        rental.setMedia(medias);
+        rental.setRentedOn(resDate);
+
+        if (ShowPickupDetailsBox.display(rental)) {
+            int mediaId = medias.getId();
+            rental = QueryRental.insertAndReturn(customer.getId(), mediaId, resDate, false);
+            QueryRental.updateHeld(rental.getId(), rental.getCustomerId(), true);
+            QueryMovieRental.insert(movie.getId(), rental.getId());
+        }
         //TODO confirmation
     }
 
@@ -109,6 +131,15 @@ public class RentMovieController implements Initializable {
         Image placeholder = new Image(new File("src/Images/icons/placeholder.jpg").toURI().toString());
         starImage.setImage(star);
         movieImage.setImage(placeholder);
+        reservationDate.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                LocalDate today = LocalDate.now();
+                setDisable(empty || date.compareTo(today) < 0);
+            }
+        });
+
+        reservationDate.setOnMouseClicked(e -> reservationDate.setStyle(""));
 
         try {
             ArrayList<Movie> movies = QueryMovie.findAllMovies();
@@ -238,8 +269,7 @@ public class RentMovieController implements Initializable {
         Image poster = image(Computer.movieImagePath + movie.getFileName());
         movieImage.setImage(poster);
         ratingLabel.setText(movie.getRating());
-        if (!movie.getRating().contains("/10")) starImage.setOpacity(.25);
-        else starImage.setOpacity(1);
+        starImage.setOpacity(ratingPercent(movie));
         informationLabel.setText(movie.getRated() + " | " + movie.getRunTime() + " | " + movie.getGenres() + " | " + movie.getReleaseDate());
     }
 
@@ -247,6 +277,7 @@ public class RentMovieController implements Initializable {
         Text directors = new Text(directorsAsString(movie.getDirectors()) + "\n");
         Text writers = new Text(writersAsString(movie.getWriters()) + "\n");
         Text cast = new Text(castsAsString(movie.getCast()) + "\n");
+        reservationDate.setStyle("");
         directorsTextFlow.getChildren().clear();
         directorsTextFlow.getChildren().addAll(directors);
         writersTextFlow.getChildren().clear();
@@ -299,5 +330,15 @@ public class RentMovieController implements Initializable {
         }
 
         return -1;
+    }
+
+    private double ratingPercent(Movie movie) {
+        String rating = movie.getRating().trim();
+        String str = rating.replace("/10", "");
+        if (!rating.isEmpty() && rating.endsWith("/10") && str.replace(".", "").length() <= 2) {
+            return Double.parseDouble(str) / 10d;
+        }
+
+        return 0;
     }
 }

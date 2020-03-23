@@ -43,7 +43,7 @@ public class DustinDiazCOMP4400 extends Application {
         scene = new Scene(root);
         DustinDiazCOMP4400.stage = stage;
         stage.setScene(scene);
-        stage.setTitle("Movie Rental System");
+        stage.setTitle("Dustin Díaz (A00548394) COMP4400 - Movie Rental System");
         stage.getIcons().add(Computer.favicon);
 
         stage.setMinHeight(900);

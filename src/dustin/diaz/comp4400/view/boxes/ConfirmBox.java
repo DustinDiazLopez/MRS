@@ -17,18 +17,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ConfirmBox {
 
     public static boolean display(String title, String message) {
-        return display(title, message, 410, 200, "Yes", "No");
+        return display(title, message, 410, 200, "Yes", "No", false);
     }
 
     public static boolean display(String title, String message, String btnOne, String btnTwo) {
-        return display(title, message, 410, 200, btnOne, btnTwo);
+        return display(title, message, 410, 200, btnOne, btnTwo, false);
+    }
+
+    public static boolean display(String title, String message, String btnOne, String btnTwo, boolean big) {
+        return display(title, message, 410, 200, btnOne, btnTwo, big);
     }
 
     public static boolean display(String title, String message, int width, int height) {
-        return display(title, message, width, height, "Yes", "No");
+        return display(title, message, width, height, "Yes", "No", false);
     }
 
-    public static boolean display(String title, String message, int width, int height, String btnOne, String btnTwo) {
+    public static boolean display(String title, String message, int width, int height, String btnOne, String btnTwo, boolean bigger) {
         AtomicBoolean answer = new AtomicBoolean(false);
         Stage window = new Stage();
 
@@ -48,6 +52,11 @@ public class ConfirmBox {
         Button yesButton = new Button(btnOne);
         Button noButton = new Button(btnTwo);
         Styling.setButtonWidth(yesButton, noButton);
+
+        if (bigger) {
+            yesButton.setPrefWidth(130);
+            noButton.setPrefWidth(130);
+        }
 
         yesButton.setOnAction(e -> {
             answer.set(true);
