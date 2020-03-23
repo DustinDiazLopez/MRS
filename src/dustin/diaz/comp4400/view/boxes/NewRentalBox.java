@@ -1,19 +1,18 @@
 package dustin.diaz.comp4400.view.boxes;
 
+import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class NewRentalBox {
@@ -24,25 +23,12 @@ public class NewRentalBox {
 
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("New Rental");
-        window.setMinHeight(200);
-        window.setMinWidth(450);
-        window.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
+        window.setMinHeight(300);
+        window.setMinWidth(500);
+        window.getIcons().add(Computer.favicon);
 
-        Label label = new Label("Enter movie ID:     ");
-        TextField textField = new TextField();
-        textField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                textField.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
-
-        Label label2 = new Label("Enter customer ID:");
-        TextField textField2 = new TextField();
-        textField2.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                textField2.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
+        Label man = new Label("");
+        man.setTextFill(Color.RED);
 
         Label star = new Label("*");
         star.setTextFill(Color.RED);
@@ -52,9 +38,35 @@ public class NewRentalBox {
         star2.setTextFill(Color.RED);
         star2.setVisible(false);
 
-        Label man = new Label("* Mandatory Field");
-        man.setTextFill(Color.RED);
-        man.setVisible(false);
+        Label label = new Label("Enter movie ID:     ");
+        TextField textField = new TextField();
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                textField.setText(newValue.replaceAll("[^\\d]", ""));
+                man.setText("Please Enter Numbers Only");
+                textField.setStyle(Styling.error);
+                star.setVisible(true);
+            } else {
+                man.setText("");
+                textField.setStyle("");
+                star.setVisible(false);
+            }
+        });
+
+        Label label2 = new Label("Enter customer ID:");
+        TextField textField2 = new TextField();
+        textField2.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                textField2.setText(newValue.replaceAll("[^\\d]", ""));
+                man.setText("Please Enter Numbers Only");
+                textField2.setStyle(Styling.error);
+                star2.setVisible(true);
+            } else {
+                man.setText("");
+                textField2.setStyle("");
+                star2.setVisible(false);
+            }
+        });
 
         Button okButton = new Button("OK");
         Button cancelButton = new Button("Cancel");
@@ -62,7 +74,7 @@ public class NewRentalBox {
         okButton.setOnAction(e -> {
             star.setVisible(false);
             star2.setVisible(false);
-            man.setVisible(false);
+            man.setText("");
             textField.setStyle("");
             textField2.setStyle("");
 
@@ -78,36 +90,51 @@ public class NewRentalBox {
                 if (textField.getText().trim().isEmpty()) {
                     star.setVisible(true);
                     textField.setStyle(Styling.error);
+                } else {
+                    try {
+                        value[0].add(Integer.parseInt(textField.getText()));
+                        value[0].add(-1);
+                        window.close();
+                    } catch (Exception ignored) {
+                        value[0] = null;
+                    }
                 }
 
                 if (textField2.getText().trim().isEmpty()) {
                     star2.setVisible(true);
                     textField2.setStyle(Styling.error);
+                } else {
+                    try {
+                        value[0].add(-1);
+                        value[0].add(Integer.parseInt(textField2.getText()));
+                        window.close();
+                    } catch (Exception ignored) {
+                        value[0] = null;
+                    }
                 }
 
-                man.setVisible(true);
+                star.setVisible(true);
+                star2.setVisible(true);
+                man.setText("* Please provide the information for one or both fields");
             }
         });
 
         cancelButton.setOnAction(e -> window.close());
 
-        okButton.setOnKeyPressed(e -> {
-            if (e.getCode().toString().equals("ENTER")) okButton.fire();
-
-        });
-
         cancelButton.setOnKeyPressed(e -> {
             if (e.getCode().toString().equals("ENTER")) cancelButton.fire();
         });
 
+        okButton.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) okButton.fire();
+        });
+
         textField.setOnKeyPressed(e -> {
             if (e.getCode().toString().equals("ENTER")) okButton.fire();
-
         });
 
         textField2.setOnKeyPressed(e -> {
             if (e.getCode().toString().equals("ENTER")) okButton.fire();
-
         });
 
         HBox hBox = new HBox(10);

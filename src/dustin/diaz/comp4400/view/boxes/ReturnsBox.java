@@ -1,17 +1,16 @@
 package dustin.diaz.comp4400.view.boxes;
 
+import dustin.diaz.comp4400.utils.Computer;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReturnsBox {
@@ -23,7 +22,7 @@ public class ReturnsBox {
         window.setTitle("Returns");
         window.setMinHeight(200);
         window.setMinWidth(450);
-        window.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
+        window.getIcons().add(Computer.favicon);
 
         TextField textField = new TextField();
         textField.textProperty().addListener((observable, oldValue, newValue) -> {

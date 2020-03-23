@@ -3,16 +3,17 @@ package dustin.diaz.comp4400;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
+import dustin.diaz.comp4400.view.boxes.NewRentalBox;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
+import java.util.Arrays;
 
 public class DustinDiazCOMP4400 extends Application {
 
@@ -45,7 +46,7 @@ public class DustinDiazCOMP4400 extends Application {
         DustinDiazCOMP4400.stage = stage;
         stage.setScene(scene);
         stage.setTitle("Movie Rental System");
-        stage.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
+        stage.getIcons().add(Computer.favicon);
 
         stage.setMinHeight(900);
         stage.setMinWidth(1100);
@@ -60,6 +61,8 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
+
+        System.out.println(Arrays.toString(NewRentalBox.display()));
     }
 
     public static void setRoot(String fxml) throws IOException {

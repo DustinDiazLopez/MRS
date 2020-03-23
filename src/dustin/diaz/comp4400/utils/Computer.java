@@ -7,6 +7,7 @@ import dustin.diaz.comp4400.model.parent.Rental;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
 import java.awt.*;
@@ -25,6 +26,7 @@ public abstract class Computer {
     public static String src;
     public static String pathChar;
     public static String movieImagePath;
+    public static Image favicon = new javafx.scene.image.Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString());
     public static Connection connection;
     public static Customer customer;
     public static Customer editCustomer;

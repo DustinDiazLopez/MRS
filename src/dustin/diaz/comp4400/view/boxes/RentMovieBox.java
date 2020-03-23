@@ -1,5 +1,6 @@
 package dustin.diaz.comp4400.view.boxes;
 
+import dustin.diaz.comp4400.utils.Computer;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -7,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -78,7 +78,7 @@ class RentMovieBox {
         window.setTitle("History-inator");
         window.setMinHeight(400);
         window.setMinWidth(800);
-        window.getIcons().add(new Image("CombinePDF/img/android-chrome-512x512.png"));
+        window.getIcons().add(Computer.favicon);
 
         Label label = new Label();
         label.setText("Choose a saved state to load:");

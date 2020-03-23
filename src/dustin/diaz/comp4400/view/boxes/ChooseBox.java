@@ -1,18 +1,17 @@
 package dustin.diaz.comp4400.view.boxes;
 
+import dustin.diaz.comp4400.utils.Computer;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ChooseBox {
@@ -42,7 +41,7 @@ public class ChooseBox {
         window.setTitle("Choose action for " + selected);
         window.setMinHeight(200);
         window.setMinWidth(425);
-        window.getIcons().add(new Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString()));
+        window.getIcons().add(Computer.favicon);
 
         Label label = new Label();
         label.setText("Choose the action for user '" + selected + "' (ID: " + id + ")");
