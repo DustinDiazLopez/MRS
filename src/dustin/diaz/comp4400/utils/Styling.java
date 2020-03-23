@@ -37,6 +37,22 @@ public class Styling {
                     "-fx-border-radius: 5;" +
                     "-fx-border-color: blue;";
 
+    public static String movieStyle =
+            "-fx-padding: 10;" +
+                    "-fx-border-style: solid inside;" +
+                    "-fx-border-width: 1;" +
+                    "-fx-border-insets: 5;" +
+                    "-fx-border-radius: 5;" +
+                    "-fx-border-color: gray;";
+
+    public static String movieStyleHover =
+            "-fx-padding: 10;" +
+                    "-fx-border-style: solid inside;" +
+                    "-fx-border-width: 1;" +
+                    "-fx-border-insets: 5;" +
+                    "-fx-border-radius: 5;" +
+                    "-fx-border-color: teal;";
+
     public static void setStyle(VBox... vBoxes) {
         double opacity = 0.85;
         for (VBox vBox : vBoxes) {

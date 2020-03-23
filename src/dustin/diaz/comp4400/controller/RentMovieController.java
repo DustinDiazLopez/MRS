@@ -13,6 +13,7 @@ import dustin.diaz.comp4400.queries.connectors.QueryMovieRental;
 import dustin.diaz.comp4400.queries.parent.QueryMovie;
 import dustin.diaz.comp4400.queries.parent.QueryRental;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Styling;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,6 +100,7 @@ public class RentMovieController implements Initializable {
         Rental rental = QueryRental.insertAndReturn(customer.getId(), mediaId, Date.valueOf(LocalDate.now()), false);
         QueryRental.updateHeld(rental.getId(), rental.getCustomerId(), true);
         QueryMovieRental.insert(movie.getId(), rental.getId());
+        //TODO confirmation
     }
 
     @Override
@@ -186,20 +188,39 @@ public class RentMovieController implements Initializable {
 
     private VBox generateElement(Movie movie) {
         int width = 182;
+        int height = 268;
+        double opacity = 0.85;
         VBox vBox = new VBox(10);
         Button details = new Button("Details");
         details.setPrefWidth(width);
+        final ImageView image = new ImageView();
+        image.setImage(image(Computer.movieImagePath + movie.getFileName()));
+        image.setFitWidth(width);
+        image.setFitHeight(height);
+        image.setOnMouseClicked(e -> details.fire());
+        vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(image, details);
+        vBox.setPadding(new Insets(5, 5, 5, 5));
+
+        vBox.setStyle(Styling.homeStyle);
+        vBox.opacityProperty().setValue(opacity);
+
+        vBox.setOnMouseEntered(e -> {
+            vBox.opacityProperty().setValue(1);
+            vBox.setStyle(Styling.homeStyleHover);
+        });
+
+        vBox.setOnMouseExited(e -> {
+            vBox.opacityProperty().setValue(opacity);
+            vBox.setStyle(Styling.homeStyle);
+        });
+
+        vBox.setOnMouseClicked(e -> details.fire());
+
         details.setOnAction(e -> {
             selected = movie;
             display(movie);
         });
-        final ImageView image = new ImageView();
-        image.setImage(image(Computer.movieImagePath + movie.getFileName()));
-        image.setFitWidth(width);
-        image.setFitHeight(268);
-        vBox.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(image, details);
-        vBox.setPadding(new Insets(5, 5, 5, 5));
         return vBox;
     }
 

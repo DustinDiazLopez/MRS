@@ -50,7 +50,7 @@ public class DustinDiazCOMP4400 extends Application {
         stage.setMinWidth(1100);
 
         stage.setHeight(1030);
-        stage.setWidth(1250);
+        stage.setWidth(1300);
 
         stage.setOnCloseRequest(e -> {
             e.consume();
