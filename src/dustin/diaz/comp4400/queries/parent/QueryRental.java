@@ -1,12 +1,15 @@
 package dustin.diaz.comp4400.queries.parent;
 
 import dustin.diaz.comp4400.model.connector.MovieRental;
+import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.model.parent.Rental;
+import dustin.diaz.comp4400.model.tables.RentalTable;
 import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.child.QueryMedias;
 import dustin.diaz.comp4400.queries.connectors.QueryMovieRental;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.Styling;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -177,5 +180,29 @@ public abstract class QueryRental {
 
     private static void error(int testNumber, String value, String expected) {
         System.err.println("TEST #" + testNumber + ": " + value + " expected [" + expected + "]");
+    }
+
+    public static ArrayList<RentalTable> getAllForTable() throws SQLException {
+        ArrayList<Rental> rentals = findAll();
+        ArrayList<RentalTable> table = new ArrayList<>();
+
+        for (Rental rental : rentals) {
+            if (!rental.isReturned()) {
+                Customer customer = QueryCustomer.find(rental.getCustomerId());
+                String fullname = Styling.formatNames(customer);
+                Movie movie = QueryMovie.findMovie(rental.getId());
+                table.add(new RentalTable(
+                                rental.getId(),
+                                movie.getId(),
+                                customer.getId(),
+                                fullname,
+                                movie.getTitle(),
+                                rental.getRentedOn()
+                        )
+                );
+            }
+        }
+
+        return table;
     }
 }

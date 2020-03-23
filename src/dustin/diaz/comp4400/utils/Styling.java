@@ -1,7 +1,9 @@
 package dustin.diaz.comp4400.utils;
 
 import dustin.diaz.comp4400.model.parent.Customer;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class Styling {
     public static String error =
@@ -50,6 +52,14 @@ public class Styling {
                 vBox.setStyle(homeStyle);
             });
         }
+    }
+
+    public static void pleaseWaitVBoxStyle(VBox vBox, Label label) {
+        vBox.setOnMousePressed(e -> {
+            label.setTextFill(Color.RED);
+            label.setText("Please wait...");
+            vBox.opacityProperty().setValue(1);
+        });
     }
 
     public static String formatNames(Customer c) {

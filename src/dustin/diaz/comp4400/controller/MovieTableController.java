@@ -188,7 +188,7 @@ public class MovieTableController implements Initializable {
             }
         });
 
-        tableView.setPlaceholder(new Label("No customers to display."));
+        tableView.setPlaceholder(new Label("No movies to display."));
 
         TableColumn<String, Movie> id = new TableColumn<>("ID");
         id.setCellValueFactory(new PropertyValueFactory<>("id"));

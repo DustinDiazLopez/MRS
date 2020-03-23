@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="900.0" minWidth="1100.0"
             prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.controller">
@@ -42,16 +46,17 @@
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
-               <children>
-                  <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Password" />
-                  <PasswordField fx:id="passwordLoginTextField" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="226.0">
-                     <HBox.margin>
-                        <Insets left="10.0" />
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+                    <children>
+                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Password"/>
+                        <PasswordField fx:id="passwordLoginTextField" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0"
+                                       prefWidth="226.0">
+                            <HBox.margin>
+                                <Insets left="10.0"/>
                      </HBox.margin>
                   </PasswordField>
                   <Label fx:id="manFieldTwo" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
@@ -74,17 +79,22 @@
             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                 <children>
                     <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#login" prefHeight="31.0" prefWidth="74.0" text="Login">
+                            onAction="#login" prefHeight="35.0" prefWidth="85.0" text="Login">
                         <HBox.margin>
                             <Insets right="10.0"/>
                         </HBox.margin>
                     </Button>
                     <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#loginCancel" prefHeight="31.0" prefWidth="74.0" text="Cancel"/>
-                    <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
-                            nodeOrientation="LEFT_TO_RIGHT" onAction="#loginRegister" text="Register">
+                            onAction="#loginCancel" prefHeight="35.0" prefWidth="85.0" text="Cancel">
                         <HBox.margin>
-                            <Insets left="10.0"/>
+                            <Insets right="10.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
+                            nodeOrientation="LEFT_TO_RIGHT" onAction="#loginRegister" prefHeight="35.0" prefWidth="85.0"
+                            text="Register">
+                        <HBox.margin>
+                            <Insets/>
                         </HBox.margin>
                     </Button>
                 </children>

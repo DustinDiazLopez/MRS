@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,28 +36,22 @@ public class AdminHomeController implements Initializable {
     private Label movieLabelVBox;
 
     @FXML
+    private Label rentalLabelVBox;
+
+    @FXML
     private Label userLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        rentalsVBox.setOnMouseClicked(e -> {
-            System.out.println("Hey rentals");
-        });
+        userLabel.setText(Styling.formatNames(Computer.customer));
 
-        moviesVBox.setOnMousePressed(e -> {
-            movieLabelVBox.setTextFill(Color.RED);
-            movieLabelVBox.setText("Please wait...");
-            moviesVBox.opacityProperty().setValue(1);
-        });
+        Styling.pleaseWaitVBoxStyle(rentalsVBox, rentalLabelVBox);
+        Styling.pleaseWaitVBoxStyle(moviesVBox, movieLabelVBox);
+        Styling.pleaseWaitVBoxStyle(customerVBox, customerLabelVBox);
+        Styling.setStyle(rentalsVBox, customerVBox, moviesVBox, exitVBox);
 
+        rentalsVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "rentaltable"));
         moviesVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "movietable"));
-
-        customerVBox.setOnMousePressed(e -> {
-            customerLabelVBox.setTextFill(Color.RED);
-            customerLabelVBox.setText("Please wait...");
-            customerVBox.opacityProperty().setValue(1);
-        });
-
         customerVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "customertable"));
 
         exitVBox.setOnMouseClicked(e -> {
@@ -66,9 +59,5 @@ public class AdminHomeController implements Initializable {
                 Computer.changeScreen(borderPane, "login");
             }
         });
-
-        userLabel.setText(Styling.formatNames(Computer.customer));
-
-        Styling.setStyle(rentalsVBox, customerVBox, moviesVBox, exitVBox);
     }
 }

@@ -402,7 +402,9 @@
         <property environment="env"/>
         <condition property="do.set.ant-javafx.in.envjdk.lib">
             <and>
-                <not><isset property="ant-javafx.jar.location"/></not>
+                <not>
+                    <isset property="ant-javafx.jar.location"/>
+                </not>
                 <available file="${env.JAVA_HOME}${file.separator}lib${file.separator}ant-javafx.jar"/>
             </and>
         </condition>
