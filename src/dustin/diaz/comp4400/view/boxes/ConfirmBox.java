@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.view.boxes;
 
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.MemoryUsage;
 import dustin.diaz.comp4400.utils.Styling;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -42,6 +43,7 @@ public class ConfirmBox {
         window.setMinWidth(410);
         window.getIcons().add(Computer.favicon);
 
+        MemoryUsage.print();
         Label label = new Label();
         label.setText(message);
         label.setMaxWidth(400);

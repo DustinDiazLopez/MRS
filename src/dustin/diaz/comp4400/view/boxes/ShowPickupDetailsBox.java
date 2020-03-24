@@ -63,35 +63,35 @@ public class ShowPickupDetailsBox {
                 new Label("Movie:"),
                 new Label("Customer:"),
                 new Label("Reservation Date:"),
-                new Label("Time for Return:"),
-                new Label("Additional fees:"),
+                //new Label("Time for Return:"),
+                //new Label("Additional fees:"),
                 new Label("Cost:"),
-                new Label("Total Days:"),
-                new Label("Total Cost:")
+                //new Label("Total Days:"),
+                //new Label("Total Cost:")
         };
 
         String media = rental.getMedia().getType();
         String movie = rental.getMovie().getTitle() + " (" + media + ")";
         String customer = Styling.formatNames(QueryCustomer.find(rental.getCustomerId()));
         Date rentedOn = rental.getRentedOn();
-        Date returnedOn = Date.valueOf(rentedOn.toLocalDate().plusDays(Details.defaultDays).toString());
+        //Date returnedOn = Date.valueOf(rentedOn.toLocalDate().plusDays(Details.defaultDays).toString());
         float cost = Details.getPrice(rental.getMedia());
-        int days = Details.defaultDays;
-        float tc = days * cost;
+        //int days = Details.defaultDays;
+        //float tc = days * cost;
         window.setTitle("Confirm pickup for " + movie);
 
         Label[] informationLabels = {
                 new Label(movie),
                 new Label(customer),
                 new Label(rentedOn.toString()),
-                new Label(returnedOn.toString()),
-                new Label((Details.fees * 100f) + "%"),
-                new Label("$" + Details.round(cost, 100d) + " per day"),
-                new Label(days + " day(s)"),
-                new Label("$" + Details.round(tc, 100d))
+                //new Label(returnedOn.toString()),
+                //new Label((Details.fees * 100f) + "%"),
+                new Label("$" + Details.round(cost, 1000d) + " per day"),
+                //new Label(days + " day(s)"),
+                //new Label("$" + Details.round(tc, 100d))
         };
 
-        Label header = new Label("This is only an estimate.");
+        Label header = new Label("Details regarding you rental");
         header.setMaxWidth(400);
         header.setAlignment(Pos.CENTER);
         header.setWrapText(true);

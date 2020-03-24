@@ -122,7 +122,6 @@ public class RentMovieController implements Initializable {
             QueryRental.updateHeld(rental.getId(), rental.getCustomerId(), true);
             QueryMovieRental.insert(movie.getId(), rental.getId());
         }
-        //TODO confirmation
     }
 
     @Override

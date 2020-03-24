@@ -56,9 +56,7 @@ public class UserHomeController implements Initializable {
 
         moviesVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "rentmovie"));
 
-        rentalHistoryVBox.setOnMouseClicked(e -> {
-            System.out.println("Hey history");
-        });
+        rentalHistoryVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "rentalhistory"));
 
         exitVBox.setOnMouseClicked(e -> {
             if (ConfirmBox.display("Log-out", "Are you sure you want to log-out?")) {

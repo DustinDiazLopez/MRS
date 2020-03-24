@@ -59,7 +59,6 @@ public class DustinDiazCOMP4400 extends Application {
 
         connect.join();
         stage.show();
-
     }
 
     public static void setRoot(String fxml) throws IOException {

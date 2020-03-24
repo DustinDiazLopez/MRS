@@ -74,16 +74,18 @@
                 </HBox>
                 <Label fx:id="manText" textFill="RED"/>
                 <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
-                <children>
-                    <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#login" prefHeight="35.0" prefWidth="85.0" text="Login">
-                        <HBox.margin>
-                            <Insets right="10.0"/>
-                        </HBox.margin>
-                    </Button>
-                    <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT"
-                            onAction="#loginCancel" prefHeight="35.0" prefWidth="85.0" text="Cancel">
-                        <HBox.margin>
+                    <children>
+                        <Button fx:id="loginBtn" alignment="CENTER" mnemonicParsing="false"
+                                nodeOrientation="LEFT_TO_RIGHT"
+                                onAction="#login" prefHeight="35.0" prefWidth="85.0" text="Login">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false"
+                                nodeOrientation="LEFT_TO_RIGHT"
+                                onAction="#loginCancel" prefHeight="35.0" prefWidth="85.0" text="Cancel">
+                            <HBox.margin>
                             <Insets right="10.0"/>
                         </HBox.margin>
                     </Button>
