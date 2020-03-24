@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
-import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -58,10 +57,6 @@ public abstract class Computer {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-
-    public static void openImageFolder() throws IOException {
-        Desktop.getDesktop().open(new File(Computer.movieImagePath));
     }
 
     private static List<String> listFiles(File file) {

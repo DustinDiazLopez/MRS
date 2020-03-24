@@ -107,12 +107,11 @@ public class RentalHistoryController implements Initializable {
                     "Provide Reservation Date",
                     "Please provide the date you will like to pick up the movie.",
                     "Pickup Today", "Ok", true);
-            if (!today) {
-                return;
-            } else {
-                date = LocalDate.now();
-            }
+
+            if (!today) return;
+            else date = LocalDate.now();
         }
+
         Date resDate = Date.valueOf(date);
         Customer customer = Computer.customer;
         Movie movie = selected;
@@ -229,7 +228,7 @@ public class RentalHistoryController implements Initializable {
     private ArrayList<String> asArray(ArrayList<Genres> genres) {
         ArrayList<String> list = new ArrayList<>();
         list.add("All");
-        for (Genres g : genres) list.add(g.getGenre());
+        for (Genres g : genres) list.add(g.getGenre().trim());
         return list;
     }
 
@@ -243,12 +242,13 @@ public class RentalHistoryController implements Initializable {
         VBox vBox = new VBox();
         boolean add = false;
 
-        //TODO: O(n^2) time -> FIX!!!
-        for (int i = 0; i < movies.size(); i++) {
-            Movie m1 = movies.get(i);
-            for (int j = 0; j < movies.size(); j++) {
-                Movie m2 = movies.get(j);
-                if (m1.getId() == m2.getId()) movies.remove(j);
+        if (movies.size() != 1) {
+            for (int i = 0; i < movies.size(); i++) {
+                Movie m1 = movies.get(i);
+                for (int j = 0; j < movies.size(); j++) {
+                    Movie m2 = movies.get(j);
+                    if (m1.getId() == m2.getId()) movies.remove(j);
+                }
             }
         }
 

@@ -2,10 +2,10 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.RegisterController">
+
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.RegisterController">
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -232,7 +232,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label fx:id="manFieldOne5" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
+                  <Label fx:id="manPhone" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -268,17 +268,14 @@
                   <Label fx:id="manText" textFill="RED" />
                   <HBox alignment="CENTER">
                      <children>
-                         <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false"
-                                 nodeOrientation="LEFT_TO_RIGHT" onAction="#register" text="Register">
+                        <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#register" text="Register">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                         <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#registerCancel" prefHeight="31.0" prefWidth="74.0" text="Cancel">
                              <HBox.margin>
-                                 <Insets right="10.0"/>
-                             </HBox.margin>
-                         </Button>
-                         <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false"
-                                 nodeOrientation="LEFT_TO_RIGHT" onAction="#registerCancel" prefHeight="31.0"
-                                 prefWidth="74.0" text="Cancel">
-                             <HBox.margin>
-                                 <Insets right="10.0"/>
+                                 <Insets right="10.0" />
                              </HBox.margin>
                          </Button>
                      </children>

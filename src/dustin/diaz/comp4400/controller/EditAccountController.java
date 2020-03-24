@@ -89,6 +89,9 @@ public class EditAccountController implements Initializable {
     private Label manDOB;
 
     @FXML
+    private Label manPhone;
+
+    @FXML
     private TextField middleName;
 
     @FXML
@@ -119,6 +122,7 @@ public class EditAccountController implements Initializable {
         manAddress.setText("");
         manCity.setText("");
         manDOB.setText("");
+        manPhone.setText("");
         manFirstName.setText("");
         manLastName.setText("");
         manPassword.setText("");
@@ -163,8 +167,13 @@ public class EditAccountController implements Initializable {
         phone.setStyle("");
 
         if (isEmpty(mn)) mn = null;
-        if (isEmpty(p)) p = null;
         if (isEmpty(dob)) dob = LocalDate.now().toString();
+
+        if (isEmpty(p)) {
+            manPhone.setText("*");
+            phone.setStyle(Styling.error);
+            valid = false;
+        }
 
         if (isEmpty(u)) {
             manUsername.setText("*");

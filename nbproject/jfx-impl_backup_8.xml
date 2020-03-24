@@ -4,13 +4,13 @@
 ***       EDIT ../build.xml INSTEAD       ***
 -->
 
-<project name="jfx-impl" default="jfx-deployment" basedir=".." xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" 
-         xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:fx="javafx:com.sun.javafx.tools.ant">
+<project xmlns:fx="javafx:com.sun.javafx.tools.ant" name="jfx-impl" default="jfx-deployment"
+         basedir="..">
     <description>JavaFX-specific Ant calls</description>
 
 
     <!-- Empty placeholders for easier customization in ../build.xml -->
-    
+
     <target name="-pre-jfx-jar">
         <!-- Called right before <fx:jar> task. You can override this target in the ../build.xml file. -->
     </target>
@@ -335,7 +335,9 @@
         </condition>
         <condition property="do.set.ant-javafx.in.probjdk.lib">
             <and>
-                <not><isset property="ant-javafx.jar.location"/></not>
+                <not>
+                    <isset property="ant-javafx.jar.location"/>
+                </not>
                 <or>
                     <isset property="do.set.ant-javafx.in.probjdk.lib.has_jre"/>
                     <isset property="do.set.ant-javafx.in.probjdk.lib.no_jre"/>
@@ -343,8 +345,12 @@
             </and>
         </condition>
     </target>
-    <target name="-set-ant-javafx-in-probjdk-lib" depends="-set-ant-javafx-in-platform-home-tools,-check-ant-javafx-in-probjdk-lib" if="do.set.ant-javafx.in.probjdk.lib">
-        <condition property="ant-javafx.jar.location" value="${java.home}${file.separator}..${file.separator}lib${file.separator}ant-javafx.jar" else="${java.home}${file.separator}lib${file.separator}ant-javafx.jar">
+    <target name="-set-ant-javafx-in-probjdk-lib"
+            depends="-set-ant-javafx-in-platform-home-tools,-check-ant-javafx-in-probjdk-lib"
+            if="do.set.ant-javafx.in.probjdk.lib">
+        <condition property="ant-javafx.jar.location"
+                   value="${java.home}${file.separator}..${file.separator}lib${file.separator}ant-javafx.jar"
+                   else="${java.home}${file.separator}lib${file.separator}ant-javafx.jar">
             <isset property="do.set.ant-javafx.in.probjdk.lib.has_jre"/>
         </condition>
     </target>
@@ -357,7 +363,9 @@
         </condition>
         <condition property="do.set.ant-javafx.in.probjdk.tools">
             <and>
-                <not><isset property="ant-javafx.jar.location"/></not>
+                <not>
+                    <isset property="ant-javafx.jar.location"/>
+                </not>
                 <or>
                     <isset property="do.set.ant-javafx.in.probjdk.tools.has_jre"/>
                     <isset property="do.set.ant-javafx.in.probjdk.tools.no_jre"/>
@@ -365,27 +373,38 @@
             </and>
         </condition>
     </target>
-    <target name="-set-ant-javafx-in-probjdk-tools" depends="-set-ant-javafx-in-probjdk-lib,-check-ant-javafx-in-probjdk-tools" if="do.set.ant-javafx.in.probjdk.tools">
-        <condition property="ant-javafx.jar.location" value="${java.home}${file.separator}..${file.separator}tools${file.separator}ant-javafx.jar" else="${java.home}${file.separator}tools${file.separator}ant-javafx.jar">
+    <target name="-set-ant-javafx-in-probjdk-tools"
+            depends="-set-ant-javafx-in-probjdk-lib,-check-ant-javafx-in-probjdk-tools"
+            if="do.set.ant-javafx.in.probjdk.tools">
+        <condition property="ant-javafx.jar.location"
+                   value="${java.home}${file.separator}..${file.separator}tools${file.separator}ant-javafx.jar"
+                   else="${java.home}${file.separator}tools${file.separator}ant-javafx.jar">
             <isset property="do.set.ant-javafx.in.probjdk.tools.has_jre"/>
         </condition>
     </target>
     <target name="-check-ant-javafx-in-macjdk-lib" unless="ant-javafx.jar.location">
         <condition property="do.set.ant-javafx.in.macjdk.lib">
             <and>
-                <not><isset property="ant-javafx.jar.location"/></not>
+                <not>
+                    <isset property="ant-javafx.jar.location"/>
+                </not>
                 <available file="${java.home}${file.separator}lib${file.separator}ant-javafx.jar"/>
             </and>
         </condition>
     </target>
-    <target name="-set-ant-javafx-in-macjdk-lib" depends="-set-ant-javafx-in-probjdk-tools,-check-ant-javafx-in-macjdk-lib" if="do.set.ant-javafx.in.macjdk.lib">
-        <property name="ant-javafx.jar.location" value="${java.home}${file.separator}lib${file.separator}ant-javafx.jar"/>
+    <target name="-set-ant-javafx-in-macjdk-lib"
+            depends="-set-ant-javafx-in-probjdk-tools,-check-ant-javafx-in-macjdk-lib"
+            if="do.set.ant-javafx.in.macjdk.lib">
+        <property name="ant-javafx.jar.location"
+                  value="${java.home}${file.separator}lib${file.separator}ant-javafx.jar"/>
     </target>
     <target name="-check-ant-javafx-in-envjdk-lib" unless="ant-javafx.jar.location">
         <property environment="env"/>
         <condition property="do.set.ant-javafx.in.envjdk.lib">
             <and>
-                <not><isset property="ant-javafx.jar.location"/></not>
+                <not>
+                    <isset property="ant-javafx.jar.location"/>
+                </not>
                 <available file="${env.JAVA_HOME}${file.separator}lib${file.separator}ant-javafx.jar"/>
             </and>
         </condition>
@@ -3858,7 +3877,8 @@
     <target name="-debug-javaws-debuggee" depends="-init-debug-args">
         <echo message="Executing ${jfx.deployment.jnlp} in debug mode using ${active.webstart.executable}"/>
         <exec executable="${active.webstart.executable}">
-            <env key="JAVAWS_VM_ARGS" value="${debug-args-line} -Xrunjdwp:transport=${debug-transport},address=${jpda.address} -Dglass.disableGrab=true"/>
+            <env key="JAVAWS_VM_ARGS"
+                 value="${debug-args-line} -Xrunjdwp:transport=${debug-transport},address=${jpda.address} -Dglass.disableGrab=true"/>
             <arg value="-wait"/>
             <arg file="${jfx.deployment.jnlp}"/>
         </exec>

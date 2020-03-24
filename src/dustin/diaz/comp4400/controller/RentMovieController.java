@@ -177,7 +177,7 @@ public class RentMovieController implements Initializable {
     private ArrayList<String> asArray(ArrayList<Genres> genres) {
         ArrayList<String> list = new ArrayList<>();
         list.add("All");
-        for (Genres g : genres) list.add(g.getGenre());
+        for (Genres g : genres) list.add(g.getGenre().trim());
         return list;
     }
 

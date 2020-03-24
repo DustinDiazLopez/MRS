@@ -14,7 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public abstract class QueryMovie {
     //INSERT movie
@@ -24,7 +23,6 @@ public abstract class QueryMovie {
     public static final String allMovies = "SELECT * FROM " + Database.MOVIE;
     public static final String movieByID = "SELECT * FROM " + Database.MOVIE + " WHERE ID = ?";
     public static final String movieByTitle = "SELECT * FROM " + Database.MOVIE + " WHERE Title = ?";
-    public static final String movieByGenre = "SELECT * FROM " + Database.MOVIE + " WHERE Genre = ?";
 
     //UPDATE
     public static final String updateMovieByID = "UPDATE " + Database.MOVIE + " SET Title = ?, ReleaseDate = ?, RunTime = ?, Rated = ?, Ratings = ?, Filename = ? WHERE ID = ?";
@@ -108,13 +106,6 @@ public abstract class QueryMovie {
         return getMovies(resultSet);
     }
 
-    public static ArrayList<Movie> findAllMoviesByGenre(String genre) throws SQLException {
-        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.movieByGenre);
-        preparedStatement.setString(1, genre);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        return getMovies(resultSet);
-    }
-
     public static Movie findMovie(int id) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.movieByID);
         preparedStatement.setInt(1, id);
@@ -139,75 +130,14 @@ public abstract class QueryMovie {
     public static int findMovieID(String title) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.movieByTitle);
         preparedStatement.setString(1, title);
-
         ResultSet resultSet = preparedStatement.executeQuery();
-        Movie movie = new Movie();
         int id = 0;
-        while (resultSet.next()) {
-            id = resultSet.getInt("ID");
-        }
+        while (resultSet.next()) id = resultSet.getInt("ID");
         return id;
     }
 
     private static Movie validate(Movie movie) {
         if (movie == null) return null;
         return movie.getId() != 0 ? movie : null;
-    }
-
-    public static boolean test() throws SQLException {
-        int testNumber = 1;
-        ArrayList<Movie> all = findAllMovies();
-        if (all.size() != 16) {
-            error(testNumber, "FIND ALL", "Could't find all values in movie");
-            return false;
-        }
-
-        testNumber++;
-        Movie found = findMovie(1);
-        if (found == null) {
-            error(testNumber, "FIND", "Could't find inserted value by id");
-            return false;
-        }
-
-        testNumber++;
-        found = findMovie("Joker (2019 film)");
-        if (found == null) {
-            error(testNumber, "FIND", "Could't find value by title");
-            return false;
-        }
-
-        testNumber++;
-        String uuid = UUID.randomUUID().toString();
-        int i = insert(uuid, Date.valueOf("2020-03-21"), "1h", "PG-13", "10/10", "filename.jpg");
-        if (i != 1) {
-            error(testNumber, "INSERT", "Could't insert value");
-            return false;
-        }
-
-        testNumber++;
-        found = findMovie(uuid);
-        if (found == null) {
-            error(testNumber, "FIND", "Could't find inserted value by title");
-            return false;
-        }
-
-        testNumber++;
-        i = update(found.getId(), "found.getTitle()", found.getReleaseDate(), found.getRunTime(), found.getRated(), found.getRating(), found.getFileName());
-        if (i != 1) {
-            error(testNumber, "FIND", "Could't find inserted value by title");
-            return false;
-        }
-        testNumber++;
-        i = delete(found.getId());
-        if (i != 1) {
-            error(testNumber, "DELETE", "Could't delete value by id");
-            return false;
-        }
-
-        return true;
-    }
-
-    private static void error(int testNumber, String value, String expected) {
-        System.err.println("TEST #" + testNumber + ": " + value + " expected [" + expected + "]");
     }
 }

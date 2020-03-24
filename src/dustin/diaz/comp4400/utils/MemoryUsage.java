@@ -16,10 +16,6 @@ public class MemoryUsage {
         ROUNDED_DOUBLE_DECIMAL.setGroupingUsed(false);
     }
 
-    public static void print() {
-        System.out.println(used());
-    }
-
     public static String used() {
         return getPercentageUsedFormatted() + " (" + getUsedMemoryInMiB() + ")";
     }

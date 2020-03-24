@@ -34,11 +34,6 @@ public abstract class QueryRental {
     //DELETE
     private static final String deleteRentalByID = "DELETE FROM " + Database.RENTAL + " WHERE ID = ?";
 
-    public static Movie getMovie(int rentalId) throws SQLException {
-        MovieRental movieRental = QueryMovieRental.findByRentalID(rentalId);
-        return movieRental != null ? QueryMovie.findMovie(movieRental.getMovieId()) : null;
-    }
-
     public static int insert(int customerId, int mediaId, Date rentedOn, boolean returned) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertRental);
         int i = 1;
@@ -81,13 +76,13 @@ public abstract class QueryRental {
         return preparedStatement.executeUpdate();
     }
 
-    public static int updateHeld(int rentalId, int customerId, boolean held) throws SQLException {
+    public static void updateHeld(int rentalId, int customerId, boolean held) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(updateRentalHeld);
         int i = 1;
         preparedStatement.setBoolean(i, held);
         preparedStatement.setInt(++i, rentalId);
         preparedStatement.setInt(++i, customerId);
-        return preparedStatement.executeUpdate();
+        preparedStatement.executeUpdate();
     }
 
     public static int delete(int id) throws SQLException {
@@ -165,64 +160,6 @@ public abstract class QueryRental {
     private static Rental validate(Rental movie) {
         if (movie == null) return null;
         return movie.getId() != 0 ? movie : null;
-    }
-
-    public static boolean test() throws SQLException {
-        ArrayList<Rental> rentals = findAll();
-        int testNumber = 1;
-        if (rentals.size() != 2) {
-            error(testNumber, "[...] size: " + rentals.size(), "2 (reset db)");
-            return false;
-        }
-
-        testNumber++;
-        Rental rental = find(1);
-        if (rental == null) {
-            error(testNumber, "FIND", "Did not find the first value (1) of the table rental");
-            return false;
-        }
-
-        testNumber++;
-        Movie movie = getMovie(1);
-        if (movie == null) {
-            error(testNumber, "FIND", "Did not find movie by rental id");
-            return false;
-        }
-
-        testNumber++;
-        int test = insert(3, 1, Date.valueOf("2020-3-20"), false);
-        if (test != 1) {
-            error(testNumber, "INSERT", "Couldn't insert value");
-            return false;
-        }
-
-
-        testNumber++;
-        test = update(rentals.size() + 1, 3, false, Date.valueOf("2020-3-21"), 10, 30);
-        if (test != 1) {
-            error(testNumber, "UPDATE", "Couldn't update value (reset db)");
-            return false;
-        }
-
-
-        testNumber++;
-        test = delete(rentals.size() + 1);
-        if (test != 1) {
-            error(testNumber, "DELETE", "Couldn't delete value");
-            return false;
-        }
-
-        testNumber++;
-        rentals = findAllByCustomerId(3);
-        if (rentals.size() != 2) {
-            error(testNumber, "DELETE", "Couldn't delete value");
-            return false;
-        }
-        return true;
-    }
-
-    private static void error(int testNumber, String value, String expected) {
-        System.err.println("TEST #" + testNumber + ": " + value + " expected [" + expected + "]");
     }
 
     public static ArrayList<Rental> getHeld() throws SQLException {

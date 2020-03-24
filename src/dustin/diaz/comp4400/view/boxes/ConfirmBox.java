@@ -43,7 +43,6 @@ public class ConfirmBox {
         window.setMinWidth(410);
         window.getIcons().add(Computer.favicon);
 
-        MemoryUsage.print();
         Label label = new Label();
         label.setText(message);
         label.setMaxWidth(400);

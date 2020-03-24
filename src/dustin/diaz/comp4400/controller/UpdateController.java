@@ -100,6 +100,8 @@ public class UpdateController implements Initializable {
     @FXML
     private Button registerBtn;
 
+    @FXML
+    private Label manPhone;
 
     @FXML
     void register(ActionEvent event) throws IOException, SQLException {
@@ -147,8 +149,13 @@ public class UpdateController implements Initializable {
         phone.setStyle("");
 
         if (isEmpty(mn)) mn = null;
-        if (isEmpty(p)) p = null;
         if (isEmpty(dob)) dob = LocalDate.now().toString();
+
+        if (isEmpty(p)) {
+            manPhone.setText("*");
+            phone.setStyle(Styling.error);
+            valid = false;
+        }
 
         if (isEmpty(u)) {
             manUsername.setText("*");

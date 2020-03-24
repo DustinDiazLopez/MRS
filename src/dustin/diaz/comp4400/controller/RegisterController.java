@@ -100,9 +100,11 @@ public class RegisterController implements Initializable {
     @FXML
     private Button registerBtn;
 
+    @FXML
+    private Label manPhone;
 
     @FXML
-    void register(ActionEvent event) throws IOException, SQLException {
+    void register(ActionEvent event) throws SQLException {
         manText.setText("");
         manAddress.setText("");
         manCity.setText("");
@@ -147,8 +149,13 @@ public class RegisterController implements Initializable {
         phone.setStyle("");
 
         if (isEmpty(mn)) mn = null;
-        if (isEmpty(p)) p = null;
         if (isEmpty(dob)) dob = LocalDate.now().toString();
+
+        if (isEmpty(p)) {
+            manPhone.setText("*");
+            phone.setStyle(Styling.error);
+            valid = false;
+        }
 
         if (isEmpty(u)) {
             manUsername.setText("*");
