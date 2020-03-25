@@ -3,7 +3,6 @@ package dustin.diaz.comp4400.utils;
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.model.parent.Movie;
-import dustin.diaz.comp4400.model.parent.Rental;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,12 +24,11 @@ public abstract class Computer {
     public static String src;
     public static String pathChar;
     public static String movieImagePath;
-    public static Image favicon = new javafx.scene.image.Image(new File("src/Images/icons/favicon/android-chrome-512x512.png").toURI().toString());
+    public static Image favicon;
     public static Connection connection;
     public static Customer customer;
     public static Customer editCustomer;
     public static Movie editMovie;
-    public static Rental editRental;
 
     public static void closeProgram() {
         boolean answer = ConfirmBox.display("Close Application", "Are you sure you want to quit?");

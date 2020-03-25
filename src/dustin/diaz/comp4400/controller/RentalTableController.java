@@ -128,6 +128,7 @@ public class RentalTableController implements Initializable {
         deleteBtn.setOnAction(e -> {
             try {
                 QueryRental.delete(ReturnsBox.display("rental"));
+                updateTable();
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
@@ -276,9 +277,7 @@ public class RentalTableController implements Initializable {
                     if (returnable.size() != 0) {
                         ArrayList<Rental> matched = new ArrayList<>();
 
-                        for (Rental rental : returnable) {
-                            if (rental.getMovie().getId() == id) matched.add(rental);
-                        }
+                        for (Rental rental : returnable) if (rental.getMovie().getId() == id) matched.add(rental);
 
                         if (matched.size() != 0) {
                             if (matched.size() == 1) {

@@ -95,7 +95,6 @@ public class RentMovieController implements Initializable {
     }
 
     private void holdForPickup(String media) throws SQLException {
-
         LocalDate date = reservationDate.getValue();
         if (date == null) {
             reservationDate.setStyle(Styling.error);

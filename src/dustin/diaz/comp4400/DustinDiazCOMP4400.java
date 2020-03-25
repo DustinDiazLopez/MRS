@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -18,6 +19,13 @@ public class DustinDiazCOMP4400 extends Application {
     public static final String USERNAME = "root";
     public static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
 
+    public DustinDiazCOMP4400() {
+        Computer.favicon = new Image(new File("src/Images/icons/favicon/android-chrome-192x192.png").toURI().toString());
+        Computer.src = new File("src").getAbsolutePath();
+        Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
+        Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
+    }
+
     public static Thread connect = new Thread(() -> {
         try {
             Class.forName(Database.DRIVER);
@@ -26,10 +34,6 @@ public class DustinDiazCOMP4400 extends Application {
             ConfirmBox.display("DB Connection", "Could not establish connection to database.");
             e.printStackTrace();
         }
-
-        Computer.src = new File("src").getAbsolutePath();
-        Computer.pathChar = Computer.src.contains("\\") ? "\\" : "/";
-        Computer.movieImagePath = Computer.src + Computer.pathChar + "Images" + Computer.pathChar + "movies" + Computer.pathChar;
     });
 
     public static Scene scene;

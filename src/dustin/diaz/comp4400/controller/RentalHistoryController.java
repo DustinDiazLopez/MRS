@@ -37,6 +37,11 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.TreeSet;
+
+import static java.util.Comparator.comparingInt;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 public class RentalHistoryController implements Initializable {
 
@@ -85,9 +90,6 @@ public class RentalHistoryController implements Initializable {
 
     @FXML
     private TableView tableView;
-
-    @FXML
-    private ScrollPane scrollPaneRight;
 
     @FXML
     void home(ActionEvent event) {
@@ -201,7 +203,6 @@ public class RentalHistoryController implements Initializable {
                 updateMovieList(movies);
             } else {
                 rightHBox.setVisible(false);
-                System.out.println("Setting invisible hbox");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getLocalizedMessage());
@@ -255,20 +256,18 @@ public class RentalHistoryController implements Initializable {
         leftVBox.getChildren().addAll(generateView(movies));
     }
 
+    private ArrayList<Movie> removeDuplicates(ArrayList<Movie> movies) {
+        return movies.stream().collect(collectingAndThen(
+                toCollection(() -> new TreeSet<>(comparingInt(Movie::getId))), ArrayList::new)
+        );
+    }
+
     private ScrollPane generateView(ArrayList<Movie> movies) {
         ScrollPane scroll = new ScrollPane();
         VBox vBox = new VBox();
         boolean add = false;
 
-        if (movies.size() != 1) {
-            for (int i = 0; i < movies.size(); i++) {
-                Movie m1 = movies.get(i);
-                for (int j = 0; j < movies.size(); j++) {
-                    Movie m2 = movies.get(j);
-                    if (m1.getId() == m2.getId()) movies.remove(j);
-                }
-            }
-        }
+        movies = removeDuplicates(movies);
 
         int size = movies.size();
         if (size % 2 != 0) {
@@ -276,13 +275,10 @@ public class RentalHistoryController implements Initializable {
             add = true;
         }
 
-        for (int i = 0; i < size; i++) {
-            vBox.getChildren().addAll(generateRow(movies.get(i), movies.get(++i)));
-        }
+        for (int i = 0; i < size; i++) vBox.getChildren().addAll(generateRow(movies.get(i), movies.get(++i)));
 
-        if (add) {
-            vBox.getChildren().addAll(generateRow(movies.get(size)));
-        }
+        if (add) vBox.getChildren().addAll(generateRow(movies.get(size)));
+
         scroll.setContent(vBox);
         return scroll;
     }
