@@ -86,7 +86,7 @@ public class RentalHistoryController implements Initializable {
     @FXML
     private DatePicker reservationDate;
 
-    private ArrayList<Rental> rentals;
+    public static ArrayList<Movie> movies;
 
     @FXML
     private TableView tableView;
@@ -139,8 +139,8 @@ public class RentalHistoryController implements Initializable {
     }
 
 
-    public ArrayList<Movie> getRented() throws SQLException {
-        rentals = QueryRental.findAllByCustomerId(Computer.customer.getId());
+    public static ArrayList<Movie> getRented() throws SQLException {
+        ArrayList<Rental> rentals = QueryRental.findAllByCustomerId(Computer.customer.getId());
 
         if (rentals == null) return null;
 
@@ -168,7 +168,7 @@ public class RentalHistoryController implements Initializable {
         reservationDate.setOnMouseClicked(e -> reservationDate.setStyle(""));
 
         try {
-            ArrayList<Movie> movies = getRented();
+            ArrayList<Movie> movies = RentalHistoryController.movies;
             ArrayList<String> genres = asArray(QueryGenre.findAllGenres());
             sortByGenre.setItems(FXCollections.observableArrayList(genres));
 
@@ -203,8 +203,6 @@ public class RentalHistoryController implements Initializable {
                 updateMovieList(movies);
             } else {
                 rightHBox.setVisible(false);
-                //TODO
-                //Computer.changeScreen(borderPane, "nothingfound");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getLocalizedMessage());

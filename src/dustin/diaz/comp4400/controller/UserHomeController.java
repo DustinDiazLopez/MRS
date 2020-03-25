@@ -56,7 +56,19 @@ public class UserHomeController implements Initializable {
 
         moviesVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "rentmovie"));
 
-        rentalHistoryVBox.setOnMouseClicked(e -> Computer.changeScreen(borderPane, "rentalhistory"));
+        rentalHistoryVBox.setOnMouseClicked(e -> {
+            try {
+                RentalHistoryController.movies = RentalHistoryController.getRented();
+                if (RentalHistoryController.movies != null && RentalHistoryController.movies.size() != 0) {
+                    Computer.changeScreen(borderPane, "nothingfound");
+                    Computer.changeScreen(borderPane, "rentalhistory");
+                } else {
+                    Computer.changeScreen(borderPane, "nothingfound");
+                }
+            } catch (SQLException ignored) {
+                Computer.changeScreen(borderPane, "nothingfound");
+            }
+        });
 
         exitVBox.setOnMouseClicked(e -> {
             if (ConfirmBox.display("Log-out", "Are you sure you want to log-out?")) {
