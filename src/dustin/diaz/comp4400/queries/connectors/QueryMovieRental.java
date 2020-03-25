@@ -19,7 +19,7 @@ public abstract class QueryMovieRental {
     public static final String updateMovieDirectorByID = "UPDATE " + Database.MOVIE_RENTAL + " SET MovieID = ?, RentalID = ? WHERE MovieID = ? AND RentalID = ?";
 
     //DELETE
-    public static final String deleteMovieDirector = "DELETE FROM " + Database.MOVIE_RENTAL + " WHERE MovieID = ? AND RentalID = ?";
+    public static final String deleteByRentalId = "DELETE FROM " + Database.MOVIE_RENTAL + " WHERE RentalID = ?";
     public static final String deleteMovieDirectorByMovieId = "DELETE FROM " + Database.MOVIE_RENTAL + " WHERE MovieID = ?";
 
     public static int insert(int movieId, int rentalId) throws SQLException {
@@ -69,11 +69,10 @@ public abstract class QueryMovieRental {
         return preparedStatement.executeUpdate();
     }
 
-    public static int delete(int movieId, int directorId) throws SQLException {
-        PreparedStatement preparedStatement = Computer.connection.prepareStatement(deleteMovieDirector);
-        preparedStatement.setInt(1, movieId);
-        preparedStatement.setInt(2, directorId);
-        return preparedStatement.executeUpdate();
+    public static void delete(int rentalId) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(deleteByRentalId);
+        preparedStatement.setInt(1, rentalId);
+        System.out.println("(ID " + rentalId + ") ref del count:" + preparedStatement.executeUpdate());
     }
 
     public static int deleteByMovieID(int movieId) throws SQLException {

@@ -85,10 +85,11 @@ public abstract class QueryRental {
         preparedStatement.executeUpdate();
     }
 
-    public static int delete(int id) throws SQLException {
+    public static void delete(int id) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(deleteRentalByID);
         preparedStatement.setInt(1, id);
-        return preparedStatement.executeUpdate();
+        QueryMovieRental.delete(id);
+        System.out.println("(ID " + id + ") ref del count:" + preparedStatement.executeUpdate());
     }
 
     private static Rental getRental(ResultSet resultSet) throws SQLException {

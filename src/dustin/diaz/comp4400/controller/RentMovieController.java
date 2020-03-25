@@ -63,6 +63,9 @@ public class RentMovieController implements Initializable {
     private VBox leftVBox;
 
     @FXML
+    private HBox rightHBox;
+
+    @FXML
     private Label informationLabel;
 
     @FXML
@@ -148,27 +151,36 @@ public class RentMovieController implements Initializable {
             sortByGenre.setOnAction(e -> {
                 try {
                     ArrayList<Movie> all = QueryMovie.findAllMovies();
-                    ArrayList<Movie> moviesGenre = new ArrayList<>();
 
-                    if (!sortByGenre.getValue().equals("All")) {
-                        for (Movie m : all) {
-                            if (m.getGenres().contains(sortByGenre.getValue())) {
-                                moviesGenre.add(m);
+                    if (all != null) {
+                        ArrayList<Movie> moviesGenre = new ArrayList<>();
+
+                        if (!sortByGenre.getValue().equals("All")) {
+                            for (Movie m : all) {
+                                if (m.getGenres().contains(sortByGenre.getValue())) {
+                                    moviesGenre.add(m);
+                                }
                             }
-                        }
 
-                        updateMovieList(moviesGenre);
-                    } else {
-                        updateMovieList(all);
+                            updateMovieList(moviesGenre);
+                        } else {
+                            updateMovieList(all);
+                        }
                     }
                 } catch (Exception i) {
                     i.printStackTrace();
                 }
             });
 
-            display(movies.get(0));
-            selected = movies.get(0);
-            updateMovieList(movies);
+            rightHBox.managedProperty().bind(rightHBox.visibleProperty());
+            if (movies != null && movies.size() != 0) {
+                Movie m = movies.get(0);
+                display(m);
+                selected = m;
+                updateMovieList(movies);
+            } else {
+                rightHBox.setVisible(false);
+            }
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
         }

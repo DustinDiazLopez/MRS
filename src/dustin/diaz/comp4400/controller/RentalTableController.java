@@ -55,6 +55,9 @@ public class RentalTableController implements Initializable {
     private Button addBtn;
 
     @FXML
+    private Button deleteBtn;
+
+    @FXML
     private Label warning;
 
     private Rental selected = null;
@@ -112,10 +115,22 @@ public class RentalTableController implements Initializable {
             if (e.getCode().toString().equals("ENTER")) refreshBtn.fire();
         });
 
+        deleteBtn.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ENTER")) deleteBtn.fire();
+        });
+
         backBtn.setOnMousePressed(e -> Computer.changeScreen(borderPane, "adminhome"));
 
         backBtn.setOnKeyPressed(e -> {
             if (e.getCode().toString().equals("ENTER")) backBtn.fire();
+        });
+
+        deleteBtn.setOnAction(e -> {
+            try {
+                QueryRental.delete(ReturnsBox.display("rental"));
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         });
 
         addBtn.setOnMousePressed(e -> {
@@ -132,7 +147,6 @@ public class RentalTableController implements Initializable {
                         System.out.println("Insert " + q);
                         QueryMovieRental.insert(movie.getId(), q.getId());
                         System.out.println(QueryRental.find(q.getId()));
-                        //TODO make the connection with user and movie
                         updateTable();
                     } catch (SQLException ignored) {
                         ConfirmBox.display(

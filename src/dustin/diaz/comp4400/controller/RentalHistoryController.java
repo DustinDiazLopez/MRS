@@ -65,6 +65,9 @@ public class RentalHistoryController implements Initializable {
     private VBox leftVBox;
 
     @FXML
+    private HBox rightHBox;
+
+    @FXML
     private Label informationLabel;
 
     @FXML
@@ -82,6 +85,9 @@ public class RentalHistoryController implements Initializable {
 
     @FXML
     private TableView tableView;
+
+    @FXML
+    private ScrollPane scrollPaneRight;
 
     @FXML
     void home(ActionEvent event) {
@@ -133,6 +139,9 @@ public class RentalHistoryController implements Initializable {
 
     public ArrayList<Movie> getRented() throws SQLException {
         rentals = QueryRental.findAllByCustomerId(Computer.customer.getId());
+
+        if (rentals == null) return null;
+
         ArrayList<Movie> movies = new ArrayList<>();
         for (Rental rental : rentals) {
             if (!rental.isHeld()) movies.add(rental.getMovie());
@@ -164,29 +173,38 @@ public class RentalHistoryController implements Initializable {
             sortByGenre.setOnAction(e -> {
                 try {
                     ArrayList<Movie> all = getRented();
-                    ArrayList<Movie> moviesGenre = new ArrayList<>();
+                    if (all != null) {
+                        ArrayList<Movie> moviesGenre = new ArrayList<>();
 
-                    if (!sortByGenre.getValue().equals("All")) {
-                        for (Movie m : all) {
-                            if (m.getGenres().contains(sortByGenre.getValue())) {
-                                moviesGenre.add(m);
+                        if (!sortByGenre.getValue().equals("All")) {
+                            for (Movie m : all) {
+                                if (m.getGenres().contains(sortByGenre.getValue())) {
+                                    moviesGenre.add(m);
+                                }
                             }
-                        }
 
-                        updateMovieList(moviesGenre);
-                    } else {
-                        updateMovieList(all);
+                            updateMovieList(moviesGenre);
+                        } else {
+                            updateMovieList(all);
+                        }
                     }
                 } catch (Exception i) {
                     i.printStackTrace();
                 }
             });
 
-            display(movies.get(0));
-            selected = movies.get(0);
-            updateMovieList(movies);
+            rightHBox.managedProperty().bind(rightHBox.visibleProperty());
+            if (movies != null && movies.size() != 0) {
+                Movie m = movies.get(0);
+                display(m);
+                selected = m;
+                updateMovieList(movies);
+            } else {
+                rightHBox.setVisible(false);
+                System.out.println("Setting invisible hbox");
+            }
         } catch (Exception e) {
-            System.out.println(e.getLocalizedMessage());
+            System.out.println("Error: " + e.getLocalizedMessage());
         }
     }
 
@@ -320,6 +338,7 @@ public class RentalHistoryController implements Initializable {
     }
 
     private void display(Movie movie) throws SQLException {
+        rightHBox.setVisible(true);
         setInformationText(movie);
         setDWCText(movie);
         showTable(movie);
