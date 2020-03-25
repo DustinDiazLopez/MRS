@@ -21,9 +21,6 @@ public class DustinDiazCOMP4400 extends Application {
     public static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
     private static final int MIN_WIDTH = 1100;
     private static final int MIN_HEIGHT = 900;
-    private static int WIDTH = MIN_WIDTH;
-    private static int HEIGHT = MIN_HEIGHT;
-
 
     public DustinDiazCOMP4400() {
         Computer.favicon = new Image(new File("src/Images/icons/favicon/favicon-32x32.png").toURI().toString());
@@ -45,33 +42,6 @@ public class DustinDiazCOMP4400 extends Application {
     public static Scene scene;
     public static Stage stage;
 
-    private static void setScreen() {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        int w = screenSize.width;
-        int h = screenSize.height;
-
-        if (w >= 3440) {
-            w /= 3;
-        } else if (w >= 2560) {
-            w -= MIN_WIDTH;
-            w -= (2560 - MIN_WIDTH) * 2;
-        } else if (w >= 1920) {
-            w -= (1920 - MIN_WIDTH);
-        } else {
-            w -= 10;
-        }
-
-        if (h < MIN_HEIGHT) {
-            h -= 10;
-        } else {
-            h = MIN_HEIGHT;
-        }
-
-        WIDTH = w;
-        HEIGHT = h;
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         connect.start();
@@ -85,9 +55,11 @@ public class DustinDiazCOMP4400 extends Application {
 
         stage.setMinHeight(MIN_HEIGHT);
         stage.setMinWidth(MIN_WIDTH);
-        setScreen();
-        stage.setHeight(HEIGHT);
-        stage.setWidth(WIDTH);
+
+        if (Toolkit.getDefaultToolkit().getScreenSize().width >= 2560) {
+            stage.setWidth(MIN_WIDTH);
+            stage.setHeight(MIN_HEIGHT);
+        } else stage.setMaximized(true);
 
         stage.setOnCloseRequest(e -> {
             e.consume();
