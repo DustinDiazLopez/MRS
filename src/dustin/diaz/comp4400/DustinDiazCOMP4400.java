@@ -56,7 +56,7 @@ public class DustinDiazCOMP4400 extends Application {
         stage.setMinHeight(MIN_HEIGHT);
         stage.setMinWidth(MIN_WIDTH);
 
-        if (Toolkit.getDefaultToolkit().getScreenSize().width >= 2560) {
+        if (Toolkit.getDefaultToolkit().getScreenSize().width > 1440) {
             stage.setWidth(MIN_WIDTH);
             stage.setHeight(MIN_HEIGHT);
         } else stage.setMaximized(true);
