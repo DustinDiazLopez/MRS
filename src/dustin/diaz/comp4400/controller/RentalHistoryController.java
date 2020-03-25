@@ -203,6 +203,8 @@ public class RentalHistoryController implements Initializable {
                 updateMovieList(movies);
             } else {
                 rightHBox.setVisible(false);
+                //TODO
+                //Computer.changeScreen(borderPane, "nothingfound");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getLocalizedMessage());

@@ -19,8 +19,8 @@ public class DustinDiazCOMP4400 extends Application {
 
     public static final String USERNAME = "root";
     public static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
-    private static final int MIN_WIDTH = 1100;
-    private static final int MIN_HEIGHT = 900;
+    private static final int MIN_WIDTH = 1300;
+    private static final int MIN_HEIGHT = 1000;
 
     public DustinDiazCOMP4400() {
         Computer.favicon = new Image(new File("src/Images/icons/favicon/favicon-32x32.png").toURI().toString());
@@ -53,12 +53,11 @@ public class DustinDiazCOMP4400 extends Application {
         stage.setTitle("Dustin Díaz (A00548394) COMP4400 - Movie Rental System");
         stage.getIcons().add(Computer.favicon);
 
-        stage.setMinHeight(MIN_HEIGHT);
-        stage.setMinWidth(MIN_WIDTH);
-
         if (Toolkit.getDefaultToolkit().getScreenSize().width > 1440) {
             stage.setWidth(MIN_WIDTH);
             stage.setHeight(MIN_HEIGHT);
+            stage.setMinHeight(MIN_HEIGHT);
+            stage.setMinWidth(MIN_WIDTH);
         } else stage.setMaximized(true);
 
         stage.setOnCloseRequest(e -> {

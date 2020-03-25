@@ -48,10 +48,11 @@ public abstract class Computer {
         return fxmlLoader.load();
     }
 
-    public static void changeScreen(BorderPane borderPane, String filename) {
+    public static void changeScreen(BorderPane borderPane, String viewUserFilename) {
         borderPane.getChildren().clear();
         try {
-            DustinDiazCOMP4400.setRoot("view/user/" + filename + ".fxml");
+            viewUserFilename = viewUserFilename.endsWith(".fxml") ? viewUserFilename : viewUserFilename + ".fxml";
+            DustinDiazCOMP4400.setRoot("view/user/" + viewUserFilename);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
