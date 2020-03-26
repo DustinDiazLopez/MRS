@@ -6,19 +6,18 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.jar.JarEntry;
 import java.util.stream.Stream;
 
 public class DirectorsTableToSQL {
     public static void main(String[] args) throws IOException {
-        String fileName = new File("src/SQL/easy/movies.txt").getAbsolutePath();
+        String fileName = new File("src/SQL/easy/movies3.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
         HashSet<String> set = new HashSet<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(e -> {
                 String[] values = e.split(";")[1].split(","); //directors
-                set.addAll(Arrays.asList(values));
+                for (String s : values) set.add(s.trim());
             });
         }
 

@@ -1,25 +1,22 @@
 package SQL.easy.MovieRelated;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
 public class MovieDirectorsTableToSQL {
     public static void main(String[] args) throws IOException {
-        String fileName = new File("src/SQL/easy/movies.txt").getAbsolutePath();
+        String fileName = new File("src/SQL/easy/movies3.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
         HashSet<String> set = new HashSet<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(e -> {
                 String[] values = e.split(";")[1].split(","); //directors
-                set.addAll(Arrays.asList(values));
+                for (String s : values) set.add(s.trim());
             });
         }
 
@@ -33,7 +30,7 @@ public class MovieDirectorsTableToSQL {
             });
         }
 
-        String query = "INSERT INTO MovieDirectors (MovieID, DirectorID) VALUES (";
+        String query = "INSERT INTO MovieDirectors (MovieID,DirectorID) VALUES (";
         String end = ");";
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
@@ -43,7 +40,7 @@ public class MovieDirectorsTableToSQL {
                 for (int j = 0; j < sorted.size(); j++) {
                     if (o[i].toString().contains(sorted.get(j))) {
                         int director = (j + 1);
-                        System.out.println(query + i + ", " + director + end + " # " + sorted.get(j) + " directs " + o[i].toString().split(";")[0]);
+                        System.out.println(query + i + "," + director + end + " # " + sorted.get(j) + " is the director of " + o[i].toString().split(";")[0]);
                     }
                 }
             }

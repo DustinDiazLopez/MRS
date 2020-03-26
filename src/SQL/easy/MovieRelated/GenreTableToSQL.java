@@ -4,20 +4,23 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
 public class GenreTableToSQL {
     public static void main(String[] args) throws IOException {
-        String fileName = new File("src/SQL/easy/movies.txt").getAbsolutePath();
+        String fileName = new File("src/SQL/easy/movies3.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
         HashSet<String> set = new HashSet<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(e -> {
                 String[] values = e.split(";")[4].split(","); //genre
-                set.addAll(Arrays.asList(values));
+                for (String s : values) set.add(s.trim());
             });
         }
 

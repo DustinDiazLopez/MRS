@@ -10,14 +10,14 @@ import java.util.stream.Stream;
 
 public class WritersTableToSQL {
     public static void main(String[] args) throws IOException {
-        String fileName = new File("src/SQL/easy/movies.txt").getAbsolutePath();
+        String fileName = new File("src/SQL/easy/movies3.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
         HashSet<String> set = new HashSet<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(e -> {
                 String[] values = e.split(";")[2].split(","); //writers
-                set.addAll(Arrays.asList(values));
+                for (String s : values) set.add(s.trim());
             });
         }
 
@@ -43,7 +43,7 @@ public class WritersTableToSQL {
         for (int i = 0; i < arr.size(); i++) {
             String[] e = arr.get(i);
             for (int j = 0; j < e.length; j++) {
-                String attribute = e[j];
+                String attribute = e[j].trim().replaceAll("\\([a-zA-Z \\\\&':]+\\)", "").trim();
 
                 if (j == e.length - 1)
                     stringBuilder.get().append("'").append(attribute).append("'");

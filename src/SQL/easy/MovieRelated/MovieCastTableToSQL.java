@@ -9,14 +9,14 @@ import java.util.stream.Stream;
 
 public class MovieCastTableToSQL {
     public static void main(String[] args) throws IOException {
-        String fileName = new File("src/SQL/easy/movies.txt").getAbsolutePath();
+        String fileName = new File("src/SQL/easy/movies3.txt").getAbsolutePath();
         List<String[]> arr = new ArrayList<>();
         HashSet<String> set = new HashSet<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(e -> {
                 String[] values = e.split(";")[7].split(","); //cast
-                set.addAll(Arrays.asList(values));
+                for (String s : values) set.add(s.trim());
             });
         }
 
@@ -31,7 +31,7 @@ public class MovieCastTableToSQL {
         }
 
 
-        String query = "INSERT INTO MovieCast (MovieID, CastID) VALUES (";
+        String query = "INSERT INTO MovieCast (MovieID,CastID) VALUES (";
         String end = ");";
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
@@ -41,7 +41,7 @@ public class MovieCastTableToSQL {
                 for (int j = 0; j < sorted.size(); j++) {
                     if (o[i].toString().contains(sorted.get(j))) {
                         int director = (j + 1);
-                        System.out.println(query + i + ", " + director + end + " # " + sorted.get(j).trim() + " is in " + o[i].toString().split(";")[0].trim());
+                        System.out.println(query + i + "," + director + end + " # " + sorted.get(j).trim() + " is in " + o[i].toString().split(";")[0].trim());
                     }
                 }
             }
