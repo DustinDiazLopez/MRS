@@ -52,10 +52,13 @@ public class DustinDiazCOMP4400 extends Application {
         stage.setScene(scene);
         stage.setTitle("Dustin Díaz (A00548394) COMP4400 - Movie Rental System");
         stage.getIcons().add(Computer.favicon);
-        stage.setMinHeight(MIN_HEIGHT);
-        stage.setMinWidth(MIN_WIDTH);
-        stage.setWidth(MIN_WIDTH);
-        stage.setHeight(MIN_HEIGHT);
+        stage.setMinHeight(MIN_HEIGHT - 10);
+        stage.setMinWidth(MIN_WIDTH - 10);
+        stage.setWidth(MIN_WIDTH - 10);
+        stage.setHeight(MIN_HEIGHT - 10);
+
+        if (Toolkit.getDefaultToolkit().getScreenSize().width == MIN_WIDTH && Toolkit.getDefaultToolkit().getScreenSize().height == MIN_HEIGHT)
+            stage.setMaximized(true);
 
         stage.setOnCloseRequest(e -> {
             e.consume();
