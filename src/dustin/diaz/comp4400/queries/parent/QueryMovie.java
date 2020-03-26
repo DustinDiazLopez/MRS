@@ -21,6 +21,7 @@ public abstract class QueryMovie {
 
     //SELECT movies
     public static final String allMovies = "SELECT * FROM " + Database.MOVIE;
+    public static final String allLimitMovies = "SELECT * FROM " + Database.MOVIE + " LIMIT 10";
     public static final String movieByID = "SELECT * FROM " + Database.MOVIE + " WHERE ID = ?";
     public static final String movieByTitle = "SELECT * FROM " + Database.MOVIE + " WHERE Title = ?";
 
@@ -102,6 +103,12 @@ public abstract class QueryMovie {
 
     public static ArrayList<Movie> findAllMovies() throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.allMovies);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return getMovies(resultSet);
+    }
+
+    public static ArrayList<Movie> findAllLimit() throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(QueryMovie.allLimitMovies);
         ResultSet resultSet = preparedStatement.executeQuery();
         return getMovies(resultSet);
     }

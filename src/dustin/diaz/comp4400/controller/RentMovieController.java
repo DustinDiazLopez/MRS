@@ -13,7 +13,10 @@ import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import dustin.diaz.comp4400.view.boxes.ShowPickupDetailsBox;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,6 +38,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.CountDownLatch;
 
 public class RentMovieController implements Initializable {
 
@@ -126,8 +130,38 @@ public class RentMovieController implements Initializable {
         }
     }
 
+    ArrayList<Movie> movies = new ArrayList<>();
+    boolean finished = false;
+    Service<Void> service = new Service<Void>() {
+        @Override
+        protected Task<Void> createTask() {
+            return new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    //Background work
+                    final CountDownLatch latch = new CountDownLatch(1);
+                    Platform.runLater(() -> {
+                        try{
+                            movies = QueryMovie.findAllMovies();
+                            while (!finished) Thread.sleep(2000);
+                            updateMovieList(movies);
+                        } catch (SQLException | InterruptedException e) {
+                            e.printStackTrace();
+                        } finally{
+                            latch.countDown();
+                        }
+                    });
+                    latch.await();
+                    //Keep with the background work
+                    return null;
+                }
+            };
+        }
+    };
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        service.start();
         Image star = new Image(new File("src/Images/icons/star.png").toURI().toString());
         Image placeholder = new Image(new File("src/Images/icons/placeholder.jpg").toURI().toString());
         starImage.setImage(star);
@@ -143,13 +177,13 @@ public class RentMovieController implements Initializable {
         reservationDate.setOnMouseClicked(e -> reservationDate.setStyle(""));
 
         try {
-            ArrayList<Movie> movies = QueryMovie.findAllMovies();
+            movies = QueryMovie.findAllLimit();
             ArrayList<String> genres = asArray(QueryGenre.findAllGenres());
             sortByGenre.setItems(FXCollections.observableArrayList(genres));
 
             sortByGenre.setOnAction(e -> {
                 try {
-                    ArrayList<Movie> all = QueryMovie.findAllMovies();
+                    ArrayList<Movie> all = movies;
 
                     if (all != null) {
                         ArrayList<Movie> moviesGenre = new ArrayList<>();
@@ -182,6 +216,8 @@ public class RentMovieController implements Initializable {
             }
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
+        } finally {
+            finished = true;
         }
     }
 
