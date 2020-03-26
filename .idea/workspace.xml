@@ -2,134 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddcccfb7-9beb-433a-b025-036c2a4a6769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/02a06250-c5be-40bf-baf5-07ebb12883ef.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/07012bc6-8a0e-4ccb-b568-1a92bf675a3c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/07ac66d8-b173-4999-8570-b496d894eb01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/08da4760-c681-43c4-9d24-645063d30d18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/0943d9ca-b39d-43b4-96cb-0e77ade3a2db.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/0b5161bc-378e-4f02-a5f9-ce95fc2c0714.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/0c91a115-00fd-4ecb-bc68-017c47d8cca6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/0de6cf4d-907f-43bc-bee3-1ed03b522411.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/0ec3509d-7e33-4a63-9c3f-86cb8b6817aa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/10024a21-4748-4b90-8c48-da25e5131bf1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/13d5ae24-9d08-4f23-9416-aaf013b884ae.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/162de5a1-08e2-4a5b-b864-f1c175193f04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/1745f694-8b2e-4450-8333-c1102e4dc0ed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/1ade8e67-4091-4b29-88e0-380ba650f470.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/1b1f9a1e-67b9-4c28-91aa-82c6aaea1366.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/2068fdc9-a33e-4db3-9943-2c24f3e1448c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/2340d6dd-9d37-46a5-a36d-efb729a34293.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/2430cb2e-ecac-49c5-bd01-7c9722332f2f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/26e02539-c29b-41d1-9e0d-5d6bb2aa0871.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/27425015-1ec3-40c1-bb27-b33b62faa59b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/275723de-d59d-4992-a25d-14d12c40dbe9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/2d7e201b-e4d8-41ef-8605-45e7a0f4096f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/2e8fd3e6-b268-453a-804e-fb31fbd602f2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/33faa3af-fd4f-4d55-9b4b-085911d0871d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/35af5639-b311-40e8-aefa-38b11e41481f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/3b7c0814-b084-4b44-a091-131842d926fb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/402caf09-b956-433f-84d4-fa1270bdc352.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/40943a9f-8368-400d-a37e-b57212faaa81.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/41a652d1-da42-4c5b-9ebd-827116cd962a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/448bcddc-6fa6-4dc5-b3b2-1a78d1258871.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/47facc3b-7e8d-4822-afd6-a8e43f95b349.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/4c67d2df-f2fc-4a62-baed-ba6c7d651b2a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/4db6809f-f697-4822-aedb-8ccec95d61fd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/524650ab-d460-4aab-aa26-8dbad70fbf99.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/540eb947-ec80-4619-871a-2fa05d06d011.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/57dc000a-d7ce-4f2d-9d7b-93bab75bef65.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/59d839c0-3f25-4ee5-ab2b-6d65fd728886.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/5a1b704a-0bea-4d3b-929a-76f5b372227c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/5b02cfdc-00c2-4a2a-98a7-cef0beafcb41.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/5b543f92-3041-437c-b359-df2f35940de6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/61c8edaf-928f-41f1-ae10-7ef0460c2a97.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/6a2f58fb-3f63-44e8-956b-e77ed6015db0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/70336f12-8c83-4792-b962-52568dedd1bb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/734597ed-7956-492e-80fe-ec273c5dd691.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/73fe9d63-ca9c-46d1-94e6-08f825f4fac2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/785fb93f-8149-4483-90c7-765ee031e5b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/78a3a07a-fe5d-48d6-a33c-6dbc9029f235.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/7a2724c7-1441-4ae9-a244-dad483a65919.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/7c05b6fb-097a-48ea-a574-b94b628463b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/7e74f813-e5d9-4371-8d65-860f0637d692.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/85b8387f-ff87-4863-bc1c-15a923d9c165.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/889b2f93-7d0f-447e-88b6-1c0124fc05c0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/88e5c7ce-29cb-49af-b2e7-3722822772e2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/8b38a0b5-922f-47b4-b404-b3fdd678a168.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/8c092028-6cd4-4ce5-a3e1-da67c9358493.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/8e27f219-759a-401b-ad14-698c21d68398.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/943ff360-b13e-4853-9134-fe92787392cc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/99f82a2a-3ef1-46e9-913d-856de7e6c0ae.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/9d9bd45b-2bbb-475b-9f96-bb02e3dd8024.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/a20e9d45-b698-463f-9950-5c627ff4d649.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/a663f66f-5515-4ee1-9e76-a87362e872e6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/a863903e-5f54-4f1a-aaa7-5acaeeb97193.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/abe74a16-85d2-4120-9579-2280c5e3ce27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/b3567e47-d596-4694-aa5a-8737f6a1dcd1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/b5b3df95-5ec5-4f91-bbfc-22c4738a5a3b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/b61bc901-d119-4f04-8baa-ab9dab69b3b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/b8a5d759-67af-4b72-af8d-4a05566ecc82.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/b948987e-a2be-40c7-953f-19d3099b12d9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/b9de665a-c88d-4b7e-93bf-5f279549bab0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/bafb7b28-203d-48fb-b7cd-781227eba566.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/bb58c5fe-d5f4-4a94-b77c-5fec219902ee.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/be1ff571-619e-4317-9ccd-0666a8f6b2b7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/be856e2d-acb3-4603-b754-c7e14b8d0630.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/c1fbc338-e4fa-4374-a3d5-f063c62ba42d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/c5fcfdba-8b8c-43ee-aaa3-d7564d744c02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/d1266c0e-756f-4f8c-85f5-e59d9f199e4c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/d1790c09-dd35-4367-bd8e-d3ce1cd906b7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/d188a74e-e1c4-4321-a6a4-ba700deec845.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/d33cad96-355b-4ff0-85be-cd53f339cbf8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/d4ed9d56-4c44-4e06-929e-ca603b55115d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/d7d0b229-d83e-45d8-a392-998acc36d2e4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/dcf41b10-c8bc-4614-bfc4-5c30816ca7b7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/dd655f46-0f52-4293-91f5-f2924684601f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/e00a101d-4f02-4416-a14b-1b6c3e7e9d20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/eadeb9d4-47cf-4e2e-a630-6f1edc471a55.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/ed1d29f2-b218-4449-b89b-8b671d6a44cd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/f6fc68dc-40e5-4ee7-be73-b6bb9deb6c07.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/f7effd23-7afe-4df4-8803-63f6eedc9608.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/fbb34e62-7ea5-47cd-ae6b-b89883dab0da.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/fbf98850-c11c-4b18-b4d0-0227621d6368.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/fe35e5b9-dba7-4c18-8dc5-46ccebf5cb6c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/movies/ff9db5fb-faa6-4fe6-8e16-94516fdce052.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/AddAppos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/Download.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/Hello.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/allnotreally.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/movies2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/easy/movies3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/old_new.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/aladdin2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/allthebrightplaces.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/bombshell2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/charliesangels2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/fordvferrari.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/frozen2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/jojorabbit.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/joker2019film.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/jumanjithenextlevel.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/knivesout.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/lionking2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/marvelavengersendgame.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/midway2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/onceuponatimeinhollyword2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/parasite2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/terminatordarkfate2019.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/movies/thor(2011).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/CastTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/CastTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/DirectorsTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/DirectorsTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/GenreTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/GenreTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieCastTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieCastTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieDirectorsTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieDirectorsTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieGenreTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieGenreTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieWritersTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MovieWritersTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MoviesTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/MoviesTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/WritersTableToSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/easy/MovieRelated/WritersTableToSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/new.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/new.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/preguntas.docx" beforeDir="false" afterPath="$PROJECT_DIR$/src/preguntas.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/1b1f9a1e-67b9-4c28-91aa-82c6aaea1366.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/1b1f9a1e-67b9-4c28-91aa-82c6aaea1366.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/27425015-1ec3-40c1-bb27-b33b62faa59b.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/27425015-1ec3-40c1-bb27-b33b62faa59b.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/2d7e201b-e4d8-41ef-8605-45e7a0f4096f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/2d7e201b-e4d8-41ef-8605-45e7a0f4096f.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/2e8fd3e6-b268-453a-804e-fb31fbd602f2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/2e8fd3e6-b268-453a-804e-fb31fbd602f2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/33faa3af-fd4f-4d55-9b4b-085911d0871d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/33faa3af-fd4f-4d55-9b4b-085911d0871d.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/41a652d1-da42-4c5b-9ebd-827116cd962a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/41a652d1-da42-4c5b-9ebd-827116cd962a.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/448bcddc-6fa6-4dc5-b3b2-1a78d1258871.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/448bcddc-6fa6-4dc5-b3b2-1a78d1258871.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/59d839c0-3f25-4ee5-ab2b-6d65fd728886.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/59d839c0-3f25-4ee5-ab2b-6d65fd728886.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/5b543f92-3041-437c-b359-df2f35940de6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/5b543f92-3041-437c-b359-df2f35940de6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/734597ed-7956-492e-80fe-ec273c5dd691.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/734597ed-7956-492e-80fe-ec273c5dd691.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/7a2724c7-1441-4ae9-a244-dad483a65919.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/7a2724c7-1441-4ae9-a244-dad483a65919.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/8b38a0b5-922f-47b4-b404-b3fdd678a168.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/8b38a0b5-922f-47b4-b404-b3fdd678a168.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/b948987e-a2be-40c7-953f-19d3099b12d9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/b948987e-a2be-40c7-953f-19d3099b12d9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/d33cad96-355b-4ff0-85be-cd53f339cbf8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/d33cad96-355b-4ff0-85be-cd53f339cbf8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/dcf41b10-c8bc-4614-bfc4-5c30816ca7b7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/dcf41b10-c8bc-4614-bfc4-5c30816ca7b7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/dd655f46-0f52-4293-91f5-f2924684601f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/dd655f46-0f52-4293-91f5-f2924684601f.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/eadeb9d4-47cf-4e2e-a630-6f1edc471a55.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/eadeb9d4-47cf-4e2e-a630-6f1edc471a55.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/movies/fbb34e62-7ea5-47cd-ae6b-b89883dab0da.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/movies/fbb34e62-7ea5-47cd-ae6b-b89883dab0da.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -558,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585131753894</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="bigger data set for movies">
+      <created>1585200939797</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1585200939797</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -567,7 +465,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added home screens for users and admins" />
     <MESSAGE value="added update user (customer) account" />
     <MESSAGE value="fixed boxes" />
     <MESSAGE value="refactored code&#10;refactored database&#10;cleaned up db values and added \' to certain values" />
@@ -592,7 +489,8 @@
     <MESSAGE value="Added rent movie interface&#10;user can now hold a movie for pickup" />
     <MESSAGE value="um... finished?" />
     <MESSAGE value="screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="screen" />
+    <MESSAGE value="bigger data set for movies" />
+    <option name="LAST_COMMIT_MESSAGE" value="bigger data set for movies" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -639,12 +537,12 @@
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="1620" y="303" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1584590700099" />
-    <state x="357" y="162" key="CommitChangelistDialog2" timestamp="1585131753152">
+    <state x="357" y="162" key="CommitChangelistDialog2" timestamp="1585200938677">
       <screen x="0" y="0" width="2752" height="1112" />
     </state>
     <state x="199" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584830491876" />
     <state x="-1517" y="257" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1584850999208" />
-    <state x="357" y="162" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1585131753152" />
+    <state x="357" y="162" key="CommitChangelistDialog2/0.0.2752.1112/-1920.0.1920.1080@0.0.2752.1112" timestamp="1585200938677" />
     <state x="299" y="67" key="DBNavigator.ProjectSettingsDialog" timestamp="1584702303177">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
