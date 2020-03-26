@@ -19,8 +19,8 @@ public class DustinDiazCOMP4400 extends Application {
 
     public static final String USERNAME = "root";
     public static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
-    private static final int MIN_WIDTH = 1300;
-    private static final int MIN_HEIGHT = 1000;
+    private static final int MIN_WIDTH = 1024;
+    private static final int MIN_HEIGHT = 768;
 
     public DustinDiazCOMP4400() {
         Computer.favicon = new Image(new File("src/Images/icons/favicon/favicon-32x32.png").toURI().toString());

@@ -5,7 +5,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="768.0" minWidth="1024.0"
+            prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
             fx:controller="dustin.diaz.comp4400.controller.AdminHomeController">
     <center>
         <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">

@@ -228,8 +228,9 @@ public class RentMovieController implements Initializable {
     }
 
     private VBox generateElement(Movie movie) {
-        int width = 182;
-        int height = 268;
+        double factor = .75;
+        int width = (int) (182 * factor);
+        int height = (int) (268 * factor);
         double opacity = 0.85;
         VBox vBox = new VBox(10);
         Button details = new Button("Details");

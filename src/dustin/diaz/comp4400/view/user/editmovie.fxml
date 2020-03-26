@@ -5,8 +5,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" prefHeight="900.0" prefWidth="1100.0"
-            xmlns="http://javafx.com/javafx/8" fx:controller="dustin.diaz.comp4400.controller.EditMovieController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="768.0" minWidth="1024.0"
+            prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="dustin.diaz.comp4400.controller.EditMovieController">
     <center>
         <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
             <children>
@@ -276,9 +277,9 @@
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
     <right>
-        <VBox fx:id="imageVBox" alignment="CENTER" prefHeight="778.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+        <VBox fx:id="imageVBox" alignment="CENTER" prefHeight="667.0" prefWidth="513.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="movieImage" fitHeight="658.0" fitWidth="445.0" pickOnBounds="true"
+                <ImageView fx:id="movieImage" fitHeight="534.0" fitWidth="369.0" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
                         <Image url="@../../../../../Images/movies/placeholder.jpg"/>
@@ -292,7 +293,7 @@
                         <TextField fx:id="fileLocation" editable="false" prefHeight="31.0" prefWidth="336.0"
                                    promptText="Leave Blank for Default Image.">
                             <HBox.margin>
-                                <Insets/>
+                                <Insets top="5.0"/>
                             </HBox.margin>
                         </TextField>
                         <Button fx:id="chooseFileBtn" mnemonicParsing="false" onAction="#findFile" text="Choose File"/>

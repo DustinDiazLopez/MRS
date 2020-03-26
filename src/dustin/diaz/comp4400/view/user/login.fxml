@@ -6,11 +6,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="900.0" minWidth="1100.0"
-            prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="768.0" minWidth="1024.0"
+            prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.controller">
     <center>
-        <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <ImageView fx:id="loginImage" fitHeight="212.0" fitWidth="266.0" nodeOrientation="RIGHT_TO_LEFT"
                            pickOnBounds="true" preserveRatio="true">
@@ -18,10 +18,10 @@
                         <Image url="@../../../../../Images/icons/app/012-line.png"/>
                     </image>
                     <VBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets/>
                     </VBox.margin>
                 </ImageView>
-            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                <children>
                   <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Username" />
                   <TextField fx:id="usernameLoginTextField" prefHeight="31.0" prefWidth="226.0">

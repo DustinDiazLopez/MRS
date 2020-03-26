@@ -2,19 +2,21 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dustin.diaz.comp4400.controller.UpdateController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="768.0" minWidth="1024.0"
+            prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="dustin.diaz.comp4400.controller.UpdateController">
     <center>
         <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
                     <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Username" />
+                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Username"/>
                         <TextField fx:id="username" prefHeight="31.0" prefWidth="226.0">
                             <HBox.margin>
-                                <Insets left="10.0" />
+                                <Insets left="10.0"/>
                             </HBox.margin>
                   </TextField>
                         <Label fx:id="manUsername" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
