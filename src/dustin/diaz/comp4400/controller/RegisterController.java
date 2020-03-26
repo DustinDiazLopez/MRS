@@ -11,13 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -239,9 +236,7 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("src/Images/icons/app/015-chair.png");
-        Image image = new Image(file.toURI().toString());
-        loginImage.setImage(image);
+        loginImage.setImage(Computer.chairImage);
 
 
         EventHandler<KeyEvent> enterKey = e -> {

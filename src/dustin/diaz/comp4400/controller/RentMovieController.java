@@ -131,7 +131,7 @@ public class RentMovieController implements Initializable {
     }
 
     ArrayList<Movie> movies = new ArrayList<>();
-    boolean finished = false;
+    volatile boolean finished = false;
     Service<Void> service = new Service<Void>() {
         @Override
         protected Task<Void> createTask() {
@@ -141,10 +141,10 @@ public class RentMovieController implements Initializable {
                     //Background work
                     final CountDownLatch latch = new CountDownLatch(1);
                     Platform.runLater(() -> {
-                        try{
+                        try {
                             movies = QueryMovie.findAllMovies();
-                            while (!finished) Thread.sleep(2000);
-                            updateMovieList(movies);
+                            while (!finished) Thread.sleep(500);
+                            updateMovieList(movies, true);
                         } catch (SQLException | InterruptedException e) {
                             e.printStackTrace();
                         } finally{
@@ -162,10 +162,8 @@ public class RentMovieController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         service.start();
-        Image star = new Image(new File("src/Images/icons/star.png").toURI().toString());
-        Image placeholder = new Image(new File("src/Images/icons/placeholder.jpg").toURI().toString());
-        starImage.setImage(star);
-        movieImage.setImage(placeholder);
+        starImage.setImage(Computer.starImage);
+        movieImage.setImage(Computer.placeholderImage);
         reservationDate.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
@@ -229,11 +227,19 @@ public class RentMovieController implements Initializable {
     }
 
     private void updateMovieList(ArrayList<Movie> movies) {
+        updateMovieList(movies, false);
+    }
+
+    private void updateMovieList(ArrayList<Movie> movies, boolean slow) {
         leftVBox.getChildren().clear();
         leftVBox.getChildren().addAll(generateView(movies));
     }
 
     private ScrollPane generateView(ArrayList<Movie> movies) {
+        return generateView(movies, false);
+    }
+
+    private ScrollPane generateView(ArrayList<Movie> movies, boolean slow) {
         ScrollPane scroll = new ScrollPane();
         VBox vBox = new VBox();
         int size = movies.size();
@@ -246,6 +252,14 @@ public class RentMovieController implements Initializable {
 
         for (int i = 0; i < size; i++) {
             vBox.getChildren().addAll(generateRow(movies.get(i), movies.get(++i)));
+
+            if (slow) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (add) {
@@ -264,7 +278,7 @@ public class RentMovieController implements Initializable {
     }
 
     private VBox generateElement(Movie movie) {
-        double factor = .75;
+        double factor = 0.96;
         int width = (int) (182 * factor);
         int height = (int) (268 * factor);
         double opacity = 0.85;

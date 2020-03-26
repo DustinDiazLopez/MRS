@@ -1,9 +1,14 @@
 package dustin.diaz.comp4400.controller;
 
+import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.parent.Customer;
+import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
+import javafx.application.Platform;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,16 +17,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.concurrent.CountDownLatch;
 
 public class controller implements Initializable {
 
@@ -56,7 +61,38 @@ public class controller implements Initializable {
     private Button cancelBtn;
 
     @FXML
-    void login(ActionEvent event) throws SQLException, IOException {
+    public Label connectionStatus;
+
+    private Service<Void> service = new Service<Void>() {
+        @Override
+        protected Task<Void> createTask() {
+            return new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    final CountDownLatch latch = new CountDownLatch(1);
+                    Platform.runLater(() -> {
+                        try {
+                            Class.forName(Database.DRIVER);
+                            Computer.connection = DriverManager.getConnection(Database.URL, DustinDiazCOMP4400.USERNAME, DustinDiazCOMP4400.PASSWORD);
+                            while (!DustinDiazCOMP4400.finished) Thread.sleep(100);
+                            connectionStatus.setTextFill(Color.GREEN);
+                            connectionStatus.setText("CONNECTED");
+                        } catch (ClassNotFoundException | SQLException | InterruptedException e) {
+                            connectionStatus.setTextFill(Color.RED);
+                            connectionStatus.setText(e.getMessage());
+                        } finally {
+                            latch.countDown();
+                        }
+                    });
+                    latch.await();
+                    return null;
+                }
+            };
+        }
+    };
+
+    @FXML
+    void login(ActionEvent event) throws SQLException {
         manFieldOne.setText("");
         manFieldTwo.setText("");
         usernameLoginTextField.setStyle("");
@@ -114,18 +150,15 @@ public class controller implements Initializable {
 
 
     @FXML
-    void loginCancel(ActionEvent event) throws SQLException {
+    void loginCancel(ActionEvent event) {
         Computer.closeProgram();
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        service.start();
         borderPane.setMinSize(1100.0, 900.0);
-        File file = new File("src/Images/icons/app/012-line.png");
-        Image image = new Image(file.toURI().toString());
-        loginImage.setImage(image);
-
+        loginImage.setImage(Computer.loginImage);
         EventHandler<KeyEvent> loginEnterKey = e -> {
             if (e.getCode().toString().equals("ENTER")) loginBtn.fire();
         };

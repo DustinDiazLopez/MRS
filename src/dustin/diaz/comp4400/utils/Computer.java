@@ -14,7 +14,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -24,21 +23,24 @@ public abstract class Computer {
     public static String src;
     public static String pathChar;
     public static String movieImagePath;
-    public static Image favicon;
     public static Connection connection;
     public static Customer customer;
     public static Customer editCustomer;
     public static Movie editMovie;
+    public static Image loginImage;
+    public static Image maskImage;
+    public static Image chairImage;
+    public static Image favicon;
+    public static Image starImage;
+    public static Image placeholderImage;
 
     public static void closeProgram() {
-        boolean answer = ConfirmBox.display("Close Application", "Are you sure you want to quit?");
-        if (answer) {
+        if (ConfirmBox.display("Close Application", "Are you sure you want to quit?")) {
             try {
                 connection.close();
-            } catch (SQLException ignored) {
+            } catch (Exception ignored) {
                 System.exit(0);
             }
-
             System.exit(0);
         }
     }

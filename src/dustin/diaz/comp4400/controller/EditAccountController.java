@@ -13,12 +13,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -287,9 +285,7 @@ public class EditAccountController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("src/Images/icons/app/010-mask.png");
-        Image image = new Image(file.toURI().toString());
-        loginImage.setImage(image);
+        loginImage.setImage(Computer.maskImage);
 
 
         try {

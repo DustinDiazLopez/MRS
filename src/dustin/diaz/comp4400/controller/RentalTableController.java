@@ -63,7 +63,6 @@ public class RentalTableController implements Initializable {
 
     public void updateTable() {
         try {
-            double wp = 40;
             tableView.getItems().clear();
             tableView.getColumns().clear();
             tableView.setPlaceholder(new Label("No rentals to display."));
