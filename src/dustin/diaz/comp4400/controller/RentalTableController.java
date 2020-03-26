@@ -22,8 +22,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 import java.net.URL;
 import java.sql.Date;
@@ -65,6 +63,7 @@ public class RentalTableController implements Initializable {
 
     public void updateTable() {
         try {
+            double wp = 40;
             tableView.getItems().clear();
             tableView.getColumns().clear();
             tableView.setPlaceholder(new Label("No rentals to display."));
@@ -86,7 +85,7 @@ public class RentalTableController implements Initializable {
             TableColumn<String, RentalTable> runTime = new TableColumn<>("Rented Date");
             runTime.setCellValueFactory(new PropertyValueFactory<>("rentedDate"));
 
-            HBox.setHgrow(tableView, Priority.ALWAYS);
+            Styling.setTableConst(tableView);
 
             tableView.getColumns().add(i);
             tableView.getColumns().add(id);

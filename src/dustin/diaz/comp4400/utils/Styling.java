@@ -3,6 +3,7 @@ package dustin.diaz.comp4400.utils;
 import dustin.diaz.comp4400.model.parent.Customer;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -37,22 +38,6 @@ public class Styling {
                     "-fx-border-radius: 5;" +
                     "-fx-border-color: blue;";
 
-    public static String movieStyle =
-            "-fx-padding: 10;" +
-                    "-fx-border-style: solid inside;" +
-                    "-fx-border-width: 1;" +
-                    "-fx-border-insets: 5;" +
-                    "-fx-border-radius: 5;" +
-                    "-fx-border-color: gray;";
-
-    public static String movieStyleHover =
-            "-fx-padding: 10;" +
-                    "-fx-border-style: solid inside;" +
-                    "-fx-border-width: 1;" +
-                    "-fx-border-insets: 5;" +
-                    "-fx-border-radius: 5;" +
-                    "-fx-border-color: teal;";
-
     public static void setStyle(VBox... vBoxes) {
         double opacity = 0.85;
         for (VBox vBox : vBoxes) {
@@ -69,6 +54,11 @@ public class Styling {
                 vBox.setStyle(homeStyle);
             });
         }
+    }
+
+    public static void setTableConst(TableView tableView) {
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
     }
 
     public static double defaultButtonSize = 80;

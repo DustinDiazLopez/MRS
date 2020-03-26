@@ -231,6 +231,7 @@ public class CustomerTableController implements Initializable {
         TableColumn<String, Customer> phone = new TableColumn<>("Phone");
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
+        Styling.setTableConst(tableView);
 
         tableView.getColumns().add(id);
         tableView.getColumns().add(firstName);

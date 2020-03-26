@@ -15,8 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -208,8 +206,7 @@ public class MovieTableController implements Initializable {
         TableColumn<String, Movie> rated = new TableColumn<>("Rated");
         rated.setCellValueFactory(new PropertyValueFactory<>("rated"));
 
-        HBox.setHgrow(tableView, Priority.ALWAYS);
-
+        Styling.setTableConst(tableView);
 
         tableView.getColumns().add(id);
         tableView.getColumns().add(title);
