@@ -5,13 +5,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/8"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal"
             fx:controller="dustin.diaz.comp4400.controller.AddMovieController">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
     <center>
-        <VBox BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="718.0" prefWidth="862.0" BorderPane.alignment="CENTER">
             <children>
                 <HBox>
                     <children>
@@ -264,9 +264,9 @@
                                 <Insets left="10.0"/>
                             </padding>
                         </VBox>
-                        <VBox fx:id="imageVBox" alignment="CENTER" prefHeight="778.0" prefWidth="577.0">
+                        <VBox fx:id="imageVBox" alignment="CENTER">
                             <children>
-                                <ImageView fx:id="movieImage" fitHeight="658.0" fitWidth="445.0" pickOnBounds="true"
+                                <ImageView fx:id="movieImage" fitHeight="582.0" fitWidth="399.0" pickOnBounds="true"
                                            preserveRatio="true">
                                     <image>
                                         <Image url="@../../../../../Images/movies/placeholder.jpg"/>
@@ -275,10 +275,11 @@
                                         <Rectangle2D width="445.0"/>
                                     </viewport>
                                 </ImageView>
-                                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+                                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0"
+                                      prefWidth="490.0">
                                     <children>
-                                        <TextField fx:id="fileLocation" editable="false" prefHeight="31.0"
-                                                   prefWidth="345.0" promptText="Leave Blank for Default Image.">
+                                        <TextField fx:id="fileLocation" editable="false" prefHeight="26.0"
+                                                   prefWidth="314.0" promptText="Leave Blank for Default Image.">
                                             <HBox.margin>
                                                 <Insets/>
                                             </HBox.margin>

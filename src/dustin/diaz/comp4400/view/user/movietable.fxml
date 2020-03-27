@@ -5,7 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/8"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal"
             fx:controller="dustin.diaz.comp4400.controller.MovieTableController">
     <center>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
@@ -39,7 +39,7 @@
                         </Button>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="499.0" prefWidth="859.0">
+                <HBox alignment="CENTER">
                     <children>
                         <TableView fx:id="tableView" editable="true" tableMenuButtonVisible="true" HBox.hgrow="ALWAYS">
                             <columns>
