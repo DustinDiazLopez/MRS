@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.queries.connectors;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.connector.MovieRental;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;
@@ -11,16 +11,16 @@ import java.util.ArrayList;
 
 public abstract class QueryMovieRental {
     //INSERT
-    public static final String insert = "INSERT INTO " + Database.MOVIE_RENTAL + " (MovieID, RentalID) VALUES (?, ?);";
+    public static final String insert = "INSERT INTO " + DBINFO.MOVIE_RENTAL + " (MovieID, RentalID) VALUES (?, ?);";
 
-    public static final String movieDirectorByDirectorID = "SELECT * FROM " + Database.MOVIE_RENTAL + " WHERE RentalID = ?";
+    public static final String movieDirectorByDirectorID = "SELECT * FROM " + DBINFO.MOVIE_RENTAL + " WHERE RentalID = ?";
 
     //UPDATE
-    public static final String updateMovieDirectorByID = "UPDATE " + Database.MOVIE_RENTAL + " SET MovieID = ?, RentalID = ? WHERE MovieID = ? AND RentalID = ?";
+    public static final String updateMovieDirectorByID = "UPDATE " + DBINFO.MOVIE_RENTAL + " SET MovieID = ?, RentalID = ? WHERE MovieID = ? AND RentalID = ?";
 
     //DELETE
-    public static final String deleteByRentalId = "DELETE FROM " + Database.MOVIE_RENTAL + " WHERE RentalID = ?";
-    public static final String deleteMovieDirectorByMovieId = "DELETE FROM " + Database.MOVIE_RENTAL + " WHERE MovieID = ?";
+    public static final String deleteByRentalId = "DELETE FROM " + DBINFO.MOVIE_RENTAL + " WHERE RentalID = ?";
+    public static final String deleteMovieDirectorByMovieId = "DELETE FROM " + DBINFO.MOVIE_RENTAL + " WHERE MovieID = ?";
 
     public static int insert(int movieId, int rentalId) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insert);

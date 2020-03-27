@@ -1,8 +1,8 @@
 package dustin.diaz.comp4400.queries.child;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.child.Directors;
 import dustin.diaz.comp4400.model.connector.MovieDirectors;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.connectors.QueryMovieDirector;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public abstract class QueryDirectors {
     //INSERT
-    public static final String insertDirector = "INSERT INTO " + Database.DIRECTORS + " (Name) VALUES (?);";
+    public static final String insertDirector = "INSERT INTO " + DBINFO.DIRECTORS + " (Name) VALUES (?);";
 
     //SELECT
-    public static final String directorByID = "SELECT * FROM " + Database.DIRECTORS + " WHERE ID = ?";
-    public static final String directorByName = "SELECT * FROM " + Database.DIRECTORS + " WHERE Name = ?";
+    public static final String directorByID = "SELECT * FROM " + DBINFO.DIRECTORS + " WHERE ID = ?";
+    public static final String directorByName = "SELECT * FROM " + DBINFO.DIRECTORS + " WHERE Name = ?";
 
     public static void insertDirector(String name) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertDirector);

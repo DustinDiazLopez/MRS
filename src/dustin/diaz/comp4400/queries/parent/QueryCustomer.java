@@ -1,8 +1,8 @@
 package dustin.diaz.comp4400.queries.parent;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.child.AccountType;
 import dustin.diaz.comp4400.model.parent.Customer;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.child.QueryAccountType;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -16,19 +16,19 @@ import java.util.HashSet;
 public abstract class QueryCustomer {
 
     //SELECT
-    public static final String allUsers = "SELECT * FROM " + Database.CUSTOMER;
-    public static final String userByID = "SELECT * FROM " + Database.CUSTOMER + " WHERE ID = ?";
-    public static final String userByUsername = "SELECT * FROM " + Database.CUSTOMER + " WHERE Username = ?";
+    public static final String allUsers = "SELECT * FROM " + DBINFO.CUSTOMER;
+    public static final String userByID = "SELECT * FROM " + DBINFO.CUSTOMER + " WHERE ID = ?";
+    public static final String userByUsername = "SELECT * FROM " + DBINFO.CUSTOMER + " WHERE Username = ?";
 
     //UPDATE
-    public static final String updateUserByIDAndUsername = "UPDATE " + Database.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
-    public static final String updateUserByID = "UPDATE " + Database.CUSTOMER + " SET Username = ?, AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ?, AccountTypeID = ? WHERE ID = ?;";
+    public static final String updateUserByIDAndUsername = "UPDATE " + DBINFO.CUSTOMER + " SET AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ? WHERE Username = ? AND ID = ?;";
+    public static final String updateUserByID = "UPDATE " + DBINFO.CUSTOMER + " SET Username = ?, AccountPassword = ?, FirstName = ?, MiddleName = ?, LastName = ?, DateOfBirth = ?, Address = ?, City = ?, ZipCode = ?, Phone = ?, AccountTypeID = ? WHERE ID = ?;";
 
     //INSERT
-    public static final String insertUser = "INSERT INTO " + Database.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1);";
+    public static final String insertUser = "INSERT INTO " + DBINFO.CUSTOMER + " (Username, AccountPassword, FirstName, MiddleName, LastName, DateOfBirth, Address, City, ZipCode, Phone, AccountTypeID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1);";
 
     //DELETE
-    public static final String deleteUser = "DELETE FROM " + Database.CUSTOMER + " WHERE ID = ?";
+    public static final String deleteUser = "DELETE FROM " + DBINFO.CUSTOMER + " WHERE ID = ?";
 
     public static int insert(String username, String accountPassword, String firstName, String middleName,
                              String lastName, String dateOfBirth, String address, String city, String zipCode,

@@ -1,8 +1,8 @@
 package dustin.diaz.comp4400.queries.child;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.child.Writers;
 import dustin.diaz.comp4400.model.connector.MovieWriters;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.connectors.QueryMovieWriters;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -10,15 +10,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public abstract class QueryWriters {
     //INSERT
-    public static final String insertWriter = "INSERT INTO " + Database.WRITERS + " (Name) VALUES (?);";
+    public static final String insertWriter = "INSERT INTO " + DBINFO.WRITERS + " (Name) VALUES (?);";
 
     //SELECT
-    public static final String writerByID = "SELECT * FROM " + Database.WRITERS + " WHERE ID = ?";
-    public static final String writerByName = "SELECT * FROM " + Database.WRITERS + " WHERE Name = ?";
+    public static final String writerByID = "SELECT * FROM " + DBINFO.WRITERS + " WHERE ID = ?";
+    public static final String writerByName = "SELECT * FROM " + DBINFO.WRITERS + " WHERE Name = ?";
 
     public static void insertWriter(String name) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertWriter);

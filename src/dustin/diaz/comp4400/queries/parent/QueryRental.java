@@ -1,11 +1,11 @@
 package dustin.diaz.comp4400.queries.parent;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.connector.MovieRental;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.model.parent.Rental;
 import dustin.diaz.comp4400.model.tables.RentalTable;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.child.QueryMedias;
 import dustin.diaz.comp4400.queries.connectors.QueryMovieRental;
 import dustin.diaz.comp4400.utils.Computer;
@@ -19,20 +19,20 @@ import java.util.ArrayList;
 
 public abstract class QueryRental {
     //INSERT movie
-    private static final String insertRental = "INSERT INTO " + Database.RENTAL + " (CustomerID, MediaID, RentedOn, Returned) VALUES (?, ?, ?, ?);";
+    private static final String insertRental = "INSERT INTO " + DBINFO.RENTAL + " (CustomerID, MediaID, RentedOn, Returned) VALUES (?, ?, ?, ?);";
 
     //SELECT movies
-    private static final String allRentals = "SELECT * FROM " + Database.RENTAL;
-    private static final String rentalByID = "SELECT * FROM " + Database.RENTAL + " WHERE ID = ?";
-    private static final String rentalByCustomerID = "SELECT * FROM " + Database.RENTAL + " WHERE CustomerID = ?";
+    private static final String allRentals = "SELECT * FROM " + DBINFO.RENTAL;
+    private static final String rentalByID = "SELECT * FROM " + DBINFO.RENTAL + " WHERE ID = ?";
+    private static final String rentalByCustomerID = "SELECT * FROM " + DBINFO.RENTAL + " WHERE CustomerID = ?";
     private static final String last = "SELECT * FROM Rentals ORDER BY ID DESC LIMIT 1;";
 
     //UPDATE
-    private static final String updateRentalByID = "UPDATE " + Database.RENTAL + " SET Returned = ?, ReturnedOn = ?, TotalDays = ?, TotalCost = ? WHERE ID = ? AND CustomerID = ?";
-    private static final String updateRentalHeld = "UPDATE " + Database.RENTAL + " SET Held = ? WHERE ID = ? AND CustomerID = ?";
+    private static final String updateRentalByID = "UPDATE " + DBINFO.RENTAL + " SET Returned = ?, ReturnedOn = ?, TotalDays = ?, TotalCost = ? WHERE ID = ? AND CustomerID = ?";
+    private static final String updateRentalHeld = "UPDATE " + DBINFO.RENTAL + " SET Held = ? WHERE ID = ? AND CustomerID = ?";
 
     //DELETE
-    private static final String deleteRentalByID = "DELETE FROM " + Database.RENTAL + " WHERE ID = ?";
+    private static final String deleteRentalByID = "DELETE FROM " + DBINFO.RENTAL + " WHERE ID = ?";
 
     public static int insert(int customerId, int mediaId, Date rentedOn, boolean returned) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertRental);

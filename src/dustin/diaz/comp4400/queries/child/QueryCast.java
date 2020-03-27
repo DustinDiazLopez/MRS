@@ -1,8 +1,8 @@
 package dustin.diaz.comp4400.queries.child;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.child.Cast;
 import dustin.diaz.comp4400.model.connector.MovieCast;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.connectors.QueryMovieCast;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public abstract class QueryCast {
     //INSERT
-    public static final String insertCast = "INSERT INTO " + Database.CAST + " (Name) VALUES (?);";
+    public static final String insertCast = "INSERT INTO " + DBINFO.CAST + " (Name) VALUES (?);";
 
     //SELECT
-    public static final String castByID = "SELECT * FROM " + Database.CAST + " WHERE ID = ?";
-    public static final String castByName = "SELECT * FROM " + Database.CAST + " WHERE Name = ?";
+    public static final String castByID = "SELECT * FROM " + DBINFO.CAST + " WHERE ID = ?";
+    public static final String castByName = "SELECT * FROM " + DBINFO.CAST + " WHERE Name = ?";
 
     public static void insertCast(String name) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertCast);

@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.queries.parent;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.parent.Movie;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.child.QueryCast;
 import dustin.diaz.comp4400.queries.child.QueryDirectors;
 import dustin.diaz.comp4400.queries.child.QueryGenre;
@@ -17,19 +17,19 @@ import java.util.ArrayList;
 
 public abstract class QueryMovie {
     //INSERT movie
-    public static final String insertMovie = "INSERT INTO " + Database.MOVIE + " (Title, ReleaseDate, RunTime, Rated, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?)";
+    public static final String insertMovie = "INSERT INTO " + DBINFO.MOVIE + " (Title, ReleaseDate, RunTime, Rated, Ratings, Filename) VALUES (?, ?, ?, ?, ?, ?)";
 
     //SELECT movies
-    public static final String allMovies = "SELECT * FROM " + Database.MOVIE;
-    public static final String allLimitMovies = "SELECT * FROM " + Database.MOVIE + " LIMIT 10";
-    public static final String movieByID = "SELECT * FROM " + Database.MOVIE + " WHERE ID = ?";
-    public static final String movieByTitle = "SELECT * FROM " + Database.MOVIE + " WHERE Title = ?";
+    public static final String allMovies = "SELECT * FROM " + DBINFO.MOVIE;
+    public static final String allLimitMovies = "SELECT * FROM " + DBINFO.MOVIE + " LIMIT 10";
+    public static final String movieByID = "SELECT * FROM " + DBINFO.MOVIE + " WHERE ID = ?";
+    public static final String movieByTitle = "SELECT * FROM " + DBINFO.MOVIE + " WHERE Title = ?";
 
     //UPDATE
-    public static final String updateMovieByID = "UPDATE " + Database.MOVIE + " SET Title = ?, ReleaseDate = ?, RunTime = ?, Rated = ?, Ratings = ?, Filename = ? WHERE ID = ?";
+    public static final String updateMovieByID = "UPDATE " + DBINFO.MOVIE + " SET Title = ?, ReleaseDate = ?, RunTime = ?, Rated = ?, Ratings = ?, Filename = ? WHERE ID = ?";
 
     //DELETE
-    public static final String deleteMovieByID = "DELETE FROM " + Database.MOVIE + " WHERE ID = ?";
+    public static final String deleteMovieByID = "DELETE FROM " + DBINFO.MOVIE + " WHERE ID = ?";
 
     public static int insert(String title, Date releaseDate, String runTime, String Rated, String Ratings,
                              String filename) throws SQLException {

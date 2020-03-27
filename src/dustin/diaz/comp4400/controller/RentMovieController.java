@@ -10,13 +10,12 @@ import dustin.diaz.comp4400.queries.connectors.QueryMovieRental;
 import dustin.diaz.comp4400.queries.parent.QueryMovie;
 import dustin.diaz.comp4400.queries.parent.QueryRental;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.FXService;
 import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
 import dustin.diaz.comp4400.view.boxes.ShowPickupDetailsBox;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -131,33 +130,17 @@ public class RentMovieController implements Initializable {
     }
 
     ArrayList<Movie> movies = new ArrayList<>();
-    volatile boolean finished = false;
-    Service<Void> service = new Service<Void>() {
-        @Override
-        protected Task<Void> createTask() {
-            return new Task<Void>() {
-                @Override
-                protected Void call() throws Exception {
-                    //Background work
-                    final CountDownLatch latch = new CountDownLatch(1);
-                    Platform.runLater(() -> {
-                        try {
-                            movies = QueryMovie.findAllMovies();
-                            while (!finished) Thread.sleep(500);
-                            updateMovieList(movies, true);
-                        } catch (SQLException | InterruptedException e) {
-                            e.printStackTrace();
-                        } finally{
-                            latch.countDown();
-                        }
-                    });
-                    latch.await();
-                    //Keep with the background work
-                    return null;
-                }
-            };
+    FXService<Void> fxService = new FXService<>();
+    Service<Void> service = fxService.setAll(() -> {
+        try {
+            movies = QueryMovie.findAllMovies();
+            updateMovieList(generateView(movies));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            fxService.countDown();
         }
-    };
+    }, new CountDownLatch(1));
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -215,7 +198,7 @@ public class RentMovieController implements Initializable {
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
         } finally {
-            finished = true;
+            fxService.countDown();
         }
     }
 
@@ -226,20 +209,17 @@ public class RentMovieController implements Initializable {
         return list;
     }
 
-    private void updateMovieList(ArrayList<Movie> movies) {
-        updateMovieList(movies, false);
+    private void updateMovieList(ScrollPane scrollPane) {
+        leftVBox.getChildren().clear();
+        leftVBox.getChildren().addAll(scrollPane);
     }
 
-    private void updateMovieList(ArrayList<Movie> movies, boolean slow) {
+    private void updateMovieList(ArrayList<Movie> movies) {
         leftVBox.getChildren().clear();
         leftVBox.getChildren().addAll(generateView(movies));
     }
 
     private ScrollPane generateView(ArrayList<Movie> movies) {
-        return generateView(movies, false);
-    }
-
-    private ScrollPane generateView(ArrayList<Movie> movies, boolean slow) {
         ScrollPane scroll = new ScrollPane();
         VBox vBox = new VBox();
         int size = movies.size();
@@ -252,14 +232,6 @@ public class RentMovieController implements Initializable {
 
         for (int i = 0; i < size; i++) {
             vBox.getChildren().addAll(generateRow(movies.get(i), movies.get(++i)));
-
-            if (slow) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
         }
 
         if (add) {

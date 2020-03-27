@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 
 public abstract class Computer {
     public static String src;
-    public static String pathChar;
+    public static String fileSeparator;
     public static String movieImagePath;
     public static Connection connection;
     public static Customer customer;
@@ -96,7 +96,7 @@ public abstract class Computer {
                 }
             }
 
-            File location = new File(destination + Computer.pathChar + name);
+            File location = new File(destination + Computer.fileSeparator + name);
             copy(src, location);
             return location;
         } else return null;
@@ -104,5 +104,20 @@ public abstract class Computer {
 
     public static File copyFileToFolder(File src) throws IOException {
         return copyFileToFolder(src, new File(movieImagePath));
+    }
+
+    public static void init() {
+        new Thread(() -> {
+            Computer.favicon = new Image(new File("src/Images/icons/favicon/favicon-32x32.png").toURI().toString());
+            Computer.loginImage = new Image(new File("src/Images/icons/app/012-line.png").toURI().toString());
+            Computer.starImage = new Image(new File("src/Images/icons/star.png").toURI().toString());
+            Computer.placeholderImage = new Image(new File("src/Images/icons/placeholder.jpg").toURI().toString());
+            Computer.maskImage = new Image(new File("src/Images/icons/app/010-mask.png").toURI().toString());
+            Computer.chairImage = new Image(new File("src/Images/icons/app/015-chair.png").toURI().toString());
+            Computer.src = new File("src").getAbsolutePath();
+            Computer.fileSeparator = System.getProperty("file.separator");
+            System.out.println("Hello, " + System.getProperty("user.name") + "!");
+            Computer.movieImagePath = Computer.src + Computer.fileSeparator + "Images" + Computer.fileSeparator + "movies" + Computer.fileSeparator;
+        }).start();
     }
 }

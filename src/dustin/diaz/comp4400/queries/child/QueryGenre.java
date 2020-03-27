@@ -1,8 +1,8 @@
 package dustin.diaz.comp4400.queries.child;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.child.Genres;
 import dustin.diaz.comp4400.model.connector.MovieGenres;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.connectors.QueryMovieGenre;
 import dustin.diaz.comp4400.utils.Computer;
 
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 
 public abstract class QueryGenre {
     //INSERT
-    public static final String insertGenre = "INSERT INTO " + Database.GENRE + " (Genre) VALUES (?);";
+    public static final String insertGenre = "INSERT INTO " + DBINFO.GENRE + " (Genre) VALUES (?);";
 
     //SELECT
-    public static final String allGenres = "SELECT * FROM " + Database.GENRE;
-    public static final String genreByID = "SELECT * FROM " + Database.GENRE + " WHERE ID = ?";
-    public static final String genreByName = "SELECT * FROM " + Database.GENRE + " WHERE Genre = ?";
+    public static final String allGenres = "SELECT * FROM " + DBINFO.GENRE;
+    public static final String genreByID = "SELECT * FROM " + DBINFO.GENRE + " WHERE ID = ?";
+    public static final String genreByName = "SELECT * FROM " + DBINFO.GENRE + " WHERE Genre = ?";
 
     public static void insertGenre(String name) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insertGenre);

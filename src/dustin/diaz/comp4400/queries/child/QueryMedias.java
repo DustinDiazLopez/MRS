@@ -1,20 +1,19 @@
 package dustin.diaz.comp4400.queries.child;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.child.Medias;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public abstract class QueryMedias {
     //SELECT
-    public static final String findTypeByID = "SELECT * FROM " + Database.MEDIA + " WHERE ID = ?";
-    public static final String findTypeByName = "SELECT * FROM " + Database.MEDIA + " WHERE Media = ?";
-    public static final String findAllTypes = "SELECT * FROM " + Database.MEDIA + " ORDER BY ID ASC";
+    public static final String findTypeByID = "SELECT * FROM " + DBINFO.MEDIA + " WHERE ID = ?";
+    public static final String findTypeByName = "SELECT * FROM " + DBINFO.MEDIA + " WHERE Media = ?";
+    public static final String findAllTypes = "SELECT * FROM " + DBINFO.MEDIA + " ORDER BY ID ASC";
 
     private static Medias validate(Medias user) {
         if (user == null) return null;

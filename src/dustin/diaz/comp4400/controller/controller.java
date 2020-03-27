@@ -1,14 +1,13 @@
 package dustin.diaz.comp4400.controller;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.parent.Customer;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
+import dustin.diaz.comp4400.utils.FXService;
 import dustin.diaz.comp4400.utils.Styling;
-import javafx.application.Platform;
 import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -63,33 +62,49 @@ public class controller implements Initializable {
     @FXML
     public Label connectionStatus;
 
-    private Service<Void> service = new Service<Void>() {
-        @Override
-        protected Task<Void> createTask() {
-            return new Task<Void>() {
-                @Override
-                protected Void call() throws Exception {
-                    final CountDownLatch latch = new CountDownLatch(1);
-                    Platform.runLater(() -> {
-                        try {
-                            Class.forName(Database.DRIVER);
-                            Computer.connection = DriverManager.getConnection(Database.URL, DustinDiazCOMP4400.USERNAME, DustinDiazCOMP4400.PASSWORD);
-                            while (!DustinDiazCOMP4400.finished) Thread.sleep(100);
-                            connectionStatus.setTextFill(Color.GREEN);
-                            connectionStatus.setText("CONNECTED");
-                        } catch (ClassNotFoundException | SQLException | InterruptedException e) {
-                            connectionStatus.setTextFill(Color.RED);
-                            connectionStatus.setText(e.getMessage());
-                        } finally {
-                            latch.countDown();
-                        }
-                    });
-                    latch.await();
-                    return null;
-                }
-            };
+    private FXService<Void> fxService = new FXService<>();
+    private Service<Void> service = fxService.setAll(() -> {
+        try {
+            Class.forName(DBINFO.DRIVER);
+            Computer.connection = DriverManager.getConnection(DBINFO.URL, DBINFO.USERNAME, DBINFO.PASSWORD);
+            while (!DustinDiazCOMP4400.finished) Thread.sleep(100);
+            connectionStatus.setTextFill(Color.GREEN);
+            connectionStatus.setText("CONNECTED");
+        } catch (ClassNotFoundException | SQLException | InterruptedException e) {
+            connectionStatus.setTextFill(Color.RED);
+            connectionStatus.setText(e.getMessage());
+        } finally {
+            fxService.countDown();
         }
-    };
+    }, new CountDownLatch(1));
+
+//    private Service<Void> service = new Service<Void>() {
+//        @Override
+//        protected Task<Void> createTask() {
+//            return new Task<Void>() {
+//                @Override
+//                protected Void call() throws Exception {
+//                    final CountDownLatch latch = new CountDownLatch(1);
+//                    Platform.runLater(() -> {
+//                        try {
+//                            Class.forName(Database.DRIVER);
+//                            Computer.connection = DriverManager.getConnection(Database.URL, Database.USERNAME, Database.PASSWORD);
+//                            while (!DustinDiazCOMP4400.finished) Thread.sleep(100);
+//                            connectionStatus.setTextFill(Color.GREEN);
+//                            connectionStatus.setText("CONNECTED");
+//                        } catch (ClassNotFoundException | SQLException | InterruptedException e) {
+//                            connectionStatus.setTextFill(Color.RED);
+//                            connectionStatus.setText(e.getMessage());
+//                        } finally {
+//                            latch.countDown();
+//                        }
+//                    });
+//                    latch.await();
+//                    return null;
+//                }
+//            };
+//        }
+//    };
 
     @FXML
     void login(ActionEvent event) throws SQLException {

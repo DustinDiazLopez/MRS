@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.queries.connectors;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.connector.MovieDirectors;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;
@@ -11,17 +11,17 @@ import java.util.ArrayList;
 
 public abstract class QueryMovieDirector {
     //INSERT
-    public static final String insert = "INSERT INTO " + Database.MOVIE_DIRECTORS + " (MovieID, DirectorID) VALUES (?, ?);";
+    public static final String insert = "INSERT INTO " + DBINFO.MOVIE_DIRECTORS + " (MovieID, DirectorID) VALUES (?, ?);";
 
     //SELECT
-    public static final String movieDirectorByMovieID = "SELECT * FROM " + Database.MOVIE_DIRECTORS + " WHERE MovieID = ?";
+    public static final String movieDirectorByMovieID = "SELECT * FROM " + DBINFO.MOVIE_DIRECTORS + " WHERE MovieID = ?";
 
     //UPDATE
-    public static final String updateMovieDirectorByID = "UPDATE " + Database.MOVIE_DIRECTORS + " SET MovieID = ?, DirectorID = ? WHERE MovieID = ? AND DirectorID = ?";
+    public static final String updateMovieDirectorByID = "UPDATE " + DBINFO.MOVIE_DIRECTORS + " SET MovieID = ?, DirectorID = ? WHERE MovieID = ? AND DirectorID = ?";
 
     //DELETE
-    public static final String deleteMovieDirector = "DELETE FROM " + Database.MOVIE_DIRECTORS + " WHERE MovieID = ? AND DirectorID = ?";
-    public static final String deleteMovieDirectorByMovieId = "DELETE FROM " + Database.MOVIE_DIRECTORS + " WHERE MovieID = ?";
+    public static final String deleteMovieDirector = "DELETE FROM " + DBINFO.MOVIE_DIRECTORS + " WHERE MovieID = ? AND DirectorID = ?";
+    public static final String deleteMovieDirectorByMovieId = "DELETE FROM " + DBINFO.MOVIE_DIRECTORS + " WHERE MovieID = ?";
 
     public static int insert(int movieId, int directorId) throws SQLException {
         PreparedStatement preparedStatement = Computer.connection.prepareStatement(insert);

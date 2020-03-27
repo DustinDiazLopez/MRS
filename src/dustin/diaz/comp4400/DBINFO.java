@@ -1,6 +1,8 @@
-package dustin.diaz.comp4400.queries;
+package dustin.diaz.comp4400;
 
-public abstract class Database {
+public class DBINFO {
+    public static final String USERNAME = "root";
+    public static final String PASSWORD = "s0m3t1m3s1h@t3p@ssw0rds";
     public static final String DB = "MovieRentalSystem";
     public static final String URL = "jdbc:mysql://localhost:3306/" + DB + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";

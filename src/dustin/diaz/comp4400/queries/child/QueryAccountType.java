@@ -1,7 +1,7 @@
 package dustin.diaz.comp4400.queries.child;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.model.child.AccountType;
-import dustin.diaz.comp4400.queries.Database;
 import dustin.diaz.comp4400.utils.Computer;
 
 import java.sql.PreparedStatement;
@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public abstract class QueryAccountType {
     //SELECT
-    public static final String findTypeByID = "SELECT * FROM " + Database.ACCOUNT_TYPE + " WHERE ID = ?";
-    public static final String findTypeByName = "SELECT * FROM " + Database.ACCOUNT_TYPE + " WHERE Type = ?";
-    public static final String findAllTypes = "SELECT * FROM " + Database.ACCOUNT_TYPE + " ORDER BY ID ASC";
+    public static final String findTypeByID = "SELECT * FROM " + DBINFO.ACCOUNT_TYPE + " WHERE ID = ?";
+    public static final String findTypeByName = "SELECT * FROM " + DBINFO.ACCOUNT_TYPE + " WHERE Type = ?";
+    public static final String findAllTypes = "SELECT * FROM " + DBINFO.ACCOUNT_TYPE + " ORDER BY ID ASC";
 
     private static AccountType validate(AccountType user) {
         if (user == null) return null;
