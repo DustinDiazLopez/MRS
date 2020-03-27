@@ -3,8 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="768.0" minWidth="1024.0"
-            prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.CustomerTableController">
     <center>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
@@ -30,7 +29,7 @@
                         </Button>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="470.0" prefWidth="980.0">
+                <HBox alignment="CENTER">
                     <children>
                         <TableView fx:id="tableView" editable="true" tableMenuButtonVisible="true" HBox.hgrow="ALWAYS">
                             <columns>

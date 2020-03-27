@@ -30,7 +30,7 @@ public class DustinDiazCOMP4400 extends Application {
         scene = new Scene(root);
         DustinDiazCOMP4400.stage = stage;
         stage.setScene(scene);
-        stage.setTitle("Dustin Díaz (A00548394) COMP4400 - MANA - Movie Rental System");
+        stage.setTitle("COMP4400: Dustin Díaz (A00548394) - MANA - Movie Rental System");
 
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         if (dimension.height == scene.getHeight() && dimension.width == scene.getWidth()) {
@@ -47,5 +47,4 @@ public class DustinDiazCOMP4400 extends Application {
         stage.show();
         finished = true;
     }
-    
 }

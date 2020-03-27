@@ -5,314 +5,337 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" maxWidth="768.0" minHeight="768.0" minWidth="1024.0"
-            prefHeight="900.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.AddMovieController">
-    <center>
-        <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
-            <children>
-                <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Title"/>
-                        <TextField fx:id="title" prefHeight="31.0" prefWidth="226.0" promptText="The Lion King">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manTitle" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                        </Label>
-                    </children>
-                    <VBox.margin>
-                        <Insets bottom="10.0" top="20.0"/>
-                    </VBox.margin>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="170.0" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Directors (CSV)"/>
-                        <TextField fx:id="directors" prefHeight="31.0" prefWidth="226.0"
-                                   promptText="person, person, person...">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manDirector" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Writers (CSV)">
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                        <TextField fx:id="writers" prefHeight="31.0" prefWidth="226.0"
-                                   promptText="person, person, person...">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manWriters" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Release Date"/>
-                        <DatePicker fx:id="releaseDate" prefHeight="31.0" prefWidth="226.0" promptText="3/22/2020">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </DatePicker>
-                        <Label fx:id="manReleaseDate" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
-                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="166.0" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Genres (CSV)"/>
-                        <TextField fx:id="genres" prefHeight="31.0" prefWidth="226.0"
-                                   promptText="Horror, Thriller, Drama...">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manGenres" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Run Time"/>
-                        <TextField fx:id="runTime" prefHeight="31.0" prefWidth="226.0" promptText="1h 2m">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manRunTime" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="98.0" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Rated"/>
-                        <TextField fx:id="rated" prefHeight="31.0" prefWidth="226.0"
-                                   promptText="PG-13 or Not Yet Rated">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manRated" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Cast (CSV)"/>
-                        <TextField fx:id="cast" prefHeight="31.0" prefWidth="226.0"
-                                   promptText="person, person, person...">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manCast" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="286.0" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT" text="IMBd Rating"/>
-                        <TextField fx:id="rating" prefHeight="31.0" prefWidth="226.0"
-                                   promptText="7/10 or Not Yet Rated">
-                            <HBox.margin>
-                                <Insets left="10.0"/>
-                            </HBox.margin>
-                        </TextField>
-                        <Label fx:id="manRating" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0"
-                               prefWidth="17.0" textAlignment="CENTER" textFill="#eb0000">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0"/>
-                            </padding>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-            </children>
-            <opaqueInsets>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-            </opaqueInsets>
-            <BorderPane.margin>
-                <Insets bottom="10.0" right="10.0" top="10.0"/>
-            </BorderPane.margin>
-            <padding>
-                <Insets left="10.0"/>
-            </padding>
-        </VBox>
-    </center>
-    <bottom>
-        <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" BorderPane.alignment="CENTER">
-            <children>
-                <VBox alignment="CENTER">
-                    <children>
-                        <Label fx:id="warning" textFill="RED">
-                            <VBox.margin>
-                                <Insets bottom="5.0"/>
-                            </VBox.margin>
-                            <padding>
-                                <Insets bottom="5.0"/>
-                            </padding>
-                        </Label>
-                        <HBox alignment="CENTER">
-                            <children>
-                                <Button fx:id="addBtn" alignment="CENTER" mnemonicParsing="false"
-                                        nodeOrientation="LEFT_TO_RIGHT" onAction="#addMovie" prefHeight="31.0"
-                                        prefWidth="74.0" text="Add">
-                                    <HBox.margin>
-                                        <Insets right="10.0"/>
-                                    </HBox.margin>
-                                </Button>
-                                <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false"
-                                        nodeOrientation="LEFT_TO_RIGHT" onAction="#cancel" prefHeight="31.0"
-                                        prefWidth="74.0" text="Cancel">
-                                    <HBox.margin>
-                                        <Insets right="10.0"/>
-                                    </HBox.margin>
-                                </Button>
-                            </children>
-                        </HBox>
-                    </children>
-                </VBox>
-            </children>
-            <BorderPane.margin>
-                <Insets bottom="10.0" top="10.0"/>
-            </BorderPane.margin>
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-            </padding>
-        </HBox>
-    </bottom>
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
-    <right>
-        <VBox fx:id="imageVBox" alignment="CENTER" prefHeight="778.0" prefWidth="577.0" BorderPane.alignment="CENTER">
+    <center>
+        <VBox BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="movieImage" fitHeight="658.0" fitWidth="445.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../../../../Images/movies/placeholder.jpg"/>
-                    </image>
-                    <viewport>
-                        <Rectangle2D width="445.0"/>
-                    </viewport>
-                </ImageView>
-                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="NEVER">
+                <HBox>
                     <children>
-                        <TextField fx:id="fileLocation" editable="false" prefHeight="31.0" prefWidth="336.0"
-                                   promptText="Leave Blank for Default Image.">
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
-                        </TextField>
-                        <Button fx:id="chooseFileBtn" mnemonicParsing="false" onAction="#findFile" text="Choose File"/>
+                        <VBox alignment="TOP_CENTER">
+                            <children>
+                                <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Title"/>
+                                        <TextField fx:id="title" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="The Lion King">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manTitle" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                        </Label>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="20.0"/>
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="170.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Directors (CSV)"/>
+                                        <TextField fx:id="directors" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="person, person, person...">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manDirector" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="20.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Writers (CSV)">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                        <TextField fx:id="writers" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="person, person, person...">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manWriters" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Release Date"/>
+                                        <DatePicker fx:id="releaseDate" prefHeight="31.0" prefWidth="226.0"
+                                                    promptText="3/22/2020">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </DatePicker>
+                                        <Label fx:id="manReleaseDate" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="166.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Genres (CSV)"/>
+                                        <TextField fx:id="genres" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="Horror, Thriller, Drama...">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manGenres" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="20.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Run Time"/>
+                                        <TextField fx:id="runTime" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="1h 2m">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manRunTime" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="98.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Rated"/>
+                                        <TextField fx:id="rated" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="PG-13 or Not Yet Rated">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manRated" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="20.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="Cast (CSV)"/>
+                                        <TextField fx:id="cast" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="person, person, person...">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manCast" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="286.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <Label alignment="BASELINE_CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               text="IMBd Rating"/>
+                                        <TextField fx:id="rating" prefHeight="31.0" prefWidth="226.0"
+                                                   promptText="7/10 or Not Yet Rated">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Label fx:id="manRating" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                               prefHeight="48.0" prefWidth="17.0" textAlignment="CENTER"
+                                               textFill="#eb0000">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                            </children>
+                            <opaqueInsets>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="10.0"/>
+                            </padding>
+                        </VBox>
+                        <VBox fx:id="imageVBox" alignment="CENTER" prefHeight="778.0" prefWidth="577.0">
+                            <children>
+                                <ImageView fx:id="movieImage" fitHeight="658.0" fitWidth="445.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Images/movies/placeholder.jpg"/>
+                                    </image>
+                                    <viewport>
+                                        <Rectangle2D width="445.0"/>
+                                    </viewport>
+                                </ImageView>
+                                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <TextField fx:id="fileLocation" editable="false" prefHeight="31.0"
+                                                   prefWidth="345.0" promptText="Leave Blank for Default Image.">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <Button fx:id="chooseFileBtn" mnemonicParsing="false" onAction="#findFile"
+                                                text="Choose File"/>
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <Label text="(You can also drag-and-drop an image file)" textFill="#808080"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+                    <children>
+                        <VBox alignment="CENTER">
+                            <children>
+                                <Label fx:id="warning" textFill="RED">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0"/>
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets bottom="5.0"/>
+                                    </padding>
+                                </Label>
+                                <HBox alignment="CENTER">
+                                    <children>
+                                        <Button fx:id="addBtn" alignment="CENTER" mnemonicParsing="false"
+                                                nodeOrientation="LEFT_TO_RIGHT" onAction="#addMovie" prefHeight="31.0"
+                                                prefWidth="74.0" text="Add">
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="cancelBtn" alignment="CENTER" mnemonicParsing="false"
+                                                nodeOrientation="LEFT_TO_RIGHT" onAction="#cancel" prefHeight="31.0"
+                                                prefWidth="74.0" text="Cancel">
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
                     </children>
                     <padding>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
                 </HBox>
-                <Label text="(You can also drag-and-drop an image file)" textFill="#808080"/>
             </children>
-            <padding>
-                <Insets bottom="5.0" right="5.0" top="5.0"/>
-            </padding>
-            <BorderPane.margin>
-                <Insets/>
-            </BorderPane.margin>
         </VBox>
-    </right>
+    </center>
 </BorderPane>
