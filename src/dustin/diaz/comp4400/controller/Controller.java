@@ -27,7 +27,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.CountDownLatch;
 
-public class controller implements Initializable {
+public class Controller implements Initializable {
 
     @FXML
     private BorderPane borderPane;
@@ -70,7 +70,6 @@ public class controller implements Initializable {
             while (!DustinDiazCOMP4400.finished) Thread.sleep(100);
             connectionStatus.setTextFill(Color.GREEN);
             connectionStatus.setText("CONNECTED");
-            System.out.println(Computer.connection.getClientInfo().get(0));
         } catch (ClassNotFoundException | SQLException | InterruptedException e) {
             connectionStatus.setTextFill(Color.RED);
             connectionStatus.setText(e.getMessage());
