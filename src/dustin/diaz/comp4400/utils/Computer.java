@@ -148,7 +148,7 @@ public abstract class Computer {
                     String edit = replace(old, DBINFO.USERNAME, DBINFO.PASSWORD, new File("src/dustin/diaz/comp4400/DBINFO.java").getAbsolutePath().replaceAll("\\\\", "/"));
                     write(info, edit);
                     Desktop.getDesktop().open(info);
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                     write(info, old);
                 } catch (IOException | InterruptedException ex) {
                     ex.printStackTrace();

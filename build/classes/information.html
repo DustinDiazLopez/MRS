@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+<hr>
+<h2>Database</h2>
+<p>The current login credentials for the database are:</p>
+<ul>
+    <li><b>Username:</b> "{}"</li>
+    <li><b>Password:</b> "{}"</li>
+</ul>
+<p>To change these credentials go to: <input id="path" type="text" value="{}">
+    <button id="button" onclick="copyPath()">Copy Path</button>
+</p>
+<hr>
+<h2>System Login Credentials</h2>
+<h4>ADMIN (you can change a newly created account to ADMIN status by editing it with <i>this</i> account)</h4>
+<ul>
+    <li><b>Username:</b> "root"</li>
+    <li><b>Password:</b> "toor"</li>
+</ul>
+<hr>
+
+
+<script>
+function copyPath() {
+  let copyText = document.getElementById("path");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  document.getElementById("button").innerHTML = "Copied!";
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

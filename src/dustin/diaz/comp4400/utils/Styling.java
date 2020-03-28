@@ -8,6 +8,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class Styling {
+
+    public static double imageFactor = 0.78;
+
     public static String error =
             "-fx-focus-color: #d35244;\n" +
                     "-fx-faint-focus-color: #d3524422;\n" +
