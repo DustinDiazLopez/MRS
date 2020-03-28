@@ -3,11 +3,10 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="900.0" minWidth="1011.0"
-            prefHeight="900.0" prefWidth="1011.0" xmlns="http://javafx.com/javafx/8"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.CustomerTableController">
     <center>
-        <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <opaqueInsets>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </opaqueInsets>
@@ -22,7 +21,7 @@
                     <children>
                         <Button fx:id="backBtn" mnemonicParsing="false" prefWidth="110.0" text="Home Screen">
                             <HBox.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" right="10.0" top="10.0"/>
                             </HBox.margin>
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -30,10 +29,9 @@
                         </Button>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="701.0" prefWidth="980.0">
+                <HBox alignment="CENTER">
                     <children>
-                        <TableView fx:id="tableView" editable="true" prefHeight="658.0" prefWidth="948.0"
-                                   tableMenuButtonVisible="true" HBox.hgrow="ALWAYS">
+                        <TableView fx:id="tableView" editable="true" tableMenuButtonVisible="true" HBox.hgrow="ALWAYS">
                             <columns>
                                 <TableColumn prefWidth="75.0" text="C1"/>
                                 <TableColumn prefWidth="75.0" text="C2"/>
@@ -45,7 +43,7 @@
                     <children>
                         <Button fx:id="addBtn" mnemonicParsing="false" prefHeight="41.0" prefWidth="110.0" text="Add">
                             <HBox.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" right="10.0" top="10.0"/>
                             </HBox.margin>
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>

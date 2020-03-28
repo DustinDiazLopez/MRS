@@ -51,6 +51,35 @@ public class MovieTableController implements Initializable {
     public void updateTable() {
         try {
             tableView.getItems().clear();
+            tableView.getColumns().clear();
+
+            TableColumn<String, Movie> id = new TableColumn<>("ID");
+            id.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+            TableColumn<String, Movie> title = new TableColumn<>("Title");
+            title.setCellValueFactory(new PropertyValueFactory<>("title"));
+
+            TableColumn<String, Movie> releaseDate = new TableColumn<>("Release Date");
+            releaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
+
+            TableColumn<String, Movie> genre = new TableColumn<>("Genres");
+            genre.setCellValueFactory(new PropertyValueFactory<>("genres"));
+
+            TableColumn<String, Movie> runTime = new TableColumn<>("Run Time");
+            runTime.setCellValueFactory(new PropertyValueFactory<>("runTime"));
+
+            TableColumn<String, Movie> rated = new TableColumn<>("Rated");
+            rated.setCellValueFactory(new PropertyValueFactory<>("rated"));
+
+            Styling.setTableConst(tableView);
+
+            tableView.getColumns().add(id);
+            tableView.getColumns().add(title);
+            tableView.getColumns().add(releaseDate);
+            tableView.getColumns().add(genre);
+            tableView.getColumns().add(runTime);
+            tableView.getColumns().add(rated);
+
             tableView.getItems().addAll(QueryMovie.findAllMovies());
             warning.setText("");
         } catch (Exception e) {
@@ -61,8 +90,6 @@ public class MovieTableController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        borderPane.setMinSize(1100.0, 900.0);
 
         tableView.getColumns().clear();
 
@@ -188,35 +215,6 @@ public class MovieTableController implements Initializable {
         });
 
         tableView.setPlaceholder(new Label("No movies to display."));
-
-        TableColumn<String, Movie> id = new TableColumn<>("ID");
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-
-        TableColumn<String, Movie> title = new TableColumn<>("Title");
-        title.setCellValueFactory(new PropertyValueFactory<>("title"));
-
-        TableColumn<String, Movie> releaseDate = new TableColumn<>("Release Date");
-        releaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
-
-        TableColumn<String, Movie> genre = new TableColumn<>("Genres");
-        genre.setCellValueFactory(new PropertyValueFactory<>("genres"));
-
-        TableColumn<String, Movie> runTime = new TableColumn<>("Run Time");
-        runTime.setCellValueFactory(new PropertyValueFactory<>("runTime"));
-
-        TableColumn<String, Movie> rated = new TableColumn<>("Rated");
-        rated.setCellValueFactory(new PropertyValueFactory<>("rated"));
-
-        Styling.setTableConst(tableView);
-
-        tableView.getColumns().add(id);
-        tableView.getColumns().add(title);
-        tableView.getColumns().add(releaseDate);
-        tableView.getColumns().add(genre);
-        tableView.getColumns().add(runTime);
-        tableView.getColumns().add(rated);
-
-
         updateTable();
     }
 }

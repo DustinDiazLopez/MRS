@@ -66,8 +66,6 @@ public class CustomerTableController implements Initializable {
             ex.printStackTrace();
         }
 
-        borderPane.setMinSize(1100.0, 900.0);
-
         tableView.getColumns().clear();
 
         refreshBtn.setOnMousePressed(e -> updateTable());

@@ -2,12 +2,13 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" minHeight="900.0" minWidth="1011.0"
-            prefHeight="900.0" prefWidth="1011.0" xmlns="http://javafx.com/javafx/8"
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal"
             fx:controller="dustin.diaz.comp4400.controller.MovieTableController">
     <center>
-        <VBox alignment="CENTER" minHeight="800.0" minWidth="1000.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <opaqueInsets>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </opaqueInsets>
@@ -20,32 +21,35 @@
             <children>
                 <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                     <children>
-                        <Button fx:id="backBtn" mnemonicParsing="false" prefWidth="110.0" text="Home Screen">
+                        <Button fx:id="backBtn" minHeight="49.0" minWidth="153.0" mnemonicParsing="false"
+                                text="Return Home">
                             <HBox.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" right="10.0" top="10.0"/>
                             </HBox.margin>
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </padding>
+                            <graphic>
+                                <ImageView fitHeight="48.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Images/icons/backarrow.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
                         </Button>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="701.0" prefWidth="980.0">
+                <HBox alignment="CENTER">
                     <children>
-                        <TableView fx:id="tableView" editable="true" prefHeight="658.0" prefWidth="948.0"
-                                   tableMenuButtonVisible="true" HBox.hgrow="ALWAYS">
-                            <columns>
-                                <TableColumn prefWidth="75.0" text="C1"/>
-                                <TableColumn prefWidth="75.0" text="C2"/>
-                            </columns>
-                        </TableView>
+                        <TableView fx:id="tableView" editable="true" tableMenuButtonVisible="true" HBox.hgrow="ALWAYS"/>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                     <children>
-                        <Button fx:id="addBtn" mnemonicParsing="false" prefHeight="41.0" prefWidth="110.0" text="Add">
+                        <Button fx:id="addBtn" mnemonicParsing="false" prefHeight="41.0" prefWidth="110.0"
+                                text="Add Rental">
                             <HBox.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" right="10.0" top="10.0"/>
                             </HBox.margin>
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -54,7 +58,7 @@
                         <Button fx:id="editButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="110.0"
                                 text="Edit">
                             <HBox.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" right="10.0" top="10.0"/>
                             </HBox.margin>
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -62,15 +66,17 @@
                         </Button>
                         <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="110.0"
                                 text="Delete">
-                            <HBox.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                            </HBox.margin>
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </padding>
                         </Button>
-                        <Label fx:id="warning" textFill="RED"/>
-                        <Button fx:id="refreshBtn" mnemonicParsing="false" prefWidth="110.0" text="Refresh View">
+                        <Label fx:id="warning" textFill="RED">
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <Button fx:id="refreshBtn" mnemonicParsing="false" prefWidth="110.0" text="Refresh View"
+                                visible="false">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </padding>

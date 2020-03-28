@@ -78,34 +78,6 @@ public class controller implements Initializable {
         }
     }, new CountDownLatch(1));
 
-//    private Service<Void> service = new Service<Void>() {
-//        @Override
-//        protected Task<Void> createTask() {
-//            return new Task<Void>() {
-//                @Override
-//                protected Void call() throws Exception {
-//                    final CountDownLatch latch = new CountDownLatch(1);
-//                    Platform.runLater(() -> {
-//                        try {
-//                            Class.forName(Database.DRIVER);
-//                            Computer.connection = DriverManager.getConnection(Database.URL, Database.USERNAME, Database.PASSWORD);
-//                            while (!DustinDiazCOMP4400.finished) Thread.sleep(100);
-//                            connectionStatus.setTextFill(Color.GREEN);
-//                            connectionStatus.setText("CONNECTED");
-//                        } catch (ClassNotFoundException | SQLException | InterruptedException e) {
-//                            connectionStatus.setTextFill(Color.RED);
-//                            connectionStatus.setText(e.getMessage());
-//                        } finally {
-//                            latch.countDown();
-//                        }
-//                    });
-//                    latch.await();
-//                    return null;
-//                }
-//            };
-//        }
-//    };
-
     @FXML
     void login(ActionEvent event) throws SQLException {
         manFieldOne.setText("");
@@ -172,7 +144,6 @@ public class controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         service.start();
-        borderPane.setMinSize(1100.0, 900.0);
         loginImage.setImage(Computer.loginImage);
         EventHandler<KeyEvent> loginEnterKey = e -> {
             if (e.getCode().toString().equals("ENTER")) loginBtn.fire();
