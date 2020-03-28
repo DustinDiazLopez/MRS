@@ -1,5 +1,6 @@
 package dustin.diaz.comp4400.controller;
 
+import dustin.diaz.comp4400.model.child.Medias;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.model.parent.Rental;
@@ -100,8 +101,9 @@ public class RentalTableController implements Initializable {
             } else {
                 warning.setText("No rentals found...");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            tableView.getItems().clear();
+            warning.setText("No rentals found: " + e.getMessage());
         }
     }
 
@@ -139,14 +141,18 @@ public class RentalTableController implements Initializable {
                     try {
                         Customer customer = QueryCustomer.find(choice[1]);
                         Movie movie = QueryMovie.findMovie(choice[0]);
-                        int media = QueryMedias.findMedia(MediaBox.display(movie)).getId();
-                        Date date = Date.valueOf(LocalDate.now().toString());
-                        Rental q = QueryRental.insertAndReturn(customer.getId(), media, date, false);
-                        System.out.println(movie.getTitle() + " (" + media + ") rented by " + customer.getUsername() + " on " + date);
-                        System.out.println("Insert " + q);
-                        QueryMovieRental.insert(movie.getId(), q.getId());
-                        System.out.println(QueryRental.find(q.getId()));
-                        updateTable();
+                        Medias medias = QueryMedias.findMedia(MediaBox.display(movie));
+
+                        if (medias != null) {
+                            int media = medias.getId();
+                            Date date = Date.valueOf(LocalDate.now().toString());
+                            Rental q = QueryRental.insertAndReturn(customer.getId(), media, date, false);
+                            System.out.println(movie.getTitle() + " (" + media + ") rented by " + customer.getUsername() + " on " + date);
+                            System.out.println("Insert " + q);
+                            QueryMovieRental.insert(movie.getId(), q.getId());
+                            System.out.println(QueryRental.find(q.getId()));
+                            updateTable();
+                        }
                     } catch (SQLException ignored) {
                         ConfirmBox.display(
                                 "Error",
@@ -272,7 +278,7 @@ public class RentalTableController implements Initializable {
                     System.out.println("Return Movie ID: " + id);
                     ArrayList<Rental> returnable = QueryRental.find(table);
 
-                    if (returnable.size() != 0) {
+                    if (returnable != null && returnable.size() != 0) {
                         ArrayList<Rental> matched = new ArrayList<>();
 
                         for (Rental rental : returnable) if (rental.getMovie().getId() == id) matched.add(rental);

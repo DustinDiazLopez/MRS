@@ -36,11 +36,7 @@ public abstract class Computer {
 
     public static void closeProgram() {
         if (ConfirmBox.display("Close Application", "Are you sure you want to quit?")) {
-            try {
-                connection.close();
-            } catch (Exception ignored) {
-                System.exit(0);
-            }
+            try { connection.close(); } catch (Exception ignored) { System.exit(1); }
             System.exit(0);
         }
     }
@@ -50,11 +46,15 @@ public abstract class Computer {
         return fxmlLoader.load();
     }
 
+    public static void setRoot(String fxml) throws IOException {
+        DustinDiazCOMP4400.scene.setRoot(Computer.loadFXML(fxml));
+    }
+
     public static void changeScreen(BorderPane borderPane, String viewUserFilename) {
         borderPane.getChildren().clear();
         try {
             viewUserFilename = viewUserFilename.endsWith(".fxml") ? viewUserFilename : viewUserFilename + ".fxml";
-            DustinDiazCOMP4400.setRoot("view/user/" + viewUserFilename);
+            Computer.setRoot("view/user/" + viewUserFilename);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -32,6 +32,9 @@ public class MediaBox {
         Styling.setButtonWidth(yesButton, noButton);
 
         ArrayList<Medias> medias = QueryMedias.findAllMedias();
+
+        if (medias == null) return null;
+
         String[] action = new String[medias.size()];
         for (int i = 0; i < action.length; i++) action[i] = medias.get(i).getType();
 

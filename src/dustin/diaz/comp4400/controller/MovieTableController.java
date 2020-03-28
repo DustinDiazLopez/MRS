@@ -53,8 +53,9 @@ public class MovieTableController implements Initializable {
             tableView.getItems().clear();
             tableView.getItems().addAll(QueryMovie.findAllMovies());
             warning.setText("");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            tableView.getItems().clear();
+            warning.setText("No movies found: " + e.getMessage());
         }
     }
 

@@ -136,6 +136,7 @@ public class RentMovieController implements Initializable {
             movies = QueryMovie.findAllMovies();
             updateMovieList(generateView(movies));
         } catch (SQLException e) {
+            Computer.changeScreen(borderPane, "nomoviesfound");
             e.printStackTrace();
         } finally {
             fxService.countDown();
@@ -181,17 +182,22 @@ public class RentMovieController implements Initializable {
                             updateMovieList(all);
                         }
                     }
-                } catch (Exception i) {
-                    i.printStackTrace();
+                } catch (Exception ignored) {
+                    Computer.changeScreen(borderPane, "nomoviesfound");
                 }
             });
 
             rightHBox.managedProperty().bind(rightHBox.visibleProperty());
             if (movies != null && movies.size() != 0) {
-                Movie m = movies.get(0);
-                display(m);
-                selected = m;
-                updateMovieList(movies);
+                try {
+                    Movie m = movies.get(0);
+                    display(m);
+                    selected = m;
+                    updateMovieList(movies);
+                } catch (Exception e) {
+                    Computer.changeScreen(borderPane, "nomoviesfound");
+                    System.out.println(e.getMessage());
+                }
             } else {
                 rightHBox.setVisible(false);
             }
@@ -220,25 +226,30 @@ public class RentMovieController implements Initializable {
     }
 
     private ScrollPane generateView(ArrayList<Movie> movies) {
-        ScrollPane scroll = new ScrollPane();
-        VBox vBox = new VBox();
-        int size = movies.size();
-        boolean add = false;
+        try {
+            ScrollPane scroll = new ScrollPane();
+            VBox vBox = new VBox();
+            int size = movies.size();
+            boolean add = false;
 
-        if (size % 2 != 0) {
-            size--;
-            add = true;
-        }
+            if (size % 2 != 0) {
+                size--;
+                add = true;
+            }
 
-        for (int i = 0; i < size; i++) {
-            vBox.getChildren().addAll(generateRow(movies.get(i), movies.get(++i)));
-        }
+            for (int i = 0; i < size; i++) {
+                vBox.getChildren().addAll(generateRow(movies.get(i), movies.get(++i)));
+            }
 
-        if (add) {
-            vBox.getChildren().addAll(generateRow(movies.get(size)));
+            if (add) {
+                vBox.getChildren().addAll(generateRow(movies.get(size)));
+            }
+            scroll.setContent(vBox);
+            return scroll;
+        } catch (Exception ignored) {
+            Computer.changeScreen(borderPane, "nomoviesfound");
+            return new ScrollPane();
         }
-        scroll.setContent(vBox);
-        return scroll;
     }
 
     private HBox generateRow(Movie... movies) {

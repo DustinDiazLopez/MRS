@@ -146,9 +146,13 @@ public abstract class QueryRental {
     }
 
     public static ArrayList<Rental> find(ArrayList<RentalTable> table) throws SQLException {
-        ArrayList<Rental> rentals = new ArrayList<>();
-        for (RentalTable i : table) rentals.add(find(i.getRentalId()));
-        return rentals;
+        try {
+            ArrayList<Rental> rentals = new ArrayList<>();
+            for (RentalTable i : table) rentals.add(find(i.getRentalId()));
+            return rentals;
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 
     public static ArrayList<Rental> findAllByCustomerId(int customerId) throws SQLException {
