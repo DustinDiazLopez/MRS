@@ -254,14 +254,12 @@ public class RentMovieController implements Initializable {
 
     private HBox generateRow(Movie... movies) {
         HBox hBox = new HBox(10);
-        for (Movie movie : movies) {
-            hBox.getChildren().add(generateElement(movie));
-        }
+        for (Movie movie : movies) hBox.getChildren().add(generateElement(movie));
         return hBox;
     }
 
     private VBox generateElement(Movie movie) {
-        double factor = 0.96;
+        double factor = 0.78;
         int width = (int) (182 * factor);
         int height = (int) (268 * factor);
         double opacity = 0.85;

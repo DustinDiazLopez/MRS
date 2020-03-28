@@ -25,7 +25,7 @@ public class DustinDiazCOMP4400 extends Application {
         stage.setWidth(1040);
 
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        if (d.width == 1024 && d.height == 768) stage.setMaximized(true);
+        if (d.width <= 1024 && d.height <= 768) stage.setMaximized(true);
 
         stage.setTitle("COMP4400: Dustin Díaz (A00548394) - MANA - Movie Rental System");
 

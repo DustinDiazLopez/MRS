@@ -292,7 +292,7 @@ public class RentalHistoryController implements Initializable {
     }
 
     private VBox generateElement(Movie movie) {
-        double factor = .95;
+        double factor = .74;
         int width = (int) (182 * factor);
         int height = (int) (268 * factor);
         double opacity = 0.85;

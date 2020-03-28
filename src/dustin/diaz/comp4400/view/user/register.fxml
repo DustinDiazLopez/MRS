@@ -13,7 +13,7 @@
     <center>
         <VBox alignment="CENTER" prefHeight="531.0" prefWidth="810.0" BorderPane.alignment="CENTER">
             <children>
-                <HBox>
+                <HBox alignment="CENTER">
                     <children>
                         <VBox alignment="TOP_CENTER">
                             <children>

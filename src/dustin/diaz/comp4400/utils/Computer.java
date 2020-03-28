@@ -34,16 +34,21 @@ public abstract class Computer {
     public static Image starImage;
     public static Image placeholderImage;
 
+    private static FXMLLoader fxmlLoader = new FXMLLoader();
+
     public static void closeProgram() {
         if (ConfirmBox.display("Close Application", "Are you sure you want to quit?")) {
-            try { connection.close(); } catch (Exception ignored) { System.exit(1); }
+            try {
+                connection.close();
+            } catch (Exception ignored) {
+                System.exit(1);
+            }
             System.exit(0);
         }
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DustinDiazCOMP4400.class.getResource(fxml));
-        return fxmlLoader.load();
+        return FXMLLoader.load(DustinDiazCOMP4400.class.getResource(fxml));
     }
 
     public static void setRoot(String fxml) throws IOException {
