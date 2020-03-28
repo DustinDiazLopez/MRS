@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/10.0.2-internal"
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.EditAccountController">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
     <center>
-        <VBox alignment="CENTER" prefHeight="461.0" prefWidth="790.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER">
                     <children>
@@ -326,9 +329,9 @@
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="588.0" prefWidth="406.0">
+                        <VBox alignment="CENTER">
                             <children>
-                                <ImageView fx:id="loginImage" fitHeight="417.0" fitWidth="428.0" pickOnBounds="true"
+                                <ImageView fx:id="loginImage" fitHeight="383.0" fitWidth="382.0" pickOnBounds="true"
                                            preserveRatio="true">
                                     <image>
                                         <Image url="@../../../../../Images/icons/app/015-chair.png"/>
@@ -372,7 +375,7 @@
                         </VBox>
                     </children>
                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
                     </padding>
                 </HBox>
             </children>

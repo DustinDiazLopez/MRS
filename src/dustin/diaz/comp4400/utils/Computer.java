@@ -1,14 +1,17 @@
 package dustin.diaz.comp4400.utils;
 
+import dustin.diaz.comp4400.DBINFO;
 import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.model.parent.Customer;
 import dustin.diaz.comp4400.model.parent.Movie;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
+import javafx.concurrent.Service;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
+import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,6 +19,7 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,8 +38,6 @@ public abstract class Computer {
     public static Image starImage;
     public static Image placeholderImage;
 
-    private static FXMLLoader fxmlLoader = new FXMLLoader();
-
     public static void closeProgram() {
         if (ConfirmBox.display("Close Application", "Are you sure you want to quit?")) {
             try {
@@ -51,9 +53,7 @@ public abstract class Computer {
         return FXMLLoader.load(DustinDiazCOMP4400.class.getResource(fxml));
     }
 
-    public static void setRoot(String fxml) throws IOException {
-        DustinDiazCOMP4400.scene.setRoot(Computer.loadFXML(fxml));
-    }
+    private static FXService<Void> fxService = new FXService<>();
 
     public static void changeScreen(BorderPane borderPane, String viewUserFilename) {
         borderPane.getChildren().clear();
@@ -111,6 +111,21 @@ public abstract class Computer {
         return copyFileToFolder(src, new File(movieImagePath));
     }
 
+    public static Service<Void> service = fxService.setAll(() -> {
+        try {
+            setRoot("view/user/login.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            fxService.countDown();
+        }
+    }, new CountDownLatch(1));
+
+    public static void setRoot(String fxml) throws IOException {
+        Parent page = Computer.loadFXML(fxml);
+        DustinDiazCOMP4400.scene.setRoot(page);
+    }
+
     public static void init() {
         new Thread(() -> {
             Computer.favicon = new Image(new File("src/Images/icons/favicon/favicon-32x32.png").toURI().toString());
@@ -121,8 +136,49 @@ public abstract class Computer {
             Computer.chairImage = new Image(new File("src/Images/icons/app/015-chair.png").toURI().toString());
             Computer.src = new File("src").getAbsolutePath();
             Computer.fileSeparator = System.getProperty("file.separator");
-            System.out.println("Hello, " + System.getProperty("user.name") + "!");
             Computer.movieImagePath = Computer.src + Computer.fileSeparator + "Images" + Computer.fileSeparator + "movies" + Computer.fileSeparator;
         }).start();
+
+        new Thread(() -> {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    File info = new File("src/information.html");
+                    String old = read(info.getAbsolutePath());
+                    System.out.println(new File("src/dustin/diaz/comp4400/DBINFO.java").toURI());
+                    String edit = replace(old, DBINFO.USERNAME, DBINFO.PASSWORD, new File("src/dustin/diaz/comp4400/DBINFO.java").getAbsolutePath().replaceAll("\\\\", "/"));
+                    write(info, edit);
+                    Desktop.getDesktop().open(info);
+                    Thread.sleep(500);
+                    write(info, old);
+                } catch (IOException | InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private static void write(File file, String text) throws FileNotFoundException, UnsupportedEncodingException {
+        PrintWriter writer = new PrintWriter(file, "UTF-8");
+        writer.println(text);
+        writer.close();
+    }
+
+    private static String read(String path) throws IOException {
+        StringBuilder stringBuilder = new StringBuilder();
+        FileReader fr = new FileReader(path);
+        BufferedReader br = new BufferedReader(fr);
+
+        int i;
+        while ((i = br.read()) != -1) stringBuilder.append((char) i);
+
+        br.close();
+        fr.close();
+
+        return stringBuilder.toString();
+    }
+
+    private static String replace(String txt, String... args) {
+        for (String arg : args) txt = txt.replaceFirst("\\{}", arg);
+        return txt;
     }
 }

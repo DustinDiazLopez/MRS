@@ -18,7 +18,7 @@
                                 <HBox alignment="BOTTOM_LEFT">
                                     <children>
                                         <Button mnemonicParsing="false" onAction="#goBack" prefHeight="45.0"
-                                                prefWidth="170.0" text="Home Screen">
+                                                prefWidth="170.0" text="Return Home">
                                             <graphic>
                                                 <ImageView fitHeight="48.0" fitWidth="29.0" pickOnBounds="true"
                                                            preserveRatio="true">
