@@ -26,6 +26,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class Controller implements Initializable {
 
@@ -67,12 +68,13 @@ public class Controller implements Initializable {
         try {
             Class.forName(DBINFO.DRIVER);
             Computer.connection = DriverManager.getConnection(DBINFO.URL, DBINFO.USERNAME, DBINFO.PASSWORD);
-            while (!DustinDiazCOMP4400.finished) Thread.sleep(100);
+            while (!DustinDiazCOMP4400.finished) fxService.getLatch().await(100, TimeUnit.MILLISECONDS);
             connectionStatus.setTextFill(Color.GREEN);
             connectionStatus.setText("CONNECTED");
         } catch (ClassNotFoundException | SQLException | InterruptedException e) {
             connectionStatus.setTextFill(Color.RED);
             connectionStatus.setText(e.getMessage());
+            System.out.println(e.getMessage());
         } finally {
             fxService.countDown();
         }

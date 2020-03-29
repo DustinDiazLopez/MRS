@@ -178,7 +178,7 @@ public class MovieTableController implements Initializable {
                                 Computer.editMovie = QueryMovie.findMovie(selected.getId());
                                 Computer.changeScreen(borderPane, "editmovie");
                             } catch (SQLException ignored) {
-                                ConfirmBox.display("An error occured", "Couldn't execute query");
+                                ConfirmBox.display("An error occurred", "Couldn't execute query");
                             }
                         } else if (choice.equals("Delete")) {
                             if (ConfirmBox.display(
@@ -191,11 +191,6 @@ public class MovieTableController implements Initializable {
                                     ex.printStackTrace();
                                 }
                             }
-                        } else {
-                            ConfirmBox.display(
-                                    "Unrecognized Command",
-                                    "Please specify the command in the ChooseBox Class"
-                            );
                         }
                     }
 
@@ -207,7 +202,7 @@ public class MovieTableController implements Initializable {
                             Computer.editMovie = QueryMovie.findMovie(selected.getId());
                             Computer.changeScreen(borderPane, "editmovie");
                         } catch (SQLException ignored) {
-                            ConfirmBox.display("An error occured", "Couldn't execute query");
+                            ConfirmBox.display("An error occurred", "Couldn't execute query");
                         }
                     }
                 }

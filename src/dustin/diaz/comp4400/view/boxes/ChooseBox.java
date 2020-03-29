@@ -47,7 +47,7 @@ public class ChooseBox {
         window.getIcons().add(Computer.favicon);
 
         Label label = new Label();
-        label.setText("Choose the action for user '" + selected + "' (ID: " + id + ")");
+        label.setText("Choose the action for '" + selected + "' (ID: " + id + ")");
         label.setMaxWidth(400);
         label.setAlignment(Pos.CENTER);
         label.setWrapText(true);

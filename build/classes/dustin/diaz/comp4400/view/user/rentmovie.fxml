@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" prefHeight="717.0" prefWidth="1148.0"
-            xmlns="http://javafx.com/javafx/10.0.2-internal"
-            fx:controller="dustin.diaz.comp4400.controller.RentMovieController">
+            xmlns="http://javafx.com/javafx/8" fx:controller="dustin.diaz.comp4400.controller.RentMovieController">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
@@ -33,7 +34,7 @@
                                                 </Label>
                                                 <Label fx:id="informationLabel"
                                                        text="Rated | Run Time | Geners | Released Date"
-                                                       textFill="#838383">
+                                                       textFill="#838383" wrapText="true">
                                                     <VBox.margin>
                                                         <Insets bottom="10.0" left="10.0" right="10.0"/>
                                                     </VBox.margin>
@@ -76,64 +77,97 @@
                                 </HBox>
                                 <VBox alignment="TOP_CENTER" prefHeight="554.0" prefWidth="581.0">
                                     <children>
-                                        <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="170.0"
-                                              nodeOrientation="LEFT_TO_RIGHT" prefHeight="120.0" prefWidth="598.0">
-                                            <children>
-                                                <VBox prefHeight="150.0" prefWidth="645.0">
-                                                    <children>
-                                                        <Label alignment="BASELINE_CENTER"
-                                                               nodeOrientation="LEFT_TO_RIGHT" text="Directors">
-                                                            <padding>
-                                                                <Insets bottom="10.0" left="10.0" right="10.0"
-                                                                        top="10.0"/>
-                                                            </padding>
-                                                            <font>
-                                                                <Font name="System Bold" size="15.0"/>
-                                                            </font>
-                                                        </Label>
-                                                        <TextFlow fx:id="directorsTextFlow">
-                                                            <VBox.margin>
-                                                                <Insets bottom="10.0" left="10.0" right="10.0"
-                                                                        top="10.0"/>
-                                                            </VBox.margin>
-                                                        </TextFlow>
-                                                    </children>
-                                                </VBox>
-                                            </children>
-                                            <padding>
-                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                                            </padding>
-                                        </HBox>
-                                        <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0"
-                                              nodeOrientation="LEFT_TO_RIGHT" prefHeight="134.0" prefWidth="720.0">
-                                            <children>
-                                                <VBox prefHeight="150.0" prefWidth="645.0">
-                                                    <children>
-                                                        <Label alignment="BASELINE_CENTER"
-                                                               nodeOrientation="LEFT_TO_RIGHT" text="Writers">
-                                                            <font>
-                                                                <Font name="System Bold" size="15.0"/>
-                                                            </font>
-                                                            <padding>
-                                                                <Insets bottom="10.0" left="10.0" right="10.0"
-                                                                        top="10.0"/>
-                                                            </padding>
-                                                        </Label>
-                                                        <TextFlow fx:id="writersTextFlow">
-                                                            <VBox.margin>
-                                                                <Insets bottom="10.0" left="10.0" right="10.0"
-                                                                        top="10.0"/>
-                                                            </VBox.margin>
-                                                        </TextFlow>
-                                                    </children>
-                                                </VBox>
-                                            </children>
-                                            <padding>
-                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                                            </padding>
-                                        </HBox>
                                         <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0"
                                               nodeOrientation="LEFT_TO_RIGHT">
+                                            <children>
+                                                <VBox prefHeight="150.0" prefWidth="645.0">
+                                                    <children>
+                                                        <Label alignment="BASELINE_CENTER"
+                                                               nodeOrientation="LEFT_TO_RIGHT" text="Description">
+                                                            <font>
+                                                                <Font name="System Bold" size="15.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="10.0" left="10.0" right="10.0"
+                                                                        top="10.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextFlow fx:id="descriptionTextFlow">
+                                                            <padding>
+                                                                <Insets bottom="10.0" left="10.0" right="10.0"
+                                                                        top="10.0"/>
+                                                            </padding>
+                                                            <VBox.margin>
+                                                                <Insets bottom="10.0" left="10.0" right="10.0"
+                                                                        top="10.0"/>
+                                                            </VBox.margin>
+                                                        </TextFlow>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </padding>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
+                                                    <children>
+                                                        <VBox prefHeight="150.0" prefWidth="645.0">
+                                                            <children>
+                                                                <Label alignment="BASELINE_CENTER"
+                                                                       nodeOrientation="LEFT_TO_RIGHT" text="Directors">
+                                                                    <padding>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0"
+                                                                                top="10.0"/>
+                                                                    </padding>
+                                                                    <font>
+                                                                        <Font name="System Bold" size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                                <TextFlow fx:id="directorsTextFlow">
+                                                                    <VBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0"
+                                                                                top="10.0"/>
+                                                                    </VBox.margin>
+                                                                </TextFlow>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </padding>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
+                                                    <children>
+                                                        <VBox prefHeight="150.0" prefWidth="645.0">
+                                                            <children>
+                                                                <Label alignment="BASELINE_CENTER"
+                                                                       nodeOrientation="LEFT_TO_RIGHT" text="Writers">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="15.0"/>
+                                                                    </font>
+                                                                    <padding>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0"
+                                                                                top="10.0"/>
+                                                                    </padding>
+                                                                </Label>
+                                                                <TextFlow fx:id="writersTextFlow">
+                                                                    <VBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0"
+                                                                                top="10.0"/>
+                                                                    </VBox.margin>
+                                                                </TextFlow>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </padding>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
                                             <children>
                                                 <VBox prefHeight="150.0" prefWidth="645.0">
                                                     <children>

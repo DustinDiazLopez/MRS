@@ -1,5 +1,6 @@
 package dustin.diaz.comp4400.controller;
 
+import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
 import dustin.diaz.comp4400.view.boxes.ConfirmBox;
@@ -41,6 +42,8 @@ public class AdminHomeController implements Initializable {
     @FXML
     private Label userLabel;
 
+    int chosen = 1;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userLabel.setText(Styling.formatNames(Computer.customer));
@@ -57,6 +60,42 @@ public class AdminHomeController implements Initializable {
         exitVBox.setOnMouseClicked(e -> {
             if (ConfirmBox.display("Log-out", "Are you sure you want to log-out?")) {
                 Computer.changeScreen(borderPane, "login");
+            }
+        });
+
+        DustinDiazCOMP4400.scene.setOnKeyPressed(e -> {
+            switch (e.getCode().toString()) {
+                case "ESCAPE":
+                    Computer.closeProgram();
+                    break;
+                case "TAB":
+                    if (chosen == 2) {
+                        Styling.disableEnableVBoxStyle(customerVBox, moviesVBox);
+                        chosen++;
+                    } else if (chosen == 3) {
+                        Styling.disableEnableVBoxStyle(moviesVBox, rentalsVBox);
+                        chosen++;
+                    } else if (chosen == 4) {
+                        Styling.disableEnableVBoxStyle(rentalsVBox, exitVBox);
+                        chosen++;
+                    } else {
+                        chosen = 2;
+                        Styling.disableEnableVBoxStyle(exitVBox, customerVBox);
+                    }
+                    break;
+                case "ENTER":
+                    if (chosen == 2) {
+                        Computer.changeScreen(borderPane, "customertable");
+                    } else if (chosen == 3) {
+                        Computer.changeScreen(borderPane, "movietable");
+                    } else if (chosen == 4) {
+                        Computer.changeScreen(borderPane, "rentaltable");
+                    } else if (chosen == 5) {
+                        if (ConfirmBox.display("Log-out", "Are you sure you want to log-out?")) {
+                            Computer.changeScreen(borderPane, "login");
+                        }
+                    }
+                    break;
             }
         });
     }

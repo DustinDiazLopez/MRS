@@ -110,7 +110,7 @@
     <bottom>
         <HBox alignment="BOTTOM_LEFT" BorderPane.alignment="CENTER">
             <children>
-                <Label text="Connection Status:">
+                <Label text="Connection Status:" wrapText="true">
                     <font>
                         <Font name="System Bold" size="17.0"/>
                     </font>
@@ -121,7 +121,7 @@
                         <Insets left="5.0"/>
                     </padding>
                 </Label>
-                <Label fx:id="connectionStatus" text="Please Wait..." textFill="#97550e">
+                <Label fx:id="connectionStatus" text="Please Wait..." textFill="#97550e" wrapText="true">
                     <font>
                         <Font size="17.0"/>
                     </font>

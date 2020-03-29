@@ -57,6 +57,9 @@ public class RentMovieController implements Initializable {
     private TextFlow directorsTextFlow;
 
     @FXML
+    private TextFlow descriptionTextFlow;
+
+    @FXML
     private BorderPane borderPane;
 
     @FXML
@@ -195,8 +198,8 @@ public class RentMovieController implements Initializable {
                     selected = m;
                     updateMovieList(movies);
                 } catch (Exception e) {
+                    e.printStackTrace();
                     Computer.changeScreen(borderPane, "nomoviesfound");
-                    System.out.println(e.getMessage());
                 }
             } else {
                 rightHBox.setVisible(false);
@@ -315,16 +318,15 @@ public class RentMovieController implements Initializable {
     }
 
     private void setDWCText(Movie movie) {
-        Text directors = new Text(directorsAsString(movie.getDirectors()) + "\n");
-        Text writers = new Text(writersAsString(movie.getWriters()) + "\n");
-        Text cast = new Text(castsAsString(movie.getCast()) + "\n");
         reservationDate.setStyle("");
         directorsTextFlow.getChildren().clear();
-        directorsTextFlow.getChildren().addAll(directors);
+        directorsTextFlow.getChildren().addAll(new Text(directorsAsString(movie.getDirectors()) + "\n"));
+        descriptionTextFlow.getChildren().clear();
+        descriptionTextFlow.getChildren().addAll(new Text(movie.getDescription() + "\n"));
         writersTextFlow.getChildren().clear();
-        writersTextFlow.getChildren().addAll(writers);
+        writersTextFlow.getChildren().addAll(new Text(writersAsString(movie.getWriters()) + "\n"));
         castTextFlow.getChildren().clear();
-        castTextFlow.getChildren().addAll(cast);
+        castTextFlow.getChildren().addAll(new Text(castsAsString(movie.getCast()) + "\n"));
     }
 
     private String directorsAsString(ArrayList<Directors> directors) {

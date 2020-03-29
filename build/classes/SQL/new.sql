@@ -17,6 +17,7 @@ create TABLE IF NOT EXISTS Movies (
   Rated VARCHAR(70) NOT NULL,
   Ratings VARCHAR(70) NOT NULL,
   Filename VARCHAR(70) NOT NULL,
+  Description TEXT NULL,
   PRIMARY KEY (ID),
   UNIQUE INDEX Title_UNIQUE (Title ASC) VISIBLE,
   UNIQUE INDEX ID_UNIQUE (ID ASC) VISIBLE
@@ -319,31 +320,6 @@ INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,Da
 INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Indigo","Sybill","Olsen","Quon Hansen","elementum,","1993-10-01","9118 Dapibus St.","C�te-Saint-Luc","067340","504-363-5329","1");
 INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Yoshi","Maile","Lee","Sydney Woodard","mauris","1998-06-16","993-1079 Id, Ave","Rekem","731711","533-727-8623","1");
 INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Delilah","Samantha","Burke","Ivor Daniels","ut,","1998-12-24","Ap #984-8209 Suspendisse Rd.","Martelange","04976","549-984-4029","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Shad","Ainsley","Velez","Armando Mcdaniel","id,","2001-12-22","386-7883 Maecenas Avenue","Tollembeek","39205","265-699-6406","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Gay","Travis","Greene","Bell Day","tincidunt","2003-10-16","Ap #605-7498 Donec St.","Haddington","B3 1PF","535-216-6880","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Vernon","Nathan","Mercer","Jaden Roth","fermentum","1996-07-12","P.O. Box 696, 9190 Malesuada. Ave","Duluth","87930","619-623-7307","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Oliver","Blythe","Tyler","Finn Bartlett","ac","1999-12-02","5810 Aliquam Avenue","Mirpur","532210","168-739-9430","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Anne","August","Bartlett","Eve Beck","lorem","2002-11-11","113-6447 Turpis Road","Fontecchio","1147 WH","477-852-9012","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Sandra","William","Woodard","Astra Knowles","malesuada","1993-08-26","Ap #830-7279 Placerat, Rd.","Peine","941269","399-923-5873","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Brett","Perry","Vasquez","Octavia Monroe","odio.","1995-05-02","830-4369 Ante Rd.","Vastogirardi","479217","381-200-7667","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Armando","Odette","Mcfarland","Plato Ellison","in,","1997-04-03","538-8075 Cursus Rd.","Charny","459667","713-310-7991","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Beau","Carlos","Carr","Harper Camacho","blandit","2000-07-02","P.O. Box 187, 9655 Eu Rd.","Chantemelle","35958-54368","895-837-9945","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Briar","Arden","Cortez","Montana Beck","ante","1996-01-18","P.O. Box 878, 8711 Vitae St.","Villanovafranca","87675-631","180-122-2244","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Owen","Genevieve","Lambert","Mercedes Daugherty","mollis","2000-04-27","Ap #906-6169 Vel Av.","Poviglio","30505","665-140-6526","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Tamekah","Tiger","Glass","Hakeem Lamb","nec,","1994-03-31","Ap #276-6711 Tellus Road","Cambridge","88919-97300","662-738-1034","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Cheryl","Hamilton","Woodard","Matthew Case","ut","1997-10-18","Ap #913-310 Gravida Rd.","Astrakhan","654122","342-911-1279","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Jeanette","Heather","Hawkins","Scarlett Logan","adipiscing.","1994-12-23","6316 Proin Ave","Stratford","576183","393-420-2977","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Jillian","Octavius","Golden","Lee Hart","eget","1998-08-02","8873 Fermentum Road","Glovertown","41658-11894","223-814-9570","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Cecilia","Colleen","Benson","Hayley May","Maecenas","1994-02-05","Ap #331-7959 Est Avenue","Allentown","1846 FH","983-334-4552","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Pandora","Victor","Cooke","Caesar Clemons","lobortis","1998-10-21","Ap #303-3787 Vitae St.","LouveignŽ","37890","527-790-5595","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Pamela","Edward","Arnold","Winifred Richardson","parturient","1993-05-15","6588 Mollis Av.","Tampa","19808","193-903-0796","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Kasimir","Lillith","Bradford","Unity Walsh","consequat","1994-09-07","822-8749 Ultrices Ave","Wolfville","74702","925-652-7816","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Jonas","Merrill","Le","Kenyon Jacobson","felis,","1990-01-01","773 Eros Street","Kakinada","194465","667-704-9701","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Baker","Sarah","Kramer","Kato Wiggins","Morbi","2002-01-23","9672 Nisi Ave","Caruaru","78266","946-357-1405","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Travis","Skyler","Swanson","Beatrice Kelly","rhoncus.","2001-05-13","P.O. Box 293, 1635 Nulla. Rd.","San Damiano al Colle","60001","674-160-7297","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Ryder","Rinah","Tate","Jerry Sharp","eget,","1998-03-10","3533 Curae; St.","Saint-GŽry","90651","390-219-4674","1");
-INSERT INTO Customers (FirstName,MiddleName,LastName,Username,AccountPassword,DateOfBirth,Address,City,ZipCode,Phone,AccountTypeID) VALUES ("Nigel","Catherine","Osborne","Allistair Albert","Pellentesque","2003-09-13","560-2972 Libero. Rd.","Rothesay","45506","495-207-7089","1");
-
 
 SELECT * FROM Customers;
 
@@ -351,7 +327,7 @@ SELECT * FROM Customers;
 
 INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('Aliens','1986-08-29','2h 17m','15','8.3/10','524650ab-d460-4aab-aa26-8dbad70fbf99.jpg'); #1
 INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('One Flew Over the Cuckoo\'s Nest','1976-02-26','2h 13m','X','8.7/10','2d7e201b-e4d8-41ef-8605-45e7a0f4096f.jpg'); #2
-INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('The Kid','null','1h 8m','U','8.3/10','bafb7b28-203d-48fb-b7cd-781227eba566.jpg'); #3
+INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('The Kid','2019-03-08','1h 8m','U','8.3/10','bafb7b28-203d-48fb-b7cd-781227eba566.jpg'); #3
 INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('Life Is Beautiful','1999-02-12','1h 56m','PG','8.6/10','41a652d1-da42-4c5b-9ebd-827116cd962a.jpg'); #4
 INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('Princess Mononoke','2001-10-19','2h 14m','PG','8.4/10','ed1d29f2-b218-4449-b89b-8b671d6a44cd.jpg'); #5
 INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('Witness for the Prosecution','1958-02-06','1h 56m','U','8.4/10','be1ff571-619e-4317-9ccd-0666a8f6b2b7.jpg'); #6
@@ -450,7 +426,106 @@ INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('D
 INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('Cinema Paradiso','1990-02-23','2h 35m','PG','8.5/10','bf573bf3-9a0b-4f04-9421-8b2869ff146c.jpg'); #99
 INSERT INTO Movies (Title,ReleaseDate,RunTime,Rated,Ratings,Filename) VALUES ('The Dark Knight Rises','2012-07-20','2h 44m','12A','8.4/10','dcc63c2b-c3d6-4bde-9897-6428be67a28b.jpg'); #100
 
-UPDATE Movies SET ReleaseDate = '2019-05-16' WHERE ID = 3;
+UPDATE Movies SET Description = 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.' WHERE ID = 61;
+UPDATE Movies SET Description = 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.' WHERE ID = 76;
+UPDATE Movies SET Description = 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.' WHERE ID = 22;
+UPDATE Movies SET Description = 'The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.' WHERE ID = 96;
+UPDATE Movies SET Description = 'Gandalf and Aragorn lead the World of Men against Sauron\'s army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.' WHERE ID = 10;
+UPDATE Movies SET Description = 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.' WHERE ID = 83;
+UPDATE Movies SET Description = 'In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.' WHERE ID = 48;
+UPDATE Movies SET Description = 'A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.' WHERE ID = 35;
+UPDATE Movies SET Description = 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.' WHERE ID = 37;
+UPDATE Movies SET Description = 'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.' WHERE ID = 85;
+UPDATE Movies SET Description = 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.' WHERE ID = 66;
+UPDATE Movies SET Description = 'The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.' WHERE ID = 64;
+UPDATE Movies SET Description = 'A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.' WHERE ID = 93;
+UPDATE Movies SET Description = 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron\'s new ally, Saruman, and his hordes of Isengard.' WHERE ID = 14;
+UPDATE Movies SET Description = 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.' WHERE ID = 12;
+UPDATE Movies SET Description = 'The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.' WHERE ID = 94;
+UPDATE Movies SET Description = 'After the Rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued by Darth Vader and a bounty hunter named Boba Fett all over the galaxy.' WHERE ID = 15;
+UPDATE Movies SET Description = 'A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.' WHERE ID = 2;
+UPDATE Movies SET Description = 'When a ronin requesting seppuku at a feudal lord\'s palace is told of the brutal suicide of another ronin who previously visited, he reveals how their pasts are intertwined - and in doing so challenges the clan\'s integrity.' WHERE ID = 27;
+UPDATE Movies SET Description = 'A poor family, the Kims, con their way into becoming the servants of a rich family, the Parks. But their easy life gets complicated when their deception is threatened with exposure.' WHERE ID = 97;
+UPDATE Movies SET Description = 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.' WHERE ID = 26;
+UPDATE Movies SET Description = 'In the slums of Rio, two kids\' paths diverge as one struggles to become a photographer and the other a kingpin.' WHERE ID = 63;
+UPDATE Movies SET Description = 'During her family\'s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.' WHERE ID = 82;
+UPDATE Movies SET Description = 'Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.' WHERE ID = 73;
+UPDATE Movies SET Description = 'The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.' WHERE ID = 47;
+UPDATE Movies SET Description = 'When an open-minded Jewish librarian and his son become victims of the Holocaust, he uses a perfect mixture of will, humor, and imagination to protect his son from the dangers around their camp.' WHERE ID = 4;
+UPDATE Movies SET Description = 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.' WHERE ID = 80;
+UPDATE Movies SET Description = 'A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.' WHERE ID = 55;
+UPDATE Movies SET Description = 'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire\'s world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.' WHERE ID = 28;
+UPDATE Movies SET Description = 'A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves.' WHERE ID = 45;
+UPDATE Movies SET Description = 'An angel is sent from Heaven to help a desperately frustrated businessman by showing him what life would have been like if he had never existed.' WHERE ID = 41;
+UPDATE Movies SET Description = 'In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.' WHERE ID = 67;
+UPDATE Movies SET Description = 'The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.' WHERE ID = 9;
+UPDATE Movies SET Description = 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.' WHERE ID = 95;
+UPDATE Movies SET Description = 'After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.' WHERE ID = 23;
+UPDATE Movies SET Description = 'After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.' WHERE ID = 69;
+UPDATE Movies SET Description = 'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.' WHERE ID = 36;
+UPDATE Movies SET Description = 'A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.' WHERE ID = 8;
+UPDATE Movies SET Description = 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.' WHERE ID = 56;
+UPDATE Movies SET Description = 'A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.' WHERE ID = 43;
+UPDATE Movies SET Description = 'A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, which began when five criminals met at a seemingly random police lineup.' WHERE ID = 7;
+UPDATE Movies SET Description = 'Mathilda, a 12-year-old girl, is reluctantly taken in by Léon, a professional assassin, after her family is murdered. An unusual relationship forms as she becomes his protégée and learns the assassin\'s trade.' WHERE ID = 59;
+UPDATE Movies SET Description = 'A Lion cub crown prince is tricked by a treacherous uncle into thinking he caused his father\'s death and flees into exile in despair, only to learn in adulthood his identity and his responsibilities.' WHERE ID = 78;
+UPDATE Movies SET Description = 'A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her teenage son, John Connor, from a more advanced and powerful cyborg.' WHERE ID = 77;
+UPDATE Movies SET Description = 'A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema\'s projectionist.' WHERE ID = 99;
+UPDATE Movies SET Description = 'A young boy and his little sister struggle to survive in Japan during World War II.' WHERE ID = 54;
+UPDATE Movies SET Description = 'Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the eccentric scientist Doc Brown.' WHERE ID = 57;
+UPDATE Movies SET Description = 'A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.' WHERE ID = 75;
+UPDATE Movies SET Description = 'A Phoenix secretary embezzles forty thousand dollars from her employer\'s client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother.' WHERE ID = 86;
+UPDATE Movies SET Description = 'A cynical American expatriate struggles to decide whether or not he should help his former lover and her fugitive husband escape French Morocco.' WHERE ID = 24;
+UPDATE Movies SET Description = 'The Tramp struggles to live in modern industrial society with the help of a young homeless woman.' WHERE ID = 46;
+UPDATE Movies SET Description = 'With the aid of a wealthy erratic tippler, a dewy-eyed tramp who has fallen in love with a sightless flower girl accumulates money to be able to help her medically.' WHERE ID = 51;
+UPDATE Movies SET Description = 'Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?' WHERE ID = 70;
+UPDATE Movies SET Description = 'Former wrestler Mahavir Singh Phogat and his two wrestler daughters struggle towards glory at the Commonwealth Games in the face of societal oppression.' WHERE ID = 30;
+UPDATE Movies SET Description = 'Teen Miles Morales becomes Spider-Man of his reality, crossing his path with five counterparts from other dimensions to stop a threat for all realities.' WHERE ID = 90;
+UPDATE Movies SET Description = 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.' WHERE ID = 20;
+UPDATE Movies SET Description = 'Aspiring musician Miguel, confronted with his family\'s ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.' WHERE ID = 33;
+UPDATE Movies SET Description = 'With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.' WHERE ID = 92;
+UPDATE Movies SET Description = 'Eight years after the Joker\'s reign of anarchy, Batman, with the help of the enigmatic Catwoman, is forced from his exile to save Gotham City from the brutal guerrilla terrorist Bane.' WHERE ID = 100;
+UPDATE Movies SET Description = 'Two friends are searching for their long lost companion. They revisit their college days and recall the memories of their friend who inspired them to think differently, even as the rest of the world called them idiots.' WHERE ID = 19;
+UPDATE Movies SET Description = 'An eight-year-old boy is thought to be a lazy trouble-maker, until the new art teacher has the patience and compassion to discover the real problem behind his struggles in school.' WHERE ID = 34;
+UPDATE Movies SET Description = 'In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.' WHERE ID = 40;
+UPDATE Movies SET Description = 'In 1984 East Berlin, an agent of the secret police, conducting surveillance on a writer and his lover, finds himself becoming increasingly absorbed by their lives.' WHERE ID = 72;
+UPDATE Movies SET Description = 'After being kidnapped and imprisoned for fifteen years, Oh Dae-Su is released, only to find that he must find his captor in five days.' WHERE ID = 62;
+UPDATE Movies SET Description = 'A man with short-term memory loss attempts to track down his wife\'s murderer.' WHERE ID = 68;
+UPDATE Movies SET Description = 'On a journey to find the cure for a Tatarigami\'s curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.' WHERE ID = 5;
+UPDATE Movies SET Description = 'A former Prohibition-era Jewish gangster returns to the Lower East Side of Manhattan over thirty years later, where he once again must confront the ghosts and regrets of his old life.' WHERE ID = 21;
+UPDATE Movies SET Description = 'In 1936, archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before Adolf Hitler\'s Nazis can obtain its awesome powers.' WHERE ID = 74;
+UPDATE Movies SET Description = 'A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.' WHERE ID = 18;
+UPDATE Movies SET Description = 'A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god.' WHERE ID = 16;
+UPDATE Movies SET Description = 'After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun.' WHERE ID = 42;
+UPDATE Movies SET Description = 'An insane general triggers a path to nuclear holocaust that a War Room full of politicians and generals frantically tries to stop.' WHERE ID = 98;
+UPDATE Movies SET Description = 'A veteran British barrister must defend his client in a murder trial that has surprise after surprise.' WHERE ID = 6;
+UPDATE Movies SET Description = 'After refusing to attack an enemy position, a general accuses the soldiers of cowardice and their commanding officer must defend them.' WHERE ID = 89;
+UPDATE Movies SET Description = 'A wheelchair-bound photographer spies on his neighbors from his apartment window and becomes convinced one of them has committed murder.' WHERE ID = 49;
+UPDATE Movies SET Description = 'A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return.' WHERE ID = 81;
+UPDATE Movies SET Description = 'Dictator Adenoid Hynkel tries to expand his empire while a poor Jewish barber tries to avoid persecution from Hynkel\'s regime.' WHERE ID = 52;
+UPDATE Movies SET Description = 'A teacher lives a lonely life, all the while struggling over his son\'s custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie.' WHERE ID = 38;
+UPDATE Movies SET Description = 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner\'s vengeful plans for the same.' WHERE ID = 60;
+UPDATE Movies SET Description = 'When their relationship turns sour, a couple undergoes a medical procedure to have each other erased from their memories.' WHERE ID = 32;
+UPDATE Movies SET Description = 'Amélie is an innocent and naive girl in Paris with her own sense of justice. She decides to help those around her and, along the way, discovers love.' WHERE ID = 11;
+UPDATE Movies SET Description = 'Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.' WHERE ID = 84;
+UPDATE Movies SET Description = 'The drug-induced utopias of four Coney Island people are shattered when their addictions run deep.' WHERE ID = 39;
+UPDATE Movies SET Description = 'A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter\'s best friend.' WHERE ID = 71;
+UPDATE Movies SET Description = 'Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.' WHERE ID = 29;
+UPDATE Movies SET Description = 'A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy\'s room.' WHERE ID = 44;
+UPDATE Movies SET Description = 'When his secret bride is executed for assaulting an English soldier who tried to rape her, William Wallace begins a revolt against King Edward I of England.' WHERE ID = 58;
+UPDATE Movies SET Description = 'After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun.' WHERE ID = 1;
+UPDATE Movies SET Description = 'The story of a young boy who witnesses Billy the Kid\'s encounter with Sheriff Pat Garrett.' WHERE ID = 3;
+UPDATE Movies SET Description = 'The Discovery One and its revolutionary super computer seek a mysterious monolith that first appeared at the dawn of mans' WHERE ID = 13;
+UPDATE Movies SET Description = 'An ad-man becomes involved in a bewildering cross-country chase involving enemy spies, the police and a beautiful woman.' WHERE ID = 17;
+UPDATE Movies SET Description = 'Detective Scottie who suffers from acrophobia is hired to investigate the strange activities of an old friend\'s wife. She commits suicide while Scottie becomes dangerously obsessed with her.' WHERE ID = 25;
+UPDATE Movies SET Description = 'Alex, a psychopathic delinquent, is imprisoned for murder and rape. In order to reduce his sentence, he volunteers for an experimental therapy conducted by the government, but it goes askew.' WHERE ID = 31;
+UPDATE Movies SET Description = 'During the Vietnam War, under the ruthless command of Hartman, a few recruits face mental breakdowns. After a bizarre event, the soldiers are left to deal with the war\'s hellish mayhem.' WHERE ID = 50;
+UPDATE Movies SET Description = 'When the police in a German city are unable to catch a child-murderer, other criminals join in the manhunt.' WHERE ID = 53;
+UPDATE Movies SET Description = 'Six criminals, hired to steal diamonds, do not know each other\'s true identity. While attempting the heist, the police ambushes them, leading them to believe that one of them is an undercover officer.' WHERE ID = 65;
+UPDATE Movies SET Description = 'After a daring mission to rescue Han Solo from Jabba the Hutt, the Rebels dispatch to Endor to destroy the second Death Star. Meanwhile, Luke struggles to help Darth Vader back from the dark side without falling into the Emperor\'s trap.' WHERE ID = 79;
+UPDATE Movies SET Description = 'Following the death of publishing tycoon Charles Foster Kane, reporters scramble to uncover the meaning of his final utterance; \'Rosebud\'.' WHERE ID = 87;
+UPDATE Movies SET Description = 'The claustrophobic world of a WWII German U-boat; boredom, filth and sheer terror.' WHERE ID = 88;
+UPDATE Movies SET Description = 'The life, success and troubles of Wolfgang Amadeus Mozart, as told by Antonio Salieri, the contemporaneous composer who was insanely jealous of Mozart\'s talent and claimed to have murdered him.' WHERE ID = 91;
 
 select * from Movies;
 

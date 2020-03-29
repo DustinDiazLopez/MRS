@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -55,7 +56,14 @@ public abstract class Computer {
 
     private static FXService<Void> fxService = new FXService<>();
 
+    public static void sceneEscape() {
+        DustinDiazCOMP4400.scene.setOnKeyPressed(e -> {
+            if (e.getCode().toString().equals("ESCAPE")) Computer.closeProgram();
+        });
+    }
+
     public static void changeScreen(BorderPane borderPane, String viewUserFilename) {
+        Computer.sceneEscape();
         borderPane.getChildren().clear();
         try {
             viewUserFilename = viewUserFilename.endsWith(".fxml") ? viewUserFilename : viewUserFilename + ".fxml";
@@ -144,7 +152,6 @@ public abstract class Computer {
                 try {
                     File info = new File("src/information.html");
                     String old = read(info.getAbsolutePath());
-                    System.out.println(new File("src/dustin/diaz/comp4400/DBINFO.java").toURI());
                     String edit = replace(old, DBINFO.USERNAME, DBINFO.PASSWORD, new File("src/dustin/diaz/comp4400/DBINFO.java").getAbsolutePath().replaceAll("\\\\", "/"));
                     write(info, edit);
                     Desktop.getDesktop().open(info);
@@ -180,5 +187,12 @@ public abstract class Computer {
     private static String replace(String txt, String... args) {
         for (String arg : args) txt = txt.replaceFirst("\\{}", arg);
         return txt;
+    }
+
+    public static void click(int x, int y) throws AWTException {
+        Robot bot = new Robot();
+        bot.mouseMove(x, y);
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
     }
 }

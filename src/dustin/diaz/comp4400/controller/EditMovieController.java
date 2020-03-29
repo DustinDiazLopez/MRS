@@ -22,10 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
@@ -52,7 +49,7 @@ public class EditMovieController implements Initializable {
     @FXML
     private Label manCast;
     @FXML
-    private TextField directors;
+    private TextArea directors;
     @FXML
     private Label manGenres;
     @FXML
@@ -68,7 +65,7 @@ public class EditMovieController implements Initializable {
     @FXML
     private Button addBtn;
     @FXML
-    private TextField cast;
+    private TextArea cast;
     @FXML
     private TextField genres;
     @FXML
@@ -92,6 +89,8 @@ public class EditMovieController implements Initializable {
     @FXML
     private Label manRunTime;
     @FXML
+    private TextArea description;
+    @FXML
     private BorderPane borderPane;
     @FXML
     private TextField rated;
@@ -100,13 +99,14 @@ public class EditMovieController implements Initializable {
     @FXML
     private Label manTitle;
     @FXML
-    private TextField writers;
+    private TextArea writers;
     private File chosen;
 
     @FXML
     void addMovie(ActionEvent event) throws SQLException, IOException {
         setTextBlank(manTitle, manWriters, manDirector, manGenres, manRunTime, manRated, manRating, manReleaseDate, manCast);
-        setStyleBlank(title, writers, directors, genres, runTime, rated, cast, rating);
+        setStyleBlank(title, genres, runTime, rated, rating);
+        setStyleBlank(writers, directors, cast, description);
         releaseDate.setStyle("");
 
         String t = title.getText();
@@ -118,7 +118,7 @@ public class EditMovieController implements Initializable {
         String ate = rated.getText();
         String c = cast.getText();
         String ting = rating.getText();
-        File src = chosen;
+        File src;
 
         boolean valid = true;
 
@@ -281,6 +281,8 @@ public class EditMovieController implements Initializable {
                         }
                     }
 
+                    QueryMovie.update(id, description.getText());
+
                     cancelBtn.fire();
                 } else {
                     cancelBtn.fire();
@@ -302,6 +304,10 @@ public class EditMovieController implements Initializable {
 
     private void setStyleBlank(TextField... fields) {
         for (TextField field : fields) field.setStyle("");
+    }
+
+    private void setStyleBlank(TextArea... fields) {
+        for (TextArea field : fields) field.setStyle("");
     }
 
     private boolean isEmpty(String string) {
@@ -378,6 +384,9 @@ public class EditMovieController implements Initializable {
 
         rating.setOnKeyPressed(enterKey);
         rating.setText(movie.getRating());
+
+        description.setOnKeyPressed(enterKey);
+        description.setText(movie.getDescription());
 
         fileLocation.setOnKeyPressed(enterKey);
         fileLocation.setText(Computer.movieImagePath + movie.getFileName());

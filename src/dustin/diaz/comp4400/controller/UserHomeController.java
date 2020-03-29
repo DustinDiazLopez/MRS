@@ -1,6 +1,7 @@
 package dustin.diaz.comp4400.controller;
 
 
+import dustin.diaz.comp4400.DustinDiazCOMP4400;
 import dustin.diaz.comp4400.queries.parent.QueryCustomer;
 import dustin.diaz.comp4400.utils.Computer;
 import dustin.diaz.comp4400.utils.Styling;
@@ -44,6 +45,8 @@ public class UserHomeController implements Initializable {
     @FXML
     private Label editAccountLabel;
 
+    int chosen = 1;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -60,7 +63,6 @@ public class UserHomeController implements Initializable {
             try {
                 RentalHistoryController.movies = RentalHistoryController.getRented();
                 if (RentalHistoryController.movies != null && RentalHistoryController.movies.size() != 0) {
-                    Computer.changeScreen(borderPane, "nothingfound");
                     Computer.changeScreen(borderPane, "rentalhistory");
                 } else {
                     Computer.changeScreen(borderPane, "nothingfound");
@@ -78,10 +80,57 @@ public class UserHomeController implements Initializable {
 
         userLabel.setText(Styling.formatNames(Computer.customer));
 
-        Styling.setStyle(moviesVBox, exitVBox, myAccountVBox, rentalHistoryVBox);
+        VBox[] vBoxes = {myAccountVBox, rentalHistoryVBox, moviesVBox, exitVBox};
+
+        Styling.setStyle(vBoxes);
         Styling.pleaseWaitVBoxStyle(moviesVBox, rentMovieLabel);
         Styling.pleaseWaitVBoxStyle(myAccountVBox, editAccountLabel);
         Styling.pleaseWaitVBoxStyle(rentalHistoryVBox, rentalHistoryLabel);
+
+        DustinDiazCOMP4400.scene.setOnKeyPressed(e -> {
+            switch (e.getCode().toString()) {
+                case "ESCAPE":
+                    Computer.closeProgram();
+                    break;
+                case "TAB":
+                    if (chosen == 2) {
+                        Styling.disableEnableVBoxStyle(myAccountVBox, rentalHistoryVBox);
+                        chosen++;
+                    } else if (chosen == 3) {
+                        Styling.disableEnableVBoxStyle(rentalHistoryVBox, moviesVBox);
+                        chosen++;
+                    } else if (chosen == 4) {
+                        Styling.disableEnableVBoxStyle(moviesVBox, exitVBox);
+                        chosen++;
+                    } else {
+                        chosen = 2;
+                        Styling.disableEnableVBoxStyle(exitVBox, myAccountVBox);
+                    }
+                    break;
+                case "ENTER":
+                    if (chosen == 2) {
+                        Computer.changeScreen(borderPane, "updateaccount");
+                    } else if (chosen == 3) {
+                        try {
+                            RentalHistoryController.movies = RentalHistoryController.getRented();
+                            if (RentalHistoryController.movies != null && RentalHistoryController.movies.size() != 0) {
+                                Computer.changeScreen(borderPane, "rentalhistory");
+                            } else {
+                                Computer.changeScreen(borderPane, "nothingfound");
+                            }
+                        } catch (SQLException ignored) {
+                            Computer.changeScreen(borderPane, "nothingfound");
+                        }
+                    } else if (chosen == 4) {
+                        Computer.changeScreen(borderPane, "rentmovie");
+                    } else if (chosen == 5) {
+                        if (ConfirmBox.display("Log-out", "Are you sure you want to log-out?")) {
+                            Computer.changeScreen(borderPane, "login");
+                        }
+                    }
+                    break;
+            }
+        });
     }
 }
 

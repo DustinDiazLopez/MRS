@@ -27,6 +27,7 @@ public abstract class QueryMovie {
 
     //UPDATE
     public static final String updateMovieByID = "UPDATE " + DBINFO.MOVIE + " SET Title = ?, ReleaseDate = ?, RunTime = ?, Rated = ?, Ratings = ?, Filename = ? WHERE ID = ?";
+    public static final String updateDescriptionMovieByID = "UPDATE " + DBINFO.MOVIE + " SET Description = ? WHERE ID = ?";
 
     //DELETE
     public static final String deleteMovieByID = "DELETE FROM " + DBINFO.MOVIE + " WHERE ID = ?";
@@ -54,6 +55,14 @@ public abstract class QueryMovie {
         preparedStatement.setString(++i, Rated);
         preparedStatement.setString(++i, Ratings);
         preparedStatement.setString(++i, filename);
+        preparedStatement.setInt(++i, id);
+        return preparedStatement.executeUpdate();
+    }
+
+    public static int update(int id, String description) throws SQLException {
+        PreparedStatement preparedStatement = Computer.connection.prepareStatement(updateDescriptionMovieByID);
+        int i = 1;
+        preparedStatement.setString(i, description);
         preparedStatement.setInt(++i, id);
         return preparedStatement.executeUpdate();
     }
@@ -87,6 +96,9 @@ public abstract class QueryMovie {
         movie.setCast(QueryCast.get(movieId));
         movie.setRating(resultSet.getString("Ratings"));
         movie.setFileName(resultSet.getString("Filename"));
+        String s = resultSet.getString("Description");
+        if (s == null) s = "";
+        movie.setDescription(s);
         return validate(movie);
     }
 

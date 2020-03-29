@@ -41,8 +41,16 @@ public class Styling {
                     "-fx-border-radius: 5;" +
                     "-fx-border-color: blue;";
 
+
+    public static void disableEnableVBoxStyle(VBox vBox1, VBox vBox2) {
+        vBox1.setStyle(homeStyle);
+        vBox2.setStyle(homeStyleHover);
+    }
+
     public static void setStyle(VBox... vBoxes) {
         double opacity = 0.85;
+
+
         for (VBox vBox : vBoxes) {
             vBox.setStyle(homeStyle);
             vBox.opacityProperty().setValue(opacity);

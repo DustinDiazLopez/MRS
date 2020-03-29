@@ -12,19 +12,21 @@ public class DustinDiazCOMP4400 extends Application {
     public static Stage stage;
     public static boolean finished = false;
 
-    public static void main(String[] args) {
+    public DustinDiazCOMP4400() {
         Computer.init();
+    }
+
+    public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        DustinDiazCOMP4400.scene = new Scene(Computer.loadFXML("view/user/loading.fxml"));
+        Computer.service.start();
+        scene = new Scene(Computer.loadFXML("view/user/loading.fxml"));
         stage.setScene(scene);
         stage.setHeight(744);
         stage.setWidth(1040);
-
-        //scene.getStylesheets().add(DustinDiazCOMP4400.class.getResource("view/css/bootstrap3.css").toExternalForm());
 
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         if (d.width <= 1024 && d.height <= 768) stage.setMaximized(true);
@@ -36,10 +38,10 @@ public class DustinDiazCOMP4400 extends Application {
             Computer.closeProgram();
         });
 
+        Computer.sceneEscape();
         stage.getIcons().add(Computer.favicon);
         stage.show();
 
-        Computer.service.start();
         DustinDiazCOMP4400.stage = stage;
         finished = true;
     }
