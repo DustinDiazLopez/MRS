@@ -22,12 +22,11 @@ public class DustinDiazCOMP4400 extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Computer.service.start();
         scene = new Scene(Computer.loadFXML("view/user/loading.fxml"));
         stage.setScene(scene);
         stage.setHeight(744);
         stage.setWidth(1040);
-
+        Computer.service.start();
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         if (d.width <= 1024 && d.height <= 768) stage.setMaximized(true);
 
@@ -41,7 +40,6 @@ public class DustinDiazCOMP4400 extends Application {
         Computer.sceneEscape();
         stage.getIcons().add(Computer.favicon);
         stage.show();
-
         DustinDiazCOMP4400.stage = stage;
         finished = true;
     }

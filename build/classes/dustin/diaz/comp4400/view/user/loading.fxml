@@ -6,15 +6,15 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" xmlns="http://javafx.com/javafx/8"
             fx:controller="dustin.diaz.comp4400.controller.LoadingController">
-    <center>
-        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
-            <children>
-                <Label text="Please Wait...">
-                    <font>
-                        <Font name="System Bold" size="29.0"/>
-                    </font>
-                </Label>
-            </children>
-        </HBox>
-    </center>
+   <center>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Please Wait...">
+               <font>
+                  <Font name="System Bold" size="29.0"/>
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </center>
 </BorderPane>

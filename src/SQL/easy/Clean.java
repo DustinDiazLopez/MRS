@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class Clean {
     public static void main(String[] args) throws IOException {
-        File fileName = new File("src/SQL/new.sql");
+        File fileName = new File("src/SQL/DBSCRIPT.sql");
         String newText = txt(fileName.getAbsolutePath())
                 .replaceAll("fk", "FK")
                 .replaceAll("_has_", "_")

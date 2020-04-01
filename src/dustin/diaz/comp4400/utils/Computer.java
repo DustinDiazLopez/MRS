@@ -9,6 +9,7 @@ import javafx.concurrent.Service;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.awt.*;
@@ -66,6 +67,17 @@ public abstract class Computer {
         Computer.sceneEscape();
         borderPane.getChildren().clear();
         try {
+            viewUserFilename = viewUserFilename.endsWith(".fxml") ? viewUserFilename : viewUserFilename + ".fxml";
+            Computer.setRoot("view/user/" + viewUserFilename);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    public static void changeScreen(AnchorPane anchorPane, String viewUserFilename) {
+        try {
+            anchorPane.getChildren().clear();
             viewUserFilename = viewUserFilename.endsWith(".fxml") ? viewUserFilename : viewUserFilename + ".fxml";
             Computer.setRoot("view/user/" + viewUserFilename);
         } catch (IOException ex) {
@@ -145,22 +157,6 @@ public abstract class Computer {
             Computer.src = new File("src").getAbsolutePath();
             Computer.fileSeparator = System.getProperty("file.separator");
             Computer.movieImagePath = Computer.src + Computer.fileSeparator + "Images" + Computer.fileSeparator + "movies" + Computer.fileSeparator;
-        }).start();
-
-        new Thread(() -> {
-            if (Desktop.isDesktopSupported()) {
-                try {
-                    File info = new File("src/information.html");
-                    String old = read(info.getAbsolutePath());
-                    String edit = replace(old, DBINFO.USERNAME, DBINFO.PASSWORD, new File("src/dustin/diaz/comp4400/DBINFO.java").getAbsolutePath().replaceAll("\\\\", "/"));
-                    write(info, edit);
-                    Desktop.getDesktop().open(info);
-                    Thread.sleep(1000);
-                    write(info, old);
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            }
         }).start();
     }
 
